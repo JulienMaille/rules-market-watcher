@@ -390,6 +390,12 @@ function listings() {
     }
 
     document.querySelector("#update").innerHTML = "updated at " + (new Date).toLocaleString() + " - " + json.nbHits + " listings";
+
+    let searchParams = new URLSearchParams(window.location.search);
+    let showOld = searchParams.get('old');
+    if( showOld=="false" ) document.querySelector("#old").click();
+    let showNotRound = searchParams.get('notround');
+    if( showNotRound=="false" ) document.querySelector("#notround").click();
   });
 };
 
@@ -417,6 +423,9 @@ function setVisibility(className, visible) {
   for (var i = 0; i < elements.length; i++) {
     elements[i].style.display = visible ? 'table-row' : 'none';
   }
+  var queryParams = new URLSearchParams(window.location.search);
+  queryParams.set(className, visible);
+  history.replaceState(null, null, "?"+queryParams.toString());
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -449,8 +458,10 @@ listings();
 </head>
 <body>
 <div>
-  <input type="checkbox" onchange="setVisibility('old', this.checked);" checked>show old listings</input>
-  <input type="checkbox" onchange="setVisibility('notround', this.checked);" checked>show not round</input>
+  <label for="old">show old listings</label>
+  <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);" checked></input>
+  <label for="notround">show not round</label>
+  <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);" checked></input>
   <span id="update"></span>
 </div>
 <table border=1 style="float:left;">
