@@ -365,7 +365,6 @@ function listings() {
     return response.json();
   }).then(json => {
     //console.log(json);
-    let t = "";
     for (const listing of json.hits) {
       let priceETH = parseInt(listing.price, 16)/10**18;
       let priceEUR = (priceETH * 1377).toFixed(0);
@@ -374,8 +373,6 @@ function listings() {
       let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
       //console.log(listing);
-      //console.log(card+ " #" + listing.serialNumber + " - " + priceETH +"eth / â‚¬" + priceEUR + " - " + date.toLocaleString());
-
       let cardIsPlat = card.slug.includes("platinium");
       let cardName = card.name.replace(' Season 1 - Common', '');
       cardName = cardName.replace(' Season 1 - Platinium', '🏆');
@@ -385,50 +382,25 @@ function listings() {
       if( priceEUR<=50 && (listing.serialNumber < 100 || cardIsPlat) && dateClass=="recent" )
         notify(cardName + " #" + listing.serialNumber + ": €" + priceEUR, url, card.pictureUrl);
 
-      t  = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
-         + "<td id='serial'>" + listing.serialNumber + "</td>"
-         + "<td id='price'>" + priceEUR + " €</td>"
-         + "<td id='date'>" + date.toLocaleString() + "</td>";
-
+      let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
+            + "<td id='serial'>" + listing.serialNumber + "</td>"
+            + "<td id='price'>" + priceEUR + " €</td>"
+            + "<td id='date'>" + date.toLocaleString() + "</td>";
       insertInTable(t, cardIsPlat, listing.serialNumber, dateClass);
     }
 
     document.querySelector("#update").innerHTML = "updated at " + (new Date).toLocaleString() + " - " + json.nbHits + " listings";
-
-    setVisibility('old', true);
-    setVisibility('lowhundred', true);
-    setVisibility('lowfivehundred', false);
-    setVisibility('high', false);
   });
 };
 
-function notify(content, link, picture) {
-  let data = {
-  apikey: "17b4196f39ed4c33a13ec88025f5c0bd",
-  deviceId: "4020156be341447c9cf91aa0b1b9fedd",
-  text: content,
-  title: "Rules market",
-  url: link,
-  icon: picture};
-
-fetch("https://joinjoaomgcd.appspot.com/_ah/api/messaging/v1/sendPush", {
-    method: "POST",
-    headers: {'Content-Type': 'application/json'}, 
-    body: JSON.stringify(data)
-  }).then(res => {
-    console.log("Request complete! response:", res);
-  });
-}
-
 function insertInTable(row, cardIsPlat, serialNumber, dateClass) {
-
+  let tableId = "#tableHigh";
   if( cardIsPlat ) tableId = "#tablePlat";
   else if( serialNumber <= 10 ) tableId = "#tableLowTen";
   else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
-  else tableId = "#tableHigh";
 
-  roundClass = serialNumber.toPrecision(1)==serialNumber ? "round" : "notround";
+  let roundClass = serialNumber.toPrecision(1)==serialNumber ? "round" : "notround";
 
   const tableRef = document.querySelector(tableId);
   var newRow = tableRef.insertRow(tableRef.rows.length);
@@ -445,6 +417,20 @@ function setVisibility(className, visible) {
   for (var i = 0; i < elements.length; i++) {
     elements[i].style.display = visible ? 'table-row' : 'none';
   }
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  if( !Notification )
+    console.log('Browser does not support notifications.');
+  else if( Notification.permission !== 'granted' )
+    Notification.requestPermission();
+});
+  
+function notify(content, link, picture) {
+  var notification = new Notification(content, {
+    icon: picture,
+    body: link
+  });
 }
 
 listings();
