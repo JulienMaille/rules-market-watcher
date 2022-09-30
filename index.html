@@ -45,15 +45,17 @@ function listings(filter) {
       let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
       let cardIsPlat = card.slug.includes("platinium");
-      let cardName = card.name.replace(' Season 1 - Common', '');
-      cardName = cardName.replace(' Season 1 - Platinium', '');
+      let cardName = card.name.replace(/Season .*/g, '');
 
       let recent = (new Date - date < recentDef);
       let classes = recent ? "recent" : "old";
       classes += card.tier==1 ? " toptier" : " lowtier";
 
-      if( priceEUR<=cheapNotif && (listing.serialNumber < 100 || cardIsPlat) && recent )
-        notify(cardName + " #" + listing.serialNumber + ": €" + priceEUR, url, card.pictureUrl);
+      if( recent )
+        if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
+          || (priceEUR<=cheapNotif && listing.serialNumber<=100)
+          || (priceEUR<=cheapNotif && cardIsPlat) )
+          notify(cardName + " #" + listing.serialNumber + ": €" + priceEUR, url, card.pictureUrl);
 
       let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
             + "<td id='serial'>" + listing.serialNumber + "</td>"
@@ -77,7 +79,9 @@ function insertInTable(row, cardIsPlat, serialNumber, classes) {
   else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
 
-  let roundClass = serialNumber.toPrecision(1)==serialNumber ? "round" : "notround";
+  let roundClass = "notround";
+  if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
+  if( [69, 333, 420, 666, 667, 777].includes(serialNumber) ) roundClass = "round";
 
   const tableRef = document.querySelector(tableId);
   var newRow = tableRef.insertRow(tableRef.rows.length);
