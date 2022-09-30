@@ -119,7 +119,7 @@ fetchEthPrice().then(json => {
   //listings("serialNumber>2000")
 });
 
-fetchContractFee().then(json => {
+fetchContractSellingFee().then(json => {
   let fee = parseInt(json.overall_fee)/10**18 * ethEurRate;
   document.querySelector("#fee").innerHTML = "Current fee: " + fee.toFixed(2) + "€"
                                            + " Max: " + (1.5*fee).toFixed(2) + "€";
