@@ -7,7 +7,7 @@
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 50;            // price threshold (EUR) for notification
 
-function listings() {
+function listings(filter) {
   const fetchPromise = fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
     "headers": {
       "accept": "*/*",
@@ -20,7 +20,12 @@ function listings() {
     },
     "referrer": "https://rules.art/",
     "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": "{\"query\":\"\",\"facetFilters\":[\"available:-false\"],\"page\":0,\"hitsPerPage\":1024}",
+    "body": `{"query":"",
+      "facetFilters":["available:true"],
+      "filters": "${filter}",
+      "page":0,
+      "hitsPerPage":1000
+    }`,
     "method": "POST",
     "mode": "cors",
     "credentials": "omit"
@@ -112,7 +117,8 @@ fetch("https://api.coinbase.com/v2/prices/ETH-EUR/spot").then(response => {
   return response.json();
 }).then(json => {
   ethEurRate = json.data.amount;
-  listings();
+  listings("serialNumber<=2000");
+  listings("serialNumber>2000");
 });
 
 </script>
