@@ -7,6 +7,7 @@
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 50;            // price threshold (EUR) for notification
+var ethEurRate = 1400;
 
 function listings(filter) {
   const fetchListings = fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
@@ -112,26 +113,28 @@ function notify(content, link, picture) {
   });
 }
 
-fetchEthPrice().then(() => {
+fetchEthPrice().then(json => {
+  ethEurRate = parseInt(json.data.amount);
   listings("serialNumber<=2000");
   //listings("serialNumber>2000")
 });
 
-fetchContractFee().then(response => {
-    return response.json();
-  }).then(json => {
-    let fee = parseInt(json.overall_fee, 16)/10**18;
-    document.querySelector("#fee").innerHTML = fee.toFixed(2) + "€";
-  });
+fetchContractFee().then(json => {
+  let fee = parseInt(json.overall_fee)/10**18 * ethEurRate;
+  document.querySelector("#fee").innerHTML = "Current fee: " + fee.toFixed(2) + "€"
+                                           + " Max: " + (1.5*fee).toFixed(2) + "€";
+});
 
 </script>
 <style>
   body {background-color: black; color: #CCC; font-family: Roboto,Helvetica;}
   table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 14px;}
+  a {color: #CCC; text-decoration: none;}
+  a:hover {text-decoration: underline;}
   label {background: #05F; margin-right: 14px;}
   .recent #date {color: #FF0;}
-  #card a {color: white; text-decoration: none;}
-  #tablePlat #card a, #tablePlat th {color: gold; text-decoration: none;}
+  #card a {color: white;}
+  #tablePlat #card a, #tablePlat th {color: gold;}
   #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
@@ -150,8 +153,7 @@ fetchContractFee().then(response => {
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked></input>
   </label>
   <span id="update"></span>
-  - Fee: 
-  <span id="fee"></span>
+  <a href="fee.html"><span id="fee"></span></a>
 </div>
 <table id="tablePlat" border=1>
   <thead>

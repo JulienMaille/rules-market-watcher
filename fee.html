@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="refresh" content="300" />
+<script type="text/javascript" src="costs.js"></script>
+<script>
+var ethEurRate = 1400;
+
+fetchEthPrice().then(json => {
+  ethEurRate = parseInt(json.data.amount);
+
+  fetchContractFee().then(json => {
+    let feeETH = parseInt(json.overall_fee)/10**18;
+    let feeEUR = feeETH*ethEurRate;
+    document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString() + "<br>ils s'élèvent à :";
+    document.querySelector("#feeETH").innerHTML = feeETH.toFixed(7) + " ETH";
+    document.querySelector("#feeEUR").innerHTML = feeEUR.toFixed(2);
+    document.querySelector("#maxFeeETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
+    document.querySelector("#maxFeeEUR").innerHTML = (1.5*feeEUR).toFixed(2);
+  });
+});
+
+</script>
+<style>
+  body {background-color: black; color: #CCC; font-size: 35pt; font-family: Roboto,Helvetica; text-align: right;}
+  #text, #melon {float: left; margin-right: 40px;}
+  #combien {font-size: 45pt; color: #9f04dc;}
+  #fee {font-size: 45pt; color: #9f04dc;}
+  #feeETH, #maxFeeETH {font-size: 35pt; color: #CCC;}
+</style>
+</head>
+<body>
+  <div id="text">
+    <div id="combien">A combien sont les frais<br>des transactions Rules ?</div>
+    <div id="hour"></div>
+    <div id="fee"><span id="feeETH"></span> (<span id="feeEUR"></span>€)</div>
+    <div id="fee">Max <span id="maxFeeETH"></span> (<span id="maxFeeEUR"></span>€)</div>
+  </div>
+  <img id="melon" src="rules_Melon_R.png" />
+</body>
+</html>

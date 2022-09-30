@@ -1,10 +1,7 @@
-var ethEurRate = 1400;
 async function fetchEthPrice() {
-  const response = await fetch("https://api.coinbase.com/v2/prices/ETH-EUR/spot").then(response => {
+  return await fetch("https://api.coinbase.com/v2/prices/ETH-EUR/spot").then(response => {
     return response.json();
-  }).then(json => {
-    ethEurRate = parseInt(json.data.amount);
-  })
+  });
 };
 
 async function fetchContractFee() {
@@ -25,8 +22,7 @@ async function fetchContractFee() {
     "method": "POST",
     "mode": "cors",
     "credentials": "omit"
+  }).then(response => {
+    return response.json();
   });
-  return response;
-  console.log(js);
-  return parseInt(response.json().overall_fee, 16)/10**18;
 };
