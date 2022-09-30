@@ -3,12 +3,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="refresh" content="300" />
 <script type="text/javascript" src="cards.js"></script>
+<script type="text/javascript" src="costs.js"></script>
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 50;            // price threshold (EUR) for notification
 
 function listings(filter) {
-  const fetchPromise = fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
+  const fetchListings = fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
     "headers": {
       "accept": "*/*",
       "content-type": "application/x-www-form-urlencoded",
@@ -31,7 +32,7 @@ function listings(filter) {
     "credentials": "omit"
   });
 
-  fetchPromise.then(response => {
+  fetchListings.then(response => {
     return response.json();
   }).then(json => {
     //console.log(json);
@@ -111,15 +112,17 @@ function notify(content, link, picture) {
   });
 }
 
-// lessgo
-var ethEurRate = 1400;
-fetch("https://api.coinbase.com/v2/prices/ETH-EUR/spot").then(response => {
-  return response.json();
-}).then(json => {
-  ethEurRate = json.data.amount;
+fetchEthPrice().then(() => {
   listings("serialNumber<=2000");
-  listings("serialNumber>2000");
+  //listings("serialNumber>2000")
 });
+
+fetchContractFee().then(response => {
+    return response.json();
+  }).then(json => {
+    let fee = parseInt(json.overall_fee, 16)/10**18;
+    document.querySelector("#fee").innerHTML = fee.toFixed(2) + "€";
+  });
 
 </script>
 <style>
@@ -147,6 +150,8 @@ fetch("https://api.coinbase.com/v2/prices/ETH-EUR/spot").then(response => {
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked></input>
   </label>
   <span id="update"></span>
+  - Fee: 
+  <span id="fee"></span>
 </div>
 <table id="tablePlat" border=1>
   <thead>
