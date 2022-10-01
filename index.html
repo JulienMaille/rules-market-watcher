@@ -37,7 +37,7 @@ function listings(hits) {
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='price'>" + priceEUR + " €</td>"
-          + "<td id='date'>" + date.toLocaleString() + "</td>";
+          + "<td id='date'>" + date.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'}) + "</td>";
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }
 
@@ -129,7 +129,6 @@ fetchContractSellingFee().then(json => {
   table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 14px;}
   a {color: #CCC; text-decoration: none;}
   a:hover {text-decoration: underline;}
-  label {background: #05F; margin-right: 14px;}
   .recent #date {color: #FF0;}
   #card a {color: white;}
   #tablePlat #card a, #tablePlat th {color: gold;}
@@ -137,10 +136,13 @@ fetchContractSellingFee().then(json => {
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
   #update {color: #777;}
+  #options label, #options span {margin-right: 14px; float:left;}
+  #options label {background: #05F;}
+  #tablePlat {clear: both;}
 </style>
 </head>
 <body>
-<div>
+<div id="options">
   <label for="old">show old listings
     <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);" checked></input>
   </label>
@@ -151,7 +153,7 @@ fetchContractSellingFee().then(json => {
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked></input>
   </label>
   <span id="update"></span>
-  <a href="fee.html"><span id="fee"></span></a>
+  <span><a id="fee" href="fee.html"></a></span>
 </div>
 <table id="tablePlat" border=1>
   <thead>
