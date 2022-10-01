@@ -12,44 +12,59 @@ fetchEthPrice().then(json => {
 
   document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString() + "<br>ils s'élèvent à :";
 
-  fetchContractSellingFee().then(json => {
-    let feeETH = parseInt(json.overall_fee)/10**18;
-    let feeEUR = feeETH*ethEurRate;
-    document.querySelector("#feeETH").innerHTML = feeETH.toFixed(7) + " ETH";
-    document.querySelector("#feeEUR").innerHTML = feeEUR.toFixed(2);
-    document.querySelector("#maxFeeETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
-    document.querySelector("#maxFeeEUR").innerHTML = (1.5*feeEUR).toFixed(2);
-  });
-
   fetchContractGiftingFee().then(json => {
     let feeETH = parseInt(json.overall_fee)/10**18;
     let feeEUR = feeETH*ethEurRate;
+    let col = feeEUR < 0.2 ? "🟢" : feeEUR > 0.5 ? "🔴" : "🟡";
+    document.querySelector("#gift").innerHTML = col + " Echange";
     document.querySelector("#feeGiftETH").innerHTML = feeETH.toFixed(7) + " ETH";
     document.querySelector("#feeGiftEUR").innerHTML = feeEUR.toFixed(2);
     document.querySelector("#maxFeeGiftETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
     document.querySelector("#maxFeeGiftEUR").innerHTML = (1.5*feeEUR).toFixed(2);
   });
+  fetchContractSellingFee().then(json => {
+    let feeETH = parseInt(json.overall_fee)/10**18;
+    let feeEUR = feeETH*ethEurRate;
+    document.querySelector("#feeSellETH").innerHTML = feeETH.toFixed(7) + " ETH";
+    document.querySelector("#feeSellEUR").innerHTML = feeEUR.toFixed(2);
+    document.querySelector("#maxFeeSellETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
+    document.querySelector("#maxFeeSellEUR").innerHTML = (1.5*feeEUR).toFixed(2);
+  });
+  fetchContractBuyingFee().then(json => {
+    let feeETH = parseInt(json.overall_fee)/10**18;
+    let feeEUR = feeETH*ethEurRate;
+    document.querySelector("#feeBuyETH").innerHTML = feeETH.toFixed(7) + " ETH";
+    document.querySelector("#feeBuyEUR").innerHTML = feeEUR.toFixed(2);
+    document.querySelector("#maxFeeBuyETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
+    document.querySelector("#maxFeeBuyEUR").innerHTML = (1.5*feeEUR).toFixed(2);
+  });
 });
 
 </script>
 <style>
-  body {background-color: black; color: #CCC; font-size: 28pt; font-family: Roboto,Helvetica; text-align: right;}
+  body {background-color: black; color: #CCC; font-size: 20pt; font-family: Roboto,Helvetica; text-align: right;}
   #text, #melon {float: left; margin-right: 40px;}
   #hour {color: #9f04dc;}
   .fee {color: #9f04dc;}
-  #feeETH, #maxFeeETH, #feeGiftETH, #maxFeeGiftETH {color: #CCC;}
+  #feeGiftETH, #maxFeeGiftETH, #feeSellETH, #maxFeeSellETH, #feeBuyETH, #maxFeeBuyETH {color: #CCC;}
 </style>
 </head>
 <body>
   <div id="text">
     <div id="combien">A combien sont les frais<br>des transactions Rules ?</div>
     <div id="hour"></div>
-    <div><br>Mise en vente</div>
-    <div class="fee"><span id="feeETH"></span> (<span id="feeEUR"></span>€)</div>
-    <div class="fee">Max <span id="maxFeeETH"></span> (<span id="maxFeeEUR"></span>€)</div>
-    <div><br>Gift</div>
+    <br>
+    <div id="gift">Echange</div>
     <div class="fee"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
     <div class="fee">Max <span id="maxFeeGiftETH"></span> (<span id="maxFeeGiftEUR"></span>€)</div>
+    <br>
+    <div id="sell">Mise en vente</div>
+    <div class="fee"><span id="feeSellETH"></span> (<span id="feeSellEUR"></span>€)</div>
+    <div class="fee">Max <span id="maxFeeSellETH"></span> (<span id="maxFeeSellEUR"></span>€)</div>
+    <br>
+    <div id="buy">Achat</div>
+    <div class="fee"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
+    <div class="fee">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
   </div>
   <img id="melon" src="rules_Melon_R.png" />
 </body>
