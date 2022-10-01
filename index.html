@@ -13,7 +13,7 @@ var ethEurRate;
 
 function listings(hits) {
   hits.sort(function(a, b) { return a.price < b.price ? -1 : 1 });
-  console.log(hits);
+  //console.log(hits);
   for( const listing of hits ) {
     let priceETH = parseInt(listing.price, 16)/10**18;
     let priceEUR = (priceETH * ethEurRate).toFixed(0);
@@ -85,12 +85,24 @@ document.addEventListener('DOMContentLoaded', function () {
   else if( Notification.permission !== 'granted' )
     Notification.requestPermission();
 });
-  
+
+document.addEventListener('notificationclick', function(event) {
+  switch(event.action){
+    case 'open_url':
+    clients.openWindow(event.notification.data.url); //which we got from above
+    break;
+  }
+}, false);
+
 function notify(content, link, picture) {
   var notification = new Notification(content, {
-    icon: picture,
-    body: link
+    icon: picture
   });
+  notification.onclick = (event) => {
+    event.preventDefault();
+    window.open(link);
+    notification.close();
+  }
 }
 
 fetchEthPrice().then(json => {
