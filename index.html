@@ -4,73 +4,48 @@
 <meta http-equiv="refresh" content="300" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="cards.js"></script>
+<script type="text/javascript" src="listings.js"></script>
 <script type="text/javascript" src="costs.js"></script>
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 50;            // price threshold (EUR) for notification
-var ethEurRate = 1400;
+var ethEurRate;
 
-function listings(filter) {
-  const fetchListings = fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
-    "headers": {
-      "accept": "*/*",
-      "content-type": "application/x-www-form-urlencoded",
-      "sec-fetch-dest": "empty",
-      "sec-fetch-mode": "cors",
-      "sec-fetch-site": "cross-site",
-      "x-algolia-api-key": "c7d162df9bb45f258af878219300d8c5",
-      "x-algolia-application-id": "JS76HMPZH9"
-    },
-    "referrer": "https://rules.art/",
-    "referrerPolicy": "strict-origin-when-cross-origin",
-    "body": `{"query":"",
-      "facetFilters":["available:true"],
-      "filters": "${filter}",
-      "page":0,
-      "hitsPerPage":1000
-    }`,
-    "method": "POST",
-    "mode": "cors",
-    "credentials": "omit"
-  });
+function listings(hits) {
+  hits.sort(function(a, b) { return a.price < b.price ? -1 : 1 });
+  console.log(hits);
+  for( const listing of hits ) {
+    let priceETH = parseInt(listing.price, 16)/10**18;
+    let priceEUR = (priceETH * ethEurRate).toFixed(0);
+    let card = cardInfo(listing.cardModelId);
+    let date = new Date(listing.date);
+    let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
-  fetchListings.then(response => {
-    return response.json();
-  }).then(json => {
-    //console.log(json);
-    for( const listing of json.hits ) {
-      let priceETH = parseInt(listing.price, 16)/10**18;
-      let priceEUR = (priceETH * ethEurRate).toFixed(0);
-      let card = cardInfo(listing.cardModelId);
-      let date = new Date(listing.date);
-      let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
+    let cardIsPlat = card.slug.includes("platinium");
+    let cardName = card.name.replace(/Season .*/g, '');
 
-      let cardIsPlat = card.slug.includes("platinium");
-      let cardName = card.name.replace(/Season .*/g, '');
+    let recent = (new Date - date < recentDef);
+    let classes = recent ? "recent" : "old";
+    classes += card.tier==1 ? " toptier" : " lowtier";
 
-      let recent = (new Date - date < recentDef);
-      let classes = recent ? "recent" : "old";
-      classes += card.tier==1 ? " toptier" : " lowtier";
+    if( recent )
+      if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
+        || (priceEUR<=cheapNotif && listing.serialNumber<=100)
+        || (priceEUR<=cheapNotif && cardIsPlat) )
+        notify(cardName + " #" + listing.serialNumber + ": €" + priceEUR, url, card.pictureUrl);
 
-      if( recent )
-        if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
-          || (priceEUR<=cheapNotif && listing.serialNumber<=100)
-          || (priceEUR<=cheapNotif && cardIsPlat) )
-          notify(cardName + " #" + listing.serialNumber + ": €" + priceEUR, url, card.pictureUrl);
+    let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
+          + "<td id='serial'>" + listing.serialNumber + "</td>"
+          + "<td id='price'>" + priceEUR + " €</td>"
+          + "<td id='date'>" + date.toLocaleString() + "</td>";
+    insertInTable(t, cardIsPlat, listing.serialNumber, classes);
+  }
 
-      let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
-            + "<td id='serial'>" + listing.serialNumber + "</td>"
-            + "<td id='price'>" + priceEUR + " €</td>"
-            + "<td id='date'>" + date.toLocaleString() + "</td>";
-      insertInTable(t, cardIsPlat, listing.serialNumber, classes);
-    }
+  document.querySelector("#update").innerHTML = "updated at " + (new Date).toLocaleString() + " - " + hits.length + " listings";
 
-    document.querySelector("#update").innerHTML = "updated at " + (new Date).toLocaleString() + " - " + json.nbHits + " listings";
-
-    let searchParams = new URLSearchParams(window.location.search);
-    for( const [ key, value ] of searchParams )
-      if( value=="false" ) document.querySelector("#"+key).click();
-  });
+  let searchParams = new URLSearchParams(window.location.search);
+  for( const [ key, value ] of searchParams )
+    if( value=="false" ) document.querySelector("#"+key).click();
 };
 
 function insertInTable(row, cardIsPlat, serialNumber, classes) {
@@ -120,8 +95,14 @@ function notify(content, link, picture) {
 
 fetchEthPrice().then(json => {
   ethEurRate = parseInt(json.data.amount);
-  listings("serialNumber<=2000");
-  //listings("serialNumber>2000")
+  var hits = [];
+  fetchListings("serialNumber<=2000").then(json => {
+    hits = hits.concat(json.hits);
+    fetchListings("serialNumber>2000").then(json => {
+      hits = hits.concat(json.hits);
+      listings(hits);
+    })
+  })
 });
 
 fetchContractSellingFee().then(json => {
