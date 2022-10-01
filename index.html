@@ -12,8 +12,18 @@ var cheapNotif = 50;            // price threshold (EUR) for notification
 var ethEurRate;
 
 function listings(hits) {
-  hits.sort(function(a, b) { return a.price < b.price ? -1 : 1 });
+  let searchParams = new URLSearchParams(window.location.search);
+
+  function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
+  function sortByCard(a, b) { return a.cardModelId > b.cardModelId ? -1 : 1 }
+  function sortByDate(a, b) { return a.date > b.date ? -1 : 1 }
+
+  let sortRule = searchParams.has("sorting") ? searchParams.get("sorting") : "price";
+  if( sortRule == "price" ) hits.sort(sortByPrice);
+  if( sortRule == "card" ) hits.sort(sortByCard);
+  if( sortRule == "date" ) hits.sort(sortByDate);
   //console.log(hits);
+
   for( const listing of hits ) {
     let priceETH = parseInt(listing.price, 16)/10**18;
     let priceEUR = (priceETH * ethEurRate).toFixed(0);
@@ -43,9 +53,10 @@ function listings(hits) {
 
   document.querySelector("#update").innerHTML = "updated at " + (new Date).toLocaleString() + " - " + hits.length + " listings";
 
-  let searchParams = new URLSearchParams(window.location.search);
-  for( const [ key, value ] of searchParams )
+  for( const [ key, value ] of searchParams ) {
     if( value=="false" ) document.querySelector("#"+key).click();
+    if( key=="sorting" ) document.querySelector("#"+key).value=value;
+  }
 };
 
 function insertInTable(row, cardIsPlat, serialNumber, classes) {
@@ -77,6 +88,13 @@ function setVisibility(className, visible) {
   var queryParams = new URLSearchParams(window.location.search);
   queryParams.set(className, visible);
   history.replaceState(null, null, "?"+queryParams.toString());
+}
+
+function setSorting(value) {
+  var queryParams = new URLSearchParams(window.location.search);
+  queryParams.set("sorting", value);
+  history.replaceState(null, null, "?"+queryParams.toString());
+  location.reload();
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -119,7 +137,8 @@ fetchEthPrice().then(json => {
 
 fetchContractSellingFee().then(json => {
   let fee = parseInt(json.overall_fee)/10**18 * ethEurRate;
-  document.querySelector("#fee").innerHTML = "Current fee: " + fee.toFixed(2) + "€"
+  let col = fee < 0.2 ? "🟢" : fee > 0.5 ? "🔴" : "🟡";
+  document.querySelector("#fee").innerHTML = col + "Current fee: " + fee.toFixed(2) + "€ / "
                                            + " Max: " + (1.5*fee).toFixed(2) + "€";
 });
 
@@ -154,6 +173,13 @@ fetchContractSellingFee().then(json => {
   </label>
   <span id="update"></span>
   <span><a id="fee" href="fee.html"></a></span>
+  <label for="sorting">Sort by:
+    <select id="sorting" onChange="setSorting(this.value);">
+        <option value="price">price</option>
+        <option value="date">date</option>
+        <option value="card">card</option>
+    </select>
+  </label>
 </div>
 <table id="tablePlat" border=1>
   <thead>
