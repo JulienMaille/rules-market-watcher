@@ -52,13 +52,29 @@ function listings(hits) {
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }
 
-  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " offer";
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " offers";
 
   for( const [ key, value ] of searchParams ) {
     if( value=="false" ) document.querySelector("#"+key).click();
     if( key=="sorting" ) document.querySelector("#"+key).value=value;
   }
 };
+
+// table creation and population
+function createTable(id, text) {
+  document.querySelector("body").innerHTML += "" +
+  `<table id="${id}" border=1>
+           <thead>
+             <tr>
+               <th>Artist<\/th>
+               <th>${text}<\/th>
+               <th>Price<\/th>
+               <th>Date<\/th>
+            <\/tr>
+           <\/thead>
+           <tbody><\/tbody>
+         <\/table>`;
+}
 
 function insertInTable(row, cardIsPlat, serialNumber, classes) {
   let tableId = "#tableHigh";
@@ -67,6 +83,7 @@ function insertInTable(row, cardIsPlat, serialNumber, classes) {
   else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
   else if( serialNumber <= 1000 ) tableId = "#tableLowThousand";
+  else if( serialNumber <= 2000 ) tableId = "#tableLowTwoThousand";
 
   let roundClass = "notround";
   if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
@@ -82,6 +99,7 @@ function cardInfo(modelId) {
   return allCardModels.find(({ id }) => id == modelId);
 }
 
+// filtering and sorting
 function setVisibility(className, visible) {
   elements = document.getElementsByClassName(className);
   for( var i = 0; i < elements.length; i++ )
@@ -99,6 +117,7 @@ function setSorting(value) {
   location.reload();
 }
 
+// notifications
 document.addEventListener('DOMContentLoaded', function () {
   if( !Notification )
     console.log('Browser does not support notifications.');
@@ -125,23 +144,33 @@ function notify(content, link, picture) {
   }
 }
 
-fetchEthPrice().then(json => {
-  ethEurRate = parseInt(json.data.amount);
-  var hits = [];
-  fetchListings("serialNumber<=2000").then(json => {
-    hits = hits.concat(json.hits);
-    fetchListings("serialNumber>2000").then(json => {
-      hits = hits.concat(json.hits);
-      listings(hits);
-    })
-  })
-});
+// main
+document.addEventListener('DOMContentLoaded', function() {
+  createTable("tablePlat", "Plat");
+  createTable("tableLowTen", "≤10");
+  createTable("tableLowHundred", "≤100");
+  createTable("tableLowFiveHundred", "≤500");
+  createTable("tableLowThousand", "≤1000");
+  createTable("tableLowTwoThousand", "≤2000");
+  createTable("tableHigh", "#");
 
-fetchContractSellingFee().then(json => {
-  let fee = parseInt(json.overall_fee)/10**18 * ethEurRate;
-  let col = fee < 0.2 ? "🟢" : fee > 0.5 ? "🔴" : "🟡";
-  document.querySelector("#fee").innerHTML = col + "Current fee: " + fee.toFixed(2) + "€ / "
-                                           + " Max: " + (1.5*fee).toFixed(2) + "€";
+  fetchEthPrice().then(json => {
+    ethEurRate = parseInt(json.data.amount);
+    var hits = [];
+    fetchOffers("serialNumber<=2000").then(json => {
+      hits = hits.concat(json.hits);
+      fetchOffers("serialNumber>2000").then(json => {
+        hits = hits.concat(json.hits);
+        listings(hits);
+      })
+    })
+  });
+
+  fetchContractSellingFee().then(json => {
+    let fee = parseInt(json.overall_fee)/10**18 * ethEurRate;
+    let col = fee < 0.2 ? "🟢" : fee > 0.5 ? "🔴" : "🟡";
+    document.querySelector("#fee").innerHTML = col + "Current fee: " + fee.toFixed(2) + "€ / Max: " + (1.5*fee).toFixed(2) + "€";
+  });
 });
 
 </script>
@@ -152,6 +181,7 @@ fetchContractSellingFee().then(json => {
   a:hover {text-decoration: underline;}
   .recent #date {color: #FF0;}
   #card a {color: white;}
+  #date {font-stretch: condensed; color: #777;}
   #tablePlat #card a, #tablePlat th {color: gold;}
   #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
@@ -183,71 +213,5 @@ fetchContractSellingFee().then(json => {
   </label>
   <span><a id="fee" href="fee.html"></a></span>
 </div>
-<table id="tablePlat" border=1>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>Plat</th>
-      <th>Price</th>
-      <th>Date</th>
-   </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-<table id="tableLowTen" border=1>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>≤10</th>
-      <th>Price</th>
-      <th>Date</th>
-   </tr>
-  </thead>
-  <tbody> </tbody>
-</table>
-<table id="tableLowHundred" border=1>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>≤100</th>
-      <th>Price</th>
-      <th>Date</th>
-   </tr>
-  </thead>
-  <tbody> </tbody>
-</table>
-<table id="tableLowFiveHundred" border=1>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>≤500</th>
-      <th>Price</th>
-      <th>Date</th>
-   </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-<table id="tableLowThousand" border=1>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>≤1000</th>
-      <th>Price</th>
-      <th>Date</th>
-   </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-<table id="tableHigh" border=1>
-  <thead>
-    <tr>
-      <th>Artist</th>
-      <th>#</th>
-      <th>Price</th>
-      <th>Date</th>
-   </tr>
-  </thead>
-  <tbody></tbody>
-</table>
 </body>
 </html>

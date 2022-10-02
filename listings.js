@@ -1,7 +1,8 @@
-async function fetchListings(filter) {
+async function fetchOffers(filter) {
   return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
     "headers": {
       "accept": "*/*",
+      "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/x-www-form-urlencoded",
       "sec-fetch-dest": "empty",
       "sec-fetch-mode": "cors",
@@ -9,8 +10,6 @@ async function fetchListings(filter) {
       "x-algolia-api-key": "c7d162df9bb45f258af878219300d8c5",
       "x-algolia-application-id": "JS76HMPZH9"
     },
-    "referrer": "https://rules.art/",
-    "referrerPolicy": "strict-origin-when-cross-origin",
     "body": `{"query":"",
       "facetFilters":["available:true"],
       "filters": "${filter}",
