@@ -52,7 +52,7 @@ function listings(hits) {
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }
 
-  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " offers";
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " <a href='transfers.html'>offers</a>";
 
   for( const [ key, value ] of searchParams ) {
     if( value=="false" ) document.querySelector("#"+key).click();
