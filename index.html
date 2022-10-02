@@ -29,10 +29,11 @@ function listings(hits) {
     let priceEUR = (priceETH * ethEurRate).toFixed(0);
     let card = cardInfo(listing.cardModelId);
     let date = new Date(listing.date);
+    let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
     let cardIsPlat = card.slug.includes("platinium");
-    let cardName = card.name.replace(/Season .*/g, '');
+    let cardName = card.name.replace(/ Season .*/g, '');
 
     let recent = (new Date - date < recentDef);
     let classes = recent ? "recent" : "old";
@@ -42,16 +43,16 @@ function listings(hits) {
       if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
         || (priceEUR<=cheapNotif && cardIsPlat) )
-        notify(cardName + " #" + listing.serialNumber + ": €" + priceEUR, url, card.pictureUrl);
+        notify(cardName + " #" + listing.serialNumber + ": " + priceEUR + "€", url, card.pictureUrl);
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='price'>" + priceEUR + " €</td>"
-          + "<td id='date'>" + date.toLocaleString([], {dateStyle: 'short', timeStyle: 'short'}) + "</td>";
+          + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }
 
-  document.querySelector("#update").innerHTML = "updated at " + (new Date).toLocaleString() + " - " + hits.length + " listings";
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " offer";
 
   for( const [ key, value ] of searchParams ) {
     if( value=="false" ) document.querySelector("#"+key).click();
@@ -65,6 +66,7 @@ function insertInTable(row, cardIsPlat, serialNumber, classes) {
   else if( serialNumber <= 10 ) tableId = "#tableLowTen";
   else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
+  else if( serialNumber <= 1000 ) tableId = "#tableLowThousand";
 
   let roundClass = "notround";
   if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
@@ -172,7 +174,6 @@ fetchContractSellingFee().then(json => {
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked></input>
   </label>
   <span id="update"></span>
-  <span><a id="fee" href="fee.html"></a></span>
   <label for="sorting">Sort by:
     <select id="sorting" onChange="setSorting(this.value);">
         <option value="price">price</option>
@@ -180,6 +181,7 @@ fetchContractSellingFee().then(json => {
         <option value="card">card</option>
     </select>
   </label>
+  <span><a id="fee" href="fee.html"></a></span>
 </div>
 <table id="tablePlat" border=1>
   <thead>
@@ -190,8 +192,7 @@ fetchContractSellingFee().then(json => {
       <th>Date</th>
    </tr>
   </thead>
-  <tbody>
-  </tbody>
+  <tbody></tbody>
 </table>
 <table id="tableLowTen" border=1>
   <thead>
@@ -202,8 +203,7 @@ fetchContractSellingFee().then(json => {
       <th>Date</th>
    </tr>
   </thead>
-  <tbody>
-  </tbody>
+  <tbody> </tbody>
 </table>
 <table id="tableLowHundred" border=1>
   <thead>
@@ -214,8 +214,7 @@ fetchContractSellingFee().then(json => {
       <th>Date</th>
    </tr>
   </thead>
-  <tbody>
-  </tbody>
+  <tbody> </tbody>
 </table>
 <table id="tableLowFiveHundred" border=1>
   <thead>
@@ -226,8 +225,18 @@ fetchContractSellingFee().then(json => {
       <th>Date</th>
    </tr>
   </thead>
-  <tbody>
-  </tbody>
+  <tbody></tbody>
+</table>
+<table id="tableLowThousand" border=1>
+  <thead>
+    <tr>
+      <th>Artist</th>
+      <th>≤1000</th>
+      <th>Price</th>
+      <th>Date</th>
+   </tr>
+  </thead>
+  <tbody></tbody>
 </table>
 <table id="tableHigh" border=1>
   <thead>
@@ -238,8 +247,7 @@ fetchContractSellingFee().then(json => {
       <th>Date</th>
    </tr>
   </thead>
-  <tbody>
-  </tbody>
+  <tbody></tbody>
 </table>
 </body>
 </html>
