@@ -1,10 +1,12 @@
+<!DOCTYPE html>
 <html>
 <head>
+<title>Past transfers</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<script type="text/javascript" src="cards.js"></script>
-<script type="text/javascript" src="listings.js"></script>
-<script type="text/javascript" src="costs.js"></script>
+<script src="cards.js"></script>
+<script src="listings.js"></script>
+<script src="costs.js"></script>
 <script>
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 var ethEurRate;
@@ -147,13 +149,13 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
 <div id="options">
   <label for="old">show old listings
-    <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);" checked></input>
+    <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);" checked>
   </label>
   <label for="notround">show not round
-    <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);" checked></input>
+    <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);" checked>
   </label>
   <label for="lowtier">show lower tier (not finalists)
-    <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked></input>
+    <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked>
   </label>
   <span id="update"></span>
   <label for="sorting">Sort by:
