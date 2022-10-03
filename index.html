@@ -167,9 +167,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   fetchContractSellingFee().then(json => {
-    let fee = parseInt(json.overall_fee)/10**18 * ethEurRate;
-    let col = fee < 0.2 ? "🟢" : fee > 0.5 ? "🔴" : "🟡";
-    document.querySelector("#fee").innerHTML = col + "Current fee: " + fee.toFixed(2) + "€ / Max: " + (1.5*fee).toFixed(2) + "€";
+    let feeEUR = parseInt(json.overall_fee)/10**18 * ethEurRate;
+    let col = "🟢";
+    if( feeEUR> 2.0 ) col = "🔥";
+    else if( feeEUR> 1.4 ) col = "🔴";
+    else if( feeEUR> 0.7 ) col = "🟡";
+    document.querySelector("#fee").innerHTML = col + "Current fee: " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
   });
 });
 
