@@ -8,7 +8,7 @@
 <script type="text/javascript" src="costs.js"></script>
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
-var cheapNotif = 50;            // price threshold (EUR) for notification
+var cheapNotif = 40;            // price threshold (EUR) for notification
 var ethEurRate;
 
 function listings(hits) {
@@ -42,7 +42,7 @@ function listings(hits) {
     if( recent )
       if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
-        || (priceEUR<=cheapNotif && cardIsPlat) )
+        || (priceEUR<=1.5*cheapNotif && cardIsPlat) )
         notify(cardName + " #" + listing.serialNumber + ": " + priceEUR + "€", url, card.pictureUrl);
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
@@ -118,34 +118,30 @@ function setSorting(value) {
 }
 
 // notifications
-document.addEventListener('DOMContentLoaded', function () {
+function registerNotifications() {
+  navigator.serviceWorker.register('sw.js');
   if( !Notification )
     console.log('Browser does not support notifications.');
   else if( Notification.permission !== 'granted' )
     Notification.requestPermission();
-});
-
-document.addEventListener('notificationclick', function(event) {
-  switch(event.action){
-    case 'open_url':
-    clients.openWindow(event.notification.data.url); //which we got from above
-    break;
-  }
-}, false);
+}
 
 function notify(content, link, picture) {
-  var notification = new Notification(content, {
-    icon: picture
+  Notification.requestPermission((result) => {
+    if (result != 'granted') return;
+    navigator.serviceWorker.ready.then((registration) => {
+      registration.showNotification(content, {
+        icon: picture,
+        actions: [{action: "open_url", title: "Open"}]
+      });
+    });
   });
-  notification.onclick = (event) => {
-    event.preventDefault();
-    window.open(link);
-    notification.close();
-  }
 }
 
 // main
 document.addEventListener('DOMContentLoaded', function() {
+  registerNotifications();
+
   createTable("tablePlat", "Plat");
   createTable("tableLowTen", "≤10");
   createTable("tableLowHundred", "≤100");
@@ -166,7 +162,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
   });
 
-  fetchContractSellingFee().then(json => {
+  fetchContractBuyingFee().then(json => {
     let feeEUR = parseInt(json.overall_fee)/10**18 * ethEurRate;
     let col = "🟢";
     if( feeEUR> 2.0 ) col = "🔥";

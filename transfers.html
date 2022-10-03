@@ -123,12 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
       listings(hits);
     })
   });
-
-  fetchContractSellingFee().then(json => {
-    let fee = parseInt(json.overall_fee)/10**18 * ethEurRate;
-    let col = fee < 0.2 ? "🟢" : fee > 0.5 ? "🔴" : "🟡";
-    document.querySelector("#fee").innerHTML = col + "Current fee: " + fee.toFixed(2) + "€ / Max: " + (1.5*fee).toFixed(2) + "€";
-  });
 });
 
 </script>
@@ -169,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <option value="card">card</option>
     </select>
   </label>
-  <span><a id="fee" href="fee.html"></a></span>
 </div>
 </body>
 </html>
