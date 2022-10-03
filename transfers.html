@@ -18,7 +18,7 @@ function listings(hits) {
   function sortByCard(a, b) { return a.cardModelId > b.cardModelId ? -1 : 1 }
   function sortByDate(a, b) { return a.date > b.date ? -1 : 1 }
 
-  let sortRule = searchParams.has("sorting") ? searchParams.get("sorting") : "price";
+  let sortRule = document.querySelector("#sorting").value;
   if( sortRule == "price" ) hits.sort(sortByPrice);
   if( sortRule == "card" ) hits.sort(sortByCard);
   if( sortRule == "date" ) hits.sort(sortByDate);
@@ -47,17 +47,11 @@ function listings(hits) {
   }
 
   document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " <a href='index.html'>transfers</a>";
-
-  for( const [ key, value ] of searchParams ) {
-    if( value=="false" ) document.querySelector("#"+key).click();
-    if( key=="sorting" ) document.querySelector("#"+key).value=value;
-  }
 };
 
 // table creation and population
 function createTable(id, text) {
-  document.querySelector("body").innerHTML += "" +
-  `<table id="${id}" border=1>
+  return `<table id="${id}" border=1>
            <thead>
              <tr>
                <th>Artist<\/th>
@@ -106,16 +100,33 @@ function setSorting(value) {
   var queryParams = new URLSearchParams(window.location.search);
   queryParams.set("sorting", value);
   history.replaceState(null, null, "?"+queryParams.toString());
-  location.reload();
+  main();
 }
 
 // main
-document.addEventListener('DOMContentLoaded', function() {
-  createTable("tablePlat", "Plat");
-  createTable("tableLowTen", "≤10");
-  createTable("tableLowHundred", "≤100");
-  createTable("tableLowFiveHundred", "≤500");
-  createTable("tableHigh", "#");
+function main() {
+  let tables = {
+    tablePlat: "Plat",
+    tableLowTen: "≤10",
+    tableLowHundred: "≤100",
+    tableLowFiveHundred: "≤500",
+    tableHigh: "#"
+  }
+
+  let t = "";
+  for (const key in tables)
+    t += createTable(key, tables[key]);
+  document.querySelector("#tables").innerHTML = t;
+
+  let searchParams = new URLSearchParams(window.location.search);
+  let hiddenClass = [];
+  for( const [key, value] of searchParams ) {
+    if( value=="false" ) {
+      document.querySelector("#"+key).checked = false;
+      hiddenClass.push(key);
+    }
+    if( key=="sorting" ) document.querySelector("#"+key).value=value;
+  }
 
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
@@ -123,8 +134,14 @@ document.addEventListener('DOMContentLoaded', function() {
     fetchTransfers("serialNumber<=1000").then(json => {
       hits = hits.concat(json.hits);
       listings(hits);
+        for( key of hiddenClass )
+            setVisibility(key, false);
     })
   });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  main();
 });
 
 </script>
@@ -166,5 +183,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </select>
   </label>
 </div>
+<div id="tables"></div>
 </body>
 </html>
