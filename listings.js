@@ -24,7 +24,7 @@ async function fetchOffers(filter) {
   });
 };
 
-async function fetchTransfers(filter) {
+async function fetchTransfers(filter, facetFilter="is_sale:true") {
   return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/transfers-date-desc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
     "headers": {
       "accept": "*/*",
@@ -37,7 +37,7 @@ async function fetchTransfers(filter) {
       "x-algolia-application-id": "JS76HMPZH9"
     },
     "body": `{"query":"",
-      "facetFilters":["is_sale:true"],
+      "facetFilters":["${facetFilter}"],
       "filters": "${filter}",
       "page":0,
       "hitsPerPage":1000

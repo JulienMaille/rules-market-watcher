@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Past transfers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<script src="cards.js"></script>
+<script src="listings.js"></script>
+<script src="costs.js"></script>
+<script>
+var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
+var ethEurRate;
+
+function listings(hits, id) {
+  let searchParams = new URLSearchParams(window.location.search);
+
+  function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
+  function sortByCard(a, b) { return a.cardModelId > b.cardModelId ? -1 : 1 }
+  function sortByDate(a, b) { return a.date > b.date ? -1 : 1 }
+
+  let sortRule = document.querySelector("#sorting").value;
+  if( sortRule == "price" ) hits.sort(sortByPrice);
+  if( sortRule == "card" ) hits.sort(sortByCard);
+  if( sortRule == "date" ) hits.sort(sortByDate);
+  //console.log(hits);
+
+  for( const listing of hits ) {
+    let priceEUR = "Pack";
+    if( "fromUserId" in listing ) priceEUR = "Gift";
+    if( "price" in listing ) {
+      let priceETH = parseInt(listing.price, 16)/10**18;
+      priceEUR = (priceETH * ethEurRate).toFixed(0) + " €";
+    }
+    let dirIcon = listing.toUserId==id ? "🔻" : "💵";
+    let card = cardInfo(listing.cardModelId);
+    let date = new Date(listing.date);
+    let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
+    let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
+
+    let cardIsPlat = card.slug.includes("platinium");
+    let cardName = card.name.replace(/ Season .*/g, '');
+
+    let recent = (new Date - date < recentDef);
+    let classes = recent ? "recent" : "old";
+    classes += card.tier==1 ? " toptier" : " lowtier";
+
+    let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
+          + "<td id='serial'>" + listing.serialNumber + "</td>"
+          + "<td id='direction'>" + dirIcon + "</td>"
+          + "<td id='price'>" + priceEUR + "</td>"
+          + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
+    insertInTable(t, cardIsPlat, listing.serialNumber, classes);
+  }
+
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " <a href='index.html'>transfers</a>";
+};
+
+// table creation and population
+function createTable(id, text) {
+  return `<table id="${id}" border=1>
+           <thead>
+             <tr>
+               <th>Artist<\/th>
+               <th>${text}<\/th>
+               <th>Dir<\/th>
+               <th>Price<\/th>
+               <th>Date<\/th>
+            <\/tr>
+           <\/thead>
+           <tbody><\/tbody>
+         <\/table>`;
+}
+
+function insertInTable(row, cardIsPlat, serialNumber, classes) {
+  let tableId = "#tableHigh";
+  if( cardIsPlat ) tableId = "#tablePlat";
+  else if( serialNumber <= 10 ) tableId = "#tableLowTen";
+  else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
+  else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
+
+  let roundClass = "notround";
+  if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
+  if( [69, 333, 420, 666, 667, 777].includes(serialNumber) ) roundClass = "round";
+
+  const tableRef = document.querySelector(tableId);
+  var newRow = tableRef.insertRow(tableRef.rows.length);
+  newRow.className = roundClass + " " + classes;
+  newRow.innerHTML = row;
+}
+
+function cardInfo(modelId) {
+  return allCardModels.find(({ id }) => id == modelId);
+}
+
+// filtering and sorting
+function setVisibility(className, visible) {
+  elements = document.getElementsByClassName(className);
+  for( var i = 0; i < elements.length; i++ )
+    elements[i].style.display = visible ? 'table-row' : 'none';
+
+  var queryParams = new URLSearchParams(window.location.search);
+  queryParams.set(className, visible);
+  history.replaceState(null, null, "?"+queryParams.toString());
+}
+
+function setSorting(value) {
+  var queryParams = new URLSearchParams(window.location.search);
+  queryParams.set("sorting", value);
+  history.replaceState(null, null, "?"+queryParams.toString());
+  main();
+}
+
+// main
+function main(username) {
+  let tables = {
+    tablePlat: "Plat",
+    tableLowTen: "≤10",
+    tableLowHundred: "≤100",
+    tableLowFiveHundred: "≤500",
+    tableHigh: "#"
+  }
+
+  let t = "";
+  for (const key in tables)
+    t += createTable(key, tables[key]);
+  document.querySelector("#tables").innerHTML = t;
+
+  let searchParams = new URLSearchParams(window.location.search);
+  let hiddenClass = [];
+  for( const [key, value] of searchParams ) {
+    if( value=="false" ) {
+      document.querySelector("#"+key).checked = false;
+      hiddenClass.push(key);
+    }
+    if( key=="sorting" ) document.querySelector("#"+key).value=value;
+  }
+
+  fetchEthPrice().then(json => {
+    ethEurRate = parseInt(json.data.amount);
+    //fetchUserId(username).then(json => {
+      var hits = [];
+      console.log(json);
+      let id = "62ab894c838a77a225fabf12";
+      fetchTransfers(`fromUserId:${id} OR toUserId:${id}`,"").then(json => {
+      console.log(json);
+        hits = hits.concat(json.hits);
+        listings(hits, id);
+          for( key of hiddenClass )
+              setVisibility(key, false);
+      })
+    //})
+  });
+}
+
+</script>
+<style>
+  :root {color-scheme: light dark;}
+  body {font-family: Roboto,Helvetica;}
+  table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 14px;}
+  a {color: #CCC; text-decoration: none;}
+  a:hover {text-decoration: underline;}
+  .recent #date {color: #FF0;}
+  #card a {color: white;}
+  #date {font-stretch: condensed; color: #777;}
+  #tablePlat #card a, #tablePlat th {color: gold;}
+  #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
+  #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
+  #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
+  #update {color: #777;}
+  #options label, #options span {margin-right: 14px; float:left;}
+  #options label {background: #05F;}
+  #tablePlat {clear: both;}
+</style>
+</head>
+<body>
+<div id="options">
+  <span>
+    <input type="text" id="username" placeholder="username">
+    <button text="Go" onClick="main(document.getElementById('username').value
+);">Go</button>
+  </span>
+  <label for="old">show old listings
+    <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);" checked>
+  </label>
+  <label for="notround">show not round
+    <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);" checked>
+  </label>
+  <label for="lowtier">show lower tier (not finalists)
+    <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked>
+  </label>
+  <span id="update"></span>
+  <label for="sorting">Sort by:
+    <select id="sorting" onChange="setSorting(this.value);">
+        <option value="price">price</option>
+        <option value="date">date</option>
+        <option value="card">card</option>
+    </select>
+  </label>
+</div>
+<div id="tables"></div>
+</body>
+</html>
