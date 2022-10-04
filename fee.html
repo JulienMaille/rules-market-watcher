@@ -5,15 +5,14 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="costs.js"></script>
 <script>
-var ethEurRate = 1400;
-
 fetchEthPrice().then(json => {
   ethEurRate = parseInt(json.data.amount);
 
   document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString() + "<br>ils s'élèvent à :";
 
-  fetchContractGiftingFee().then(json => {
-    let feeETH = parseInt(json.overall_fee)/10**18;
+  fetchGasPrice().then(json => {
+    let gasPrice = parseInt(json.gas_price, 16)/10**18;
+    let feeETH = gasPrice*giftGasUsage;
     let feeEUR = feeETH*ethEurRate;
     let col = "🟢";
     if( feeEUR> 0.6 ) col = "🔥";
@@ -24,18 +23,16 @@ fetchEthPrice().then(json => {
     document.querySelector("#feeGiftEUR").innerHTML = feeEUR.toFixed(2);
     document.querySelector("#maxFeeGiftETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
     document.querySelector("#maxFeeGiftEUR").innerHTML = (1.5*feeEUR).toFixed(2);
-  });
-  fetchContractSellingFee().then(json => {
-    let feeETH = parseInt(json.overall_fee)/10**18;
-    let feeEUR = feeETH*ethEurRate;
+
+    feeETH = gasPrice*sellGasUsage;
+    feeEUR = feeETH*ethEurRate;
     document.querySelector("#feeSellETH").innerHTML = feeETH.toFixed(7) + " ETH";
     document.querySelector("#feeSellEUR").innerHTML = feeEUR.toFixed(2);
     document.querySelector("#maxFeeSellETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
     document.querySelector("#maxFeeSellEUR").innerHTML = (1.5*feeEUR).toFixed(2);
-  });
-  fetchContractBuyingFee().then(json => {
-    let feeETH = parseInt(json.overall_fee)/10**18;
-    let feeEUR = feeETH*ethEurRate;
+
+    feeETH = gasPrice*buyGasUsage;
+    feeEUR = feeETH*ethEurRate;
     document.querySelector("#feeBuyETH").innerHTML = feeETH.toFixed(7) + " ETH";
     document.querySelector("#feeBuyEUR").innerHTML = feeEUR.toFixed(2);
     document.querySelector("#maxFeeBuyETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";

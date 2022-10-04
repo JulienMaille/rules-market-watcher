@@ -10,7 +10,6 @@
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 40;            // price threshold (EUR) for notification
-var ethEurRate;
 
 function listings(hits) {
   let searchParams = new URLSearchParams(window.location.search);
@@ -177,8 +176,10 @@ function main() {
     })
   });
 
-  fetchContractBuyingFee().then(json => {
-    let feeEUR = parseInt(json.overall_fee)/10**18 * ethEurRate;
+  fetchGasPrice().then(json => {
+    let gasPrice = parseInt(json.gas_price, 16)/10**18;
+    let feeETH = gasPrice*buyGasUsage;
+    let feeEUR = feeETH*ethEurRate;
     let col = "🟢";
     if( feeEUR> 2.0 ) col = "🔥";
     else if( feeEUR> 1.4 ) col = "🔴";
