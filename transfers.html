@@ -146,7 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </script>
 <style>
-  body {background-color: black; color: #CCC; font-family: Roboto,Helvetica;}
+  :root {color-scheme: light dark;}
+  body {font-family: Roboto,Helvetica;}
   table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 14px;}
   a {color: #CCC; text-decoration: none;}
   a:hover {text-decoration: underline;}
@@ -175,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked>
   </label>
   <span id="update"></span>
-  <label for="sorting">Sort by:
+  <label for="sorting">sort by:
     <select id="sorting" onChange="setSorting(this.value);">
         <option value="price">price</option>
         <option value="date">date</option>
