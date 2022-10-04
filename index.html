@@ -125,8 +125,7 @@ function notify(content, link, picture) {
     if (result != 'granted') return;
     navigator.serviceWorker.ready.then((registration) => {
       registration.showNotification(content, {
-        icon: picture,
-        actions: [{action: "open_url", title: "Open"}]
+        icon: picture
       });
     });
   });
