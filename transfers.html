@@ -2,8 +2,9 @@
 <html>
 <head>
 <title>Past transfers</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="dark light">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script src="cards.js"></script>
 <script src="listings.js"></script>
 <script src="costs.js"></script>
@@ -149,18 +150,18 @@ document.addEventListener('DOMContentLoaded', function() {
   :root {color-scheme: light dark;}
   body {font-family: Roboto,Helvetica;}
   table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 14px;}
-  a {color: #CCC; text-decoration: none;}
+  @media (prefers-color-scheme: dark) { a {color: #CCC;} .recent #date {color: #FF0;} }
+  @media (prefers-color-scheme: light) { a {color: #000;} .recent #date {background: #FF0;}}
+  a {text-decoration: none;}
   a:hover {text-decoration: underline;}
-  .recent #date {color: #FF0;}
-  #card a {color: white;}
   #date {font-stretch: condensed; color: #777;}
-  #tablePlat #card a, #tablePlat th {color: gold;}
+  #tablePlat #card a, #tablePlat th {color: #ccad00;}
   #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
   #update {color: #777;}
-  #options label, #options span {margin-right: 14px; float:left;}
-  #options label {background: #05F;}
+  #options label, #options span {margin-right: 8px; float:left;}
+  #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tablePlat {clear: both;}
 </style>
 </head>
