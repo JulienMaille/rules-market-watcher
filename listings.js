@@ -49,3 +49,22 @@ async function fetchTransfers(filter, facetFilter="is_sale:true") {
     return response.json();
   });
 };
+
+async function fetchUserId(username) {
+  return await fetch("https://proxy.cors.sh/https://api.rules.art/graphql", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "en-US;q=0.9,en;q=0.8",
+      "content-type": "application/json",
+    },
+    "body": `{
+      "operationName": null,
+      "variables": {},
+      "query": "{ user(slug: \\"${username}\\") { id }}"
+    }`,
+    "method": "POST",
+    "mode": "cors"
+  }).then(response => {
+    return response.json();
+  });
+}
