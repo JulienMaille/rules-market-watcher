@@ -11,7 +11,6 @@ async function fetchOffers(filter) {
       "x-algolia-application-id": "JS76HMPZH9"
     },
     "body": `{"query":"",
-      "facetFilters":["available:true"],
       "filters": "${filter}",
       "page":0,
       "hitsPerPage":1000
