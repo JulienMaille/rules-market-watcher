@@ -42,7 +42,7 @@ function listings(hits) {
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += card.tier==1 ? " toptier" : " lowtier";
 
-    if( recent )
+    if( recent && listing.available )
       if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
         || (priceEUR<=1.5*cheapNotif && cardIsPlat) )
