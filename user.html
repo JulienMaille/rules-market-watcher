@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Past transfers</title>
+<title>User transaction history</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -23,6 +23,7 @@ function listings(hits, id) {
   if( sortRule == "date" ) hits.sort(sortByDate);
   //console.log(hits);
 
+  let sumIn=0, sumOut=0;
   for( const listing of hits ) {
     let dir = listing.toUserId==id;
     let dirIcon = dir ? "▼" : "▲";
@@ -32,6 +33,8 @@ function listings(hits, id) {
     if( "price" in listing ) {
       let priceETH = parseInt(listing.price, 16)/10**18;
       priceEUR = (priceETH * ethEurRate).toFixed(0) + " €";
+      if( dir ) sumIn += priceETH * ethEurRate;
+      else sumOut += priceETH * ethEurRate;
     }
 
     let card = cardInfo(listing.cardModelId);
@@ -55,7 +58,8 @@ function listings(hits, id) {
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }
 
-  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " <a href='index.html'>transfers</a>";
+  let stats = "Total bought: " + sumIn.toFixed(0) + "€ / Total sold: " + sumOut.toFixed(0) + "€";
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " <a href='index.html'>transfers</a> - " + stats;
 };
 
 // table creation and population
@@ -207,7 +211,6 @@ document.addEventListener('DOMContentLoaded', function() {
   <label for="lowtier">show lower tier (not finalists)
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked>
   </label>
-  <span id="update"></span>
   <label for="sorting">sort by:
     <select id="sorting" onChange="setSorting(this.value);">
         <option value="price">price</option>
@@ -215,6 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <option value="card">card</option>
     </select>
   </label>
+  <span id="update"></span>
 </div>
 <div id="tables"></div>
 </body>

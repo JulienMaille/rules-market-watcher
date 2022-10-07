@@ -236,7 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
   <label for="lowtier">show lower tier (not finalists)
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked>
   </label>
-  <span id="update"></span>
   <label for="sorting">sort by:
     <select id="sorting" onChange="setSorting(this.value);">
         <option value="price">price</option>
@@ -244,6 +243,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <option value="card">card</option>
     </select>
   </label>
+  <span id="update"></span>
   <span><span id="feeicon"></span><a id="feelink" href="fee.html"></a></span>
 </div>
 <div id="tables"></div>
