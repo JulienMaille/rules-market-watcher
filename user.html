@@ -24,13 +24,16 @@ function listings(hits, id) {
   //console.log(hits);
 
   for( const listing of hits ) {
+    let dir = listing.toUserId==id;
+    let dirIcon = dir ? "▼" : "▲";
+
     let priceEUR = "Pack";
     if( "fromUserId" in listing ) priceEUR = "Gift";
     if( "price" in listing ) {
       let priceETH = parseInt(listing.price, 16)/10**18;
       priceEUR = (priceETH * ethEurRate).toFixed(0) + " €";
     }
-    let dirIcon = listing.toUserId==id ? "🔻" : "💵";
+
     let card = cardInfo(listing.cardModelId);
     let date = new Date(listing.date);
     let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
@@ -42,6 +45,7 @@ function listings(hits, id) {
     let recent = (new Date - date < recentDef);
     let classes = recent ? "recent" : "old";
     classes += card.tier==1 ? " toptier" : " lowtier";
+    classes += dir ? " in" : " out";
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
@@ -180,6 +184,10 @@ document.addEventListener('DOMContentLoaded', function() {
   #options label, #options span {margin-right: 8px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tablePlat {clear: both;}
+  .in #direction {color: #21f392;}
+  .out #direction {color: #f8312f;}
+  .in #direction, .in #price {color: #21f392;}
+  .out #direction, .out #price  {color: #f8312f;}
 </style>
 </head>
 <body>
