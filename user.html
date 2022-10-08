@@ -13,6 +13,11 @@ var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 var ethEurRate;
 
 function listings(hits, id) {
+  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
+  let timeOptions = {hour: "2-digit", minute: "2-digit"};
+  let euroOptions = {style: 'currency', currency: 'EUR', maximumFractionDigits: 0};
+  let euroFmt = new Intl.NumberFormat([], euroOptions);
+
   function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
   function sortByCard(a, b) { return a.cardModelId > b.cardModelId ? -1 : 1 }
   function sortByDate(a, b) { return a.date > b.date ? -1 : 1 }
@@ -23,7 +28,7 @@ function listings(hits, id) {
   if( sortRule == "date" ) hits.sort(sortByDate);
   //console.log(hits);
 
-  let sumIn=0, sumOut=0;
+  let sumIn = 0, sumOut = 0;
   for( const listing of hits ) {
     let dir = listing.toUserId==id;
     let dirIcon = dir ? "▼" : "▲";
@@ -32,21 +37,21 @@ function listings(hits, id) {
     if( "fromUserId" in listing ) priceEUR = "Gift";
     if( "price" in listing ) {
       let priceETH = parseInt(listing.price, 16)/10**18;
-      priceEUR = (priceETH * ethEurRate).toFixed(0) + " €";
+      priceEUR = euroFmt.format(priceETH * ethEurRate);
       if( dir ) sumIn += priceETH * ethEurRate;
       else sumOut += priceETH * ethEurRate;
     }
 
     let card = cardInfo(listing.cardModelId);
     let date = new Date(listing.date);
-    let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
     let cardIsPlat = card.slug.includes("platinium");
     let cardName = card.name.replace(/ Season .*/g, '');
 
     let recent = (new Date - date < recentDef);
-    let classes = recent ? "recent" : "old";
+    let lessRecent = (new Date - date < recentDef*4);
+    let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += card.tier==1 ? " toptier" : " lowtier";
     classes += dir ? " in" : " out";
 
@@ -58,8 +63,9 @@ function listings(hits, id) {
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }
 
-  let stats = "Total bought: " + sumIn.toFixed(0) + "€ / Total sold: " + sumOut.toFixed(0) + "€";
-  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " <a href='index.html'>transfers</a> - " + stats;
+  let stats = " - <a href='index.html'>" + hits.length + " transfers</a>"
+            + " - Total bought: " + euroFmt.format(sumIn) + " / Total sold: " + euroFmt.format(sumOut);
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
 };
 
 // table creation and population
@@ -172,11 +178,20 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <style>
-  :root {color-scheme: light dark;}
   body {font-family: Roboto,Helvetica;}
   table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 14px;}
-  @media (prefers-color-scheme: dark) { a {color: #CCC;} .recent #date {color: #FF0;} }
-  @media (prefers-color-scheme: light) { a {color: #000;} .recent #date {background: #FF0;}}
+  @media (prefers-color-scheme: dark) {
+    a {color: #CCC;}
+    .recent #date {color: #FF0;}
+    .lessRecent #date {color: #AA0;}
+    .in #direction, .in #price {color: #21f392;}
+  }
+  @media (prefers-color-scheme: light) {
+    a {color: #000;}
+    .recent #date {background: #FF0;}
+    .lessRecent #date {background: #FFC;}
+    .in #direction, .in #price {color: #2da44e;}
+  }
   a {text-decoration: none;}
   a:hover {text-decoration: underline;}
   #date {font-stretch: condensed; color: #777;}
@@ -188,9 +203,6 @@ document.addEventListener('DOMContentLoaded', function() {
   #options label, #options span {margin-right: 8px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tablePlat {clear: both;}
-  .in #direction {color: #21f392;}
-  .out #direction {color: #f8312f;}
-  .in #direction, .in #price {color: #21f392;}
   .out #direction, .out #price  {color: #f8312f;}
 </style>
 </head>

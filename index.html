@@ -15,6 +15,8 @@ var cheapNotif = 40;            // price threshold (EUR) for notification
 function listings(hits) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
+  let euroOptions = {style: 'currency', currency: 'EUR', maximumFractionDigits: 0};
+  let euroFmt = new Intl.NumberFormat([], euroOptions);
 
   function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
   function sortByCard(a, b) { return a.cardModelId > b.cardModelId ? -1 : 1 }
@@ -26,9 +28,11 @@ function listings(hits) {
   if( sortRule == "date" ) hits.sort(sortByDate);
   //console.log(hits);
 
+  let sum = 0;
   for( const listing of hits ) {
     let priceETH = parseInt(listing.price, 16)/10**18;
-    let priceEUR = (priceETH * ethEurRate).toFixed(0);
+    let priceEUR = priceETH * ethEurRate;
+    sum += priceETH * ethEurRate;
     let card = cardInfo(listing.cardModelId);
     let date = new Date(listing.date);
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
@@ -55,12 +59,14 @@ function listings(hits) {
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
-          + "<td id='price'>" + priceEUR + " €</td>"
+          + "<td id='price'>" + euroFmt.format(priceEUR) + "</td>"
           + "<td id='date'>" + dateText + "</td>";
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }
 
-  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + " - " + hits.length + " <a href='transfers.html'>offers</a>";
+  let stats = " - <a href='transfers.html'>" + hits.length + " offers</a>"
+            + " - Total: " + euroFmt.format(sum);
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
 };
 
 // table creation and population
