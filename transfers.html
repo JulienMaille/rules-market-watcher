@@ -139,11 +139,15 @@ function main() {
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
     var hits = [];
-    fetchTransfers("serialNumber<=1000").then(json => {
+    fetchTransfers("serialNumber<=2000").then(json => {
       hits = hits.concat(json.hits);
-      listings(hits);
+      fetchTransfers("serialNumber>2000").then(json => {
+        hits = hits.concat(json.hits);
+        listings(hits);
+
         for( key of hiddenClass )
-          setVisibility(key, false);
+            setVisibility(key, false);
+      })
     })
   });
 }
