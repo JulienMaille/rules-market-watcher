@@ -49,7 +49,7 @@ function listings(hits) {
       if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
         || (priceEUR<=1.5*cheapNotif && cardIsPlat) )
-        notify(cardName + " #" + listing.serialNumber + ": " + priceEUR + "€", url, card.pictureUrl);
+        notify(cardName + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", url, card.pictureUrl);
 
     let dateText = "";
     if( listing.available )

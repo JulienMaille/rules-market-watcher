@@ -1,0 +1,66 @@
+<!DOCTYPE text>
+<html>
+<head>
+<title>Past transfers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="dark light">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<script src="cards.js"></script>
+<script src="listings.js"></script>
+<script src="costs.js"></script>
+<script>
+var ethEurRate;
+
+function listings(hits) {
+  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
+  let timeOptions = {hour: "2-digit", minute: "2-digit"};
+
+  console.log(hits);
+
+  let t = "cardFull;artist;scarcity;serial;priceETH;priceEUR;date<br>";
+
+  for( const listing of hits ) {
+    let priceETH = parseInt(listing.price, 16)/10**18;
+    let priceEUR = priceETH * ethEurRate;
+
+    let card = cardInfo(listing.cardModelId);
+    let date = new Date(listing.date);
+
+    let scarcity = card.slug.includes("platinium") ? "platinium" : "common";
+    let cardName = card.name.replace(/ Season .*/g, '');
+
+    t += card.name + ";" + cardName + ";" + scarcity + ";" + listing.serialNumber + ";"
+       + priceETH + ";" + priceEUR.toFixed(2) + ";" + date.toLocaleString() + "<br>";
+  }
+
+  document.body.innerHTML = t;
+};
+
+function cardInfo(modelId) {
+  return allCardModels.find(({ id }) => id == modelId);
+}
+
+// main
+function main() {
+  fetchEthPrice().then(json => {
+    ethEurRate = parseInt(json.data.amount);
+    var hits = [];
+    fetchTransfers("serialNumber<=2000").then(json => {
+      hits = hits.concat(json.hits);
+      fetchTransfers("serialNumber>2000").then(json => {
+        hits = hits.concat(json.hits);
+        listings(hits);
+      })
+    })
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  main();
+});
+
+</script>
+</head>
+<body>
+</body>
+</html>
