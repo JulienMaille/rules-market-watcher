@@ -50,7 +50,7 @@ async function fetchTransfers(filter, facetFilter="is_sale:true") {
 };
 
 async function fetchUserId(username) {
-  return await fetch("https://proxy.cors.sh/https://api.rules.art/graphql", {
+  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
