@@ -112,6 +112,8 @@ function insertInTable(row, cardIsPlat, serialNumber, classes) {
   else if( serialNumber <= 10 ) tableId = "#tableLowTen";
   else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
+  else if( serialNumber <= 1000 ) tableId = "#tableLowThousand";
+  else if( serialNumber <= 2000 ) tableId = "#tableLowTwoThousand";
 
   let roundClass = "notround";
   if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
@@ -158,6 +160,8 @@ function main() {
     tableLowTen: "≤10",
     tableLowHundred: "≤100",
     tableLowFiveHundred: "≤500",
+    tableLowThousand: "≤1000",
+    tableLowTwoThousand: "≤2000",
     tableHigh: "#"
   }
 
@@ -189,7 +193,7 @@ function main() {
       })
     })
     .catch((e) => {
-      document.body.innerHTML= "fetchUserId failed with: " + e;
+      document.querySelector("#tables").innerHTML = "fetchUserId failed with: " + e;
     })
   });
 }
@@ -201,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
     main();
   }
 });
+
 </script>
 <style>
   body {font-family: Roboto,Helvetica;}
@@ -219,12 +224,15 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   a {text-decoration: none;}
   a:hover {text-decoration: underline;}
+  th {font-weight: normal;}
   #date {font-stretch: condensed; color: #777;}
   #tablePlat #card a, #tablePlat th {color: #ccad00;}
   #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
   #update {color: #777;}
+  #menu, #options { float:left;}
+  #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
   #options label, #options span {margin-right: 8px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tablePlat {clear: both;}
@@ -232,6 +240,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
 </head>
 <body>
+<div id="menu">
+  <a href='index.html'>🛒</a>
+  <a href='transfers.html'>🧾</a>
+  <a href='user.html'>🤑</a>
+  <a href='fee.html'>💸</a>
+</div>
 <div id="options">
   <span>
     <form action="#" onsubmit="main();return false">

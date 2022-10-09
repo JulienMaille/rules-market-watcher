@@ -49,7 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <style>
-  body {background-color: black; color: #CCC; font-size: 20pt; font-family: Roboto,Helvetica; text-align: right;}
+  body {background-color: black; color: #CCC; font-size: 19pt; font-family: Roboto,Helvetica; text-align: right;}
+  #menu a {text-decoration: none;}
+  #menu a:hover {color: transparent; text-shadow: 0 0 0 #9f04dc;}
   #text, #melon {float: left; margin-right: 40px;}
   #hour {color: #9f04dc;}
   .fee {color: #9f04dc;}
@@ -63,6 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
 </head>
 <body>
   <div id="text">
+  <div id="menu">
+    <a href='index.html'>🛒</a>
+    <a href='transfers.html'>🧾</a>
+    <a href='user.html'>🤑</a>
+    <a href='fee.html'>💸</a>
+  </div>
     <div id="combien">A combien sont les frais<br>des transactions Rules ?</div>
     <div id="hour"></div>
     <br>
