@@ -79,7 +79,8 @@ function listings(hits, id) {
       let userClass = ".ID" + user.id;
       document.querySelectorAll(userClass).forEach(function(td) {
         let url = "https://rules.art/user/" + user.slug + "/cards";
-        td.innerHTML = "<a href='" + url + "' target='_blank'>" + user.username + "</a>";
+        td.innerHTML = "<a href=# onClick='document.getElementById(\"username\").value=\"" + user.slug + "\";main();return false;'>" + user.username + "</a>"
+                     + " <a href='" + url + "' target='_blank'><img src='rules-logo.png'></a>";
       });
     }
   })
