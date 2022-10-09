@@ -169,6 +169,7 @@ function main() {
   for (const key in tables)
     t += createTable(key, tables[key]);
   document.querySelector("#tables").innerHTML = t;
+  document.querySelector("#update").innerHTML = "Loading...";
 
   let searchParams = new URLSearchParams(window.location.search);
   let hiddenClass = [];
@@ -193,7 +194,7 @@ function main() {
       })
     })
     .catch((e) => {
-      document.querySelector("#tables").innerHTML = "fetchUserId failed with: " + e;
+      document.querySelector("#update").innerHTML = "fetchUserId failed with: " + e;
     })
   });
 }
