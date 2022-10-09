@@ -30,9 +30,13 @@ function listings(hits) {
 
   let sum = 0;
   for( const listing of hits ) {
-    let priceETH = parseInt(listing.price, 16)/10**18;
-    let priceEUR = priceETH * ethEurRate;
-    sum += priceETH * ethEurRate;
+    let priceEUR = "Pack";
+    if( "fromUserId" in listing ) priceEUR = "Gift";
+    if( "price" in listing ) {
+      let priceETH = parseInt(listing.price, 16)/10**18;
+      priceEUR = euroFmt.format(priceETH * ethEurRate);
+    }
+
     let card = cardInfo(listing.cardModelId);
     let date = new Date(listing.date);
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
@@ -47,7 +51,7 @@ function listings(hits) {
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
-          + "<td id='price'>" + euroFmt.format(priceEUR) + "</td>"
+          + "<td id='price'>" + priceEUR + "</td>"
           + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
   }

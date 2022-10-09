@@ -49,7 +49,28 @@ async function fetchTransfers(filter, facetFilter="is_sale:true") {
   });
 };
 
+function cleanQuery(q) {
+  return JSON.stringify(q).replace(/\"/g, '\\\"');
+}
+
 async function fetchUserId(username) {
+  username = cleanQuery(username);
+  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "en-US;q=0.9,en;q=0.8",
+      "content-type": "application/json",
+    },
+    "body": `{ "query": "{ user(slug: ${username}) { id } }" }`,
+    "method": "POST",
+    "mode": "cors"
+  }).then(response => {
+    return response.json();
+  });
+}
+
+async function fetchUserNames(ids) {
+  idsString = cleanQuery(ids);
   return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
     "headers": {
       "accept": "*/*",
@@ -59,7 +80,7 @@ async function fetchUserId(username) {
     "body": `{
       "operationName": null,
       "variables": {},
-      "query": "{ user(slug: \\"${username}\\") { id }}"
+      "query": "{ usersByIds(ids: ${idsString}) { id, username, slug }}"
     }`,
     "method": "POST",
     "mode": "cors"

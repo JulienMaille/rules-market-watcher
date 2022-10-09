@@ -29,12 +29,18 @@ function listings(hits, id) {
   //console.log(hits);
 
   let sumIn = 0, sumOut = 0;
+  let userIds = [];
   for( const listing of hits ) {
     let dir = listing.toUserId==id;
-    let dirIcon = dir ? "▼" : "▲";
+    let dirIcon = dir ? "◀" : "▶";
 
+    let otherId = "";
     let priceEUR = "Pack";
-    if( "fromUserId" in listing ) priceEUR = "Gift";
+    if( "fromUserId" in listing ) {
+      priceEUR = "Gift";
+      otherId = dir ? listing.fromUserId : listing.toUserId;
+      userIds.push(otherId);
+    }
     if( "price" in listing ) {
       let priceETH = parseInt(listing.price, 16)/10**18;
       priceEUR = euroFmt.format(priceETH * ethEurRate);
@@ -58,6 +64,7 @@ function listings(hits, id) {
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='direction'>" + dirIcon + "</td>"
+          + "<td id='other' class='ID" + otherId + "'></td>"
           + "<td id='price'>" + priceEUR + "</td>"
           + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
     insertInTable(t, cardIsPlat, listing.serialNumber, classes);
@@ -66,6 +73,19 @@ function listings(hits, id) {
   let stats = " - <a href='index.html'>" + hits.length + " transfers</a>"
             + " - Total bought: " + euroFmt.format(sumIn) + " / Total sold: " + euroFmt.format(sumOut);
   document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
+
+  fetchUserNames(userIds).then(json => {
+    for (const user of json.data.usersByIds){
+      let userClass = ".ID" + user.id;
+      document.querySelectorAll(userClass).forEach(function(td) {
+        let url = "https://rules.art/user/" + user.slug + "/cards";
+        td.innerHTML = "<a href='" + url + "' target='_blank'>" + user.username + "</a>";
+      });
+    }
+  })
+  .catch((e) => {
+    document.body.innerHTML= "fetchUserNames failed with: " + e;
+  })
 };
 
 // table creation and population
@@ -76,6 +96,7 @@ function createTable(id, text) {
                <th>Artist<\/th>
                <th>${text}<\/th>
                <th>Dir<\/th>
+               <th>Who<\/th>
                <th>Price<\/th>
                <th>Date<\/th>
             <\/tr>
@@ -165,6 +186,9 @@ function main() {
           for( key of hiddenClass )
               setVisibility(key, false);
       })
+    })
+    .catch((e) => {
+      document.body.innerHTML= "fetchUserId failed with: " + e;
     })
   });
 }
