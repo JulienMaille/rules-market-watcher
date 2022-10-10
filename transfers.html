@@ -46,7 +46,7 @@ function listings(hits) {
 
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
-    let cardIsPlat = card.scarcity.name == "Platinium";
+    let cardIsCommon = card.scarcity.name == "Common";
     let artist = card.artist.displayName;
 
     let recent = (new Date - date < recentDef);
@@ -58,7 +58,7 @@ function listings(hits) {
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='price'>" + priceEUR + "</td>"
           + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
-    insertInTable(t, cardIsPlat, listing.serialNumber, classes);
+    insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
   let stats = " - <a href='index.html'>" + hits.length + " transfers</a>"
@@ -81,9 +81,9 @@ function createTable(id, text) {
          <\/table>`;
 }
 
-function insertInTable(row, cardIsPlat, serialNumber, classes) {
+function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
   let tableId = "#tableHigh";
-  if( cardIsPlat ) tableId = "#tablePlat";
+  if( !cardIsCommon ) tableId = "#table" + scarcity;
   else if( serialNumber <= 10 ) tableId = "#tableLowTen";
   else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
@@ -125,7 +125,7 @@ function setSorting(value) {
 // main
 function main() {
   let tables = {
-    tablePlat: "Plat",
+    tablePlatinium: "Plat",
     tableLowTen: "≤10",
     tableLowHundred: "≤100",
     tableLowFiveHundred: "≤500",
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
   a:hover {text-decoration: underline;}
   th {font-weight: normal;}
   #date {font-stretch: condensed; color: #777;}
-  #tablePlat #card a, #tablePlat th {color: #ccad00;}
+  #tablePlatinium #card a, #tablePlatinium th {color: #ccad00;}
   #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
   #options label, #options span {margin-right: 8px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
-  #tablePlat {clear: both;}
+  #tables {clear: both;}
 </style>
 </head>
 <body>
