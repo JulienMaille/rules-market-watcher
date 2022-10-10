@@ -28,18 +28,21 @@ function listings(hits) {
   if( sortRule == "date" ) hits.sort(sortByDate);
   //console.log(hits);
 
-  let sum = 0;
+  let sum = 0, todaySum = 0;
   for( const listing of hits ) {
+    let card = cardInfo(listing.cardModelId);
+    let date = new Date(listing.date);
+
     let priceEUR = "Pack";
     if( "fromUserId" in listing ) priceEUR = "Gift";
     if( "price" in listing ) {
       let priceETH = parseInt(listing.price, 16)/10**18;
       priceEUR = euroFmt.format(priceETH * ethEurRate);
       sum += priceETH * ethEurRate;
+      if( (new Date).toDateString() == date.toDateString() )
+        todaySum += priceETH * ethEurRate;
     }
 
-    let card = cardInfo(listing.cardModelId);
-    let date = new Date(listing.date);
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
     let cardIsPlat = card.slug.includes("platinium");
@@ -58,7 +61,7 @@ function listings(hits) {
   }
 
   let stats = " - <a href='index.html'>" + hits.length + " transfers</a>"
-            + " - Total: " + euroFmt.format(sum);
+            + " - Total: " + euroFmt.format(sum) + " - Today: " + euroFmt.format(todaySum);
   document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
 };
 
