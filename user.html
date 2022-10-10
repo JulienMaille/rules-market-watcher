@@ -11,6 +11,7 @@
 <script>
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 var ethEurRate;
+allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits, id) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
@@ -52,16 +53,16 @@ function listings(hits, id) {
     let date = new Date(listing.date);
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
-    let cardIsPlat = card.slug.includes("platinium");
-    let cardName = card.name.replace(/ Season .*/g, '');
+    let cardIsPlat = card.scarcity.name == "Platinium";
+    let artist = card.artist.displayName;
 
     let recent = (new Date - date < recentDef);
     let lessRecent = (new Date - date < recentDef*4);
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
-    classes += card.tier==1 ? " toptier" : " lowtier";
+    classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
     classes += dir ? " in" : " out";
 
-    let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
+    let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='direction'>" + dirIcon + "</td>"
           + "<td id='other' class='ID" + otherId + "'></td>"

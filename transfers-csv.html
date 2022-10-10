@@ -10,12 +10,11 @@
 <script src="costs.js"></script>
 <script>
 var ethEurRate;
+allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
-
-  console.log(hits);
 
   let t = "cardFull;artist;scarcity;serial;priceETH;priceEUR;date<br>";
 
@@ -26,10 +25,10 @@ function listings(hits) {
     let card = cardInfo(listing.cardModelId);
     let date = new Date(listing.date);
 
-    let scarcity = card.slug.includes("platinium") ? "platinium" : "common";
-    let cardName = card.name.replace(/ Season .*/g, '');
+    let scarcity = card.scarcity.name;
+    let artist = card.artist.displayName;
 
-    t += card.name + ";" + cardName + ";" + scarcity + ";" + listing.serialNumber + ";"
+    t += card.slug + ";" + artist + ";" + scarcity + ";" + listing.serialNumber + ";"
        + priceETH + ";" + priceEUR.toFixed(2) + ";" + date.toLocaleString() + "<br>";
   }
 

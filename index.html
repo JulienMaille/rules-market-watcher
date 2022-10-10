@@ -11,6 +11,7 @@
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 40;            // price threshold (EUR) for notification
+allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
@@ -37,19 +38,19 @@ function listings(hits) {
     let date = new Date(listing.date);
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
-    let cardIsPlat = card.slug.includes("platinium");
-    let cardName = card.name.replace(/ Season .*/g, '');
+    let cardIsPlat = card.scarcity.name == "Platinium";
+    let artist = card.artist.displayName;
 
     let recent = (new Date - date < recentDef);
     let lessRecent = (new Date - date < recentDef*4);
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
-    classes += card.tier==1 ? " toptier" : " lowtier";
+    classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
     if( recent && listing.available )
       if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
         || (priceEUR<=1.5*cheapNotif && cardIsPlat) )
-        notify(cardName + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", url, card.pictureUrl);
+        notify(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", url, card.pictureUrl);
 
     let dateText = "";
     if( listing.available )
@@ -57,7 +58,7 @@ function listings(hits) {
     else
       dateText = "Transfer " + date.toLocaleTimeString([], timeOptions);
 
-    let t = "<td id='card'><a href='" + url + "' target='_blank'>" + cardName + "</a></td>"
+    let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='price'>" + euroFmt.format(priceEUR) + "</td>"
           + "<td id='date'>" + dateText + "</td>";
