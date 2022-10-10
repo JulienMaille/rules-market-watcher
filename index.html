@@ -176,9 +176,9 @@ function main() {
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
     var hits = [];
-    fetchOffers("serialNumber<=2000").then(json => {
+    fetchOffers("serialNumber<=1000").then(json => {
       hits = hits.concat(json.hits);
-      fetchOffers("serialNumber>2000").then(json => {
+      fetchOffers("serialNumber>1000").then(json => {
         hits = hits.concat(json.hits);
         listings(hits);
 

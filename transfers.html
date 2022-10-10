@@ -152,10 +152,10 @@ function main() {
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
     var hits = [];
-    fetchTransfers("serialNumber<=2000").then(json => {
-      hits = hits.concat(json.hits);
-      fetchTransfers("serialNumber>2000").then(json => {
-        hits = hits.concat(json.hits);
+    fetchTransfers("serialNumber<=1000").then(json => {
+      hits = hits.concat(json.hits); console.log(json.nbHits);
+      fetchTransfers("serialNumber>1000").then(json => {
+        hits = hits.concat(json.hits); console.log(json.nbHits);
         listings(hits);
 
         for( key of hiddenClass )
