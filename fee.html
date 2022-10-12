@@ -82,26 +82,29 @@ document.addEventListener('DOMContentLoaded', function() {
     83.33% {content: '🕙';}
     91.66% {content: '🕚';}
 }
-#drops:hover .tooltip {
-  display:block;
-  font-size: 16pt; 
-  margin-top: 14px;
-  margin-left: 28px;
-  padding: 14px;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(12.8px);
-  -webkit-backdrop-filter: blur(12.8px);
-  border: 1px solid #9f04dc;
-}
-
-.tooltip {
-  display: none;
-  color: #CCC;
-  position: absolute;
-  z-index: 1000;
-}
+  #maxPrice {border-bottom: 1px dashed #9f04dc99; padding: 0 0 4px;}
+  #maxPrice:hover {border-color: #9f04dc;}
+  #drops:hover .tooltip {
+    display:block;
+    font-size: 16pt;
+    text-align: center;
+    margin-top: 14px;
+    margin-left: 28px;
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(12.8px);
+    -webkit-backdrop-filter: blur(12.8px);
+    border: 1px solid #9f04dc;
+  }
+  
+  .tooltip {
+    display: none;
+    color: #CCC;
+    position: absolute;
+    z-index: 1000;
+  }
 </style>
 </head>
 <body>
