@@ -59,10 +59,12 @@ function listings(hits) {
     else
       dateText = "Transfer " + date.toLocaleTimeString([], timeOptions);
 
+    let sellerOnClick = "class='ID" + listing.sellerUserId + "' onClick=\"fetchUser('" + listing.sellerUserId + "'); return false;\"";
+
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='price'>" + euroFmt.format(priceEUR) + "</td>"
-          + "<td id='date'>" + dateText + "</td>";
+          + "<td id='date'" + sellerOnClick + ">" + dateText + "</td>";
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
@@ -145,6 +147,20 @@ function notify(content, link, picture) {
       });
     });
   });
+}
+
+function fetchUser(userId) {
+  fetchUserNames([userId]).then(json => {
+    for (const user of json.data.usersByIds){
+      let userClass = ".ID" + user.id;
+      document.querySelectorAll(userClass).forEach(function(td) {
+        td.removeAttribute("onclick");
+        let url = "https://rules.art/user/" + user.slug + "/cards";
+        td.innerHTML = "<a href='user.html?user=" + user.slug + "'>" + user.username + "</a>"
+                     + " <a href='" + url + "' target='_blank'><img src='rules-logo.png'></a>";
+      });
+    }
+  })
 }
 
 // main
