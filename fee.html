@@ -9,7 +9,7 @@ function main() {
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
 
-    document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString() + "<br>ils s'élèvent à :";
+    document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString();
 
     fetchMaxGasPrice().then(json => {
       let maxGasPrice = parseInt(json.maximum_gas_price, 16)/10**18;
@@ -17,7 +17,7 @@ function main() {
       fetchGasPrice().then(json => {
         let gasPrice = parseInt(json.gas_price, 16)/10**18;
 
-        document.querySelector("#maxPrice").innerHTML = gasPrice >= maxGasPrice ? "⌛ drops en attente" : "✅ drops actifs";
+        document.querySelector("#maxPrice").innerHTML = gasPrice >= maxGasPrice ? "<span class='clock' role='img'></span> drops en attente" : "✅ drops actifs";
 
         let feeETH = gasPrice*giftGasUsage;
         let feeEUR = feeETH*ethEurRate;
@@ -56,19 +56,33 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <style>
-  body {background-color: black; color: #CCC; font-size: 18pt; font-family: Roboto,Helvetica; text-align: right;}
+  body {background-color: black; color: #FFF; font-size: 19pt; font-family: Roboto,Helvetica; text-align: right;}
   #menu a {text-decoration: none;}
   #menu a:hover {color: transparent; text-shadow: 0 0 0 #9f04dc;}
   #text, #melon {float: left; margin-right: 40px;}
   #text br {line-height: 80%;}
-  #hour {color: #9f04dc;}
-  .fee {color: #9f04dc;}
-  #feeGiftETH, #maxFeeGiftETH, #feeSellETH, #maxFeeSellETH, #feeBuyETH, #maxFeeBuyETH {color: #CCC;}
-  #feeIcon {animation: scaleIn .8s infinite linear}
+  #hour, .fee {color: #9f04dc;}
+  #feeGiftETH, #maxFeeGiftETH, #feeSellETH, #maxFeeSellETH, #feeBuyETH, #maxFeeBuyETH {color: #AAA;}
+  #feeIcon {animation: scaleIn .8s infinite linear;}
   @keyframes scaleIn {
-    from {opacity: 1; transform: scale(.75, .75); }
-    to { opacity: 0; transform: scale(1.75, 1.75); }
+    from {opacity: 1; transform: scale(.75, .75);}
+    to {opacity: 0; transform: scale(1.75, 1.75);}
   }
+  .clock::after {content: '🕛';animation: clock 2s linear infinite;}
+  @keyframes clock {
+     8.33% {content: '🕐';}
+    16.66% {content: '🕑';}
+    25.00% {content: '🕒';}
+    33.33% {content: '🕓';}
+    41.66% {content: '🕔';}
+    50.00% {content: '🕕';}
+    58.33% {content: '🕖';}
+    66.66% {content: '🕗';}
+    75.00% {content: '🕘';}
+    83.33% {content: '🕙';}
+    91.66% {content: '🕚';}
+}
+
 </style>
 </head>
 <body>
@@ -84,15 +98,15 @@ document.addEventListener('DOMContentLoaded', function() {
     <br>
     <div id="maxPrice"></div>
     <br>
-    <div id="gift"><span id="feeIcon"></span>Echange</div>
+    <div class="title"><span id="feeIcon"></span>Echange</div>
     <div class="fee"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
     <div class="fee">Max <span id="maxFeeGiftETH"></span> (<span id="maxFeeGiftEUR"></span>€)</div>
     <br>
-    <div id="sell">Mise en vente</div>
+    <div class="title">Mise en vente</div>
     <div class="fee"><span id="feeSellETH"></span> (<span id="feeSellEUR"></span>€)</div>
     <div class="fee">Max <span id="maxFeeSellETH"></span> (<span id="maxFeeSellEUR"></span>€)</div>
     <br>
-    <div id="buy">Achat</div>
+    <div class="title">Achat</div>
     <div class="fee"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
     <div class="fee">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
   </div>
