@@ -82,7 +82,26 @@ document.addEventListener('DOMContentLoaded', function() {
     83.33% {content: '🕙';}
     91.66% {content: '🕚';}
 }
+#drops:hover .tooltip {
+  display:block;
+  font-size: 16pt; 
+  margin-top: 14px;
+  margin-left: 28px;
+  padding: 14px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.8px);
+  -webkit-backdrop-filter: blur(12.8px);
+  border: 1px solid #9f04dc;
+}
 
+.tooltip {
+  display: none;
+  color: #CCC;
+  position: absolute;
+  z-index: 1000;
+}
 </style>
 </head>
 <body>
@@ -96,7 +115,17 @@ document.addEventListener('DOMContentLoaded', function() {
     <div id="combien">A combien sont les frais<br>des transactions Rules ?</div>
     <div id="hour"></div>
     <br>
-    <div id="maxPrice"></div>
+    <div id="drops">
+      <span id="maxPrice"></span>
+      <span class="tooltip">
+        L'ouverture d'un pack sur la blockchain<br>
+        génère des frais à la charge de Rules.<br>
+        Ces frais varient d'heure en heure, ainsi<br>
+        l'ouverture des packs est suspendue<br>
+        lorque les frais sont si élevés qu'ils <br>
+        compromettent la rentabilité d'un pack à 9€.
+      </span>
+    </div>
     <br>
     <div class="title"><span id="feeIcon"></span>Echange</div>
     <div class="fee"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
