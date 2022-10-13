@@ -54,7 +54,7 @@ function listings(hits) {
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
-    let sellerOnClick = "class='ID" + listing.fromUserId + "' onClick=\"fetchUser('" + listing.fromUserId + "'); return false;\"";
+    let sellerOnClick = "class='ID" + listing.toUserId + "' onClick=\"fetchUser('" + listing.toUserId + "'); return false;\"";
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
