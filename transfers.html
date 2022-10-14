@@ -64,23 +64,24 @@ function listings(hits) {
   }
 
   let stats = " - <a href='index.html'>" + hits.length + " transfers</a>"
-            + " - Total: " + euroFmt.format(sum) + " - Today: " + euroFmt.format(todaySum);
+            + " 💱 Total: " + euroFmt.format(sum) + " - Today: " + euroFmt.format(todaySum);
   document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
 };
 
 // table creation and population
 function createTable(id, text) {
-  return `<table id="${id}" border=1>
-           <thead>
-             <tr>
-               <th>Artist<\/th>
-               <th>${text}<\/th>
-               <th>Price<\/th>
-               <th>Date<\/th>
-            <\/tr>
-           <\/thead>
-           <tbody><\/tbody>
-         <\/table>`;
+  return `
+  <table id="${id}" border=1>
+    <thead>
+      <tr>
+        <th>Artist<\/th>
+        <th>${text}<\/th>
+        <th>Price<\/th>
+        <th>Date<\/th>
+     <\/tr>
+    <\/thead>
+    <tbody><\/tbody>
+  <\/table>`;
 }
 
 function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
@@ -126,7 +127,7 @@ function setSorting(value) {
 
 function fetchUser(userId) {
   fetchUserNames([userId]).then(json => {
-    for (const user of json.data.usersByIds){
+    for( const user of json.data.usersByIds ) {
       let userClass = ".ID" + user.id;
       document.querySelectorAll(userClass).forEach(function(td) {
         td.removeAttribute("onclick");
@@ -151,7 +152,7 @@ function main() {
   }
 
   let t = "";
-  for (const key in tables)
+  for( const key in tables )
     t += createTable(key, tables[key]);
   document.querySelector("#tables").innerHTML = t;
 
@@ -168,9 +169,9 @@ function main() {
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
     var hits = [];
-    fetchTransfers("serialNumber<=1000").then(json => {
+    fetchTransfers("serialNumber<=1000", "is_sale:true").then(json => {
       hits = hits.concat(json.hits);
-      fetchTransfers("serialNumber>1000").then(json => {
+      fetchTransfers("serialNumber>1000", "is_sale:true").then(json => {
         hits = hits.concat(json.hits);
         listings(hits);
 
@@ -200,9 +201,11 @@ document.addEventListener('DOMContentLoaded', function() {
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
   #update {color: #777;}
-  #menu, #options { float:left;}
+  #menu, #options, #infos {float:left;}
+  #menu, #infos {margin-top: -6px;}
+  #options label {margin-top: -4px;}
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
-  #options label, #options span {margin-right: 8px; float:left;}
+  #options label, #options span {margin-right: 6px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tables {clear: both;}
 </style>
@@ -231,6 +234,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <option value="card">card</option>
     </select>
   </label>
+</div>
+<div id="infos">
   <span id="update"></span>
 </div>
 <div id="tables"></div>

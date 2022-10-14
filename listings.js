@@ -1,5 +1,5 @@
 async function fetchOffers(filter) {
-  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
+  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/offers-price-asc/query", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
@@ -23,8 +23,8 @@ async function fetchOffers(filter) {
   });
 }
 
-async function fetchTransfers(filter, facetFilter="is_sale:true") {
-  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/transfers-date-desc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
+async function fetchTransfers(filter, facetFilter="") {
+  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/transfers-date-desc/query", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
@@ -88,7 +88,7 @@ async function fetchUserNames(ids) {
 }
 
 async function fetchRoster(userId) {
-  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/cards-date-desc/query?x-algolia-agent=Algolia%20for%20JavaScript%20(4.13.0)%3B%20Browser", {
+  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/cards-date-desc/query", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",

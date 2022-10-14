@@ -13,7 +13,7 @@ var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 40;            // price threshold (EUR) for notification
 allCardModels = allCardModels.data.allCardModels;
 
-function listings(hits) {
+function listings(hits, notify) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
   let euroOptions = {style: 'currency', currency: 'EUR', maximumFractionDigits: 0};
@@ -47,11 +47,13 @@ function listings(hits) {
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
-    if( recent && listing.available )
-      if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
+    if( recent && listing.available &&
+      ((priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
-        || (priceEUR<=1.5*cheapNotif && !cardIsCommon) )
-        notify(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", url, card.pictureUrl);
+        || (priceEUR<=1.5*cheapNotif && !cardIsCommon)) ) {
+      if( !notify ) continue;
+      sendNotification(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", url, card.pictureUrl);
+    }
 
     let dateText = "";
     if( listing.available )
@@ -69,23 +71,24 @@ function listings(hits) {
   }
 
   let stats = " - <a href='transfers.html'>" + hits.length + " offers</a>"
-            + " - Total: " + euroFmt.format(sum);
+            + " 💱 Total: " + euroFmt.format(sum);
   document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
 };
 
 // table creation and population
 function createTable(id, text) {
-  return `<table id="${id}" border=1>
-           <thead>
-             <tr>
-               <th>Artist<\/th>
-               <th>${text}<\/th>
-               <th>Price<\/th>
-               <th>Date<\/th>
-            <\/tr>
-           <\/thead>
-           <tbody><\/tbody>
-         <\/table>`;
+  return `
+  <table id="${id}" border=1>
+    <thead>
+      <tr>
+        <th>Artist<\/th>
+        <th>${text}<\/th>
+        <th>Price<\/th>
+        <th>Date<\/th>
+     <\/tr>
+    <\/thead>
+    <tbody><\/tbody>
+  <\/table>`;
 }
 
 function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
@@ -129,6 +132,14 @@ function setSorting(value) {
   main();
 }
 
+function toggleNotify(value) {
+  var searchParams = new URLSearchParams(window.location.search);
+  let notify = searchParams.get("notify") == "true"; console.log(!notify);
+  searchParams.set("notify", !notify);
+  history.replaceState(null, null, "?"+searchParams.toString());
+  main();
+}
+
 // notifications
 function registerNotifications() {
   navigator.serviceWorker.register('sw.js');
@@ -138,20 +149,18 @@ function registerNotifications() {
     Notification.requestPermission();
 }
 
-function notify(content, link, picture) {
+function sendNotification(content, link, picture) {
   Notification.requestPermission((result) => {
-    if (result != 'granted') return;
+    if( result != 'granted' ) return;
     navigator.serviceWorker.ready.then((registration) => {
-      registration.showNotification(content, {
-        icon: picture
-      });
+      registration.showNotification(content, {icon: picture});
     });
   });
 }
 
 function fetchUser(userId) {
   fetchUserNames([userId]).then(json => {
-    for (const user of json.data.usersByIds){
+    for( const user of json.data.usersByIds ) {
       let userClass = ".ID" + user.id;
       document.querySelectorAll(userClass).forEach(function(td) {
         td.removeAttribute("onclick");
@@ -176,19 +185,23 @@ function main() {
   }
 
   let t = "";
-  for (const key in tables)
+  for( const key in tables )
     t += createTable(key, tables[key]);
   document.querySelector("#tables").innerHTML = t;
 
   let searchParams = new URLSearchParams(window.location.search);
+  let notify = false;
   let hiddenClass = [];
   for( const [key, value] of searchParams ) {
     if( value=="false" ) {
       document.querySelector("#"+key).checked = false;
       hiddenClass.push(key);
     }
-    if( key=="sorting" ) document.querySelector("#"+key).value=value;
+    if( key=="sorting" ) document.querySelector("#"+key).value = value;
+    if( key=="notify" ) notify = value=="true";
   }
+
+  document.querySelector("#notify").innerHTML = notify ? "🔔" : "🔕";
 
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
@@ -197,7 +210,7 @@ function main() {
       hits = hits.concat(json.hits);
       fetchOffers("serialNumber>1000").then(json => {
         hits = hits.concat(json.hits);
-        listings(hits);
+        listings(hits, notify);
 
         for( key of hiddenClass )
             setVisibility(key, false);
@@ -212,9 +225,9 @@ function main() {
     let feeETH = gasPrice*buyGasUsage;
     let feeEUR = feeETH*ethEurRate;
     let col = "🟢";
-    if( feeEUR> 2.0 ) col = "🔥";
-    else if( feeEUR> 1.4 ) col = "🔴";
-    else if( feeEUR> 0.7 ) col = "🟡";
+    if( feeEUR > 2.0 ) col = "🔥";
+    else if( feeEUR > 1.4 ) col = "🔴";
+    else if( feeEUR > 0.7 ) col = "🟡";
     document.querySelector("#feeicon").innerHTML = col;
     document.querySelector("#feelink").innerHTML = "Current fee: " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
   });
@@ -240,12 +253,14 @@ document.addEventListener('DOMContentLoaded', function() {
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
   #update {color: #777;}
-  #menu, #options { float:left;}
+  #menu, #options, #infos {float:left;}
+  #menu, #infos {margin-top: -6px;}
+  #options label {margin-top: -4px}
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
-  #options label, #options span {margin-right: 8px; float:left;}
+  #options label, #options span {margin-right: 6px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tables {clear: both;}
-  #feeicon {font-size: 13px; margin-right: 2px !important; animation: scaleIn .8s infinite linear;}
+  #feeicon {font-size: 14px; margin-right: 2px !important; animation: scaleIn .8s infinite linear;}
   @keyframes scaleIn {
     from {opacity: 1; transform: scale(.75, .75);}
     to {opacity: 0; transform: scale(1.75, 1.75);}
@@ -276,6 +291,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <option value="card">card</option>
     </select>
   </label>
+</div>
+<div id="infos">
+  <span id="notify" onClick="toggleNotify()"></span>
   <span id="update"></span>
   <span><span id="feeicon"></span><a id="feelink" href="fee.html"></a></span>
 </div>

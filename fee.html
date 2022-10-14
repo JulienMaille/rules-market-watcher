@@ -22,9 +22,9 @@ function main() {
         let feeETH = gasPrice*giftGasUsage;
         let feeEUR = feeETH*ethEurRate;
         let col = "🟢";
-        if( feeEUR> 0.6 ) col = "🔥";
-        else if( feeEUR> 0.4 ) col = "🔴";
-        else if( feeEUR> 0.2 ) col = "🟡";
+        if( feeEUR > 0.6 ) col = "🔥";
+        else if( feeEUR > 0.4 ) col = "🔴";
+        else if( feeEUR > 0.2 ) col = "🟡";
         document.querySelector("#feeIcon").innerHTML = col;
 
         document.querySelector("#feeGiftETH").innerHTML = feeETH.toFixed(7) + " ETH";
