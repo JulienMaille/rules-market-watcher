@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
 }
   #maxPrice {border-bottom: 1px dashed #9f04dc99; padding: 0 0 4px;}
   #maxPrice:hover {border-color: #9f04dc;}
-  #drops:hover .tooltip {
+  #drops:hover .tooltip, .title:hover .tooltip {
     display:block;
     font-size: 16pt;
     text-align: center;
@@ -125,12 +125,19 @@ document.addEventListener('DOMContentLoaded', function() {
         génère des frais à la charge de Rules.<br>
         Ces frais varient d'heure en heure, ainsi<br>
         l'ouverture des packs est suspendue<br>
-        lorque les frais sont si élevés qu'ils <br>
+        lorque les frais sont si élevés qu'ils<br>
         compromettent la rentabilité d'un pack à 9€.
       </span>
     </div>
     <br>
-    <div class="title"><span id="feeIcon"></span>Echange</div>
+    <div class="title">
+      <span id="feeIcon"></span>
+      <span class="tooltip">
+        frais &lt 0.20€ 🟢<br>
+        frais &lt 0 40€ 🟡<br>
+        frais &lt 0 60€ 🔴<br>
+        frais &gt 0.60€ 🔥
+      </span>Echange</div>
     <div class="fee"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
     <div class="fee">Max <span id="maxFeeGiftETH"></span> (<span id="maxFeeGiftEUR"></span>€)</div>
     <br>
