@@ -52,7 +52,7 @@ function listings(hits, notify) {
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
         || (priceEUR<=1.5*cheapNotif && !cardIsCommon)) ) {
       if( !notify ) continue;
-      sendNotification(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", url, card.pictureUrl);
+      sendNotification(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
     }
 
     let dateText = "";
@@ -132,9 +132,9 @@ function setSorting(value) {
   main();
 }
 
-function toggleNotify(value) {
+function toggleNotify() {
   var searchParams = new URLSearchParams(window.location.search);
-  let notify = searchParams.get("notify") == "true"; console.log(!notify);
+  let notify = searchParams.get("notify") == "true";
   searchParams.set("notify", !notify);
   history.replaceState(null, null, "?"+searchParams.toString());
   main();
@@ -149,7 +149,7 @@ function registerNotifications() {
     Notification.requestPermission();
 }
 
-function sendNotification(content, link, picture) {
+function sendNotification(content, picture) {
   Notification.requestPermission((result) => {
     if( result != 'granted' ) return;
     navigator.serviceWorker.ready.then((registration) => {
