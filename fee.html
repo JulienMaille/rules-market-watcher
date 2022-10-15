@@ -5,6 +5,35 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="costs.js"></script>
 <script>
+
+function toggleDropStatus(value) {
+  var searchParams = new URLSearchParams(window.location.search);
+  if( searchParams.get("drop") == "false" && value )
+    sendNotification("✅ drops de nouveau actifs", "https://julienmaille.github.io/rules-market-watcher/rules_Melon_R.png");
+  else if( searchParams.get("drop") == "true" && !value )
+    sendNotification("🕓 les drops viennent de repasser en attente", "https://julienmaille.github.io/rules-market-watcher/rules_Melon_R.png");
+  searchParams.set("drop", value);
+  history.replaceState(null, null, "?"+searchParams.toString());
+}
+
+// notifications
+function registerNotifications() {
+  navigator.serviceWorker.register('sw.js');
+  if( !Notification )
+    console.log('Browser does not support notifications.');
+  else if( Notification.permission !== 'granted' )
+    Notification.requestPermission();
+}
+
+function sendNotification(content, picture) {
+  Notification.requestPermission((result) => {
+    if( result != 'granted' ) return;
+    navigator.serviceWorker.ready.then((registration) => {
+      registration.showNotification(content, {icon: picture});
+    });
+  });
+}
+
 function main() {
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
@@ -16,8 +45,9 @@ function main() {
 
       fetchGasPrice().then(json => {
         let gasPrice = parseInt(json.gas_price, 16)/10**18;
-
-        document.querySelector("#maxPrice").innerHTML = gasPrice >= maxGasPrice ? "<span class='clock' role='img'></span> drops en attente" : "✅ drops actifs";
+        let dropStatus = gasPrice < maxGasPrice;
+        toggleDropStatus(dropStatus);
+        document.querySelector("#maxPrice").innerHTML = dropStatus ? "✅ drops actifs" : "<span class='clock' role='img'></span> drops en attente";
 
         let feeETH = gasPrice*giftGasUsage;
         let feeEUR = feeETH*ethEurRate;
