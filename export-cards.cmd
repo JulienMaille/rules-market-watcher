@@ -15,4 +15,4 @@ curl "https://rules-t8gf.onrender.com/https://api.rules.art/graphql" ^
     } ^
   } \" }" >> "cards.js"
 
-echo var topTier = ["le-reglement", "caballero", "jeanjass", "deen-burbigo", "zuukou-mayzie", "winnterzuko", "kerchak"]; >> "cards.js"
+echo var topTier = ["le-reglement", "caballero", "jeanjass", "deen-burbigo", "zuukou-mayzie", "winnterzuko", "kerchak", "doums"]; >> "cards.js"
