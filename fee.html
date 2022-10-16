@@ -5,13 +5,14 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="costs.js"></script>
 <script>
+var melon = Math.random() < 0.5 ? "rules_Melon_C.png" : "rules_Melon_P.png";
 
 function toggleDropStatus(value) {
   var searchParams = new URLSearchParams(window.location.search);
   if( searchParams.get("drop") == "false" && value )
-    sendNotification("✅ drops de nouveau actifs", "https://julienmaille.github.io/rules-market-watcher/rules_Melon_R.png");
+    sendNotification("✅ drops de nouveau actifs", "https://julienmaille.github.io/rules-market-watcher/" + melon);
   else if( searchParams.get("drop") == "true" && !value )
-    sendNotification("🕓 les drops viennent de repasser en attente", "https://julienmaille.github.io/rules-market-watcher/rules_Melon_R.png");
+    sendNotification("🕓 les drops viennent de repasser en attente", "https://julienmaille.github.io/rules-market-watcher/" + melon);
   searchParams.set("drop", value);
   history.replaceState(null, null, "?"+searchParams.toString());
 }
@@ -82,6 +83,7 @@ function main() {
   });
 }
 document.addEventListener('DOMContentLoaded', function() {
+  document.querySelector("#melon").src = melon;
   main();
 });
 </script>
@@ -179,6 +181,6 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="fee"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
     <div class="fee">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
   </div>
-  <img id="melon" src="rules_Melon_R.png" />
+  <img id="melon"/>
 </body>
 </html>
