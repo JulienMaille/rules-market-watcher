@@ -55,13 +55,14 @@ function cleanQuery(q) {
 
 async function fetchUserId(username) {
   var username = cleanQuery(username);
+  var picSize = cleanQuery("width=96");
   return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
     },
-    "body": `{ "query": "{ user(slug: ${username}) { id } }" }`,
+    "body": `{ "query": "{ user(slug: ${username}) { id packsBalances {balance pack {displayName description pictureUrl(derivative: ${picSize}) }}} }" }`,
     "method": "POST",
     "mode": "cors"
   }).then(response => {
@@ -78,7 +79,7 @@ async function fetchUserNames(ids) {
       "content-type": "application/json",
     },
     "body": `{
-      "query": "{ usersByIds(ids: ${idsString}) { id, username, slug }}"
+      "query": "{ usersByIds(ids: ${idsString}) { id username slug }}"
     }`,
     "method": "POST",
     "mode": "cors"
@@ -121,7 +122,7 @@ async function fetchUserCards(ids) {
       "content-type": "application/json",
     },
     "body": `{
-      "query": "{ cardsByIds(ids: ${idsString}) {serialNumber, cardModel {id} }}"
+      "query": "{ cardsByIds(ids: ${idsString}) {serialNumber cardModel {id} }}"
     }`,
     "method": "POST",
     "mode": "cors"

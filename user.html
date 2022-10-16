@@ -163,7 +163,7 @@ function showCards(cards) {
     let card = cardInfo(c.cardModel.id);
     let picUrl = card.pictureUrl;
     cardIds.push(c.cardModel.id);
-    t += "<div class='card'><img height=64 src='" + picUrl + "' alt='" + card.artist.displayName + "'><br>#" + c.serialNumber + "</div>";
+    t += "<div class='card'><img width=48 src='" + picUrl + "' alt='" + card.artist.displayName + "'><br>#" + c.serialNumber + "</div>";
   }
   document.querySelector("#cards").innerHTML = t;
 
@@ -174,7 +174,15 @@ function showCards(cards) {
       t+= "<br>Missing: " + model.slug;
   }
   document.querySelector("#missing").innerHTML = t;
+}
 
+function showPacks(packs) {
+  let t = "";
+  for( p of packs ) {
+    for( var i=0; i<p.balance; i++ )
+      t += "<div class='pack'><img width=48 src='" + p.pack.pictureUrl + "' alt='" + p.pack.displayName + "'><br>" + p.pack.displayName.split(" ")[0] + "</div>";
+  }
+  document.querySelector("#packs").innerHTML = t;
 }
 
 // main
@@ -224,6 +232,7 @@ function main() {
           showCards(json.data.cardsByIds);
         });
       });
+      showPacks(json.data.user.packsBalances);
     })
     .catch((e) => {
       document.querySelector("#update").innerHTML = "fetchUserId failed with: " + e;
@@ -263,16 +272,16 @@ document.addEventListener('DOMContentLoaded', function() {
   #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
-  #update {color: #777;}
+  #update, #missing {color: #777;}
   #menu, #options, #infos {float:left;}
   #menu, #infos {margin-top: -6px;}
   #options label, #options span {margin-top: -4px;}
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
   #options label, #options span {margin-right: 6px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
-  #tables, #cards, #missing {clear: both;}
+  #tables, #packs, #cards, #missing {clear: both;}
   .in #direction, .in #price {color: #f8312f;}
-  #cards div {float: left; font-size: 12px; padding-left: 2px;}
+  #packs div, #cards div {float: left; font-size: 12px; padding-left: 2px;}
 </style>
 </head>
 <body>
@@ -310,6 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <span id="update"></span>
 </div>
 <div id="tables"></div>
+<div id="packs"></div>
 <div id="cards"></div>
 <div id="missing"></div>
 </body>
