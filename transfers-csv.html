@@ -43,9 +43,9 @@ function main() {
   fetchEthPrice().then(json => {
     ethEurRate = parseInt(json.data.amount);
     var hits = [];
-    fetchTransfers("serialNumber<=1000").then(json => {
+    fetchTransfers("serialNumber<=1000", "is_sale:true").then(json => {
       hits = hits.concat(json.hits);
-      fetchTransfers("serialNumber>1000").then(json => {
+      fetchTransfers("serialNumber>1000", "is_sale:true").then(json => {
         hits = hits.concat(json.hits);
         listings(hits);
       })
