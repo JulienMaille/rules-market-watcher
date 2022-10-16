@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Past transfers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="dark light">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<script src="cards.js"></script>
+<script src="listings.js"></script>
+<script src="costs.js"></script>
+<script>
+var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
+var ethEurRate;
+allCardModels = allCardModels.data.allCardModels;
+
+function listings(hits) {
+  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
+  let timeOptions = {hour: "2-digit", minute: "2-digit"};
+  let euroOptions = {style: 'currency', currency: 'EUR', maximumFractionDigits: 0};
+  let euroFmt = new Intl.NumberFormat([], euroOptions);
+
+  function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
+  function sortByCard(a, b) { return a.cardModelId > b.cardModelId ? -1 : 1 }
+  function sortByDate(a, b) { return a.date > b.date ? -1 : 1 }
+
+  let sortRule = document.querySelector("#sorting").value;
+  if( sortRule == "price" ) hits.sort(sortByPrice);
+  if( sortRule == "card" ) hits.sort(sortByCard);
+  if( sortRule == "date" ) hits.sort(sortByDate);
+  //console.log(hits);
+
+  let sum = 0, todaySum = 0;
+  for( const listing of hits ) {
+    let card = cardInfo(listing.cardModelId);
+    let date = new Date(listing.date);
+
+    let priceEUR = "Pack";
+    if( "fromUserId" in listing ) priceEUR = "Gift";
+    if( "price" in listing ) {
+      let priceETH = parseInt(listing.price, 16)/10**18;
+      priceEUR = euroFmt.format(priceETH * ethEurRate);
+      sum += priceETH * ethEurRate;
+      if( (new Date).toDateString() == date.toDateString() )
+        todaySum += priceETH * ethEurRate;
+    }
+
+    let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
+
+    let cardIsCommon = card.scarcity.name == "Common";
+    let artist = card.artist.displayName;
+
+    let recent = (new Date - date < recentDef);
+    let lessRecent = (new Date - date < recentDef*4);
+    let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
+    classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
+
+    let sellerOnClick = "class='ID" + listing.toUserId + "' onClick=\"fetchUser('" + listing.toUserId + "'); return false;\"";
+
+    let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
+          + "<td id='serial'>" + listing.serialNumber + "</td>"
+          + "<td id='price'>" + priceEUR + "</td>"
+          + "<td id='date'" + sellerOnClick + ">" + date.toLocaleString([], dateOptions) + "</td>";
+    insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
+  }
+
+  let stats = " - <a href='index.html'>" + hits.length + " transfers</a>"
+            + " 💱 Total: " + euroFmt.format(sum) + " - Today: " + euroFmt.format(todaySum);
+  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
+};
+
+// table creation and population
+function createTable(id, text) {
+  return `
+  <table id="${id}" border=1>
+    <thead>
+      <tr>
+        <th>Artist<\/th>
+        <th>${text}<\/th>
+        <th>Price<\/th>
+        <th>Date<\/th>
+     <\/tr>
+    <\/thead>
+    <tbody><\/tbody>
+  <\/table>`;
+}
+
+function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
+  let tableId = "#tableHigh";
+  if( !cardIsCommon ) tableId = "#table" + scarcity;
+  else if( serialNumber <= 10 ) tableId = "#tableLowTen";
+  else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
+  else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
+  else if( serialNumber <= 1000 ) tableId = "#tableLowThousand";
+  else if( serialNumber <= 2000 ) tableId = "#tableLowTwoThousand";
+
+  let roundClass = "notround";
+  if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
+  if( [69, 333, 420, 666, 667, 777].includes(serialNumber) ) roundClass = "round";
+
+  const tableRef = document.querySelector(tableId);
+  var newRow = tableRef.insertRow(tableRef.rows.length);
+  newRow.className = roundClass + " " + classes;
+  newRow.innerHTML = row;
+}
+
+function cardInfo(modelId) {
+  return allCardModels.find(({ id }) => id == modelId);
+}
+
+// filtering and sorting
+function setVisibility(className, visible) {
+  elements = document.getElementsByClassName(className);
+  for( var i = 0; i < elements.length; i++ )
+    elements[i].style.display = visible ? 'table-row' : 'none';
+
+  var searchParams = new URLSearchParams(window.location.search);
+  searchParams.set(className, visible);
+  history.replaceState(null, null, "?"+searchParams.toString());
+}
+
+function setSorting(value) {
+  var searchParams = new URLSearchParams(window.location.search);
+  searchParams.set("sorting", value);
+  history.replaceState(null, null, "?"+searchParams.toString());
+  main();
+}
+
+function fetchUser(userId) {
+  fetchUserNames([userId]).then(json => {
+    for( const user of json.data.usersByIds ) {
+      let userClass = ".ID" + user.id;
+      document.querySelectorAll(userClass).forEach(function(td) {
+        td.removeAttribute("onclick");
+        let url = "https://rules.art/user/" + user.slug + "/cards";
+        td.innerHTML = "<a href='user.html?user=" + user.slug + "'>" + user.username + "</a>"
+                     + " <a href='" + url + "' target='_blank'><img src='rules-logo.png'></a>";
+      });
+    }
+  })
+}
+
+// main
+function main() {
+  let tables = {
+    tablePlatinium: "Plat",
+    tableLowTen: "≤10",
+    tableLowHundred: "≤100",
+    tableLowFiveHundred: "≤500",
+    tableLowThousand: "≤1000",
+    tableLowTwoThousand: "≤2000",
+    tableHigh: "#"
+  }
+
+  let t = "";
+  for( const key in tables )
+    t += createTable(key, tables[key]);
+  document.querySelector("#tables").innerHTML = t;
+
+  let searchParams = new URLSearchParams(window.location.search);
+  let hiddenClass = [];
+  for( const [key, value] of searchParams ) {
+    if( value=="false" ) {
+      document.querySelector("#"+key).checked = false;
+      hiddenClass.push(key);
+    }
+    if( key=="sorting" ) document.querySelector("#"+key).value=value;
+  }
+
+  fetchEthPrice().then(json => {
+    ethEurRate = parseInt(json.data.amount);
+    var hits = [];
+    var date36h = (new Date).getTime() - 1000*60*60*36;
+    fetchTransfers("serialNumber<=2000 AND date>"+date36h, "is_sale:-true").then(json => {
+      hits = hits.concat(json.hits); console.log(json.nbHits);
+        fetchTransfers("serialNumber>2000 AND serialNumber<=2600 AND date>"+date36h, "is_sale:-true").then(json => {
+          hits = hits.concat(json.hits); console.log(json.nbHits);
+          fetchTransfers("serialNumber>2600 AND date>"+date36h, "is_sale:-true").then(json => {
+            hits = hits.concat(json.hits); console.log(json.nbHits);
+            listings(hits);
+
+            for( key of hiddenClass )
+                setVisibility(key, false);
+        })
+      })
+    })
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  main();
+});
+
+</script>
+<style>
+  body {font-family: Roboto,Helvetica;}
+  table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 10px;}
+  @media (prefers-color-scheme: dark) { a {color: #CCC;} .recent #date {color: #FF0;}.lessRecent #date {color: #AA0;}}
+  @media (prefers-color-scheme: light) { a {color: #000;} .recent #date {background: #FF0;}.lessRecent #date {background: #FFC;}}
+  a {text-decoration: none;}
+  a:hover {text-decoration: underline;}
+  th {font-weight: normal;}
+  #date {font-stretch: condensed; color: #777;}
+  #tablePlatinium #card a, #tablePlatinium th {color: #ccad00;}
+  #tableLowTen #serial, #tableLowTen th {color: #9f04dc;}
+  #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
+  #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
+  #update {color: #777;}
+  #menu, #options, #infos {float:left;}
+  #menu, #infos {margin-top: -6px;}
+  #options label {margin-top: -4px;}
+  #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
+  #options label, #options span {margin-right: 6px; float:left;}
+  #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
+  #tables {clear: both;}
+</style>
+</head>
+<body>
+<div id="menu">
+  <a href='index.html'>🛒</a>
+  <a href='transfers.html'>🧾</a>
+  <a href='user.html'>🤑</a>
+  <a href='fee.html'>💸</a>
+</div>
+<div id="options">
+  <label for="old">show old listings
+    <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);" checked>
+  </label>
+  <label for="notround">show not round
+    <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);" checked>
+  </label>
+  <label for="lowtier">show lower tier (not finalists)
+    <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked>
+  </label>
+  <label for="sorting">sort by:
+    <select id="sorting" onChange="setSorting(this.value);">
+        <option value="price">price</option>
+        <option value="date">date</option>
+        <option value="card">card</option>
+    </select>
+  </label>
+</div>
+<div id="infos">
+  <span id="update"></span>
+</div>
+<div id="tables"></div>
+</body>
+</html>
