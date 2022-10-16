@@ -11,6 +11,7 @@
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 40;            // price threshold (EUR) for notification
+var timeoutNotif = null;
 allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits, notify) {
@@ -215,7 +216,8 @@ function main() {
         for( key of hiddenClass )
             setVisibility(key, false);
 
-        setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
+        if( timeoutNotif!=null ) clearTimeout(timeoutNotif);
+        timeoutNotif = setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
       })
     })
   });
