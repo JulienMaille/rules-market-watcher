@@ -79,7 +79,7 @@ async function fetchUserNames(ids) {
       "content-type": "application/json",
     },
     "body": `{
-      "query": "{ usersByIds(ids: ${idsString}) { id username slug }}"
+      "query": "{ usersByIds(ids: ${idsString}) {id username slug} }"
     }`,
     "method": "POST",
     "mode": "cors"
@@ -122,7 +122,7 @@ async function fetchUserCards(ids) {
       "content-type": "application/json",
     },
     "body": `{
-      "query": "{ cardsByIds(ids: ${idsString}) {serialNumber cardModel {id} }}"
+      "query": "{ cardsByIds(ids: ${idsString}) {serialNumber cardModel {id}} }"
     }`,
     "method": "POST",
     "mode": "cors"

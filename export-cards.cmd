@@ -1,6 +1,6 @@
 echo var allCardModels = > "cards.js"
 
-curl "https://rules-t8gf.onrender.com/https://api.rules.art/graphql" ^
+curl "https://api.rules.art/graphql" ^
   -H "accept: */*" ^
   -H "content-type: application/json" ^
   -H "origin: null" ^
