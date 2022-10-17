@@ -62,7 +62,7 @@ function listings(hits, notify) {
     else
       dateText = "Transfer " + date.toLocaleTimeString([], timeOptions);
 
-    let sellerOnClick = "class='ID" + listing.sellerUserId + "' onClick=\"fetchUser('" + listing.sellerUserId + "'); return false;\"";
+    let sellerOnClick = "class='ID" + listing.sellerUserId + "' onClick=\"fetchUser(this, '" + listing.sellerUserId + "'); return false;\"";
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
@@ -159,7 +159,8 @@ function sendNotification(content, picture) {
   });
 }
 
-function fetchUser(userId) {
+function fetchUser(clickedDom, userId) {
+  clickedDom.innerHTML = "Loading...";
   fetchUserNames([userId]).then(json => {
     for( const user of json.data.usersByIds ) {
       let userClass = ".ID" + user.id;

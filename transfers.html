@@ -54,7 +54,7 @@ function listings(hits) {
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
-    let sellerOnClick = "class='ID" + listing.toUserId + "' onClick=\"fetchUser('" + listing.toUserId + "'); return false;\"";
+    let sellerOnClick = "class='ID" + listing.toUserId + "' onClick=\"fetchUser(this, '" + listing.toUserId + "'); return false;\"";
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
@@ -125,7 +125,8 @@ function setSorting(value) {
   main();
 }
 
-function fetchUser(userId) {
+function fetchUser(clickedDom, userId) {
+  clickedDom.innerHTML = "Loading...";
   fetchUserNames([userId]).then(json => {
     for( const user of json.data.usersByIds ) {
       let userClass = ".ID" + user.id;
