@@ -175,7 +175,7 @@ function fetchUser(clickedDom, userId) {
 }
 
 // main
-function main() {
+async function main() {
   let tables = {
     tablePlatinium: "Plat",
     tableLowTen: "≤10",
@@ -205,35 +205,24 @@ function main() {
 
   document.querySelector("#notify").innerHTML = notify ? "🔔" : "🔕";
 
-  fetchEthPrice().then(json => {
-    ethEurRate = parseInt(json.data.amount);
-    var hits = [];
-    fetchOffers("serialNumber<=1000").then(json => {
-      hits = hits.concat(json.hits);
-      fetchOffers("serialNumber>1000").then(json => {
-        hits = hits.concat(json.hits);
-        listings(hits, notify);
+  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
+  var hits = [];
+  hits = hits.concat((await fetchOffers("serialNumber<=1000")).hits);
+  hits = hits.concat((await fetchOffers("serialNumber>1000")).hits);
+  listings(hits, notify);
 
-        for( key of hiddenClass )
-            setVisibility(key, false);
+  for( key of hiddenClass )
+    setVisibility(key, false);
 
-        if( timeoutNotif!=null ) clearTimeout(timeoutNotif);
-        timeoutNotif = setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
-      })
-    })
-  });
+  let gasPrice = parseInt((await fetchGasPrice()).gas_price, 16)/10**18;
+  let feeETH = gasPrice*buyGasUsage;
+  let feeEUR = feeETH*ethEurRate;
 
-  fetchGasPrice().then(json => {
-    let gasPrice = parseInt(json.gas_price, 16)/10**18;
-    let feeETH = gasPrice*buyGasUsage;
-    let feeEUR = feeETH*ethEurRate;
-    let col = "🟢";
-    if( feeEUR > 2.0 ) col = "🔥";
-    else if( feeEUR > 1.4 ) col = "🔴";
-    else if( feeEUR > 0.7 ) col = "🟡";
-    document.querySelector("#feeicon").innerHTML = col;
-    document.querySelector("#feelink").innerHTML = "Current fee: " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
-  });
+  document.querySelector("#feeicon").innerHTML = iconCost(feeEUR);
+  document.querySelector("#feelink").innerHTML = "Current fee: " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
+
+  if( timeoutNotif!=null ) clearTimeout(timeoutNotif);
+  timeoutNotif = setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
 }
 
 document.addEventListener('DOMContentLoaded', function() {

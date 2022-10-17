@@ -141,7 +141,7 @@ function fetchUser(clickedDom, userId) {
 }
 
 // main
-function main() {
+async function main() {
   let tables = {
     tablePlatinium: "Plat",
     tableLowTen: "≤10",
@@ -167,20 +167,14 @@ function main() {
     if( key=="sorting" ) document.querySelector("#"+key).value=value;
   }
 
-  fetchEthPrice().then(json => {
-    ethEurRate = parseInt(json.data.amount);
-    var hits = [];
-    fetchTransfers("serialNumber<=1000", "is_sale:true").then(json => {
-      hits = hits.concat(json.hits);
-      fetchTransfers("serialNumber>1000", "is_sale:true").then(json => {
-        hits = hits.concat(json.hits);
-        listings(hits);
+  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
+  var hits = [];
+  hits = hits.concat((await fetchTransfers("serialNumber<=1000", "is_sale:true")).hits);
+  hits = hits.concat((await fetchTransfers("serialNumber>1000", "is_sale:true")).hits);
+  listings(hits);
 
-        for( key of hiddenClass )
-            setVisibility(key, false);
-      })
-    })
-  });
+  for( key of hiddenClass )
+    setVisibility(key, false);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -35,53 +35,42 @@ function sendNotification(content, picture) {
   });
 }
 
-function main() {
-  fetchEthPrice().then(json => {
-    ethEurRate = parseInt(json.data.amount);
+async function main() {
+  document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString();
 
-    document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString();
+  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
+  let maxGasPrice = parseInt((await fetchMaxGasPrice()).maximum_gas_price, 16)/10**18;
+  let gasPrice = parseInt((await fetchGasPrice()).gas_price, 16)/10**18;
 
-    fetchMaxGasPrice().then(json => {
-      let maxGasPrice = parseInt(json.maximum_gas_price, 16)/10**18;
+  let dropStatus = gasPrice < maxGasPrice;
+  toggleDropStatus(dropStatus);
+  document.querySelector("#maxPrice").innerHTML = dropStatus ? "✅ drops actifs" : "<span class='clock' role='img'></span> drops en attente";
 
-      fetchGasPrice().then(json => {
-        let gasPrice = parseInt(json.gas_price, 16)/10**18;
-        let dropStatus = gasPrice < maxGasPrice;
-        toggleDropStatus(dropStatus);
-        document.querySelector("#maxPrice").innerHTML = dropStatus ? "✅ drops actifs" : "<span class='clock' role='img'></span> drops en attente";
+  let feeETH = gasPrice*buyGasUsage;
+  let feeEUR = feeETH*ethEurRate;
+  document.querySelector("#feeIcon").innerHTML = iconCost(feeEUR);
+  document.querySelector("#feeBuyETH").innerHTML = feeETH.toFixed(7) + " ETH";
+  document.querySelector("#feeBuyEUR").innerHTML = feeEUR.toFixed(2);
+  document.querySelector("#maxFeeBuyETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
+  document.querySelector("#maxFeeBuyEUR").innerHTML = (1.5*feeEUR).toFixed(2);
 
-        let feeETH = gasPrice*giftGasUsage;
-        let feeEUR = feeETH*ethEurRate;
-        let col = "🟢";
-        if( feeEUR > 0.6 ) col = "🔥";
-        else if( feeEUR > 0.4 ) col = "🔴";
-        else if( feeEUR > 0.2 ) col = "🟡";
-        document.querySelector("#feeIcon").innerHTML = col;
+  feeETH = gasPrice*sellGasUsage;
+  feeEUR = feeETH*ethEurRate;
+  document.querySelector("#feeSellETH").innerHTML = feeETH.toFixed(7) + " ETH";
+  document.querySelector("#feeSellEUR").innerHTML = feeEUR.toFixed(2);
+  document.querySelector("#maxFeeSellETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
+  document.querySelector("#maxFeeSellEUR").innerHTML = (1.5*feeEUR).toFixed(2);
 
-        document.querySelector("#feeGiftETH").innerHTML = feeETH.toFixed(7) + " ETH";
-        document.querySelector("#feeGiftEUR").innerHTML = feeEUR.toFixed(2);
-        document.querySelector("#maxFeeGiftETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
-        document.querySelector("#maxFeeGiftEUR").innerHTML = (1.5*feeEUR).toFixed(2);
-    
-        feeETH = gasPrice*sellGasUsage;
-        feeEUR = feeETH*ethEurRate;
-        document.querySelector("#feeSellETH").innerHTML = feeETH.toFixed(7) + " ETH";
-        document.querySelector("#feeSellEUR").innerHTML = feeEUR.toFixed(2);
-        document.querySelector("#maxFeeSellETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
-        document.querySelector("#maxFeeSellEUR").innerHTML = (1.5*feeEUR).toFixed(2);
+  feeETH = gasPrice*giftGasUsage;
+  feeEUR = feeETH*ethEurRate;
+  document.querySelector("#feeGiftETH").innerHTML = feeETH.toFixed(7) + " ETH";
+  document.querySelector("#feeGiftEUR").innerHTML = feeEUR.toFixed(2);
+  document.querySelector("#maxFeeGiftETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
+  document.querySelector("#maxFeeGiftEUR").innerHTML = (1.5*feeEUR).toFixed(2);
 
-        feeETH = gasPrice*buyGasUsage;
-        feeEUR = feeETH*ethEurRate;
-        document.querySelector("#feeBuyETH").innerHTML = feeETH.toFixed(7) + " ETH";
-        document.querySelector("#feeBuyEUR").innerHTML = feeEUR.toFixed(2);
-        document.querySelector("#maxFeeBuyETH").innerHTML = (1.5*feeETH).toFixed(7) + " ETH";
-        document.querySelector("#maxFeeBuyEUR").innerHTML = (1.5*feeEUR).toFixed(2);
-
-        setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
-      });
-    });
-  });
+  setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
 }
+
 document.addEventListener('DOMContentLoaded', function() {
   document.querySelector("#melon").src = melon;
   main();
@@ -165,21 +154,21 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="title">
       <span id="feeIcon"></span>
       <span class="tooltip">
-        frais &lt 0.20€ 🟢<br>
-        frais &lt 0 40€ 🟡<br>
-        frais &lt 0 60€ 🔴<br>
-        frais &gt 0.60€ 🔥
-      </span>Echange</div>
-    <div class="fee"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
-    <div class="fee">Max <span id="maxFeeGiftETH"></span> (<span id="maxFeeGiftEUR"></span>€)</div>
+        frais &lt 0.70€ 🟢<br>
+        frais &lt 1.40€ 🟡<br>
+        frais &lt 2.00€ 🔴<br>
+        frais &gt 2.00€ 🔥
+      </span>Achat</div>
+    <div class="fee"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
+    <div class="fee">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
     <br>
     <div class="title">Mise en vente</div>
     <div class="fee"><span id="feeSellETH"></span> (<span id="feeSellEUR"></span>€)</div>
     <div class="fee">Max <span id="maxFeeSellETH"></span> (<span id="maxFeeSellEUR"></span>€)</div>
     <br>
-    <div class="title">Achat</div>
-    <div class="fee"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
-    <div class="fee">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
+    <div class="title">Echange</div>
+    <div class="fee"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
+    <div class="fee">Max <span id="maxFeeGiftETH"></span> (<span id="maxFeeGiftEUR"></span>€)</div>
   </div>
   <img id="melon"/>
 </body>
