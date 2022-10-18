@@ -10,7 +10,6 @@
 <script src="costs.js"></script>
 <script>
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
-var ethEurRate;
 allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits) {
@@ -234,9 +233,9 @@ document.addEventListener('DOMContentLoaded', function() {
   </label>
   <label for="sorting">sort by:
     <select id="sorting" onChange="setSorting(this.value);">
-        <option value="price">price</option>
-        <option value="date">date</option>
-        <option value="card">card</option>
+      <option value="price">price</option>
+      <option value="date">date</option>
+      <option value="card">card</option>
     </select>
   </label>
 </div>

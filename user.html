@@ -10,7 +10,6 @@
 <script src="costs.js"></script>
 <script>
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
-var ethEurRate;
 allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits, id) {
@@ -161,17 +160,16 @@ function showCards(cards) {
   let cardIds = [];
   for( c of cards ) {
     let card = cardInfo(c.cardModel.id);
-    let picUrl = card.pictureUrl;
     cardIds.push(c.cardModel.id);
-    t += "<div class='card'><img width=48 src='" + picUrl + "' alt='" + card.artist.displayName + "'><br>#" + c.serialNumber + "</div>";
+    t += "<div class='card'><img src='" + card.pictureUrl + "'><br>#" + c.serialNumber + "</div>";
   }
   document.querySelector("#cards").innerHTML = t;
 
-  t = "";
+  t = "Missing:<br>";
   for( model of allCardModels ) {
     if( model.scarcity.name != "Common" ) continue;
     if( !cardIds.includes(model.id) )
-      t+= "<br>Missing: " + model.slug;
+      t+= "<div class='card'><img src='" + model.pictureUrl + "'><br>" + model.artist.displayName + "</div>";
   }
   document.querySelector("#missing").innerHTML = t;
 }
@@ -186,7 +184,7 @@ function showPacks(packs) {
 }
 
 // main
-function main() {
+async function main() {
   let tables = {
     tablePlatinium: "Plat",
     tableLowTen: "≤10",
@@ -213,31 +211,26 @@ function main() {
     if( key=="sorting" ) document.querySelector("#"+key).value=value;
   }
 
-  fetchEthPrice().then(json => {
-    ethEurRate = parseInt(json.data.amount);
+  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
+
+  try {
     let username = document.getElementById('username').value.toLowerCase();
     setUser(username);
-    fetchUserId(username).then(json => {
-      let id = json.data.user.id;
-      fetchTransfers(`fromUserId:${id} OR toUserId:${id}`,"").then(json => {
-        listings(json.hits, id);
-          for( key of hiddenClass )
-              setVisibility(key, false);
-      });
-      fetchRoster(id).then(json => {
-        let cardIds = [];
-        for( hit of json.hits )
-          cardIds.push(hit.cardId);
-        fetchUserCards(cardIds).then(json => {
-          showCards(json.data.cardsByIds);
-        });
-      });
-      showPacks(json.data.user.packsBalances);
-    })
-    .catch((e) => {
-      document.querySelector("#update").innerHTML = "fetchUserId failed with: " + e;
-    })
-  });
+
+    let user = (await fetchUserId(username)).data.user;
+    let id = user.id;
+    listings((await fetchTransfers(`fromUserId:${id} OR toUserId:${id}`,"")).hits, id);
+    for( key of hiddenClass )
+      setVisibility(key, false);
+
+    let cardIds = (await fetchRoster(id)).hits;
+    cardIds = cardIds.map(a => a.cardId);
+    showCards((await fetchUserCards(cardIds)).data.cardsByIds);
+    showPacks(user.packsBalances);
+  }
+  catch(e) {
+    document.querySelector("#update").innerHTML = "fetchUserId failed with: " + e;
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -281,7 +274,11 @@ document.addEventListener('DOMContentLoaded', function() {
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tables, #packs, #cards, #missing {clear: both;}
   .in #direction, .in #price {color: #f8312f;}
-  #packs div, #cards div {float: left; font-size: 12px; padding-left: 2px;}
+  #packs div, #cards div, #missing div {float: left; font-size: 12px; padding-left: 2px;}
+  .card img {width: 48px;}
+  #missing div {overflow: hidden; width: 48px;}
+  #missing .card img {opacity: 40%;}
+  #missing .card:hover img {opacity: 100%;}
 </style>
 </head>
 <body>
@@ -309,18 +306,18 @@ document.addEventListener('DOMContentLoaded', function() {
   </label>
   <label for="sorting">sort by:
     <select id="sorting" onChange="setSorting(this.value);">
-        <option value="price">price</option>
-        <option value="date">date</option>
-        <option value="card">card</option>
+      <option value="price">price</option>
+      <option value="date">date</option>
+      <option value="card">card</option>
     </select>
   </label>
 </div>
 <div id="infos">
   <span id="update"></span>
 </div>
-<div id="tables"></div>
 <div id="packs"></div>
 <div id="cards"></div>
 <div id="missing"></div>
+<div id="tables"></div>
 </body>
 </html>
