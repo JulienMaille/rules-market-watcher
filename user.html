@@ -161,7 +161,7 @@ function showCards(cards) {
   for( c of cards ) {
     let card = cardInfo(c.cardModel.id);
     cardIds.push(c.cardModel.id);
-    t += "<div class='card'><img src='" + card.pictureUrl + "'><br>#" + c.serialNumber + "</div>";
+    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
   }
   document.querySelector("#cards").innerHTML = t;
 
@@ -169,7 +169,7 @@ function showCards(cards) {
   for( model of allCardModels ) {
     if( model.scarcity.name != "Common" ) continue;
     if( !cardIds.includes(model.id) )
-      t+= "<div class='card'><img src='" + model.pictureUrl + "'><br>" + model.artist.displayName + "</div>";
+      t+= "<div class='card'><a href='https://rules.art/card/" + model.slug + "'><img src='" + model.pictureUrl + "'></a><br>" + model.artist.displayName + "</div>";
   }
   document.querySelector("#missing").innerHTML = t;
 }

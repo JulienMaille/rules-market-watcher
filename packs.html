@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User transaction history</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="dark light">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<script src="listings.js"></script>
+<script>
+
+function showCards(cards, total) {
+  let t = "";
+  for( c of cards ) {
+    if( c.quantity==null ) c.quantity = total/cards.length;
+    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a><br>" + (100*c.quantity/total).toFixed(1) + "%</div>";
+  }
+  return t;
+}
+
+function showPack(p) {
+  let t = "<div class='pack'><a href='https://rules.art/pack/" + p.slug + "'><img width=48 src='" + p.pictureUrl + "' alt='" + p.displayName + "'>"
+        + p.displayName + "</a> - vendu à " + p.supply + " exemplaires, contient " + p.cardModelsCount + " cartes différentes</div>"
+        + showCards(p.cardModels, p.supply*p.cardsPerPack);
+  document.querySelector("#packs").innerHTML += t;
+}
+
+// main
+async function main() {
+  let packs = (await fetchClassicPacks()).data.allClassicPacks.nodes;
+  for( p of packs ) showPack(p);
+  let pack = (await fetchLastStarterPack()).data.lastStarterPack;
+  showPack(pack);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  main();
+});
+
+</script>
+<style>
+  body {font-family: Roboto,Helvetica;}
+  @media (prefers-color-scheme: dark) { a {color: #CCC;} }
+  @media (prefers-color-scheme: light) { a {color: #000;} }
+  a {text-decoration: none;}
+  a:hover {text-decoration: underline;}
+  #date {font-stretch: condensed; color: #777;}
+  #update, #missing {color: #777;}
+  #menu, #options, #infos {float:left;}
+  #menu, #infos {margin-top: -6px;}
+  #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
+  #packs, .pack {clear: both; padding-top: 14px;}
+  .card {font-size: 12px; float:left;}
+  .card img {width: 48px;}
+</style>
+</head>
+<body>
+<div id="menu">
+  <a href='index.html'>🛒</a>
+  <a href='transfers.html'>🧾</a>
+  <a href='user.html'>🤑</a>
+  <a href='fee.html'>💸</a>
+</div>
+<div id="infos">
+  <span id="update"></span>
+</div>
+<div id="packs"></div>
+</body>
+</html>

@@ -122,7 +122,47 @@ async function fetchUserCards(ids) {
       "content-type": "application/json",
     },
     "body": `{
-      "query": "{ cardsByIds(ids: ${idsString}) {serialNumber cardModel {id}} }"
+      "query": "{ cardsByIds(ids: ${idsString}) {serialNumber cardModel {id slug}} }"
+    }`,
+    "method": "POST",
+    "mode": "cors"
+  }).then(response => {
+    return response.json();
+  });
+}
+
+async function fetchClassicPacks() {
+  var picSize = cleanQuery("width=96");
+  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "en-US;q=0.9,en;q=0.8",
+      "content-type": "application/json",
+    },
+    "body": `{
+      "query": "{ allClassicPacks {nodes {slug displayName pictureUrl(derivative: ${picSize}) \
+                  supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount cardModels \
+                  {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}}} }"
+    }`,
+    "method": "POST",
+    "mode": "cors"
+  }).then(response => {
+    return response.json();
+  });
+}
+
+async function fetchLastStarterPack() {
+  var picSize = cleanQuery("width=96");
+  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "en-US;q=0.9,en;q=0.8",
+      "content-type": "application/json",
+    },
+    "body": `{
+      "query": "{ lastStarterPack {slug displayName pictureUrl(derivative: ${picSize}) \
+                  supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount cardModels \
+                  {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}} }"
     }`,
     "method": "POST",
     "mode": "cors"
