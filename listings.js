@@ -87,7 +87,7 @@ async function fetchUserId(username) {
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
     },
-    "body": `{ "query": "{ user(slug: ${username}) { id packsBalances {balance pack {displayName description pictureUrl(derivative: ${picSize}) }}} }" }`,
+    "body": `{ "query": "{ user(slug: ${username}) { id packsBalances {balance pack {slug displayName pictureUrl(derivative: ${picSize}) }}} }" }`,
     "method": "POST",
     "mode": "cors"
   }).then(response => {

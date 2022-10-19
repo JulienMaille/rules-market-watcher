@@ -38,18 +38,12 @@ function cardInfo(modelId) {
 }
 
 // main
-function main() {
-  fetchEthPrice().then(json => {
-    ethEurRate = parseInt(json.data.amount);
-    var hits = [];
-    fetchTransfers("serialNumber<=1000", "is_sale:true").then(json => {
-      hits = hits.concat(json.hits);
-      fetchTransfers("serialNumber>1000", "is_sale:true").then(json => {
-        hits = hits.concat(json.hits);
-        listings(hits);
-      })
-    })
-  });
+async function main() {
+  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
+  var hits = [];
+  hits = hits.concat((await fetchTransfers("serialNumber<=1000", "is_sale:true")).hits);
+  hits = hits.concat((await fetchTransfers("serialNumber>1000", "is_sale:true")).hits);
+  listings(hits);
 }
 
 document.addEventListener('DOMContentLoaded', function() {

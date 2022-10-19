@@ -178,7 +178,7 @@ function showPacks(packs) {
   let t = "";
   for( p of packs ) {
     for( var i=0; i<p.balance; i++ )
-      t += "<div class='pack'><img width=48 src='" + p.pack.pictureUrl + "' alt='" + p.pack.displayName + "'><br>" + p.pack.displayName.split(" ")[0] + "</div>";
+      t += "<div class='pack'><a href='https://rules.art/pack/" + p.pack.slug + "'><img width=48 src='" + p.pack.pictureUrl + "' alt='" + p.pack.displayName + "'><br>" + p.pack.displayName.split(" ")[0] + "</div>";
   }
   document.querySelector("#packs").innerHTML = t;
 }
