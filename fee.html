@@ -1,6 +1,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="color-scheme" content="dark light">
 <meta http-equiv="refresh" content="300" />
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 <script type="text/javascript" src="costs.js"></script>
@@ -77,7 +78,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <style>
-  body {background-color: black; color: #FFF; font-size: 19pt; font-family: Roboto,Helvetica; text-align: right;}
+  body {font-size: 19pt; font-family: Roboto,Helvetica; text-align: right;}
+  @media (prefers-color-scheme: dark) { .tooltip {background: rgba(0, 0, 0, 0.4); } }
+  @media (prefers-color-scheme: light) { .tooltip {background: rgba(255, 255, 255, 0.4); } }
   #menu a {text-decoration: none;}
   #menu a:hover {color: transparent; text-shadow: 0 0 0 #9f04dc;}
   #text, #melon {float: left; margin-right: 40px;}
@@ -105,24 +108,23 @@ document.addEventListener('DOMContentLoaded', function() {
 }
   #maxPrice {border-bottom: 1px dashed #9f04dc99; padding: 0 0 4px;}
   #maxPrice:hover {border-color: #9f04dc;}
-  #drops:hover .tooltip, .title:hover .tooltip {
-    display:block;
+  .tooltip {
     font-size: 16pt;
     text-align: center;
     margin-top: 14px;
     margin-left: 28px;
     padding: 14px;
-    background: rgba(0, 0, 0, 0.4);
     border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(12.8px);
     -webkit-backdrop-filter: blur(12.8px);
     border: 1px solid #9f04dc;
   }
-  
+  #drops:hover .tooltip, .title:hover .tooltip {
+    display:block;
+  }
   .tooltip {
     display: none;
-    color: #CCC;
     position: absolute;
     z-index: 1000;
   }
