@@ -26,10 +26,11 @@ function showPack(p) {
 
 // main
 async function main() {
+  document.querySelector("#packs").innerHTML = "Loading...";
   let packs = (await fetchClassicPacks()).data.allClassicPacks.nodes;
+  packs.push((await fetchLastStarterPack()).data.lastStarterPack);
+  document.querySelector("#packs").innerHTML = "";
   for( p of packs ) showPack(p);
-  let pack = (await fetchLastStarterPack()).data.lastStarterPack;
-  showPack(pack);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -59,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <a href='transfers.html'>🧾</a>
   <a href='user.html'>🤑</a>
   <a href='fee.html'>💸</a>
+  <a href='packs.html'>🃏</a>
 </div>
 <div id="infos">
   <span id="update"></span>
