@@ -1,0 +1,1889 @@
+cardFull;artist;scarcity;serial;priceETH;priceEUR;date
+jmks-season-1-common;JMK$;Common;71;0,013;18,2;21/10/2022 14:24:14
+azur-season-1-common;Azur;Common;78;0,008;11,2;21/10/2022 14:04:14
+doums-season-1-common;Doums;Common;237;0,009;12,6;21/10/2022 12:54:14
+doums-season-1-common;Doums;Common;215;0,01;13,328;20/10/2022 23:51:14
+livai-season-1-common;Livaï;Common;347;0,004;5,6;20/10/2022 20:37:14
+flem-season-1-common;Flem;Common;306;0,007;9,8;20/10/2022 20:34:13
+caballero-season-1-common;Caballero;Common;338;0,009;12,6;20/10/2022 19:37:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;340;0,008;11,2;20/10/2022 19:16:13
+doums-season-1-common;Doums;Common;25;0,025;35;20/10/2022 18:26:13
+kerchak-season-1-common;Kerchak;Common;123;0,015;21;20/10/2022 15:00:14
+moji-x-sboy-season-1-platinium;Moji x Sboy;Platinium;208;0,043;60,2;20/10/2022 11:18:14
+zinee-season-1-platinium;Zinée;Platinium;115;0,1;140;20/10/2022 11:04:14
+caballero-season-1-common;Caballero;Common;309;0,012;16,1;20/10/2022 09:42:13
+spider-zed-season-1-common;Spider Zed;Common;46;0,008;11,2;19/10/2022 23:38:14
+jmks-season-1-common;JMK$;Common;302;0,002;2,38;19/10/2022 23:23:13
+slimka-season-1-platinium;Slimka;Platinium;21;0,075;105;19/10/2022 22:09:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;9;0,04;56;19/10/2022 20:42:14
+jeanjass-season-1-common;JeanJass;Common;320;0,009;12,6;19/10/2022 19:41:13
+doums-season-1-common;Doums;Common;447;0,009;12,6;19/10/2022 16:59:14
+sheldon-season-1-common;Sheldon;Common;191;0,008;10,5;19/10/2022 14:27:13
+di-meh-season-1-common;Di-Meh;Common;135;0,01;14;19/10/2022 14:24:13
+jwles-season-1-common;Jwles;Common;27;0,012;16,8;19/10/2022 14:03:13
+di-meh-season-1-platinium;Di-Meh;Platinium;330;0,038;53,2;19/10/2022 10:28:11
+doums-season-1-common;Doums;Common;268;0,009;12,6;19/10/2022 01:30:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;267;0,003;4,2;19/10/2022 00:37:13
+kerchak-season-1-common;Kerchak;Common;444;0,013;18,2;18/10/2022 21:05:14
+le-reglement-season-1-platinium;Le Règlement;Platinium;133;0,08;112;18/10/2022 19:22:15
+caballero-season-1-platinium;Caballero;Platinium;200;0,079;110,6;18/10/2022 16:57:14
+kerchak-season-1-common;Kerchak;Common;131;0,012;16,52;18/10/2022 14:52:13
+livai-season-1-common;Livaï;Common;30;0,011;15,4;18/10/2022 14:12:14
+doums-season-1-common;Doums;Common;426;0,007;10,36;18/10/2022 14:09:14
+jwles-season-1-platinium;Jwles;Platinium;193;0,037;51,338;18/10/2022 14:06:15
+slimka-season-1-common;Slimka;Common;76;0,015;21;18/10/2022 11:19:14
+rowjay-season-1-common;Rowjay;Common;235;0,006;8,4;18/10/2022 11:04:13
+di-meh-season-1-platinium;Di-Meh;Platinium;127;0,04;56;18/10/2022 10:59:13
+winnterzuko-season-1-common;Winnterzuko;Common;221;0,01;14;18/10/2022 10:28:14
+doums-season-1-common;Doums;Common;119;0,023;31,822;18/10/2022 10:26:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;415;0,02;28;18/10/2022 10:18:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;21;0,019;27,258;18/10/2022 10:17:13
+slimka-season-1-platinium;Slimka;Platinium;262;0,05;70;18/10/2022 10:15:07
+jeanjass-season-1-common;JeanJass;Common;18;0,019;27,216;18/10/2022 10:11:14
+skuna-season-1-platinium;Skuna;Platinium;272;0,032;44,1;18/10/2022 09:24:14
+lycos-season-1-common;Lycos;Common;317;0,004;5,74;18/10/2022 00:07:13
+doums-season-1-common;Doums;Common;46;0,013;18,2;17/10/2022 22:55:13
+di-meh-season-1-platinium;Di-Meh;Platinium;350;0,035;49;17/10/2022 22:53:14
+doums-season-1-common;Doums;Common;117;0,012;16,38;17/10/2022 22:16:13
+doums-season-1-common;Doums;Common;54;0,01;14,266;17/10/2022 19:39:14
+doums-season-1-common;Doums;Common;332;0,01;13,65;17/10/2022 18:24:14
+thahomey-season-1-common;thaHomey;Common;374;0,004;5,18;17/10/2022 18:20:14
+spider-zed-season-1-platinium;Spider Zed;Platinium;140;0,04;56;17/10/2022 17:29:14
+jmks-season-1-platinium;JMK$;Platinium;198;0,05;70;17/10/2022 15:56:14
+jwles-season-1-common;Jwles;Common;208;0,004;4,9;17/10/2022 14:41:13
+8ruki-season-1-common;8ruki;Common;447;0,005;6,412;17/10/2022 14:06:13
+moji-x-sboy-season-1-common;Moji x Sboy;Common;385;0,007;9,8;17/10/2022 13:15:13
+livai-season-1-common;Livaï;Common;33;0,01;14;17/10/2022 13:11:14
+lycos-season-1-common;Lycos;Common;216;0,006;7,7;17/10/2022 13:09:14
+winnterzuko-season-1-platinium;Winnterzuko;Platinium;150;0,08;112;17/10/2022 11:10:14
+jeanjass-season-1-common;JeanJass;Common;346;0,011;15,904;17/10/2022 10:34:14
+doums-season-1-common;Doums;Common;126;0,01;14;17/10/2022 09:13:14
+jwles-season-1-common;Jwles;Common;69;0,007;9,66;17/10/2022 07:50:13
+doums-season-1-common;Doums;Common;394;0,008;11,2;16/10/2022 23:42:14
+rowjay-season-1-common;Rowjay;Common;46;0,01;14;16/10/2022 22:02:13
+moji-x-sboy-season-1-common;Moji x Sboy;Common;33;0,022;31,36;16/10/2022 21:57:14
+livai-season-1-common;Livaï;Common;172;0,004;5,299;16/10/2022 21:41:13
+winnterzuko-season-1-platinium;Winnterzuko;Platinium;249;0,05;70;16/10/2022 21:41:12
+zinee-season-1-common;Zinée;Common;287;0,004;5,6;16/10/2022 18:57:13
+jmks-season-1-common;JMK$;Common;101;0,003;4,242;16/10/2022 18:47:14
+livai-season-1-common;Livaï;Common;112;0,004;5,306;16/10/2022 18:34:13
+jewel-usain-season-1-common;Jewel Usain;Common;370;0,002;3,22;16/10/2022 18:25:15
+8ruki-season-1-common;8ruki;Common;32;0,004;4,9;16/10/2022 18:20:14
+rowjay-season-1-common;Rowjay;Common;352;0,002;2,8;16/10/2022 17:49:13
+doums-season-1-common;Doums;Common;217;0,011;15,12;16/10/2022 17:28:14
+winnterzuko-season-1-common;Winnterzuko;Common;231;0,007;9,8;16/10/2022 17:25:13
+winnterzuko-season-1-platinium;Winnterzuko;Platinium;306;0,06;84;16/10/2022 17:13:14
+flem-season-1-common;Flem;Common;22;0,005;7;16/10/2022 16:53:14
+rowjay-season-1-common;Rowjay;Common;240;0,002;2,379;16/10/2022 16:24:13
+rowjay-season-1-common;Rowjay;Common;106;0,002;3,178;16/10/2022 16:20:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;162;0,006;8,491;16/10/2022 15:57:14
+jwles-season-1-common;Jwles;Common;8;0,03;42;16/10/2022 15:52:14
+doums-season-1-common;Doums;Common;215;0,008;10,607;16/10/2022 15:27:14
+skuna-season-1-common;Skuna;Common;311;0,004;5,6;16/10/2022 15:20:14
+azur-season-1-common;Azur;Common;374;0,002;2,8;16/10/2022 14:29:14
+azur-season-1-common;Azur;Common;215;0,002;2,8;16/10/2022 14:23:14
+doums-season-1-common;Doums;Common;217;0,008;11,2;16/10/2022 14:10:14
+slimka-season-1-platinium;Slimka;Platinium;204;0,04;56;16/10/2022 14:06:14
+sheldon-season-1-common;Sheldon;Common;167;0,003;4,48;16/10/2022 13:40:13
+doums-season-1-common;Doums;Common;188;0,011;15,4;16/10/2022 13:25:14
+doums-season-1-common;Doums;Common;360;0,01;14,14;16/10/2022 13:14:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;188;0,007;9,1;16/10/2022 12:44:13
+zinee-season-1-common;Zinée;Common;181;0,015;21;16/10/2022 12:42:14
+doums-season-1-common;Doums;Common;165;0,012;16,8;16/10/2022 12:40:14
+di-meh-season-1-common;Di-Meh;Common;77;0,01;14;16/10/2022 12:35:14
+doums-season-1-common;Doums;Common;131;0,015;20,86;16/10/2022 11:39:14
+doums-season-1-common;Doums;Common;134;0,014;20,09;16/10/2022 11:04:14
+zinee-season-1-platinium;Zinée;Platinium;42;0,08;112;16/10/2022 10:40:13
+doums-season-1-common;Doums;Common;72;0,013;17,5;16/10/2022 10:32:15
+caballero-season-1-common;Caballero;Common;75;0,006;7,7;16/10/2022 06:33:14
+spider-zed-season-1-common;Spider Zed;Common;11;0,008;11,2;16/10/2022 00:30:14
+doums-season-1-common;Doums;Common;16;0,03;42;15/10/2022 23:34:15
+doums-season-1-common;Doums;Common;14;0,05;70;15/10/2022 22:58:14
+so-la-lune-season-1-platinium;So La Lune;Platinium;206;0,08;111,86;15/10/2022 20:25:17
+zuukou-mayzie-season-1-platinium;Zuukou Mayzie;Platinium;3;0,059;82,6;15/10/2022 19:42:13
+le-reglement-season-1-common;Le Règlement;Common;151;0,011;15,4;15/10/2022 19:07:14
+spider-zed-season-1-common;Spider Zed;Common;9;0,023;32,2;15/10/2022 19:03:18
+deen-burbigo-season-1-common;Deen Burbigo;Common;39;0,036;50,4;15/10/2022 19:00:13
+rowjay-season-1-common;Rowjay;Common;130;0,004;6,16;15/10/2022 18:51:13
+youv-dee-season-1-common;Youv Dee;Common;234;0,01;14;15/10/2022 18:47:14
+jeanjass-season-1-common;JeanJass;Common;112;0,011;15,4;15/10/2022 18:41:13
+livai-season-1-common;Livaï;Common;243;0,005;7;15/10/2022 18:33:13
+zinee-season-1-platinium;Zinée;Platinium;193;0,095;133;15/10/2022 18:17:13
+deen-burbigo-season-1-common;Deen Burbigo;Common;13;0,015;21;15/10/2022 17:35:13
+zinee-season-1-common;Zinée;Common;270;0,012;16,8;15/10/2022 16:26:13
+zuukou-mayzie-season-1-platinium;Zuukou Mayzie;Platinium;195;0,072;100,8;15/10/2022 16:08:14
+zinee-season-1-platinium;Zinée;Platinium;205;0,084;117,6;15/10/2022 14:18:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;200;0,006;8,4;15/10/2022 13:26:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;135;0,005;7,322;14/10/2022 21:13:14
+skuna-season-1-common;Skuna;Common;20;0,008;11,2;14/10/2022 18:11:14
+slimka-season-1-platinium;Slimka;Platinium;278;0,037;51,8;14/10/2022 17:47:13
+jmks-season-1-common;JMK$;Common;6;0,02;28;14/10/2022 16:26:13
+slimka-season-1-common;Slimka;Common;408;0,005;7;14/10/2022 15:55:14
+kerchak-season-1-common;Kerchak;Common;388;0,012;16,8;14/10/2022 12:37:13
+jewel-usain-season-1-common;Jewel Usain;Common;30;0,015;21;14/10/2022 12:18:13
+rowjay-season-1-common;Rowjay;Common;153;0,009;12,6;14/10/2022 03:01:13
+jewel-usain-season-1-common;Jewel Usain;Common;167;0,006;8,68;14/10/2022 02:59:13
+so-la-lune-season-1-platinium;So La Lune;Platinium;161;0,09;126;13/10/2022 16:25:14
+livai-season-1-platinium;Livaï;Platinium;280;0,041;57,4;13/10/2022 12:47:14
+winnterzuko-season-1-common;Winnterzuko;Common;68;0,015;21;13/10/2022 11:44:14
+livai-season-1-common;Livaï;Common;287;0,007;9,8;13/10/2022 08:50:14
+azur-season-1-common;Azur;Common;85;0,007;9,8;13/10/2022 08:16:14
+thahomey-season-1-common;thaHomey;Common;113;0,005;7;13/10/2022 07:59:14
+8ruki-season-1-common;8ruki;Common;106;0,005;7;13/10/2022 07:57:13
+lycos-season-1-common;Lycos;Common;73;0,01;14;13/10/2022 07:55:13
+spider-zed-season-1-common;Spider Zed;Common;205;0,01;14;12/10/2022 22:57:13
+caballero-season-1-common;Caballero;Common;171;0,017;23,8;12/10/2022 19:07:13
+kerchak-season-1-common;Kerchak;Common;44;0,025;35;12/10/2022 16:56:14
+thahomey-season-1-common;thaHomey;Common;18;0,018;25,2;12/10/2022 13:04:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;51;0,015;21;12/10/2022 11:54:14
+zinee-season-1-common;Zinée;Common;124;0,011;15,75;12/10/2022 11:24:14
+kerchak-season-1-common;Kerchak;Common;379;0,015;21;12/10/2022 02:11:13
+zuukou-mayzie-season-1-platinium;Zuukou Mayzie;Platinium;5;0,03;42;11/10/2022 18:01:14
+kerchak-season-1-common;Kerchak;Common;68;0,014;19,6;11/10/2022 16:27:13
+jeanjass-season-1-common;JeanJass;Common;151;0,009;12,6;11/10/2022 14:01:14
+lycos-season-1-common;Lycos;Common;318;0,004;5,6;11/10/2022 13:15:13
+moji-x-sboy-season-1-common;Moji x Sboy;Common;460;0,005;7;11/10/2022 12:30:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;154;0,015;21;11/10/2022 10:32:13
+mahdi-ba-season-1-common;Mahdi Ba;Common;308;0,005;6,3;11/10/2022 10:23:13
+spider-zed-season-1-common;Spider Zed;Common;48;0,018;25,2;11/10/2022 09:57:13
+jewel-usain-season-1-common;Jewel Usain;Common;18;0,016;22,4;11/10/2022 09:55:13
+lycos-season-1-common;Lycos;Common;12;0,024;33,74;11/10/2022 09:55:13
+zinee-season-1-platinium;Zinée;Platinium;219;0,072;100,8;10/10/2022 23:41:14
+so-la-lune-season-1-common;So La Lune;Common;76;0,016;22,4;10/10/2022 23:00:14
+caballero-season-1-common;Caballero;Common;340;0,006;8,4;10/10/2022 22:57:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;4;0,041;57,26;10/10/2022 22:36:14
+azur-season-1-platinium;Azur;Platinium;17;0,039;54,6;10/10/2022 21:49:14
+caballero-season-1-platinium;Caballero;Platinium;78;0,099;138,6;10/10/2022 21:23:14
+kerchak-season-1-common;Kerchak;Common;327;0,015;21;10/10/2022 19:21:14
+le-reglement-season-1-common;Le Règlement;Common;85;0,019;27,02;10/10/2022 13:46:13
+youv-dee-season-1-common;Youv Dee;Common;92;0,014;19,6;10/10/2022 13:10:14
+8ruki-season-1-common;8ruki;Common;269;0,005;7,28;10/10/2022 13:07:14
+jewel-usain-season-1-common;Jewel Usain;Common;157;0,005;7;10/10/2022 13:07:14
+azur-season-1-common;Azur;Common;148;0,007;9,1;10/10/2022 13:06:14
+azur-season-1-common;Azur;Common;102;0,007;9,8;10/10/2022 13:00:14
+so-la-lune-season-1-common;So La Lune;Common;404;0,005;6,3;10/10/2022 11:24:14
+thahomey-season-1-common;thaHomey;Common;416;0,003;3,5;10/10/2022 11:20:13
+kerchak-season-1-common;Kerchak;Common;114;0,015;20,3;10/10/2022 09:56:14
+kerchak-season-1-common;Kerchak;Common;362;0,013;17,5;09/10/2022 23:18:14
+8ruki-season-1-platinium;8ruki;Platinium;44;0,071;99,4;09/10/2022 23:11:13
+jmks-season-1-common;JMK$;Common;332;0,003;3,64;09/10/2022 23:02:14
+livai-season-1-common;Livaï;Common;356;0,005;7,14;09/10/2022 22:33:14
+lycos-season-1-platinium;Lycos;Platinium;327;0,04;56;09/10/2022 21:45:14
+zinee-season-1-common;Zinée;Common;50;0,02;28;09/10/2022 21:32:14
+azur-season-1-common;Azur;Common;333;0,002;3,36;09/10/2022 20:56:14
+spider-zed-season-1-common;Spider Zed;Common;313;0,003;4,2;09/10/2022 19:40:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;343;0,003;3,78;09/10/2022 19:24:14
+di-meh-season-1-common;Di-Meh;Common;314;0,003;4,2;09/10/2022 19:13:14
+azur-season-1-platinium;Azur;Platinium;83;0,039;54,6;09/10/2022 17:55:14
+flem-season-1-platinium;Flem;Platinium;120;0,07;98;09/10/2022 17:51:14
+jeanjass-season-1-common;JeanJass;Common;59;0,022;31,094;09/10/2022 17:32:14
+di-meh-season-1-platinium;Di-Meh;Platinium;62;0,039;54,6;09/10/2022 17:29:13
+flem-season-1-common;Flem;Common;226;0,008;11,2;09/10/2022 12:25:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;39;0,03;42;09/10/2022 11:36:14
+sheldon-season-1-platinium;Sheldon;Platinium;305;0,064;89,6;09/10/2022 11:27:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;320;0,004;5,6;09/10/2022 09:46:13
+caballero-season-1-platinium;Caballero;Platinium;71;0,141;197,12;08/10/2022 23:13:14
+flem-season-1-platinium;Flem;Platinium;319;0,06;84;08/10/2022 21:05:13
+jeanjass-season-1-common;JeanJass;Common;429;0,008;11,2;08/10/2022 18:13:14
+mahdi-ba-season-1-platinium;Mahdi Ba;Platinium;82;0,06;84;08/10/2022 14:56:13
+deen-burbigo-season-1-platinium;Deen Burbigo;Platinium;6;0,085;119;08/10/2022 14:34:13
+jmks-season-1-common;JMK$;Common;115;0,004;4,9;08/10/2022 09:52:14
+livai-season-1-common;Livaï;Common;371;0,005;6,3;08/10/2022 09:18:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;387;0,01;14;08/10/2022 09:18:14
+kerchak-season-1-common;Kerchak;Common;87;0,016;22,4;08/10/2022 08:46:14
+kerchak-season-1-common;Kerchak;Common;59;0,022;30,8;08/10/2022 02:03:14
+jwles-season-1-common;Jwles;Common;162;0,002;2,8;08/10/2022 01:09:13
+sheldon-season-1-common;Sheldon;Common;249;0,006;7,7;08/10/2022 00:21:14
+8ruki-season-1-common;8ruki;Common;255;0,005;7;08/10/2022 00:20:14
+di-meh-season-1-common;Di-Meh;Common;186;0,003;3,92;07/10/2022 23:43:14
+so-la-lune-season-1-common;So La Lune;Common;451;0,009;11,9;07/10/2022 23:35:14
+azur-season-1-common;Azur;Common;154;0,002;2,94;07/10/2022 23:18:13
+so-la-lune-season-1-common;So La Lune;Common;107;0,01;14;07/10/2022 22:53:14
+kerchak-season-1-common;Kerchak;Common;419;0,011;15,4;07/10/2022 21:59:14
+winnterzuko-season-1-common;Winnterzuko;Common;130;0,016;22,4;07/10/2022 20:00:14
+jwles-season-1-common;Jwles;Common;262;0,002;2,797;07/10/2022 19:10:14
+spider-zed-season-1-common;Spider Zed;Common;85;0,01;14;07/10/2022 18:47:14
+rowjay-season-1-common;Rowjay;Common;193;0,006;7,7;07/10/2022 18:33:14
+le-reglement-season-1-common;Le Règlement;Common;114;0,011;15,4;07/10/2022 17:25:14
+jwles-season-1-common;Jwles;Common;231;0,002;3,08;07/10/2022 15:41:17
+le-reglement-season-1-platinium;Le Règlement;Platinium;80;0,04;56;07/10/2022 15:41:16
+youv-dee-season-1-common;Youv Dee;Common;352;0,008;10,64;07/10/2022 15:41:15
+spider-zed-season-1-common;Spider Zed;Common;14;0,023;31,92;07/10/2022 15:10:14
+jeanjass-season-1-platinium;JeanJass;Platinium;215;0,075;105;07/10/2022 14:19:15
+thahomey-season-1-common;thaHomey;Common;78;0,007;9,8;07/10/2022 14:03:15
+jwles-season-1-common;Jwles;Common;152;0,003;4,2;07/10/2022 13:45:15
+kerchak-season-1-common;Kerchak;Common;222;0,011;15,68;07/10/2022 13:45:14
+jwles-season-1-common;Jwles;Common;176;0,004;5,306;07/10/2022 13:45:14
+flem-season-1-common;Flem;Common;259;0,009;11,9;07/10/2022 13:04:16
+jwles-season-1-common;Jwles;Common;343;0,003;3,5;07/10/2022 13:04:14
+kerchak-season-1-common;Kerchak;Common;409;0,01;14;07/10/2022 12:41:14
+lycos-season-1-common;Lycos;Common;303;0,005;6,706;07/10/2022 10:24:23
+azur-season-1-common;Azur;Common;316;0,003;4,27;07/10/2022 09:29:14
+lycos-season-1-common;Lycos;Common;2;0,03;42;07/10/2022 08:33:14
+so-la-lune-season-1-common;So La Lune;Common;53;0,022;30,8;07/10/2022 05:53:14
+so-la-lune-season-1-common;So La Lune;Common;71;0,015;21;07/10/2022 05:53:14
+zinee-season-1-common;Zinée;Common;424;0,01;14;07/10/2022 04:18:14
+kerchak-season-1-common;Kerchak;Common;241;0,011;14,7;07/10/2022 02:15:19
+sheldon-season-1-common;Sheldon;Common;168;0,004;5,6;07/10/2022 02:15:15
+livai-season-1-common;Livaï;Common;1;0,117;163,8;07/10/2022 02:15:14
+azur-season-1-common;Azur;Common;129;0,003;4,06;07/10/2022 00:15:16
+sheldon-season-1-common;Sheldon;Common;327;0,004;4,9;07/10/2022 00:15:15
+mahdi-ba-season-1-common;Mahdi Ba;Common;172;0,005;6,86;07/10/2022 00:15:14
+slimka-season-1-common;Slimka;Common;404;0,008;11,2;06/10/2022 23:02:14
+le-reglement-season-1-common;Le Règlement;Common;130;0,035;49;06/10/2022 23:02:14
+le-reglement-season-1-platinium;Le Règlement;Platinium;344;0,085;119;06/10/2022 22:25:19
+le-reglement-season-1-common;Le Règlement;Common;80;0,036;50,12;06/10/2022 22:25:18
+zinee-season-1-common;Zinée;Common;90;0,014;19,6;06/10/2022 21:38:20
+youv-dee-season-1-common;Youv Dee;Common;157;0,011;15,4;06/10/2022 21:38:18
+8ruki-season-1-platinium;8ruki;Platinium;191;0,054;75,6;06/10/2022 21:38:17
+azur-season-1-platinium;Azur;Platinium;45;0,06;84;06/10/2022 21:38:16
+flem-season-1-platinium;Flem;Platinium;186;0,06;83,86;06/10/2022 21:38:16
+di-meh-season-1-common;Di-Meh;Common;290;0,007;9,8;06/10/2022 21:38:15
+jeanjass-season-1-common;JeanJass;Common;70;0,037;51,8;06/10/2022 21:38:14
+so-la-lune-season-1-common;So La Lune;Common;391;0,007;9,1;06/10/2022 20:59:19
+skuna-season-1-common;Skuna;Common;171;0,003;3,78;06/10/2022 20:59:16
+flem-season-1-common;Flem;Common;206;0,009;12,46;06/10/2022 20:59:15
+zinee-season-1-common;Zinée;Common;270;0,014;19,6;06/10/2022 20:17:17
+sheldon-season-1-platinium;Sheldon;Platinium;200;0,063;88,2;06/10/2022 20:17:14
+le-reglement-season-1-common;Le Règlement;Common;416;0,008;10,5;06/10/2022 19:07:19
+sheldon-season-1-common;Sheldon;Common;107;0,003;4,774;06/10/2022 19:07:19
+zinee-season-1-common;Zinée;Common;103;0,003;4,242;06/10/2022 19:07:18
+benjamin-epps-season-1-common;Benjamin Epps;Common;314;0,003;4,2;06/10/2022 19:07:18
+winnterzuko-season-1-common;Winnterzuko;Common;98;0,007;9,527;06/10/2022 19:07:17
+jeanjass-season-1-common;JeanJass;Common;243;0,01;14;06/10/2022 18:17:14
+spider-zed-season-1-common;Spider Zed;Common;260;0,003;4,2;06/10/2022 17:01:15
+livai-season-1-common;Livaï;Common;137;0,005;7;06/10/2022 15:09:17
+winnterzuko-season-1-platinium;Winnterzuko;Platinium;270;0,059;82,6;06/10/2022 14:58:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;267;0,007;9,1;06/10/2022 13:31:14
+di-meh-season-1-common;Di-Meh;Common;3;0,04;56;06/10/2022 12:16:14
+8ruki-season-1-common;8ruki;Common;4;0,028;39,2;06/10/2022 11:13:14
+le-reglement-season-1-common;Le Règlement;Common;80;0,016;22,4;06/10/2022 05:39:16
+spider-zed-season-1-platinium;Spider Zed;Platinium;60;0,045;63;06/10/2022 05:39:15
+di-meh-season-1-common;Di-Meh;Common;350;0,004;5,6;06/10/2022 00:50:15
+lycos-season-1-common;Lycos;Common;341;0,003;4,2;06/10/2022 00:50:15
+zinee-season-1-common;Zinée;Common;70;0,012;16,1;06/10/2022 00:50:15
+kerchak-season-1-common;Kerchak;Common;31;0,023;32,2;06/10/2022 00:04:14
+so-la-lune-season-1-common;So La Lune;Common;273;0,008;11,2;05/10/2022 22:02:17
+le-reglement-season-1-common;Le Règlement;Common;85;0,012;16,1;05/10/2022 21:35:17
+jwles-season-1-platinium;Jwles;Platinium;335;0,03;42;05/10/2022 17:53:15
+8ruki-season-1-common;8ruki;Common;247;0,005;7;05/10/2022 15:34:16
+caballero-season-1-common;Caballero;Common;285;0,009;11,9;05/10/2022 15:34:15
+zuukou-mayzie-season-1-platinium;Zuukou Mayzie;Platinium;205;0,073;102,795;05/10/2022 13:33:17
+youv-dee-season-1-platinium;Youv Dee;Platinium;274;0,051;71,4;05/10/2022 12:02:15
+kerchak-season-1-common;Kerchak;Common;385;0,011;15,12;05/10/2022 08:32:15
+livai-season-1-common;Livaï;Common;208;0,008;10,5;05/10/2022 08:32:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;257;0,009;12,6;05/10/2022 02:20:17
+youv-dee-season-1-platinium;Youv Dee;Platinium;109;0,091;127,4;05/10/2022 02:20:17
+kerchak-season-1-common;Kerchak;Common;395;0,011;14,98;04/10/2022 21:36:15
+lycos-season-1-common;Lycos;Common;185;0,007;10,22;04/10/2022 21:36:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;284;0,009;12,6;04/10/2022 20:05:15
+zuukou-mayzie-season-1-platinium;Zuukou Mayzie;Platinium;183;0,07;98;04/10/2022 19:41:14
+deen-burbigo-season-1-platinium;Deen Burbigo;Platinium;160;0,085;119;04/10/2022 19:41:14
+le-reglement-season-1-common;Le Règlement;Common;172;0,012;16,8;04/10/2022 17:45:16
+spider-zed-season-1-common;Spider Zed;Common;489;0,004;5,6;04/10/2022 17:45:14
+jmks-season-1-common;JMK$;Common;268;0,003;3,5;04/10/2022 17:31:15
+skuna-season-1-common;Skuna;Common;248;0,004;5,6;04/10/2022 17:00:14
+flem-season-1-common;Flem;Common;232;0,008;11,62;04/10/2022 15:26:16
+rowjay-season-1-common;Rowjay;Common;319;0,005;6,3;04/10/2022 14:20:14
+winnterzuko-season-1-common;Winnterzuko;Common;289;0,015;21;04/10/2022 14:00:14
+caballero-season-1-common;Caballero;Common;2;0,06;84;04/10/2022 13:39:17
+spider-zed-season-1-common;Spider Zed;Common;211;0,008;11,2;04/10/2022 13:11:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;259;0,006;8,4;04/10/2022 11:46:14
+caballero-season-1-platinium;Caballero;Platinium;15;0,099;138,6;04/10/2022 11:08:14
+jeanjass-season-1-platinium;JeanJass;Platinium;45;0,115;161;04/10/2022 10:46:15
+le-reglement-season-1-platinium;Le Règlement;Platinium;245;0,1;140;04/10/2022 10:46:15
+moji-x-sboy-season-1-platinium;Moji x Sboy;Platinium;90;0,068;95,2;04/10/2022 10:46:14
+kerchak-season-1-common;Kerchak;Common;263;0,012;17,22;04/10/2022 08:36:16
+jmks-season-1-common;JMK$;Common;192;0,003;4,2;04/10/2022 00:46:15
+rowjay-season-1-common;Rowjay;Common;263;0,003;4,2;03/10/2022 22:28:16
+so-la-lune-season-1-common;So La Lune;Common;495;0,01;14;03/10/2022 21:01:17
+kerchak-season-1-common;Kerchak;Common;175;0,015;21;03/10/2022 21:01:14
+skuna-season-1-common;Skuna;Common;226;0,004;5,6;03/10/2022 21:01:14
+skuna-season-1-platinium;Skuna;Platinium;59;0,04;56;03/10/2022 20:27:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;142;0,005;7,448;03/10/2022 18:46:17
+mahdi-ba-season-1-common;Mahdi Ba;Common;141;0,005;7,448;03/10/2022 18:46:16
+kerchak-season-1-common;Kerchak;Common;376;0,01;14;03/10/2022 18:21:15
+moji-x-sboy-season-1-platinium;Moji x Sboy;Platinium;150;0,052;72,8;03/10/2022 16:37:15
+spider-zed-season-1-platinium;Spider Zed;Platinium;32;0,059;82,6;03/10/2022 14:40:19
+8ruki-season-1-platinium;8ruki;Platinium;210;0,058;81,2;03/10/2022 12:29:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;229;0,012;16,1;03/10/2022 12:05:15
+deen-burbigo-season-1-platinium;Deen Burbigo;Platinium;290;0,07;98;03/10/2022 11:43:14
+jwles-season-1-common;Jwles;Common;12;0,02;28;02/10/2022 23:05:14
+kerchak-season-1-common;Kerchak;Common;360;0,01;14;02/10/2022 21:21:15
+jewel-usain-season-1-common;Jewel Usain;Common;391;0,002;3,36;02/10/2022 18:19:17
+lycos-season-1-common;Lycos;Common;361;0,002;3,36;02/10/2022 18:19:16
+skuna-season-1-common;Skuna;Common;495;0,002;3,15;02/10/2022 18:19:16
+moji-x-sboy-season-1-common;Moji x Sboy;Common;382;0,003;3,5;02/10/2022 18:19:15
+slimka-season-1-common;Slimka;Common;212;0,003;3,92;02/10/2022 17:47:17
+flem-season-1-common;Flem;Common;206;0,006;8,904;02/10/2022 17:47:16
+kerchak-season-1-common;Kerchak;Common;425;0,01;14,28;02/10/2022 17:25:16
+kerchak-season-1-common;Kerchak;Common;152;0,013;18,199;02/10/2022 17:25:14
+di-meh-season-1-common;Di-Meh;Common;484;0,003;4,06;02/10/2022 17:00:14
+lycos-season-1-common;Lycos;Common;467;0,003;4,2;02/10/2022 14:56:15
+skuna-season-1-common;Skuna;Common;500;0,003;3,64;02/10/2022 14:56:14
+kerchak-season-1-common;Kerchak;Common;166;0,011;15,4;02/10/2022 11:01:16
+lycos-season-1-platinium;Lycos;Platinium;152;0,062;86,8;02/10/2022 02:03:15
+kerchak-season-1-common;Kerchak;Common;300;0,012;16,8;01/10/2022 21:22:14
+kerchak-season-1-common;Kerchak;Common;12;0,03;42;01/10/2022 19:52:16
+kerchak-season-1-common;Kerchak;Common;198;0,012;17,08;01/10/2022 19:29:17
+benjamin-epps-season-1-common;Benjamin Epps;Common;147;0,003;4,41;01/10/2022 18:01:16
+rowjay-season-1-common;Rowjay;Common;119;0,003;4,06;01/10/2022 18:01:14
+rowjay-season-1-common;Rowjay;Common;166;0,003;4,2;01/10/2022 17:26:16
+thahomey-season-1-common;thaHomey;Common;142;0,006;7,98;01/10/2022 16:00:14
+zinee-season-1-common;Zinée;Common;10;0,066;92,848;01/10/2022 13:34:16
+flem-season-1-common;Flem;Common;448;0,007;9,1;01/10/2022 12:13:23
+sheldon-season-1-common;Sheldon;Common;385;0,004;5,46;01/10/2022 12:13:22
+skuna-season-1-common;Skuna;Common;355;0,002;3,08;01/10/2022 12:13:21
+azur-season-1-common;Azur;Common;201;0,005;6,3;01/10/2022 05:57:14
+lycos-season-1-common;Lycos;Common;180;0,008;10,5;01/10/2022 04:20:15
+kerchak-season-1-common;Kerchak;Common;232;0,012;16,8;01/10/2022 04:20:14
+caballero-season-1-common;Caballero;Common;400;0,02;28;01/10/2022 02:14:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;107;0,01;14;30/09/2022 21:38:22
+thahomey-season-1-common;thaHomey;Common;363;0,002;2,94;30/09/2022 21:17:20
+kerchak-season-1-common;Kerchak;Common;280;0,013;18,2;30/09/2022 17:12:15
+flem-season-1-platinium;Flem;Platinium;4;0,295;413;30/09/2022 16:35:21
+kerchak-season-1-common;Kerchak;Common;92;0,055;77;30/09/2022 16:35:19
+moji-x-sboy-season-1-platinium;Moji x Sboy;Platinium;36;0,076;106,4;30/09/2022 16:35:16
+azur-season-1-common;Azur;Common;125;0,007;9,8;30/09/2022 15:18:17
+kerchak-season-1-common;Kerchak;Common;155;0,013;18,2;30/09/2022 14:42:16
+spider-zed-season-1-platinium;Spider Zed;Platinium;196;0,052;72,8;30/09/2022 14:09:20
+lycos-season-1-platinium;Lycos;Platinium;187;0,07;98;30/09/2022 14:09:19
+kerchak-season-1-common;Kerchak;Common;340;0,013;18,2;30/09/2022 14:09:14
+kerchak-season-1-common;Kerchak;Common;184;0,013;18,2;30/09/2022 13:51:15
+sheldon-season-1-common;Sheldon;Common;241;0,004;5,11;30/09/2022 13:40:18
+caballero-season-1-common;Caballero;Common;62;0,03;42;30/09/2022 12:26:19
+sheldon-season-1-common;Sheldon;Common;210;0,004;5,6;30/09/2022 12:26:15
+kerchak-season-1-common;Kerchak;Common;150;0,014;19,6;30/09/2022 12:14:15
+jwles-season-1-common;Jwles;Common;220;0,002;2,94;30/09/2022 11:41:22
+kerchak-season-1-common;Kerchak;Common;90;0,018;24,5;30/09/2022 11:41:20
+rowjay-season-1-common;Rowjay;Common;66;0,006;8,4;30/09/2022 11:18:15
+kerchak-season-1-common;Kerchak;Common;131;0,013;17,5;30/09/2022 10:53:19
+moji-x-sboy-season-1-common;Moji x Sboy;Common;321;0,013;18,2;30/09/2022 10:24:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;479;0,006;8,4;30/09/2022 10:16:18
+spider-zed-season-1-common;Spider Zed;Common;467;0,003;4,312;30/09/2022 09:51:18
+di-meh-season-1-common;Di-Meh;Common;219;0,007;10,36;30/09/2022 09:51:16
+sheldon-season-1-common;Sheldon;Common;117;0,004;5,6;30/09/2022 09:43:17
+kerchak-season-1-common;Kerchak;Common;79;0,025;35;30/09/2022 09:32:21
+kerchak-season-1-common;Kerchak;Common;122;0,022;31,08;30/09/2022 09:32:19
+benjamin-epps-season-1-common;Benjamin Epps;Common;334;0,014;18,9;30/09/2022 09:15:19
+kerchak-season-1-common;Kerchak;Common;160;0,018;25,76;30/09/2022 09:15:18
+jwles-season-1-common;Jwles;Common;371;0,005;7;30/09/2022 09:15:15
+kerchak-season-1-common;Kerchak;Common;118;0,025;35;30/09/2022 08:55:14
+skuna-season-1-common;Skuna;Common;213;0,005;7;30/09/2022 08:43:14
+sheldon-season-1-common;Sheldon;Common;279;0,004;5,165;30/09/2022 07:14:15
+lycos-season-1-platinium;Lycos;Platinium;71;0,067;93,24;30/09/2022 07:04:15
+kerchak-season-1-common;Kerchak;Common;23;0,054;75,6;30/09/2022 04:22:17
+thahomey-season-1-common;thaHomey;Common;74;0,012;16,8;30/09/2022 04:22:14
+8ruki-season-1-common;8ruki;Common;465;0,005;7;30/09/2022 02:02:20
+spider-zed-season-1-platinium;Spider Zed;Platinium;220;0,053;74,2;30/09/2022 02:02:18
+jwles-season-1-common;Jwles;Common;483;0,004;4,9;30/09/2022 01:38:21
+spider-zed-season-1-common;Spider Zed;Common;465;0,004;6,16;30/09/2022 00:49:26
+benjamin-epps-season-1-common;Benjamin Epps;Common;132;0,014;18,9;30/09/2022 00:16:14
+jeanjass-season-1-common;JeanJass;Common;350;0,007;9,66;29/09/2022 23:51:18
+jwles-season-1-common;Jwles;Common;481;0,003;3,5;29/09/2022 23:40:24
+jmks-season-1-common;JMK$;Common;260;0,003;4,34;29/09/2022 23:20:14
+jewel-usain-season-1-common;Jewel Usain;Common;230;0,009;12,6;29/09/2022 21:17:15
+youv-dee-season-1-common;Youv Dee;Common;355;0,008;11,2;29/09/2022 20:10:16
+jeanjass-season-1-platinium;JeanJass;Platinium;60;0,1;140;29/09/2022 20:10:16
+jwles-season-1-common;Jwles;Common;347;0,005;7;29/09/2022 20:10:15
+rowjay-season-1-common;Rowjay;Common;480;0,004;5,6;29/09/2022 20:10:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;287;0,004;5,6;29/09/2022 20:10:15
+benjamin-epps-season-1-platinium;Benjamin Epps;Platinium;4;0,2;280;29/09/2022 18:24:15
+skuna-season-1-common;Skuna;Common;405;0,004;5,6;29/09/2022 17:30:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;328;0,014;19,6;29/09/2022 16:33:22
+lycos-season-1-common;Lycos;Common;484;0,004;5,579;29/09/2022 14:54:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;135;0,025;35;29/09/2022 14:05:16
+azur-season-1-common;Azur;Common;375;0,005;7;29/09/2022 13:35:18
+lycos-season-1-common;Lycos;Common;287;0,006;8,4;29/09/2022 13:35:16
+azur-season-1-common;Azur;Common;112;0,005;7,42;29/09/2022 13:08:19
+lycos-season-1-common;Lycos;Common;319;0,005;6,3;29/09/2022 13:08:17
+di-meh-season-1-common;Di-Meh;Common;339;0,004;5,6;29/09/2022 13:08:16
+flem-season-1-common;Flem;Common;488;0,007;9,8;29/09/2022 12:04:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;263;0,004;5,6;29/09/2022 11:42:19
+skuna-season-1-common;Skuna;Common;331;0,005;7;29/09/2022 11:42:19
+slimka-season-1-common;Slimka;Common;414;0,004;5,6;29/09/2022 11:42:18
+jeanjass-season-1-common;JeanJass;Common;331;0,007;9,8;29/09/2022 11:42:16
+skuna-season-1-common;Skuna;Common;263;0,005;7;29/09/2022 11:42:16
+youv-dee-season-1-common;Youv Dee;Common;454;0,007;9,8;29/09/2022 08:41:15
+zinee-season-1-platinium;Zinée;Platinium;176;0,2;280;29/09/2022 07:07:14
+flem-season-1-common;Flem;Common;464;0,009;12,6;29/09/2022 05:39:15
+sheldon-season-1-common;Sheldon;Common;398;0,006;8,4;29/09/2022 05:39:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;301;0,007;9,66;29/09/2022 04:29:16
+youv-dee-season-1-common;Youv Dee;Common;384;0,006;8,26;29/09/2022 04:29:14
+jewel-usain-season-1-common;Jewel Usain;Common;342;0,004;5,6;29/09/2022 03:22:17
+winnterzuko-season-1-platinium;Winnterzuko;Platinium;176;0,1;140;29/09/2022 03:22:16
+spider-zed-season-1-common;Spider Zed;Common;473;0,005;7;29/09/2022 03:22:15
+zuukou-mayzie-season-1-platinium;Zuukou Mayzie;Platinium;335;0,1;140;29/09/2022 03:22:14
+lycos-season-1-common;Lycos;Common;370;0,008;11,2;29/09/2022 02:16:15
+jeanjass-season-1-common;JeanJass;Common;148;0,019;26,6;29/09/2022 01:19:18
+slimka-season-1-common;Slimka;Common;134;0,012;16,8;29/09/2022 01:19:18
+le-reglement-season-1-common;Le Règlement;Common;349;0,013;17,64;29/09/2022 01:19:17
+livai-season-1-common;Livaï;Common;163;0,011;14,7;29/09/2022 01:19:16
+so-la-lune-season-1-common;So La Lune;Common;214;0,018;25,2;29/09/2022 00:14:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;32;0,019;26,32;28/09/2022 23:26:19
+azur-season-1-common;Azur;Common;493;0,004;4,984;28/09/2022 23:26:19
+moji-x-sboy-season-1-common;Moji x Sboy;Common;366;0,006;8,26;28/09/2022 23:26:18
+so-la-lune-season-1-common;So La Lune;Common;384;0,011;15,19;28/09/2022 23:26:16
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;24;0,029;40,6;28/09/2022 22:54:23
+sheldon-season-1-common;Sheldon;Common;305;0,006;8,12;28/09/2022 22:54:22
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;195;0,014;19,46;28/09/2022 22:35:20
+slimka-season-1-common;Slimka;Common;491;0,005;7;28/09/2022 22:35:20
+flem-season-1-common;Flem;Common;115;0,015;21;28/09/2022 22:35:19
+deen-burbigo-season-1-common;Deen Burbigo;Common;489;0,012;16,8;28/09/2022 22:35:19
+jwles-season-1-common;Jwles;Common;423;0,007;9,1;28/09/2022 22:35:18
+di-meh-season-1-common;Di-Meh;Common;491;0,008;10,64;28/09/2022 22:35:17
+slimka-season-1-common;Slimka;Common;10;0,07;98;28/09/2022 22:35:16
+moji-x-sboy-season-1-common;Moji x Sboy;Common;278;0,004;5,46;28/09/2022 22:35:15
+slimka-season-1-common;Slimka;Common;186;0,008;10,5;28/09/2022 22:35:14
+youv-dee-season-1-common;Youv Dee;Common;368;0,008;10,78;28/09/2022 22:35:14
+lycos-season-1-common;Lycos;Common;284;0,005;7;28/09/2022 21:22:21
+di-meh-season-1-common;Di-Meh;Common;470;0,004;5,6;28/09/2022 21:22:21
+jeanjass-season-1-common;JeanJass;Common;242;0,007;9,1;28/09/2022 21:22:17
+jeanjass-season-1-common;JeanJass;Common;306;0,006;8,4;28/09/2022 21:22:15
+jewel-usain-season-1-common;Jewel Usain;Common;499;0,005;6,86;28/09/2022 20:20:17
+jewel-usain-season-1-common;Jewel Usain;Common;175;0,005;6,986;28/09/2022 20:20:16
+rowjay-season-1-common;Rowjay;Common;468;0,003;4,76;28/09/2022 19:28:22
+so-la-lune-season-1-common;So La Lune;Common;472;0,012;16,8;28/09/2022 19:12:20
+le-reglement-season-1-common;Le Règlement;Common;432;0,013;17,64;28/09/2022 19:12:20
+winnterzuko-season-1-common;Winnterzuko;Common;335;0,013;18,466;28/09/2022 19:12:19
+jmks-season-1-common;JMK$;Common;369;0,004;5,6;28/09/2022 18:18:19
+jeanjass-season-1-common;JeanJass;Common;454;0,01;14;28/09/2022 18:18:18
+jeanjass-season-1-common;JeanJass;Common;454;0,01;14;28/09/2022 18:17:20
+deen-burbigo-season-1-platinium;Deen Burbigo;Platinium;305;0,12;168;28/09/2022 17:26:22
+zinee-season-1-common;Zinée;Common;328;0,007;9,8;28/09/2022 16:39:15
+jwles-season-1-common;Jwles;Common;262;0,006;7,98;28/09/2022 16:39:14
+rowjay-season-1-common;Rowjay;Common;62;0,015;21;28/09/2022 15:38:19
+jmks-season-1-common;JMK$;Common;1;0,15;210;28/09/2022 15:11:18
+di-meh-season-1-common;Di-Meh;Common;247;0,007;9,38;28/09/2022 14:23:17
+thahomey-season-1-common;thaHomey;Common;10;0,093;130,2;28/09/2022 14:23:16
+so-la-lune-season-1-common;So La Lune;Common;90;0,027;37,8;28/09/2022 14:23:16
+slimka-season-1-common;Slimka;Common;484;0,007;9,1;28/09/2022 13:53:21
+thahomey-season-1-common;thaHomey;Common;341;0,006;8,4;28/09/2022 13:53:20
+spider-zed-season-1-common;Spider Zed;Common;200;0,007;9,8;28/09/2022 13:53:18
+livai-season-1-platinium;Livaï;Platinium;97;0,065;91;28/09/2022 13:53:16
+jeanjass-season-1-common;JeanJass;Common;195;0,011;15,68;28/09/2022 12:24:17
+le-reglement-season-1-common;Le Règlement;Common;485;0,017;24,36;28/09/2022 12:24:15
+winnterzuko-season-1-platinium;Winnterzuko;Platinium;2;0,8;1?120;28/09/2022 09:41:16
+livai-season-1-common;Livaï;Common;480;0,005;7,28;28/09/2022 08:32:19
+le-reglement-season-1-common;Le Règlement;Common;286;0,015;21;28/09/2022 08:32:14
+jwles-season-1-common;Jwles;Common;496;0,003;4,2;28/09/2022 07:40:14
+jwles-season-1-common;Jwles;Common;262;0,005;6,3;28/09/2022 02:03:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;170;0,008;11,2;28/09/2022 00:40:18
+8ruki-season-1-common;8ruki;Common;65;0,011;15,4;28/09/2022 00:40:18
+rowjay-season-1-common;Rowjay;Common;213;0,006;8,4;28/09/2022 00:40:17
+jwles-season-1-common;Jwles;Common;14;0,025;35;28/09/2022 00:40:17
+livai-season-1-common;Livaï;Common;482;0,005;6,86;28/09/2022 00:40:16
+rowjay-season-1-common;Rowjay;Common;1;0,052;72,8;28/09/2022 00:40:15
+di-meh-season-1-common;Di-Meh;Common;345;0,006;8,4;27/09/2022 23:45:20
+jmks-season-1-platinium;JMK$;Platinium;145;0,058;81,76;27/09/2022 23:45:19
+di-meh-season-1-common;Di-Meh;Common;244;0,006;8,4;27/09/2022 23:45:18
+benjamin-epps-season-1-common;Benjamin Epps;Common;144;0,01;14;27/09/2022 23:45:16
+so-la-lune-season-1-common;So La Lune;Common;238;0,011;15,484;27/09/2022 23:45:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;317;0,006;8,666;27/09/2022 22:04:24
+so-la-lune-season-1-common;So La Lune;Common;233;0,011;15,68;27/09/2022 22:04:23
+jewel-usain-season-1-common;Jewel Usain;Common;1;0,363;508,2;27/09/2022 22:04:18
+sheldon-season-1-common;Sheldon;Common;339;0,005;6,986;27/09/2022 21:34:28
+winnterzuko-season-1-common;Winnterzuko;Common;359;0,015;21,14;27/09/2022 21:34:27
+so-la-lune-season-1-common;So La Lune;Common;1;0,8;1?120;27/09/2022 21:34:26
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;364;0,015;21;27/09/2022 21:34:22
+8ruki-season-1-common;8ruki;Common;34;0,014;18,9;27/09/2022 21:34:22
+spider-zed-season-1-platinium;Spider Zed;Platinium;102;0,056;78,4;27/09/2022 21:34:17
+so-la-lune-season-1-common;So La Lune;Common;364;0,004;5,88;27/09/2022 21:34:16
+jwles-season-1-common;Jwles;Common;337;0,004;5,6;27/09/2022 21:34:14
+spider-zed-season-1-common;Spider Zed;Common;310;0,004;5,6;27/09/2022 20:32:16
+azur-season-1-common;Azur;Common;337;0,003;4,2;27/09/2022 20:32:15
+le-reglement-season-1-platinium;Le Règlement;Platinium;140;0,123;171,92;27/09/2022 20:32:15
+youv-dee-season-1-common;Youv Dee;Common;31;0,022;30,38;27/09/2022 20:32:14
+azur-season-1-common;Azur;Common;112;0,005;7;27/09/2022 19:31:19
+8ruki-season-1-common;8ruki;Common;91;0,011;15,4;27/09/2022 19:31:18
+moji-x-sboy-season-1-common;Moji x Sboy;Common;81;0,012;16,8;27/09/2022 18:37:20
+azur-season-1-common;Azur;Common;491;0,003;4,06;27/09/2022 18:37:18
+youv-dee-season-1-common;Youv Dee;Common;369;0,01;14;27/09/2022 18:37:17
+so-la-lune-season-1-common;So La Lune;Common;345;0,011;15,4;27/09/2022 18:37:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;108;0,013;18,2;27/09/2022 17:47:25
+le-reglement-season-1-common;Le Règlement;Common;389;0,017;24,36;27/09/2022 17:47:25
+jwles-season-1-common;Jwles;Common;108;0,007;9,8;27/09/2022 17:47:23
+8ruki-season-1-common;8ruki;Common;212;0,007;9,8;27/09/2022 17:47:23
+rowjay-season-1-common;Rowjay;Common;90;0,015;21;27/09/2022 17:47:23
+spider-zed-season-1-common;Spider Zed;Common;416;0,007;9,8;27/09/2022 17:47:23
+flem-season-1-common;Flem;Common;455;0,008;11,2;27/09/2022 17:47:22
+rowjay-season-1-common;Rowjay;Common;378;0,01;14;27/09/2022 17:47:20
+moji-x-sboy-season-1-common;Moji x Sboy;Common;68;0,02;28;27/09/2022 17:47:18
+jeanjass-season-1-common;JeanJass;Common;194;0,007;9,8;27/09/2022 17:47:18
+8ruki-season-1-common;8ruki;Common;115;0,012;16,8;27/09/2022 17:47:17
+azur-season-1-common;Azur;Common;197;0,003;4,2;27/09/2022 17:47:16
+caballero-season-1-common;Caballero;Common;383;0,01;14;27/09/2022 17:47:15
+zinee-season-1-common;Zinée;Common;119;0,012;16,8;27/09/2022 17:04:23
+flem-season-1-common;Flem;Common;298;0,01;14;27/09/2022 17:04:23
+di-meh-season-1-common;Di-Meh;Common;229;0,01;14;27/09/2022 17:04:22
+jeanjass-season-1-common;JeanJass;Common;305;0,01;14;27/09/2022 17:04:19
+benjamin-epps-season-1-common;Benjamin Epps;Common;3;0,03;42;27/09/2022 16:17:19
+rowjay-season-1-common;Rowjay;Common;217;0,006;8,26;27/09/2022 16:17:18
+thahomey-season-1-common;thaHomey;Common;167;0,006;8,4;27/09/2022 16:17:17
+sheldon-season-1-common;Sheldon;Common;260;0,011;15,4;27/09/2022 16:17:15
+jmks-season-1-common;JMK$;Common;89;0,005;6,3;27/09/2022 15:30:17
+youv-dee-season-1-common;Youv Dee;Common;381;0,008;11,2;27/09/2022 15:30:15
+azur-season-1-common;Azur;Common;148;0,004;5,74;27/09/2022 15:30:14
+le-reglement-season-1-common;Le Règlement;Common;336;0,014;19,18;27/09/2022 14:14:15
+lycos-season-1-common;Lycos;Common;387;0,005;7;27/09/2022 13:28:18
+livai-season-1-common;Livaï;Common;368;0,006;8,4;27/09/2022 13:28:18
+azur-season-1-platinium;Azur;Platinium;71;0,067;93,8;27/09/2022 13:28:16
+thahomey-season-1-common;thaHomey;Common;277;0,007;9,8;27/09/2022 12:39:17
+rowjay-season-1-common;Rowjay;Common;5;0,014;19,558;27/09/2022 12:39:15
+jwles-season-1-common;Jwles;Common;10;0,014;19,558;27/09/2022 12:39:14
+8ruki-season-1-common;8ruki;Common;250;0,01;14;27/09/2022 12:02:20
+8ruki-season-1-common;8ruki;Common;7;0,014;19,558;27/09/2022 12:02:14
+winnterzuko-season-1-common;Winnterzuko;Common;172;0,027;37,8;27/09/2022 08:57:19
+zinee-season-1-common;Zinée;Common;40;0,04;56;27/09/2022 08:57:16
+rowjay-season-1-common;Rowjay;Common;3;0,03;42;27/09/2022 08:57:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;57;0,014;19,6;27/09/2022 08:03:18
+mahdi-ba-season-1-common;Mahdi Ba;Common;132;0,01;14;27/09/2022 06:14:15
+lycos-season-1-common;Lycos;Common;328;0,007;10,22;27/09/2022 04:44:14
+jewel-usain-season-1-common;Jewel Usain;Common;228;0,004;5,6;27/09/2022 02:45:19
+caballero-season-1-common;Caballero;Common;215;0,017;23,8;27/09/2022 02:45:17
+flem-season-1-common;Flem;Common;51;0,033;46,2;27/09/2022 01:25:23
+youv-dee-season-1-common;Youv Dee;Common;242;0,01;14;27/09/2022 01:25:20
+jewel-usain-season-1-common;Jewel Usain;Common;251;0,006;8,4;27/09/2022 01:25:20
+slimka-season-1-common;Slimka;Common;317;0,01;14;27/09/2022 01:25:18
+thahomey-season-1-common;thaHomey;Common;231;0,004;5,6;27/09/2022 01:25:14
+livai-season-1-common;Livaï;Common;499;0,007;9,8;26/09/2022 23:52:22
+rowjay-season-1-common;Rowjay;Common;180;0,006;8,54;26/09/2022 23:52:22
+deen-burbigo-season-1-platinium;Deen Burbigo;Platinium;161;0,125;175;26/09/2022 23:52:22
+caballero-season-1-common;Caballero;Common;152;0,02;28;26/09/2022 22:54:20
+rowjay-season-1-common;Rowjay;Common;128;0,006;8,96;26/09/2022 22:54:19
+jmks-season-1-common;JMK$;Common;292;0,005;7,28;26/09/2022 22:54:19
+flem-season-1-common;Flem;Common;51;0,012;16,799;26/09/2022 22:54:18
+spider-zed-season-1-common;Spider Zed;Common;62;0,009;12,04;26/09/2022 22:54:16
+so-la-lune-season-1-common;So La Lune;Common;214;0,011;15,4;26/09/2022 22:54:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;68;0,006;7,84;26/09/2022 22:54:14
+lycos-season-1-common;Lycos;Common;59;0,007;9,799;26/09/2022 22:54:14
+8ruki-season-1-platinium;8ruki;Platinium;248;0,062;86,8;26/09/2022 22:54:14
+benjamin-epps-season-1-platinium;Benjamin Epps;Platinium;207;0,077;107,8;26/09/2022 22:09:23
+slimka-season-1-common;Slimka;Common;487;0,005;7;26/09/2022 22:09:21
+di-meh-season-1-common;Di-Meh;Common;473;0,006;8,4;26/09/2022 22:09:17
+moji-x-sboy-season-1-platinium;Moji x Sboy;Platinium;194;0,118;165,2;26/09/2022 22:09:14
+zinee-season-1-common;Zinée;Common;457;0,005;6,3;26/09/2022 21:40:20
+rowjay-season-1-platinium;Rowjay;Platinium;232;0,057;79,8;26/09/2022 21:40:19
+jeanjass-season-1-common;JeanJass;Common;192;0,011;15,96;26/09/2022 21:40:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;481;0,005;7;26/09/2022 21:40:16
+livai-season-1-common;Livaï;Common;321;0,006;7,7;26/09/2022 21:30:21
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;223;0,02;28;26/09/2022 21:30:19
+thahomey-season-1-common;thaHomey;Common;332;0,005;7;26/09/2022 21:30:19
+caballero-season-1-common;Caballero;Common;329;0,015;21;26/09/2022 21:30:17
+spider-zed-season-1-common;Spider Zed;Common;149;0,005;7;26/09/2022 21:30:16
+slimka-season-1-common;Slimka;Common;1;0,012;16,8;26/09/2022 21:30:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;201;0,01;14;26/09/2022 20:47:20
+caballero-season-1-common;Caballero;Common;188;0,023;32,76;26/09/2022 20:47:16
+lycos-season-1-platinium;Lycos;Platinium;221;0,04;56;26/09/2022 20:04:17
+spider-zed-season-1-common;Spider Zed;Common;372;0,01;14;26/09/2022 19:44:17
+thahomey-season-1-common;thaHomey;Common;77;0,02;28;26/09/2022 19:44:14
+flem-season-1-common;Flem;Common;55;0,023;32,2;26/09/2022 14:52:15
+youv-dee-season-1-common;Youv Dee;Common;21;0,02;28;26/09/2022 14:10:14
+deen-burbigo-season-1-platinium;Deen Burbigo;Platinium;89;0,085;119;26/09/2022 12:37:17
+youv-dee-season-1-platinium;Youv Dee;Platinium;325;0,1;140;26/09/2022 11:04:15
+so-la-lune-season-1-common;So La Lune;Common;114;0,023;32,2;26/09/2022 09:32:15
+di-meh-season-1-platinium;Di-Meh;Platinium;221;0,1;140;25/09/2022 23:18:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;844;0,007;10,36;21/10/2022 11:02:14
+livai-season-1-common;Livaï;Common;671;0,003;3,64;21/10/2022 05:31:13
+kerchak-season-1-common;Kerchak;Common;579;0,006;8,47;20/10/2022 14:38:14
+kerchak-season-1-common;Kerchak;Common;691;0,007;9,8;20/10/2022 13:59:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;957;0,007;9,8;20/10/2022 11:40:14
+zinee-season-1-common;Zinée;Common;504;0,01;13,79;20/10/2022 10:11:13
+jeanjass-season-1-common;JeanJass;Common;962;0,004;5,6;20/10/2022 08:59:14
+azur-season-1-common;Azur;Common;915;0,002;3,388;19/10/2022 21:10:14
+di-meh-season-1-common;Di-Meh;Common;818;0,004;5,6;19/10/2022 15:24:13
+zinee-season-1-common;Zinée;Common;910;0,008;11,2;19/10/2022 15:14:14
+zinee-season-1-common;Zinée;Common;671;0,009;12,6;19/10/2022 10:13:14
+jewel-usain-season-1-common;Jewel Usain;Common;675;0,006;8,288;19/10/2022 10:11:13
+thahomey-season-1-common;thaHomey;Common;812;0,005;6,3;19/10/2022 06:08:14
+sheldon-season-1-common;Sheldon;Common;601;0,004;5,6;19/10/2022 00:11:14
+sheldon-season-1-common;Sheldon;Common;502;0,002;3,136;18/10/2022 18:33:14
+kerchak-season-1-common;Kerchak;Common;604;0,006;8,82;18/10/2022 13:17:14
+jewel-usain-season-1-common;Jewel Usain;Common;860;0,005;6,3;18/10/2022 13:05:14
+livai-season-1-common;Livaï;Common;664;0,002;3,36;18/10/2022 12:57:14
+kerchak-season-1-common;Kerchak;Common;584;0,009;12,32;18/10/2022 09:54:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;549;0,004;5,208;17/10/2022 22:01:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;508;0,007;9,52;17/10/2022 22:00:14
+skuna-season-1-common;Skuna;Common;998;0,002;2,8;17/10/2022 21:49:14
+8ruki-season-1-common;8ruki;Common;621;0,005;6,999;17/10/2022 15:41:14
+zinee-season-1-common;Zinée;Common;578;0,009;12,6;17/10/2022 11:52:13
+lycos-season-1-common;Lycos;Common;637;0,004;5,18;17/10/2022 11:50:13
+kerchak-season-1-common;Kerchak;Common;650;0,009;12,46;17/10/2022 10:02:13
+skuna-season-1-common;Skuna;Common;630;0,004;4,9;16/10/2022 22:56:13
+jeanjass-season-1-common;JeanJass;Common;600;0,011;15,96;16/10/2022 15:53:13
+thahomey-season-1-common;thaHomey;Common;841;0,004;5,18;16/10/2022 15:52:13
+kerchak-season-1-common;Kerchak;Common;638;0,01;14;16/10/2022 12:06:10
+jeanjass-season-1-common;JeanJass;Common;893;0,006;8,4;16/10/2022 11:37:14
+kerchak-season-1-common;Kerchak;Common;618;0,009;12,53;16/10/2022 10:58:14
+azur-season-1-common;Azur;Common;667;0,012;16,8;16/10/2022 00:56:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;641;0,006;8,96;15/10/2022 18:28:13
+rowjay-season-1-common;Rowjay;Common;913;0,004;5,6;15/10/2022 18:23:13
+so-la-lune-season-1-common;So La Lune;Common;931;0,004;5,6;15/10/2022 13:33:13
+so-la-lune-season-1-common;So La Lune;Common;968;0,011;15,82;14/10/2022 11:08:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;641;0,003;4,2;14/10/2022 10:36:14
+youv-dee-season-1-common;Youv Dee;Common;625;0,007;9,8;13/10/2022 20:51:16
+azur-season-1-common;Azur;Common;667;0,003;4,06;13/10/2022 13:48:14
+youv-dee-season-1-common;Youv Dee;Common;662;0,003;4,62;13/10/2022 13:14:13
+flem-season-1-common;Flem;Common;675;0,002;2,8;13/10/2022 12:40:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;642;0,003;4,2;13/10/2022 12:34:13
+youv-dee-season-1-common;Youv Dee;Common;774;0,006;8,26;12/10/2022 23:07:13
+skuna-season-1-common;Skuna;Common;806;0,002;2,8;12/10/2022 22:12:13
+deen-burbigo-season-1-common;Deen Burbigo;Common;590;0,009;12,6;12/10/2022 21:59:14
+slimka-season-1-common;Slimka;Common;907;0,003;4,2;12/10/2022 18:19:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;761;0,003;4,2;12/10/2022 01:43:13
+jmks-season-1-common;JMK$;Common;638;0,002;2,8;12/10/2022 01:40:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;579;0,007;9,8;11/10/2022 21:42:13
+slimka-season-1-common;Slimka;Common;781;0,002;2,8;11/10/2022 21:12:15
+flem-season-1-common;Flem;Common;797;0,003;4,34;11/10/2022 21:08:16
+sheldon-season-1-common;Sheldon;Common;786;0,003;3,5;11/10/2022 20:50:17
+sheldon-season-1-common;Sheldon;Common;851;0,002;2,8;11/10/2022 19:15:14
+youv-dee-season-1-common;Youv Dee;Common;603;0,005;7;11/10/2022 18:37:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;616;0,003;4,2;11/10/2022 16:44:14
+sheldon-season-1-common;Sheldon;Common;607;0,005;6,44;11/10/2022 14:45:14
+lycos-season-1-common;Lycos;Common;676;0,004;5,88;11/10/2022 14:43:13
+jwles-season-1-common;Jwles;Common;592;0,004;4,9;11/10/2022 13:34:14
+caballero-season-1-common;Caballero;Common;595;0,01;14;11/10/2022 10:24:13
+mahdi-ba-season-1-common;Mahdi Ba;Common;985;0,004;5,18;10/10/2022 23:06:14
+8ruki-season-1-common;8ruki;Common;624;0,003;3,78;10/10/2022 19:47:14
+jmks-season-1-common;JMK$;Common;609;0,004;4,9;10/10/2022 13:04:14
+jmks-season-1-common;JMK$;Common;925;0,002;3,22;10/10/2022 12:39:14
+jmks-season-1-common;JMK$;Common;745;0,003;3,64;09/10/2022 19:10:14
+livai-season-1-common;Livaï;Common;880;0,005;6,72;09/10/2022 17:36:14
+spider-zed-season-1-common;Spider Zed;Common;964;0,002;3,22;09/10/2022 16:27:13
+le-reglement-season-1-common;Le Règlement;Common;774;0,01;13,86;09/10/2022 15:16:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;809;0,008;11,2;09/10/2022 15:16:13
+jewel-usain-season-1-common;Jewel Usain;Common;971;0,002;3,36;09/10/2022 14:23:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;926;0,004;5,04;09/10/2022 13:37:13
+spider-zed-season-1-common;Spider Zed;Common;887;0,003;4,2;09/10/2022 10:44:13
+thahomey-season-1-common;thaHomey;Common;944;0,002;3,36;09/10/2022 01:21:14
+azur-season-1-common;Azur;Common;950;0,002;3,08;09/10/2022 00:34:13
+slimka-season-1-common;Slimka;Common;761;0,003;4,2;08/10/2022 18:51:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;889;0,008;10,5;08/10/2022 18:38:15
+so-la-lune-season-1-common;So La Lune;Common;809;0,007;9,8;08/10/2022 13:48:13
+spider-zed-season-1-common;Spider Zed;Common;867;0,003;4,2;08/10/2022 13:18:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;938;0,006;8,12;08/10/2022 09:54:14
+caballero-season-1-common;Caballero;Common;901;0,006;8,4;08/10/2022 09:50:13
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;937;0,006;8,4;08/10/2022 08:24:13
+le-reglement-season-1-common;Le Règlement;Common;909;0,004;5,6;08/10/2022 08:22:14
+winnterzuko-season-1-common;Winnterzuko;Common;941;0,006;8,4;08/10/2022 08:22:13
+caballero-season-1-common;Caballero;Common;900;0,005;7;08/10/2022 04:07:13
+jewel-usain-season-1-common;Jewel Usain;Common;830;0,004;5,18;08/10/2022 00:19:14
+so-la-lune-season-1-common;So La Lune;Common;951;0,005;6,44;07/10/2022 22:28:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;937;0,006;8,12;07/10/2022 21:57:14
+slimka-season-1-common;Slimka;Common;942;0,002;2,8;07/10/2022 20:21:14
+thahomey-season-1-common;thaHomey;Common;626;0,003;4,2;07/10/2022 19:58:13
+winnterzuko-season-1-common;Winnterzuko;Common;710;0,01;14;07/10/2022 18:38:13
+le-reglement-season-1-common;Le Règlement;Common;931;0,007;9,1;07/10/2022 17:54:14
+so-la-lune-season-1-common;So La Lune;Common;701;0,007;9,8;07/10/2022 15:41:16
+rowjay-season-1-common;Rowjay;Common;635;0,003;3,5;07/10/2022 13:45:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;599;0,005;6,3;07/10/2022 13:29:15
+jmks-season-1-common;JMK$;Common;699;0,003;4,34;07/10/2022 13:29:14
+zinee-season-1-common;Zinée;Common;838;0,006;8,68;07/10/2022 13:04:14
+thahomey-season-1-common;thaHomey;Common;634;0,002;3,192;07/10/2022 13:04:14
+skuna-season-1-common;Skuna;Common;638;0,002;2,66;07/10/2022 11:43:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;600;0,007;9,1;07/10/2022 11:19:14
+flem-season-1-common;Flem;Common;665;0,004;6,16;07/10/2022 10:24:23
+azur-season-1-common;Azur;Common;915;0,002;3,01;07/10/2022 07:34:13
+mahdi-ba-season-1-common;Mahdi Ba;Common;849;0,005;7;07/10/2022 04:18:16
+le-reglement-season-1-common;Le Règlement;Common;657;0,008;11,2;07/10/2022 04:18:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;719;0,007;10,36;07/10/2022 04:18:15
+azur-season-1-common;Azur;Common;741;0,004;5,04;07/10/2022 02:15:19
+jewel-usain-season-1-common;Jewel Usain;Common;934;0,002;3,01;06/10/2022 22:25:16
+spider-zed-season-1-common;Spider Zed;Common;562;0,004;4,9;06/10/2022 22:25:15
+8ruki-season-1-common;8ruki;Common;914;0,002;3,01;06/10/2022 22:25:15
+jwles-season-1-common;Jwles;Common;729;0,003;4,2;06/10/2022 20:59:18
+jmks-season-1-common;JMK$;Common;765;0,003;4,06;06/10/2022 20:59:17
+rowjay-season-1-common;Rowjay;Common;953;0,002;3,486;06/10/2022 20:59:17
+jeanjass-season-1-common;JeanJass;Common;593;0,006;8,12;06/10/2022 20:59:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;506;0,008;10,612;06/10/2022 20:17:19
+jwles-season-1-common;Jwles;Common;612;0,002;2,66;06/10/2022 19:07:14
+8ruki-season-1-common;8ruki;Common;638;0,002;2,8;06/10/2022 16:48:14
+thahomey-season-1-common;thaHomey;Common;537;0,004;5,6;06/10/2022 15:35:15
+jwles-season-1-common;Jwles;Common;851;0,002;2,66;06/10/2022 15:21:15
+livai-season-1-common;Livaï;Common;635;0,006;8,4;06/10/2022 09:52:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;859;0,003;4,2;05/10/2022 12:32:15
+zinee-season-1-common;Zinée;Common;901;0,003;3,5;05/10/2022 02:20:16
+slimka-season-1-common;Slimka;Common;529;0,003;4,76;05/10/2022 02:20:15
+8ruki-season-1-common;8ruki;Common;540;0,004;5,18;04/10/2022 21:36:14
+zinee-season-1-common;Zinée;Common;504;0,006;7,84;04/10/2022 20:21:13
+livai-season-1-common;Livaï;Common;592;0,004;5,6;04/10/2022 17:00:15
+mahdi-ba-season-1-common;Mahdi Ba;Common;677;0,005;7;04/10/2022 14:20:14
+caballero-season-1-common;Caballero;Common;648;0,006;7,84;04/10/2022 13:11:14
+jewel-usain-season-1-common;Jewel Usain;Common;803;0,003;4,2;04/10/2022 10:16:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;638;0,005;7,28;04/10/2022 09:43:14
+8ruki-season-1-common;8ruki;Common;751;0,004;6,202;04/10/2022 08:36:18
+benjamin-epps-season-1-common;Benjamin Epps;Common;901;0,005;7;04/10/2022 08:36:17
+skuna-season-1-common;Skuna;Common;725;0,004;5,18;04/10/2022 08:36:17
+so-la-lune-season-1-common;So La Lune;Common;780;0,006;7,7;04/10/2022 08:36:16
+azur-season-1-common;Azur;Common;890;0,003;3,5;04/10/2022 08:36:15
+jmks-season-1-common;JMK$;Common;515;0,004;5,46;04/10/2022 02:03:14
+so-la-lune-season-1-common;So La Lune;Common;909;0,004;6,16;04/10/2022 00:46:14
+so-la-lune-season-1-common;So La Lune;Common;520;0,005;7,56;03/10/2022 23:43:14
+le-reglement-season-1-common;Le Règlement;Common;530;0,006;8,4;03/10/2022 23:13:15
+flem-season-1-common;Flem;Common;801;0,004;5,04;03/10/2022 21:37:15
+youv-dee-season-1-common;Youv Dee;Common;514;0,005;7,56;03/10/2022 21:37:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;896;0,005;7;03/10/2022 21:16:15
+di-meh-season-1-common;Di-Meh;Common;786;0,002;2,8;03/10/2022 20:50:14
+jwles-season-1-common;Jwles;Common;775;0,002;2,8;03/10/2022 18:46:16
+sheldon-season-1-common;Sheldon;Common;788;0,002;2,8;03/10/2022 18:46:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;938;0,004;6,16;03/10/2022 15:40:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;656;0,005;7;03/10/2022 14:10:14
+sheldon-season-1-common;Sheldon;Common;859;0,004;5,46;03/10/2022 13:39:17
+zinee-season-1-common;Zinée;Common;697;0,007;9,8;03/10/2022 13:39:16
+moji-x-sboy-season-1-common;Moji x Sboy;Common;676;0,004;5,6;03/10/2022 07:49:14
+winnterzuko-season-1-common;Winnterzuko;Common;593;0,007;9,8;03/10/2022 00:45:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;985;0,005;6,86;02/10/2022 23:48:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;558;0,005;7;02/10/2022 23:48:14
+spider-zed-season-1-common;Spider Zed;Common;980;0,002;3,36;02/10/2022 17:00:15
+8ruki-season-1-common;8ruki;Common;518;0,003;3,92;02/10/2022 14:18:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;787;0,011;15,26;02/10/2022 13:03:15
+le-reglement-season-1-common;Le Règlement;Common;864;0,005;7,56;02/10/2022 02:03:16
+flem-season-1-common;Flem;Common;798;0,004;5,599;01/10/2022 22:11:16
+thahomey-season-1-common;thaHomey;Common;773;0,003;4,2;01/10/2022 22:11:14
+sheldon-season-1-common;Sheldon;Common;547;0,004;5,88;01/10/2022 17:26:16
+moji-x-sboy-season-1-common;Moji x Sboy;Common;620;0,003;4,62;01/10/2022 17:03:14
+slimka-season-1-common;Slimka;Common;994;0,002;3,22;01/10/2022 13:55:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;939;0,004;4,9;01/10/2022 02:14:18
+so-la-lune-season-1-common;So La Lune;Common;979;0,007;9,1;01/10/2022 02:14:17
+benjamin-epps-season-1-common;Benjamin Epps;Common;763;0,004;6,16;30/09/2022 23:34:20
+jeanjass-season-1-common;JeanJass;Common;779;0,01;14;30/09/2022 23:34:18
+deen-burbigo-season-1-common;Deen Burbigo;Common;806;0,006;7,924;30/09/2022 23:34:17
+skuna-season-1-common;Skuna;Common;824;0,003;3,5;30/09/2022 21:17:21
+jeanjass-season-1-common;JeanJass;Common;819;0,004;5,88;30/09/2022 21:17:16
+youv-dee-season-1-common;Youv Dee;Common;644;0,004;5,18;30/09/2022 21:17:16
+slimka-season-1-common;Slimka;Common;901;0,003;3,5;30/09/2022 21:17:15
+lycos-season-1-common;Lycos;Common;888;0,002;2,52;30/09/2022 21:17:14
+di-meh-season-1-common;Di-Meh;Common;680;0,005;7,42;30/09/2022 18:17:16
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;924;0,006;8,4;30/09/2022 16:35:17
+slimka-season-1-common;Slimka;Common;828;0,003;4,074;30/09/2022 15:18:16
+rowjay-season-1-common;Rowjay;Common;666;0,003;4,13;30/09/2022 14:42:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;610;0,004;5,46;30/09/2022 14:09:17
+jewel-usain-season-1-common;Jewel Usain;Common;536;0,004;5,6;30/09/2022 14:09:16
+skuna-season-1-common;Skuna;Common;928;0,003;3,5;30/09/2022 13:25:16
+zinee-season-1-common;Zinée;Common;824;0,004;5,32;30/09/2022 13:25:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;673;0,007;10,192;30/09/2022 13:14:17
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;926;0,005;7;30/09/2022 12:36:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;894;0,003;4,186;30/09/2022 12:36:16
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;914;0,005;6,72;30/09/2022 12:36:14
+so-la-lune-season-1-common;So La Lune;Common;571;0,005;7,28;30/09/2022 11:52:20
+so-la-lune-season-1-common;So La Lune;Common;525;0,014;19,6;30/09/2022 11:52:19
+jeanjass-season-1-common;JeanJass;Common;681;0,007;9,66;30/09/2022 11:18:22
+winnterzuko-season-1-common;Winnterzuko;Common;747;0,008;11,06;30/09/2022 11:18:20
+slimka-season-1-common;Slimka;Common;591;0,005;6,86;30/09/2022 10:06:14
+skuna-season-1-common;Skuna;Common;754;0,004;5,04;30/09/2022 09:23:20
+caballero-season-1-common;Caballero;Common;999;0,017;23,8;30/09/2022 09:15:20
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;578;0,006;8,4;30/09/2022 09:15:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;775;0,004;5,88;30/09/2022 09:02:19
+jewel-usain-season-1-common;Jewel Usain;Common;803;0,004;5,32;30/09/2022 07:59:19
+mahdi-ba-season-1-common;Mahdi Ba;Common;780;0,003;4,837;30/09/2022 07:14:14
+spider-zed-season-1-common;Spider Zed;Common;692;0,003;4,13;30/09/2022 03:32:16
+flem-season-1-common;Flem;Common;826;0,006;8,4;30/09/2022 02:21:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;940;0,004;5,18;30/09/2022 01:38:16
+lycos-season-1-common;Lycos;Common;867;0,004;5,46;30/09/2022 01:08:17
+di-meh-season-1-common;Di-Meh;Common;560;0,004;5,32;30/09/2022 00:49:21
+skuna-season-1-common;Skuna;Common;792;0,005;6,944;30/09/2022 00:14:28
+so-la-lune-season-1-common;So La Lune;Common;558;0,009;11,9;30/09/2022 00:03:14
+8ruki-season-1-common;8ruki;Common;595;0,005;6,3;30/09/2022 00:03:14
+lycos-season-1-common;Lycos;Common;587;0,004;5,18;30/09/2022 00:01:16
+di-meh-season-1-common;Di-Meh;Common;974;0,004;4,9;29/09/2022 23:58:22
+winnterzuko-season-1-common;Winnterzuko;Common;532;0,011;15,4;29/09/2022 23:58:21
+benjamin-epps-season-1-common;Benjamin Epps;Common;579;0,007;9,1;29/09/2022 23:53:19
+so-la-lune-season-1-common;So La Lune;Common;913;0,007;9,968;29/09/2022 23:40:19
+jewel-usain-season-1-common;Jewel Usain;Common;596;0,004;4,9;29/09/2022 23:20:15
+zinee-season-1-common;Zinée;Common;578;0,004;5,6;29/09/2022 22:00:21
+so-la-lune-season-1-common;So La Lune;Common;836;0,009;12,6;29/09/2022 21:54:15
+sheldon-season-1-common;Sheldon;Common;871;0,005;6,86;29/09/2022 21:17:15
+skuna-season-1-common;Skuna;Common;588;0,005;6,944;29/09/2022 21:17:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;922;0,003;4,48;29/09/2022 21:17:14
+livai-season-1-common;Livaï;Common;915;0,005;7;29/09/2022 20:10:16
+thahomey-season-1-common;thaHomey;Common;882;0,004;6,16;29/09/2022 20:10:15
+azur-season-1-common;Azur;Common;914;0,004;5,6;29/09/2022 20:10:15
+mahdi-ba-season-1-common;Mahdi Ba;Common;880;0,004;5,04;29/09/2022 20:10:14
+livai-season-1-common;Livaï;Common;568;0,004;5,46;29/09/2022 19:24:16
+sheldon-season-1-common;Sheldon;Common;566;0,004;5,46;29/09/2022 18:24:17
+zinee-season-1-common;Zinée;Common;904;0,007;9,1;29/09/2022 18:24:17
+winnterzuko-season-1-common;Winnterzuko;Common;867;0,014;18,9;29/09/2022 17:54:17
+thahomey-season-1-common;thaHomey;Common;841;0,005;7,56;29/09/2022 16:53:19
+8ruki-season-1-common;8ruki;Common;517;0,004;4,9;29/09/2022 16:53:19
+spider-zed-season-1-common;Spider Zed;Common;802;0,004;4,9;29/09/2022 16:09:15
+8ruki-season-1-common;8ruki;Common;966;0,005;6,999;29/09/2022 15:32:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;542;0,013;18,2;29/09/2022 14:35:14
+livai-season-1-common;Livaï;Common;950;0,005;6,86;29/09/2022 13:50:17
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;748;0,012;16,52;29/09/2022 13:35:18
+jmks-season-1-common;JMK$;Common;754;0,005;6,44;29/09/2022 13:35:17
+moji-x-sboy-season-1-common;Moji x Sboy;Common;751;0,004;5,04;29/09/2022 13:35:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;542;0,008;11,2;29/09/2022 13:35:15
+so-la-lune-season-1-common;So La Lune;Common;700;0,012;16,8;29/09/2022 13:35:14
+flem-season-1-common;Flem;Common;965;0,007;9,38;29/09/2022 12:36:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;992;0,007;9,8;29/09/2022 11:42:17
+jeanjass-season-1-common;JeanJass;Common;680;0,012;16,8;29/09/2022 11:42:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;607;0,007;9,786;29/09/2022 10:28:22
+zinee-season-1-common;Zinée;Common;600;0,01;14;29/09/2022 10:28:19
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;601;0,015;20,3;29/09/2022 10:28:18
+le-reglement-season-1-common;Le Règlement;Common;670;0,017;23,8;29/09/2022 10:28:18
+deen-burbigo-season-1-common;Deen Burbigo;Common;644;0,013;18,2;29/09/2022 10:28:18
+so-la-lune-season-1-common;So La Lune;Common;661;0,012;16,8;29/09/2022 10:28:17
+lycos-season-1-common;Lycos;Common;598;0,006;8,4;29/09/2022 08:02:20
+benjamin-epps-season-1-common;Benjamin Epps;Common;674;0,008;10,5;29/09/2022 08:02:19
+sheldon-season-1-common;Sheldon;Common;785;0,005;6,72;29/09/2022 08:02:17
+youv-dee-season-1-common;Youv Dee;Common;658;0,006;8,4;29/09/2022 08:02:16
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;907;0,013;18,2;29/09/2022 08:02:14
+sheldon-season-1-common;Sheldon;Common;705;0,01;14;29/09/2022 07:07:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;770;0,012;16,1;29/09/2022 05:39:17
+deen-burbigo-season-1-common;Deen Burbigo;Common;530;0,011;15,128;29/09/2022 05:39:16
+jeanjass-season-1-common;JeanJass;Common;603;0,007;9,8;29/09/2022 05:39:15
+skuna-season-1-common;Skuna;Common;503;0,006;8,54;29/09/2022 05:39:14
+jwles-season-1-common;Jwles;Common;728;0,005;6,496;29/09/2022 05:39:14
+jeanjass-season-1-common;JeanJass;Common;779;0,006;8,4;29/09/2022 04:29:15
+thahomey-season-1-common;thaHomey;Common;683;0,006;7,98;29/09/2022 00:14:15
+jwles-season-1-common;Jwles;Common;648;0,005;6,439;28/09/2022 22:35:22
+winnterzuko-season-1-common;Winnterzuko;Common;619;0,013;18,48;28/09/2022 22:35:21
+jmks-season-1-common;JMK$;Common;518;0,004;5,586;28/09/2022 22:35:17
+skuna-season-1-common;Skuna;Common;631;0,003;4,2;28/09/2022 22:35:15
+zinee-season-1-common;Zinée;Common;642;0,008;11,34;28/09/2022 21:22:20
+flem-season-1-common;Flem;Common;543;0,008;11,06;28/09/2022 21:22:18
+8ruki-season-1-common;8ruki;Common;636;0,003;4,76;28/09/2022 20:20:18
+winnterzuko-season-1-common;Winnterzuko;Common;511;0,013;18,2;28/09/2022 20:20:14
+rowjay-season-1-common;Rowjay;Common;780;0,005;6,72;28/09/2022 18:18:18
+livai-season-1-common;Livaï;Common;613;0,005;7,56;28/09/2022 18:18:17
+sheldon-season-1-common;Sheldon;Common;903;0,004;5,6;28/09/2022 18:18:17
+jeanjass-season-1-common;JeanJass;Common;586;0,008;10,906;28/09/2022 18:18:16
+azur-season-1-common;Azur;Common;627;0,006;8,4;28/09/2022 18:18:14
+so-la-lune-season-1-common;So La Lune;Common;819;0,011;15,4;28/09/2022 17:01:16
+caballero-season-1-common;Caballero;Common;699;0,013;18,2;28/09/2022 17:01:15
+jewel-usain-season-1-common;Jewel Usain;Common;691;0,005;7;28/09/2022 16:39:18
+jeanjass-season-1-common;JeanJass;Common;840;0,008;10,5;28/09/2022 16:39:17
+spider-zed-season-1-common;Spider Zed;Common;657;0,006;8,4;28/09/2022 16:39:15
+jewel-usain-season-1-common;Jewel Usain;Common;807;0,004;6,02;28/09/2022 15:38:16
+youv-dee-season-1-common;Youv Dee;Common;850;0,004;5,6;28/09/2022 15:38:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;768;0,005;6,3;28/09/2022 14:23:19
+jewel-usain-season-1-common;Jewel Usain;Common;633;0,005;7;28/09/2022 14:23:17
+caballero-season-1-common;Caballero;Common;694;0,01;14;28/09/2022 13:53:21
+jeanjass-season-1-common;JeanJass;Common;697;0,007;9,1;28/09/2022 13:53:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;528;0,015;21;28/09/2022 12:24:16
+jewel-usain-season-1-common;Jewel Usain;Common;925;0,003;4,06;28/09/2022 11:23:16
+youv-dee-season-1-common;Youv Dee;Common;632;0,006;7,98;28/09/2022 09:41:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;698;0,012;16,8;28/09/2022 08:32:16
+le-reglement-season-1-common;Le Règlement;Common;676;0,014;19,6;28/09/2022 08:32:15
+jeanjass-season-1-common;JeanJass;Common;617;0,008;11,48;28/09/2022 08:32:15
+mahdi-ba-season-1-common;Mahdi Ba;Common;992;0,008;11,2;28/09/2022 05:25:14
+livai-season-1-common;Livaï;Common;643;0,005;6,58;27/09/2022 23:45:20
+livai-season-1-common;Livaï;Common;642;0,005;6,58;27/09/2022 23:45:20
+deen-burbigo-season-1-common;Deen Burbigo;Common;614;0,012;16,1;27/09/2022 23:45:17
+sheldon-season-1-common;Sheldon;Common;641;0,005;6,3;27/09/2022 23:45:16
+azur-season-1-common;Azur;Common;624;0,003;4,48;27/09/2022 23:45:15
+livai-season-1-common;Livaï;Common;824;0,005;7;27/09/2022 22:04:17
+azur-season-1-common;Azur;Common;936;0,004;5,18;27/09/2022 21:39:20
+lycos-season-1-common;Lycos;Common;917;0,005;7,56;27/09/2022 20:32:18
+livai-season-1-common;Livaï;Common;675;0,007;9,8;27/09/2022 18:37:20
+azur-season-1-common;Azur;Common;580;0,005;7,56;27/09/2022 18:37:19
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;909;0,015;21;27/09/2022 18:37:18
+moji-x-sboy-season-1-common;Moji x Sboy;Common;582;0,006;7,7;27/09/2022 18:37:17
+zinee-season-1-common;Zinée;Common;671;0,009;12,6;27/09/2022 18:37:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;582;0,013;17,5;27/09/2022 17:47:25
+jeanjass-season-1-common;JeanJass;Common;723;0,011;15,4;27/09/2022 17:47:24
+jmks-season-1-common;JMK$;Common;703;0,004;6,02;27/09/2022 17:47:22
+skuna-season-1-common;Skuna;Common;584;0,006;8,4;27/09/2022 17:47:18
+jmks-season-1-common;JMK$;Common;523;0,008;11,199;27/09/2022 17:47:17
+winnterzuko-season-1-common;Winnterzuko;Common;748;0,011;15,4;27/09/2022 17:04:21
+zinee-season-1-common;Zinée;Common;945;0,011;15,4;27/09/2022 17:04:18
+azur-season-1-common;Azur;Common;586;0,004;5,04;27/09/2022 17:04:16
+winnterzuko-season-1-common;Winnterzuko;Common;747;0,011;15,4;27/09/2022 17:04:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;707;0,011;15,4;27/09/2022 16:17:19
+jwles-season-1-common;Jwles;Common;569;0,003;4,2;27/09/2022 16:17:15
+sheldon-season-1-common;Sheldon;Common;603;0,007;9,1;27/09/2022 15:30:23
+spider-zed-season-1-common;Spider Zed;Common;736;0,007;9,8;27/09/2022 15:30:23
+mahdi-ba-season-1-common;Mahdi Ba;Common;694;0,011;15,4;27/09/2022 15:30:21
+caballero-season-1-common;Caballero;Common;670;0,017;23,1;27/09/2022 15:30:20
+moji-x-sboy-season-1-common;Moji x Sboy;Common;656;0,006;8,26;27/09/2022 15:30:15
+le-reglement-season-1-common;Le Règlement;Common;853;0,014;19,6;27/09/2022 14:14:21
+di-meh-season-1-common;Di-Meh;Common;785;0,007;9,1;27/09/2022 14:14:19
+di-meh-season-1-common;Di-Meh;Common;921;0,007;9,1;27/09/2022 14:14:17
+deen-burbigo-season-1-common;Deen Burbigo;Common;924;0,015;21;27/09/2022 12:39:16
+so-la-lune-season-1-common;So La Lune;Common;780;0,009;12,39;27/09/2022 12:02:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;921;0,015;21;27/09/2022 10:50:14
+spider-zed-season-1-common;Spider Zed;Common;537;0,007;9,66;27/09/2022 06:14:15
+le-reglement-season-1-common;Le Règlement;Common;605;0,018;25,2;27/09/2022 06:14:14
+jeanjass-season-1-common;JeanJass;Common;765;0,009;12,88;27/09/2022 02:45:18
+jewel-usain-season-1-common;Jewel Usain;Common;599;0,004;6,16;27/09/2022 02:45:14
+di-meh-season-1-common;Di-Meh;Common;676;0,008;11,2;27/09/2022 01:25:25
+sheldon-season-1-common;Sheldon;Common;590;0,006;8,4;27/09/2022 01:25:23
+rowjay-season-1-common;Rowjay;Common;597;0,007;9,94;27/09/2022 01:25:22
+8ruki-season-1-common;8ruki;Common;786;0,006;8,4;27/09/2022 01:25:21
+jewel-usain-season-1-common;Jewel Usain;Common;598;0,005;7;27/09/2022 01:25:21
+caballero-season-1-common;Caballero;Common;981;0,018;25,2;27/09/2022 01:25:19
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;771;0,015;20,3;27/09/2022 01:25:16
+slimka-season-1-common;Slimka;Common;675;0,009;12,6;26/09/2022 23:06:18
+di-meh-season-1-common;Di-Meh;Common;924;0,007;9,8;26/09/2022 23:06:15
+winnterzuko-season-1-common;Winnterzuko;Common;832;0,015;21;26/09/2022 22:54:21
+moji-x-sboy-season-1-common;Moji x Sboy;Common;594;0,005;7,42;26/09/2022 22:54:16
+zinee-season-1-common;Zinée;Common;902;0,009;12,6;26/09/2022 22:09:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;796;0,015;21;26/09/2022 21:30:24
+so-la-lune-season-1-common;So La Lune;Common;598;0,014;20,067;26/09/2022 21:30:22
+di-meh-season-1-common;Di-Meh;Common;761;0,009;12,6;26/09/2022 21:30:22
+rowjay-season-1-common;Rowjay;Common;534;0,004;5,6;26/09/2022 21:30:15
+spider-zed-season-1-common;Spider Zed;Common;632;0,006;8,4;26/09/2022 17:05:14
+jwles-season-1-common;Jwles;Common;648;0,004;5,6;26/09/2022 12:19:16
+so-la-lune-season-1-common;So La Lune;Common;625;0,008;11,2;26/09/2022 12:19:15
+jmks-season-1-common;JMK$;Common;999;0,004;5,46;26/09/2022 02:36:21
+benjamin-epps-season-1-common;Benjamin Epps;Common;1243;0,002;2,8;21/10/2022 05:29:14
+youv-dee-season-1-common;Youv Dee;Common;1144;0,004;5,53;19/10/2022 15:18:14
+jeanjass-season-1-common;JeanJass;Common;1107;0,007;9,8;18/10/2022 16:54:14
+azur-season-1-common;Azur;Common;1069;0,003;4,2;18/10/2022 10:30:13
+thahomey-season-1-common;thaHomey;Common;1302;0,003;4,2;17/10/2022 22:30:14
+zinee-season-1-common;Zinée;Common;1249;0,004;6,16;17/10/2022 22:20:14
+jewel-usain-season-1-common;Jewel Usain;Common;1093;0,003;4,2;17/10/2022 12:01:14
+8ruki-season-1-common;8ruki;Common;1227;0,003;4,34;17/10/2022 11:56:14
+youv-dee-season-1-common;Youv Dee;Common;1278;0,003;4,76;17/10/2022 11:36:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;1151;0,004;5,6;16/10/2022 23:14:13
+jwles-season-1-common;Jwles;Common;1227;0,002;2,38;16/10/2022 22:53:13
+so-la-lune-season-1-common;So La Lune;Common;1334;0,006;8,82;16/10/2022 19:39:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;1150;0,004;5,6;16/10/2022 15:52:14
+jwles-season-1-common;Jwles;Common;1423;0,002;2,702;16/10/2022 13:29:14
+caballero-season-1-common;Caballero;Common;1044;0,008;11,2;16/10/2022 09:39:14
+flem-season-1-common;Flem;Common;1133;0,003;4,2;15/10/2022 23:29:14
+le-reglement-season-1-common;Le Règlement;Common;1144;0,006;8,26;14/10/2022 22:40:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;1068;0,008;11,2;14/10/2022 16:47:14
+rowjay-season-1-common;Rowjay;Common;1399;0,002;2,8;14/10/2022 15:31:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;1333;0,006;8,68;14/10/2022 14:17:13
+di-meh-season-1-common;Di-Meh;Common;1379;0,002;2,66;13/10/2022 13:40:14
+thahomey-season-1-common;thaHomey;Common;1334;0,002;2,52;13/10/2022 13:17:13
+youv-dee-season-1-common;Youv Dee;Common;1078;0,005;7,336;13/10/2022 10:39:13
+jewel-usain-season-1-common;Jewel Usain;Common;1168;0,002;3,158;12/10/2022 00:44:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1480;0,007;9,8;11/10/2022 22:06:14
+caballero-season-1-common;Caballero;Common;1097;0,006;7,896;11/10/2022 18:10:13
+jeanjass-season-1-common;JeanJass;Common;1121;0,006;8,4;11/10/2022 08:45:13
+deen-burbigo-season-1-common;Deen Burbigo;Common;1276;0,007;10,08;11/10/2022 06:59:13
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1179;0,007;9,338;10/10/2022 23:06:14
+jewel-usain-season-1-common;Jewel Usain;Common;1441;0,003;3,612;10/10/2022 18:24:15
+di-meh-season-1-common;Di-Meh;Common;1017;0,002;3,08;10/10/2022 18:19:15
+winnterzuko-season-1-common;Winnterzuko;Common;1032;0,007;9,24;10/10/2022 16:47:14
+skuna-season-1-common;Skuna;Common;1116;0,002;3,08;10/10/2022 13:04:14
+jwles-season-1-common;Jwles;Common;1012;0,002;2,66;10/10/2022 13:03:14
+so-la-lune-season-1-common;So La Lune;Common;1363;0,005;7;10/10/2022 09:09:13
+winnterzuko-season-1-common;Winnterzuko;Common;1183;0,006;8,4;09/10/2022 23:19:13
+slimka-season-1-common;Slimka;Common;1294;0,003;3,64;09/10/2022 14:25:13
+caballero-season-1-common;Caballero;Common;1122;0,006;8,26;09/10/2022 01:00:13
+azur-season-1-common;Azur;Common;1167;0,002;3,08;08/10/2022 19:35:14
+le-reglement-season-1-common;Le Règlement;Common;1055;0,006;8,68;08/10/2022 18:33:13
+le-reglement-season-1-common;Le Règlement;Common;1055;0,004;4,9;08/10/2022 14:55:14
+lycos-season-1-common;Lycos;Common;1114;0,003;4,06;08/10/2022 09:51:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;1137;0,003;4,2;07/10/2022 22:04:14
+8ruki-season-1-common;8ruki;Common;1193;0,003;4,2;07/10/2022 20:32:16
+sheldon-season-1-common;Sheldon;Common;1087;0,003;4,62;07/10/2022 20:29:15
+skuna-season-1-common;Skuna;Common;1114;0,002;3,08;07/10/2022 18:30:14
+winnterzuko-season-1-common;Winnterzuko;Common;1183;0,007;9,338;07/10/2022 18:09:14
+livai-season-1-common;Livaï;Common;1171;0,002;2,8;07/10/2022 18:08:13
+jeanjass-season-1-common;JeanJass;Common;1172;0,004;5,32;07/10/2022 17:59:14
+sheldon-season-1-common;Sheldon;Common;1130;0,002;2,8;07/10/2022 17:56:14
+jwles-season-1-common;Jwles;Common;1256;0,002;2,1;07/10/2022 17:52:14
+thahomey-season-1-common;thaHomey;Common;1302;0,002;3,206;07/10/2022 16:38:15
+slimka-season-1-common;Slimka;Common;1050;0,002;3,22;07/10/2022 14:19:15
+jeanjass-season-1-common;JeanJass;Common;1303;0,004;5,6;07/10/2022 10:56:14
+jwles-season-1-common;Jwles;Common;1124;0,002;2,8;07/10/2022 02:15:13
+jewel-usain-season-1-common;Jewel Usain;Common;1145;0,002;3,22;06/10/2022 21:38:19
+livai-season-1-common;Livaï;Common;1146;0,003;4,102;06/10/2022 20:17:21
+benjamin-epps-season-1-common;Benjamin Epps;Common;1140;0,005;6,3;06/10/2022 15:35:14
+youv-dee-season-1-common;Youv Dee;Common;1109;0,003;4,62;06/10/2022 15:21:14
+so-la-lune-season-1-common;So La Lune;Common;1426;0,005;6,3;06/10/2022 13:07:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;1093;0,006;8,106;06/10/2022 05:39:17
+rowjay-season-1-common;Rowjay;Common;1103;0,002;3,248;06/10/2022 04:53:14
+sheldon-season-1-common;Sheldon;Common;1118;0,003;4,48;05/10/2022 16:26:15
+spider-zed-season-1-common;Spider Zed;Common;1048;0,005;6,3;05/10/2022 13:33:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;1029;0,004;5,6;05/10/2022 12:32:14
+zinee-season-1-common;Zinée;Common;1119;0,003;4,108;05/10/2022 02:20:14
+winnterzuko-season-1-common;Winnterzuko;Common;1299;0,01;14;04/10/2022 20:05:14
+le-reglement-season-1-common;Le Règlement;Common;1161;0,006;8,4;04/10/2022 19:41:16
+youv-dee-season-1-common;Youv Dee;Common;1135;0,003;4,108;04/10/2022 15:26:15
+azur-season-1-common;Azur;Common;1256;0,002;3,206;04/10/2022 13:11:15
+lycos-season-1-common;Lycos;Common;1165;0,002;3,22;04/10/2022 12:26:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;1319;0,003;4,2;04/10/2022 09:43:14
+youv-dee-season-1-common;Youv Dee;Common;1323;0,004;5,04;04/10/2022 08:36:19
+lycos-season-1-common;Lycos;Common;1424;0,002;3,22;04/10/2022 07:14:14
+slimka-season-1-common;Slimka;Common;1239;0,003;3,5;03/10/2022 22:28:14
+youv-dee-season-1-common;Youv Dee;Common;1222;0,005;7;03/10/2022 13:39:16
+winnterzuko-season-1-common;Winnterzuko;Common;1155;0,005;7;03/10/2022 07:49:14
+di-meh-season-1-common;Di-Meh;Common;1464;0,003;4,2;01/10/2022 18:45:17
+livai-season-1-common;Livaï;Common;1042;0,003;4,2;01/10/2022 13:49:18
+jeanjass-season-1-common;JeanJass;Common;1219;0,004;6,02;01/10/2022 13:49:16
+le-reglement-season-1-common;Le Règlement;Common;1446;0,006;8,96;01/10/2022 05:57:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;1112;0,003;4,2;30/09/2022 23:34:16
+di-meh-season-1-common;Di-Meh;Common;1498;0,004;5,32;30/09/2022 23:34:15
+livai-season-1-common;Livaï;Common;1099;0,002;3,038;30/09/2022 22:08:21
+jeanjass-season-1-common;JeanJass;Common;1442;0,004;6,02;30/09/2022 22:08:19
+8ruki-season-1-common;8ruki;Common;1195;0,002;2,1;30/09/2022 21:38:23
+zinee-season-1-common;Zinée;Common;1445;0,004;6,02;30/09/2022 17:12:15
+caballero-season-1-common;Caballero;Common;1345;0,007;9,8;30/09/2022 12:36:15
+rowjay-season-1-common;Rowjay;Common;1169;0,002;2,8;30/09/2022 12:14:15
+jeanjass-season-1-common;JeanJass;Common;1368;0,004;5,6;30/09/2022 12:06:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;1072;0,004;5,04;30/09/2022 11:41:15
+caballero-season-1-common;Caballero;Common;1428;0,007;9,66;30/09/2022 10:06:17
+di-meh-season-1-common;Di-Meh;Common;1304;0,002;3,36;30/09/2022 09:43:19
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1166;0,001;1,54;30/09/2022 09:32:18
+azur-season-1-common;Azur;Common;1125;0,003;4,2;30/09/2022 09:23:18
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1104;0,006;8,26;30/09/2022 08:30:18
+flem-season-1-common;Flem;Common;1221;0,007;9,8;30/09/2022 00:32:21
+di-meh-season-1-common;Di-Meh;Common;1126;0,004;5,6;29/09/2022 21:54:14
+sheldon-season-1-common;Sheldon;Common;1377;0,005;6,3;29/09/2022 21:17:14
+azur-season-1-common;Azur;Common;1179;0,004;5,18;29/09/2022 21:17:14
+di-meh-season-1-common;Di-Meh;Common;1128;0,004;5,6;29/09/2022 21:17:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;1286;0,004;5,04;29/09/2022 20:10:16
+azur-season-1-common;Azur;Common;1096;0,004;4,9;29/09/2022 19:24:17
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1104;0,005;7;29/09/2022 16:53:17
+caballero-season-1-common;Caballero;Common;1070;0,014;19,6;29/09/2022 16:33:19
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1163;0,004;5,6;29/09/2022 15:32:16
+sheldon-season-1-common;Sheldon;Common;1412;0,005;6,482;29/09/2022 11:42:15
+azur-season-1-common;Azur;Common;1023;0,003;3,5;29/09/2022 10:58:14
+jmks-season-1-common;JMK$;Common;1189;0,004;4,9;29/09/2022 10:28:21
+livai-season-1-common;Livaï;Common;1114;0,005;7;29/09/2022 10:28:16
+so-la-lune-season-1-common;So La Lune;Common;1283;0,011;15,82;29/09/2022 08:41:15
+jewel-usain-season-1-common;Jewel Usain;Common;1427;0,004;5,6;29/09/2022 08:02:18
+livai-season-1-common;Livaï;Common;1336;0,005;6,3;29/09/2022 03:22:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1162;0,004;5,6;29/09/2022 01:19:19
+mahdi-ba-season-1-common;Mahdi Ba;Common;1426;0,004;5,04;29/09/2022 00:14:16
+jeanjass-season-1-common;JeanJass;Common;1287;0,007;9,8;28/09/2022 23:26:17
+youv-dee-season-1-common;Youv Dee;Common;1288;0,005;7;28/09/2022 22:35:19
+jwles-season-1-common;Jwles;Common;1111;0,005;7;28/09/2022 22:35:18
+jwles-season-1-common;Jwles;Common;1345;0,004;5,152;28/09/2022 21:22:19
+so-la-lune-season-1-common;So La Lune;Common;1387;0,01;14;28/09/2022 20:20:15
+le-reglement-season-1-common;Le Règlement;Common;1186;0,008;11,2;28/09/2022 19:28:23
+lycos-season-1-common;Lycos;Common;1159;0,003;4,2;28/09/2022 19:28:20
+8ruki-season-1-common;8ruki;Common;1134;0,004;4,9;28/09/2022 19:12:19
+youv-dee-season-1-common;Youv Dee;Common;1283;0,004;5,6;28/09/2022 19:12:14
+winnterzuko-season-1-common;Winnterzuko;Common;1291;0,013;18,2;28/09/2022 17:26:17
+livai-season-1-common;Livaï;Common;1068;0,004;5,6;28/09/2022 17:01:17
+slimka-season-1-common;Slimka;Common;1231;0,005;7;28/09/2022 16:39:19
+azur-season-1-common;Azur;Common;1483;0,003;3,92;28/09/2022 15:38:18
+deen-burbigo-season-1-common;Deen Burbigo;Common;1214;0,011;15,4;28/09/2022 15:38:17
+jwles-season-1-common;Jwles;Common;1124;0,004;5,208;28/09/2022 15:11:15
+8ruki-season-1-common;8ruki;Common;1193;0,003;4,34;28/09/2022 15:11:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1177;0,014;19,6;28/09/2022 13:53:20
+winnterzuko-season-1-common;Winnterzuko;Common;1147;0,013;18,774;28/09/2022 12:24:15
+jewel-usain-season-1-common;Jewel Usain;Common;1152;0,003;4,2;28/09/2022 09:41:17
+skuna-season-1-common;Skuna;Common;1107;0,002;2,8;28/09/2022 08:32:18
+deen-burbigo-season-1-common;Deen Burbigo;Common;1099;0,009;12,6;28/09/2022 08:32:16
+8ruki-season-1-common;8ruki;Common;1138;0,005;7;27/09/2022 22:04:19
+mahdi-ba-season-1-common;Mahdi Ba;Common;1329;0,004;5,6;27/09/2022 21:34:29
+jeanjass-season-1-common;JeanJass;Common;1170;0,008;11,2;27/09/2022 21:34:24
+jmks-season-1-common;JMK$;Common;1379;0,005;6,3;27/09/2022 21:34:22
+caballero-season-1-common;Caballero;Common;1091;0,015;21;27/09/2022 21:34:19
+jeanjass-season-1-common;JeanJass;Common;1232;0,01;14;27/09/2022 19:31:16
+spider-zed-season-1-common;Spider Zed;Common;1410;0,004;5,978;27/09/2022 19:31:15
+jewel-usain-season-1-common;Jewel Usain;Common;1087;0,005;6,3;27/09/2022 18:37:21
+so-la-lune-season-1-common;So La Lune;Common;1231;0,009;12,6;27/09/2022 18:37:15
+winnterzuko-season-1-common;Winnterzuko;Common;1257;0,015;21;27/09/2022 17:47:20
+azur-season-1-common;Azur;Common;1184;0,004;5,46;27/09/2022 17:47:19
+jeanjass-season-1-common;JeanJass;Common;1270;0,01;13,3;27/09/2022 17:47:14
+youv-dee-season-1-common;Youv Dee;Common;1124;0,006;8,4;27/09/2022 17:04:15
+zinee-season-1-common;Zinée;Common;1379;0,004;5,6;27/09/2022 15:30:22
+zinee-season-1-common;Zinée;Common;1424;0,01;14;27/09/2022 14:14:19
+8ruki-season-1-common;8ruki;Common;1016;0,006;7,7;27/09/2022 14:14:19
+deen-burbigo-season-1-common;Deen Burbigo;Common;1276;0,005;7;27/09/2022 12:02:14
+rowjay-season-1-common;Rowjay;Common;1312;0,006;7,7;27/09/2022 10:50:17
+azur-season-1-common;Azur;Common;1124;0,004;5,39;27/09/2022 10:50:15
+mahdi-ba-season-1-common;Mahdi Ba;Common;1113;0,009;12,6;27/09/2022 10:50:14
+le-reglement-season-1-common;Le Règlement;Common;1270;0,015;21;27/09/2022 08:57:17
+caballero-season-1-common;Caballero;Common;1323;0,018;25,06;27/09/2022 04:44:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1256;0,015;21;27/09/2022 01:25:24
+jmks-season-1-common;JMK$;Common;1275;0,004;5,6;26/09/2022 23:52:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1330;0,005;7,28;26/09/2022 22:54:20
+spider-zed-season-1-common;Spider Zed;Common;1162;0,005;7;26/09/2022 22:09:22
+spider-zed-season-1-common;Spider Zed;Common;1285;0,004;5,6;26/09/2022 22:09:16
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1215;0,005;7,28;26/09/2022 21:40:23
+skuna-season-1-common;Skuna;Common;1140;0,004;5,6;26/09/2022 21:40:17
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1166;0,02;28;26/09/2022 21:30:21
+mahdi-ba-season-1-common;Mahdi Ba;Common;1049;0,019;26,6;26/09/2022 18:46:18
+jwles-season-1-common;Jwles;Common;1148;0,007;9,8;26/09/2022 16:06:17
+benjamin-epps-season-1-common;Benjamin Epps;Common;1042;0,01;13,3;26/09/2022 12:37:18
+sheldon-season-1-common;Sheldon;Common;1289;0,005;7;26/09/2022 12:19:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1348;0,006;8,4;26/09/2022 11:54:15
+jeanjass-season-1-common;JeanJass;Common;1048;0,015;21;26/09/2022 09:32:16
+jeanjass-season-1-common;JeanJass;Common;1493;0,007;9,8;26/09/2022 04:36:14
+skuna-season-1-common;Skuna;Common;1008;0,004;5,46;26/09/2022 02:36:20
+benjamin-epps-season-1-common;Benjamin Epps;Common;1021;0,009;12,6;26/09/2022 01:19:17
+winnterzuko-season-1-common;Winnterzuko;Common;1268;0,005;7;26/09/2022 01:19:14
+skuna-season-1-common;Skuna;Common;1785;0,002;2,785;17/10/2022 11:45:14
+flem-season-1-common;Flem;Common;1798;0,004;4,9;16/10/2022 15:44:14
+livai-season-1-common;Livaï;Common;1868;0,003;4,2;16/10/2022 12:49:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1749;0,007;9,324;16/10/2022 12:22:14
+skuna-season-1-common;Skuna;Common;1632;0,002;2,66;16/10/2022 11:37:14
+livai-season-1-common;Livaï;Common;1711;0,003;4,032;16/10/2022 10:55:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;1507;0,003;4,2;16/10/2022 10:52:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;1512;0,003;4,2;15/10/2022 21:16:13
+skuna-season-1-common;Skuna;Common;1739;0,002;2,73;15/10/2022 20:14:13
+di-meh-season-1-common;Di-Meh;Common;1901;0,002;3,346;15/10/2022 19:26:13
+rowjay-season-1-common;Rowjay;Common;1644;0,002;2,73;15/10/2022 17:52:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;1897;0,008;10,5;13/10/2022 22:32:14
+so-la-lune-season-1-common;So La Lune;Common;1719;0,005;6,72;13/10/2022 10:35:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1715;0,003;4,368;12/10/2022 19:40:14
+so-la-lune-season-1-common;So La Lune;Common;1734;0,004;6,188;12/10/2022 17:42:13
+azur-season-1-common;Azur;Common;1772;0,003;3,5;12/10/2022 17:12:13
+livai-season-1-common;Livaï;Common;1611;0,003;4,032;12/10/2022 17:05:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;1737;0,003;4,788;12/10/2022 16:58:14
+jeanjass-season-1-common;JeanJass;Common;1781;0,006;8,106;12/10/2022 02:02:14
+youv-dee-season-1-common;Youv Dee;Common;1755;0,004;5,6;12/10/2022 01:55:13
+so-la-lune-season-1-common;So La Lune;Common;1558;0,005;6,3;11/10/2022 18:21:14
+rowjay-season-1-common;Rowjay;Common;1793;0,002;3,08;11/10/2022 15:34:14
+so-la-lune-season-1-common;So La Lune;Common;1557;0,005;6,3;11/10/2022 09:06:14
+winnterzuko-season-1-common;Winnterzuko;Common;1885;0,007;9,8;10/10/2022 12:43:14
+winnterzuko-season-1-common;Winnterzuko;Common;1772;0,007;9,1;10/10/2022 01:51:13
+slimka-season-1-common;Slimka;Common;1920;0,003;4,06;09/10/2022 17:23:14
+lycos-season-1-common;Lycos;Common;1851;0,003;4,2;09/10/2022 09:32:14
+rowjay-season-1-common;Rowjay;Common;1792;0,002;3,08;08/10/2022 20:26:13
+rowjay-season-1-common;Rowjay;Common;1639;0,002;3,08;08/10/2022 14:17:14
+le-reglement-season-1-common;Le Règlement;Common;1899;0,006;8,26;06/10/2022 20:59:16
+caballero-season-1-common;Caballero;Common;1578;0,006;8,4;06/10/2022 20:17:20
+mahdi-ba-season-1-common;Mahdi Ba;Common;1923;0,004;5,95;06/10/2022 17:25:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1694;0,003;4,2;06/10/2022 16:48:16
+slimka-season-1-common;Slimka;Common;1916;0,003;4,06;05/10/2022 16:26:14
+livai-season-1-common;Livaï;Common;1721;0,003;3,5;04/10/2022 19:41:15
+slimka-season-1-common;Slimka;Common;1776;0,003;3,5;04/10/2022 13:39:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;1897;0,003;4,06;03/10/2022 20:03:28
+lycos-season-1-common;Lycos;Common;1929;0,002;3,36;02/10/2022 09:04:14
+jewel-usain-season-1-common;Jewel Usain;Common;1839;0,002;2,8;01/10/2022 13:28:16
+di-meh-season-1-common;Di-Meh;Common;1820;0,002;2,8;01/10/2022 10:37:17
+lycos-season-1-common;Lycos;Common;1893;0,002;3,36;30/09/2022 18:17:14
+sheldon-season-1-common;Sheldon;Common;1875;0,004;5,6;30/09/2022 11:30:24
+jwles-season-1-common;Jwles;Common;1898;0,002;2,94;30/09/2022 11:30:22
+lycos-season-1-common;Lycos;Common;1897;0,003;4,48;30/09/2022 08:55:17
+spider-zed-season-1-common;Spider Zed;Common;1882;0,003;3,5;30/09/2022 02:02:17
+slimka-season-1-common;Slimka;Common;1775;0,003;4,074;30/09/2022 00:39:19
+slimka-season-1-common;Slimka;Common;1734;0,004;5,04;29/09/2022 21:54:14
+jeanjass-season-1-common;JeanJass;Common;1919;0,007;9,786;29/09/2022 20:10:15
+rowjay-season-1-common;Rowjay;Common;1906;0,003;4,2;29/09/2022 17:54:17
+le-reglement-season-1-common;Le Règlement;Common;1698;0,009;12,6;29/09/2022 17:54:16
+livai-season-1-common;Livaï;Common;1678;0,003;4,76;29/09/2022 16:53:16
+so-la-lune-season-1-common;So La Lune;Common;1707;0,003;4,48;29/09/2022 16:53:15
+so-la-lune-season-1-common;So La Lune;Common;1635;0,004;5,6;29/09/2022 16:33:16
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1897;0,004;5,04;29/09/2022 15:32:15
+jeanjass-season-1-common;JeanJass;Common;1894;0,007;9,8;29/09/2022 12:36:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1817;0,012;16,66;29/09/2022 11:42:18
+sheldon-season-1-common;Sheldon;Common;1777;0,005;6,454;29/09/2022 10:28:20
+rowjay-season-1-common;Rowjay;Common;1773;0,004;5,04;29/09/2022 03:22:17
+caballero-season-1-common;Caballero;Common;1748;0,011;15,96;29/09/2022 02:16:15
+winnterzuko-season-1-common;Winnterzuko;Common;1558;0,013;17,92;29/09/2022 02:16:14
+8ruki-season-1-common;8ruki;Common;1807;0,004;5,18;28/09/2022 23:26:16
+skuna-season-1-common;Skuna;Common;1565;0,003;3,78;28/09/2022 22:54:24
+so-la-lune-season-1-common;So La Lune;Common;1617;0,011;15,4;28/09/2022 22:35:21
+rowjay-season-1-common;Rowjay;Common;1780;0,003;4,76;28/09/2022 19:12:18
+sheldon-season-1-common;Sheldon;Common;1604;0,004;5,46;28/09/2022 17:26:16
+lycos-season-1-common;Lycos;Common;1510;0,002;3,36;28/09/2022 15:38:16
+youv-dee-season-1-common;Youv Dee;Common;1509;0,002;3,36;28/09/2022 15:38:14
+winnterzuko-season-1-common;Winnterzuko;Common;1599;0,011;15,82;28/09/2022 08:32:17
+livai-season-1-common;Livaï;Common;1749;0,005;6,44;28/09/2022 04:05:14
+caballero-season-1-common;Caballero;Common;1697;0,012;16,8;27/09/2022 21:34:25
+jwles-season-1-common;Jwles;Common;1528;0,002;2,8;27/09/2022 21:34:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;1736;0,01;14;27/09/2022 21:34:15
+azur-season-1-common;Azur;Common;1759;0,003;4,76;27/09/2022 20:32:18
+caballero-season-1-common;Caballero;Common;1683;0,01;13,3;27/09/2022 19:31:19
+jewel-usain-season-1-common;Jewel Usain;Common;1746;0,004;5,6;27/09/2022 17:47:25
+mahdi-ba-season-1-common;Mahdi Ba;Common;1794;0,004;5,88;27/09/2022 17:04:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;1767;0,006;8,4;27/09/2022 15:30:18
+azur-season-1-common;Azur;Common;1907;0,003;4,2;27/09/2022 13:28:15
+jewel-usain-season-1-common;Jewel Usain;Common;1881;0,003;4,2;27/09/2022 02:45:16
+winnterzuko-season-1-common;Winnterzuko;Common;1786;0,015;21,42;27/09/2022 01:25:25
+thahomey-season-1-common;thaHomey;Common;1585;0,005;6,58;27/09/2022 01:25:20
+rowjay-season-1-common;Rowjay;Common;1805;0,004;5,6;27/09/2022 01:25:17
+benjamin-epps-season-1-common;Benjamin Epps;Common;1591;0,007;9,8;26/09/2022 22:09:20
+di-meh-season-1-common;Di-Meh;Common;1759;0,007;9,8;26/09/2022 20:47:20
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;1762;0,015;21;26/09/2022 20:47:19
+jeanjass-season-1-common;JeanJass;Common;1756;0,018;25,2;26/09/2022 20:47:19
+skuna-season-1-common;Skuna;Common;1900;0,004;5,46;26/09/2022 02:36:22
+azur-season-1-common;Azur;Common;1912;0,004;5,46;26/09/2022 02:36:21
+le-reglement-season-1-common;Le Règlement;Common;2213;0,004;5,6;21/10/2022 14:10:12
+skuna-season-1-common;Skuna;Common;2492;0,002;2,38;21/10/2022 11:10:14
+sheldon-season-1-common;Sheldon;Common;2135;0,002;2,8;21/10/2022 08:52:11
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2457;0,005;6,72;20/10/2022 16:38:14
+so-la-lune-season-1-common;So La Lune;Common;2408;0,005;6,986;20/10/2022 16:35:13
+winnterzuko-season-1-common;Winnterzuko;Common;2289;0,004;6,16;20/10/2022 12:47:14
+jmks-season-1-common;JMK$;Common;2193;0,002;2,38;20/10/2022 11:59:13
+jwles-season-1-common;Jwles;Common;2426;0,002;2,1;20/10/2022 11:18:14
+8ruki-season-1-common;8ruki;Common;2303;0,002;3,08;20/10/2022 09:34:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2306;0,005;6,986;19/10/2022 20:54:13
+mahdi-ba-season-1-common;Mahdi Ba;Common;2464;0,003;4,2;19/10/2022 15:30:14
+lycos-season-1-common;Lycos;Common;2487;0,002;2,52;19/10/2022 14:27:13
+winnterzuko-season-1-common;Winnterzuko;Common;2473;0,005;7;19/10/2022 13:52:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2076;0,002;3,36;19/10/2022 08:56:13
+zinee-season-1-common;Zinée;Common;2469;0,004;6,286;19/10/2022 00:32:13
+rowjay-season-1-common;Rowjay;Common;2307;0,002;2,366;19/10/2022 00:28:13
+livai-season-1-common;Livaï;Common;2425;0,002;3,08;18/10/2022 14:22:14
+so-la-lune-season-1-common;So La Lune;Common;2413;0,004;5,18;18/10/2022 13:40:13
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2382;0,005;6,93;18/10/2022 13:11:14
+winnterzuko-season-1-common;Winnterzuko;Common;2454;0,005;7;18/10/2022 13:08:13
+thahomey-season-1-common;thaHomey;Common;2261;0,002;3,234;18/10/2022 11:02:13
+le-reglement-season-1-common;Le Règlement;Common;2420;0,006;8,54;18/10/2022 09:36:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;2348;0,002;3,36;18/10/2022 06:45:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2347;0,002;3,36;18/10/2022 00:15:13
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2245;0,003;3,5;17/10/2022 23:14:13
+azur-season-1-common;Azur;Common;2129;0,003;3,5;17/10/2022 23:05:14
+zinee-season-1-common;Zinée;Common;2476;0,004;4,9;17/10/2022 14:43:14
+livai-season-1-common;Livaï;Common;2096;0,002;2,948;17/10/2022 11:59:13
+winnterzuko-season-1-common;Winnterzuko;Common;2442;0,006;7,84;17/10/2022 10:12:13
+lycos-season-1-common;Lycos;Common;2076;0,003;3,64;17/10/2022 00:30:13
+youv-dee-season-1-common;Youv Dee;Common;2290;0,003;4,2;17/10/2022 00:27:13
+jeanjass-season-1-common;JeanJass;Common;2418;0,004;5,6;16/10/2022 23:09:13
+azur-season-1-common;Azur;Common;2382;0,002;2,8;16/10/2022 18:04:14
+flem-season-1-common;Flem;Common;2409;0,003;3,738;16/10/2022 17:54:13
+thahomey-season-1-common;thaHomey;Common;2392;0,002;3,36;16/10/2022 17:36:14
+rowjay-season-1-common;Rowjay;Common;2196;0,002;2,66;16/10/2022 17:28:14
+sheldon-season-1-common;Sheldon;Common;2236;0,002;2,8;16/10/2022 15:52:15
+jwles-season-1-common;Jwles;Common;2408;0,002;2,121;16/10/2022 15:28:15
+jewel-usain-season-1-common;Jewel Usain;Common;2400;0,002;2,653;16/10/2022 15:27:15
+skuna-season-1-common;Skuna;Common;2074;0,002;2,73;16/10/2022 14:50:14
+lycos-season-1-common;Lycos;Common;2102;0,002;2,121;16/10/2022 14:15:14
+sheldon-season-1-common;Sheldon;Common;2094;0,002;3,178;16/10/2022 13:45:13
+sheldon-season-1-common;Sheldon;Common;2236;0,002;3,22;16/10/2022 13:31:14
+di-meh-season-1-common;Di-Meh;Common;2422;0,002;3,185;16/10/2022 13:16:14
+azur-season-1-common;Azur;Common;2382;0,002;2,8;16/10/2022 13:02:13
+lycos-season-1-common;Lycos;Common;2095;0,002;2,8;16/10/2022 12:59:14
+thahomey-season-1-common;thaHomey;Common;2458;0,002;3,346;16/10/2022 12:55:14
+caballero-season-1-common;Caballero;Common;2480;0,005;7;16/10/2022 12:55:13
+jwles-season-1-common;Jwles;Common;2404;0,002;2,24;16/10/2022 12:42:13
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2407;0,005;7,406;16/10/2022 12:00:13
+jeanjass-season-1-common;JeanJass;Common;2493;0,005;7,28;16/10/2022 02:28:13
+slimka-season-1-common;Slimka;Common;2130;0,003;4,046;16/10/2022 01:38:15
+rowjay-season-1-common;Rowjay;Common;2115;0,002;2,716;15/10/2022 21:32:14
+zinee-season-1-common;Zinée;Common;2367;0,004;4,9;15/10/2022 21:25:14
+di-meh-season-1-common;Di-Meh;Common;2406;0,002;3,36;15/10/2022 21:21:13
+jeanjass-season-1-common;JeanJass;Common;2430;0,005;7;15/10/2022 21:07:13
+rowjay-season-1-common;Rowjay;Common;2394;0,001;1,68;15/10/2022 20:08:13
+so-la-lune-season-1-common;So La Lune;Common;2384;0,005;7,28;15/10/2022 19:09:13
+lycos-season-1-common;Lycos;Common;2467;0,002;2,8;15/10/2022 19:01:13
+so-la-lune-season-1-common;So La Lune;Common;2391;0,005;6,58;15/10/2022 19:00:14
+zinee-season-1-common;Zinée;Common;2147;0,004;5,04;15/10/2022 18:55:13
+so-la-lune-season-1-common;So La Lune;Common;2366;0,005;6,58;15/10/2022 18:53:13
+8ruki-season-1-common;8ruki;Common;2368;0,003;3,92;15/10/2022 18:43:14
+so-la-lune-season-1-common;So La Lune;Common;2215;0,005;6,44;15/10/2022 18:08:14
+jmks-season-1-common;JMK$;Common;2430;0,002;3,08;15/10/2022 16:35:13
+flem-season-1-common;Flem;Common;2411;0,003;3,92;15/10/2022 16:32:13
+skuna-season-1-common;Skuna;Common;2361;0,002;2,702;15/10/2022 16:22:14
+youv-dee-season-1-common;Youv Dee;Common;2402;0,004;5,18;15/10/2022 14:14:13
+winnterzuko-season-1-common;Winnterzuko;Common;2211;0,004;5,6;15/10/2022 12:30:13
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2469;0,004;5,6;15/10/2022 09:26:13
+so-la-lune-season-1-common;So La Lune;Common;2412;0,005;6,412;14/10/2022 23:52:13
+winnterzuko-season-1-common;Winnterzuko;Common;2469;0,004;5,6;14/10/2022 22:42:14
+spider-zed-season-1-common;Spider Zed;Common;2422;0,003;4,326;14/10/2022 18:40:13
+jewel-usain-season-1-common;Jewel Usain;Common;2455;0,003;3,626;14/10/2022 17:20:16
+flem-season-1-common;Flem;Common;2482;0,003;4,62;14/10/2022 16:51:14
+8ruki-season-1-common;8ruki;Common;2454;0,003;3,64;14/10/2022 13:53:14
+winnterzuko-season-1-common;Winnterzuko;Common;2297;0,007;9,8;14/10/2022 13:48:13
+sheldon-season-1-common;Sheldon;Common;2423;0,002;3,36;14/10/2022 01:29:13
+winnterzuko-season-1-common;Winnterzuko;Common;2417;0,007;9,8;13/10/2022 20:07:14
+8ruki-season-1-common;8ruki;Common;2467;0,003;3,92;13/10/2022 13:44:14
+jwles-season-1-common;Jwles;Common;2473;0,002;2,38;13/10/2022 13:08:14
+azur-season-1-common;Azur;Common;2458;0,002;3,332;13/10/2022 12:06:14
+di-meh-season-1-common;Di-Meh;Common;2484;0,002;3,08;12/10/2022 22:07:14
+caballero-season-1-common;Caballero;Common;2109;0,006;8,4;12/10/2022 22:03:13
+slimka-season-1-common;Slimka;Common;2484;0,002;3,08;12/10/2022 20:29:13
+flem-season-1-common;Flem;Common;2224;0,003;4,452;12/10/2022 18:43:13
+sheldon-season-1-common;Sheldon;Common;2319;0,003;3,738;12/10/2022 18:15:14
+di-meh-season-1-common;Di-Meh;Common;2497;0,002;2,94;12/10/2022 16:49:14
+jwles-season-1-common;Jwles;Common;2444;0,002;2,8;12/10/2022 14:22:13
+caballero-season-1-common;Caballero;Common;2385;0,005;6,37;12/10/2022 11:42:13
+deen-burbigo-season-1-common;Deen Burbigo;Common;2373;0,005;7;12/10/2022 11:36:13
+azur-season-1-common;Azur;Common;2430;0,002;3,286;12/10/2022 11:11:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;2448;0,007;10,22;12/10/2022 09:49:13
+youv-dee-season-1-common;Youv Dee;Common;2099;0,004;5,6;12/10/2022 09:27:13
+deen-burbigo-season-1-common;Deen Burbigo;Common;2436;0,007;9,94;12/10/2022 02:08:13
+winnterzuko-season-1-common;Winnterzuko;Common;2452;0,007;9,52;12/10/2022 02:06:14
+so-la-lune-season-1-common;So La Lune;Common;2437;0,005;6,3;12/10/2022 02:00:13
+mahdi-ba-season-1-common;Mahdi Ba;Common;2431;0,004;5,978;12/10/2022 01:58:14
+zinee-season-1-common;Zinée;Common;2258;0,003;4,76;12/10/2022 01:53:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2496;0,003;4,62;12/10/2022 01:50:14
+flem-season-1-common;Flem;Common;2353;0,003;4,34;12/10/2022 01:45:13
+8ruki-season-1-common;8ruki;Common;2464;0,003;3,92;12/10/2022 01:41:13
+di-meh-season-1-common;Di-Meh;Common;2465;0,002;2,8;12/10/2022 01:38:14
+winnterzuko-season-1-common;Winnterzuko;Common;2401;0,007;9,38;11/10/2022 21:12:15
+livai-season-1-common;Livaï;Common;2240;0,002;3,36;11/10/2022 21:12:14
+jwles-season-1-common;Jwles;Common;2459;0,002;2,1;11/10/2022 21:12:14
+youv-dee-season-1-common;Youv Dee;Common;2384;0,004;5,6;11/10/2022 19:31:14
+youv-dee-season-1-common;Youv Dee;Common;2456;0,004;5,6;11/10/2022 19:31:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2305;0,004;5,978;11/10/2022 19:30:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2416;0,005;7,28;11/10/2022 18:29:13
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2417;0,003;4,2;11/10/2022 18:20:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;2292;0,007;9,94;11/10/2022 16:58:14
+so-la-lune-season-1-common;So La Lune;Common;2371;0,004;5,264;11/10/2022 16:46:14
+di-meh-season-1-common;Di-Meh;Common;2407;0,002;2,1;11/10/2022 14:56:14
+le-reglement-season-1-common;Le Règlement;Common;2071;0,007;9,1;11/10/2022 13:50:14
+youv-dee-season-1-common;Youv Dee;Common;2349;0,004;5,39;11/10/2022 13:42:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;2252;0,003;4,2;11/10/2022 11:40:13
+winnterzuko-season-1-common;Winnterzuko;Common;2113;0,005;7,14;11/10/2022 08:59:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2417;0,003;4,06;11/10/2022 01:23:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;2477;0,003;4,48;10/10/2022 20:19:14
+livai-season-1-common;Livaï;Common;2434;0,003;4,186;10/10/2022 19:19:14
+sheldon-season-1-common;Sheldon;Common;2176;0,003;3,64;10/10/2022 18:24:15
+azur-season-1-common;Azur;Common;2109;0,002;2,94;10/10/2022 18:22:15
+jmks-season-1-common;JMK$;Common;2195;0,002;2,8;10/10/2022 18:22:15
+jwles-season-1-common;Jwles;Common;2451;0,002;2,8;10/10/2022 18:22:14
+8ruki-season-1-common;8ruki;Common;2085;0,003;3,78;10/10/2022 16:19:14
+zinee-season-1-common;Zinée;Common;2316;0,003;3,5;10/10/2022 12:44:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2362;0,007;9,24;10/10/2022 11:54:13
+caballero-season-1-common;Caballero;Common;2500;0,006;8,82;10/10/2022 10:09:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2184;0,007;9,1;10/10/2022 01:54:13
+zinee-season-1-common;Zinée;Common;2317;0,003;4,2;09/10/2022 16:46:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2214;0,004;4,9;09/10/2022 14:25:14
+thahomey-season-1-common;thaHomey;Common;2402;0,002;3,332;09/10/2022 14:23:14
+livai-season-1-common;Livaï;Common;2471;0,002;3,06;09/10/2022 14:14:13
+so-la-lune-season-1-common;So La Lune;Common;2392;0,005;6,412;09/10/2022 14:09:14
+jewel-usain-season-1-common;Jewel Usain;Common;2488;0,002;3,22;09/10/2022 14:00:13
+le-reglement-season-1-common;Le Règlement;Common;2456;0,007;9,1;09/10/2022 12:16:13
+zinee-season-1-common;Zinée;Common;2073;0,003;4,2;09/10/2022 10:15:14
+spider-zed-season-1-common;Spider Zed;Common;2469;0,003;4,326;09/10/2022 01:02:13
+le-reglement-season-1-common;Le Règlement;Common;2210;0,006;8,68;09/10/2022 00:10:14
+so-la-lune-season-1-common;So La Lune;Common;2387;0,005;6,411;08/10/2022 18:38:15
+jeanjass-season-1-common;JeanJass;Common;2461;0,004;5,88;08/10/2022 18:05:14
+jwles-season-1-common;Jwles;Common;2194;0,002;2,799;08/10/2022 18:03:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2089;0,003;4,899;08/10/2022 16:29:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;2108;0,007;9,8;08/10/2022 14:36:13
+deen-burbigo-season-1-common;Deen Burbigo;Common;2292;0,005;7,182;08/10/2022 14:27:14
+le-reglement-season-1-common;Le Règlement;Common;2360;0,006;9,086;08/10/2022 14:07:14
+youv-dee-season-1-common;Youv Dee;Common;2259;0,004;4,9;08/10/2022 14:04:14
+skuna-season-1-common;Skuna;Common;2247;0,002;2,8;08/10/2022 13:59:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2159;0,003;4,2;08/10/2022 13:58:16
+so-la-lune-season-1-common;So La Lune;Common;2094;0,005;6,44;08/10/2022 13:24:14
+di-meh-season-1-common;Di-Meh;Common;2070;0,003;3,64;08/10/2022 13:12:13
+so-la-lune-season-1-common;So La Lune;Common;2462;0,005;6,3;08/10/2022 11:04:14
+jwles-season-1-common;Jwles;Common;2092;0,002;2,797;08/10/2022 11:02:13
+jeanjass-season-1-common;JeanJass;Common;2472;0,004;5,74;08/10/2022 10:03:14
+jewel-usain-season-1-common;Jewel Usain;Common;2438;0,002;3,36;08/10/2022 09:12:14
+winnterzuko-season-1-common;Winnterzuko;Common;2229;0,007;9,618;08/10/2022 09:11:16
+jeanjass-season-1-common;JeanJass;Common;2486;0,004;5,11;08/10/2022 05:11:14
+flem-season-1-common;Flem;Common;2211;0,004;5,166;07/10/2022 23:16:13
+zinee-season-1-common;Zinée;Common;2077;0,003;4,07;07/10/2022 23:05:14
+livai-season-1-common;Livaï;Common;2326;0,002;2,8;07/10/2022 21:59:14
+so-la-lune-season-1-common;So La Lune;Common;2117;0,005;6,3;07/10/2022 21:59:13
+zinee-season-1-common;Zinée;Common;2320;0,003;3,99;07/10/2022 21:46:13
+mahdi-ba-season-1-common;Mahdi Ba;Common;2410;0,004;6,062;07/10/2022 21:12:14
+thahomey-season-1-common;thaHomey;Common;2444;0,002;3,346;07/10/2022 20:31:14
+jewel-usain-season-1-common;Jewel Usain;Common;2444;0,002;3,219;07/10/2022 20:00:14
+livai-season-1-common;Livaï;Common;2167;0,002;2,8;07/10/2022 19:38:13
+zinee-season-1-common;Zinée;Common;2100;0,003;4,48;07/10/2022 17:41:14
+azur-season-1-common;Azur;Common;2164;0,002;3,178;07/10/2022 16:38:15
+jeanjass-season-1-common;JeanJass;Common;2412;0,004;5,6;07/10/2022 15:41:17
+jeanjass-season-1-common;JeanJass;Common;2303;0,003;4,043;07/10/2022 13:04:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2477;0,006;8,96;07/10/2022 08:17:15
+livai-season-1-common;Livaï;Common;2127;0,003;4,06;07/10/2022 08:17:14
+lycos-season-1-common;Lycos;Common;2461;0,003;3,5;07/10/2022 02:15:20
+deen-burbigo-season-1-common;Deen Burbigo;Common;2372;0,006;8,82;07/10/2022 02:15:16
+le-reglement-season-1-common;Le Règlement;Common;2473;0,006;8,26;07/10/2022 02:15:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2384;0,007;9,338;07/10/2022 00:15:17
+jewel-usain-season-1-common;Jewel Usain;Common;2183;0,002;3,08;07/10/2022 00:15:16
+8ruki-season-1-common;8ruki;Common;2490;0,002;2,8;07/10/2022 00:15:16
+so-la-lune-season-1-common;So La Lune;Common;2333;0,004;5,6;06/10/2022 22:25:20
+youv-dee-season-1-common;Youv Dee;Common;2101;0,003;4,62;06/10/2022 22:25:15
+youv-dee-season-1-common;Youv Dee;Common;2093;0,003;4,07;06/10/2022 21:38:18
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2338;0,006;8,26;06/10/2022 21:38:14
+winnterzuko-season-1-common;Winnterzuko;Common;2339;0,007;9,52;06/10/2022 20:59:19
+deen-burbigo-season-1-common;Deen Burbigo;Common;2214;0,006;8,4;06/10/2022 20:17:20
+caballero-season-1-common;Caballero;Common;2373;0,006;8,4;06/10/2022 20:17:18
+so-la-lune-season-1-common;So La Lune;Common;2401;0,005;6,37;06/10/2022 20:17:18
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2409;0,006;8,246;06/10/2022 20:17:18
+jewel-usain-season-1-common;Jewel Usain;Common;2399;0,002;3,22;06/10/2022 20:17:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;2217;0,006;8,162;06/10/2022 20:17:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2428;0,003;4,2;06/10/2022 20:17:15
+jwles-season-1-common;Jwles;Common;2450;0,001;1,96;06/10/2022 19:07:16
+winnterzuko-season-1-common;Winnterzuko;Common;2488;0,007;9,492;06/10/2022 17:25:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2359;0,003;4,2;06/10/2022 17:25:14
+slimka-season-1-common;Slimka;Common;2488;0,003;3,5;06/10/2022 16:48:15
+spider-zed-season-1-common;Spider Zed;Common;2482;0,003;3,78;06/10/2022 15:21:17
+thahomey-season-1-common;thaHomey;Common;2462;0,002;3,318;06/10/2022 15:21:17
+rowjay-season-1-common;Rowjay;Common;2468;0,002;3,262;06/10/2022 15:21:17
+jmks-season-1-common;JMK$;Common;2421;0,002;3,234;06/10/2022 15:21:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;2461;0,003;4,2;06/10/2022 15:21:15
+zinee-season-1-common;Zinée;Common;2069;0,003;4,2;06/10/2022 15:21:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2471;0,006;7,98;06/10/2022 15:21:14
+jmks-season-1-common;JMK$;Common;2480;0,002;3,22;06/10/2022 15:09:18
+jeanjass-season-1-common;JeanJass;Common;2422;0,004;5,152;06/10/2022 15:09:16
+flem-season-1-common;Flem;Common;2406;0,004;5,18;06/10/2022 15:09:16
+lycos-season-1-common;Lycos;Common;2379;0,003;3,5;06/10/2022 14:24:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2381;0,005;6,3;06/10/2022 13:07:16
+caballero-season-1-common;Caballero;Common;2237;0,006;7,7;06/10/2022 13:07:15
+jeanjass-season-1-common;JeanJass;Common;2467;0,004;5,04;06/10/2022 13:07:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2398;0,003;4,108;06/10/2022 13:07:14
+caballero-season-1-common;Caballero;Common;2081;0,003;4,34;06/10/2022 09:14:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2424;0,003;4,2;06/10/2022 07:52:17
+rowjay-season-1-common;Rowjay;Common;2312;0,002;2,8;05/10/2022 16:26:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;2464;0,004;4,9;05/10/2022 14:54:14
+caballero-season-1-common;Caballero;Common;2482;0,004;6,174;05/10/2022 14:54:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2396;0,004;6,16;05/10/2022 14:16:16
+zinee-season-1-common;Zinée;Common;2421;0,003;3,626;05/10/2022 14:16:15
+skuna-season-1-common;Skuna;Common;2340;0,002;3,08;05/10/2022 14:16:14
+youv-dee-season-1-common;Youv Dee;Common;2422;0,003;4,2;05/10/2022 12:32:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2452;0,003;3,5;05/10/2022 12:02:16
+lycos-season-1-common;Lycos;Common;2481;0,002;2,8;05/10/2022 12:02:16
+jwles-season-1-common;Jwles;Common;2103;0,002;2,8;05/10/2022 09:51:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;2486;0,003;4,2;05/10/2022 09:51:15
+winnterzuko-season-1-common;Winnterzuko;Common;2356;0,007;9,38;05/10/2022 07:52:15
+caballero-season-1-common;Caballero;Common;2349;0,004;6,174;05/10/2022 03:20:14
+le-reglement-season-1-common;Le Règlement;Common;2421;0,006;8,12;05/10/2022 02:20:15
+sheldon-season-1-common;Sheldon;Common;2116;0,003;3,92;05/10/2022 00:18:15
+youv-dee-season-1-common;Youv Dee;Common;2488;0,002;3,22;04/10/2022 22:08:15
+jeanjass-season-1-common;JeanJass;Common;2476;0,003;4,886;04/10/2022 18:12:15
+rowjay-season-1-common;Rowjay;Common;2107;0,002;2,8;04/10/2022 17:31:14
+le-reglement-season-1-common;Le Règlement;Common;2329;0,006;7,7;04/10/2022 17:00:15
+winnterzuko-season-1-common;Winnterzuko;Common;2178;0,007;9,8;04/10/2022 15:26:15
+jmks-season-1-common;JMK$;Common;2363;0,002;3,08;04/10/2022 13:39:16
+di-meh-season-1-common;Di-Meh;Common;2395;0,003;4,06;04/10/2022 13:39:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2387;0,003;4,06;04/10/2022 13:39:14
+winnterzuko-season-1-common;Winnterzuko;Common;2477;0,007;9,1;04/10/2022 13:11:17
+deen-burbigo-season-1-common;Deen Burbigo;Common;2411;0,005;7;04/10/2022 13:11:15
+jwles-season-1-common;Jwles;Common;2418;0,002;2,8;04/10/2022 12:03:25
+thahomey-season-1-common;thaHomey;Common;2411;0,002;2,8;04/10/2022 12:03:25
+benjamin-epps-season-1-common;Benjamin Epps;Common;2315;0,003;3,5;04/10/2022 11:46:16
+winnterzuko-season-1-common;Winnterzuko;Common;2116;0,007;9,1;04/10/2022 11:46:15
+jewel-usain-season-1-common;Jewel Usain;Common;2473;0,002;3,01;04/10/2022 11:30:14
+skuna-season-1-common;Skuna;Common;2178;0,002;3,36;04/10/2022 09:11:16
+lycos-season-1-common;Lycos;Common;2369;0,002;3,36;04/10/2022 09:11:15
+spider-zed-season-1-common;Spider Zed;Common;2482;0,003;4,2;04/10/2022 09:11:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;2374;0,005;6,86;04/10/2022 03:03:13
+jeanjass-season-1-common;JeanJass;Common;2458;0,004;4,9;04/10/2022 01:15:21
+caballero-season-1-common;Caballero;Common;2439;0,005;7,56;04/10/2022 01:15:21
+so-la-lune-season-1-common;So La Lune;Common;2405;0,005;6,566;04/10/2022 00:46:16
+jewel-usain-season-1-common;Jewel Usain;Common;2404;0,003;3,5;04/10/2022 00:46:15
+spider-zed-season-1-common;Spider Zed;Common;2447;0,003;4,2;04/10/2022 00:15:14
+skuna-season-1-common;Skuna;Common;2320;0,002;3,36;03/10/2022 22:28:15
+youv-dee-season-1-common;Youv Dee;Common;2073;0,003;4,2;03/10/2022 21:51:15
+caballero-season-1-common;Caballero;Common;2445;0,005;7,42;03/10/2022 21:51:15
+zinee-season-1-common;Zinée;Common;2473;0,003;4,48;03/10/2022 21:37:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2447;0,003;4,2;03/10/2022 21:16:16
+di-meh-season-1-common;Di-Meh;Common;2372;0,002;2,52;03/10/2022 20:27:16
+youv-dee-season-1-common;Youv Dee;Common;2362;0,002;3,36;03/10/2022 20:03:27
+le-reglement-season-1-common;Le Règlement;Common;2080;0,005;7;03/10/2022 18:46:17
+rowjay-season-1-common;Rowjay;Common;2470;0,003;4,046;03/10/2022 16:37:17
+jwles-season-1-common;Jwles;Common;2454;0,003;3,5;03/10/2022 16:37:16
+thahomey-season-1-common;thaHomey;Common;2262;0,002;3,36;03/10/2022 15:40:15
+8ruki-season-1-common;8ruki;Common;2419;0,002;3,29;03/10/2022 15:40:15
+lycos-season-1-common;Lycos;Common;2450;0,002;3,15;03/10/2022 14:40:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;2128;0,003;3,808;03/10/2022 14:40:15
+flem-season-1-common;Flem;Common;2284;0,004;5,32;03/10/2022 14:40:14
+youv-dee-season-1-common;Youv Dee;Common;2198;0,003;4,06;03/10/2022 13:39:15
+skuna-season-1-common;Skuna;Common;2192;0,002;3,22;03/10/2022 12:29:17
+spider-zed-season-1-common;Spider Zed;Common;2479;0,002;3,36;03/10/2022 12:05:14
+spider-zed-season-1-common;Spider Zed;Common;2122;0,003;4,13;03/10/2022 11:23:15
+so-la-lune-season-1-common;So La Lune;Common;2370;0,004;5,6;02/10/2022 21:21:16
+spider-zed-season-1-common;Spider Zed;Common;2441;0,003;4,2;02/10/2022 18:19:14
+sheldon-season-1-common;Sheldon;Common;2162;0,003;4,2;02/10/2022 18:19:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2167;0,003;3,92;02/10/2022 18:19:14
+thahomey-season-1-common;thaHomey;Common;2272;0,002;3,22;02/10/2022 18:19:14
+le-reglement-season-1-common;Le Règlement;Common;2496;0,005;7;02/10/2022 17:25:16
+zinee-season-1-common;Zinée;Common;2357;0,004;5,04;02/10/2022 17:25:15
+8ruki-season-1-common;8ruki;Common;2440;0,002;3,178;02/10/2022 16:24:17
+skuna-season-1-common;Skuna;Common;2348;0,002;3,22;02/10/2022 16:24:16
+di-meh-season-1-common;Di-Meh;Common;2467;0,002;3,178;02/10/2022 16:24:15
+rowjay-season-1-common;Rowjay;Common;2470;0,002;2,17;02/10/2022 13:58:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2421;0,005;7;02/10/2022 13:03:16
+jwles-season-1-common;Jwles;Common;2430;0,002;2,52;02/10/2022 13:03:15
+youv-dee-season-1-common;Youv Dee;Common;2393;0,003;3,5;02/10/2022 13:03:14
+8ruki-season-1-common;8ruki;Common;2360;0,002;3,22;02/10/2022 12:35:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2497;0,003;4,144;02/10/2022 12:02:16
+slimka-season-1-common;Slimka;Common;2422;0,003;3,5;02/10/2022 12:02:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;2476;0,006;7,7;02/10/2022 11:01:15
+winnterzuko-season-1-common;Winnterzuko;Common;2373;0,007;9,66;02/10/2022 11:01:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2419;0,005;7;02/10/2022 11:01:14
+slimka-season-1-common;Slimka;Common;2485;0,002;3,499;02/10/2022 10:38:14
+slimka-season-1-common;Slimka;Common;2462;0,002;2,8;02/10/2022 10:38:14
+winnterzuko-season-1-common;Winnterzuko;Common;2495;0,006;8,4;02/10/2022 10:38:13
+livai-season-1-common;Livaï;Common;2462;0,002;2,8;02/10/2022 03:24:15
+azur-season-1-common;Azur;Common;2078;0,002;3,22;02/10/2022 02:03:19
+lycos-season-1-common;Lycos;Common;2421;0,002;3,22;02/10/2022 02:03:19
+sheldon-season-1-common;Sheldon;Common;2345;0,004;6,02;02/10/2022 00:40:17
+azur-season-1-common;Azur;Common;2120;0,002;3,08;02/10/2022 00:40:15
+azur-season-1-common;Azur;Common;2409;0,002;2,8;02/10/2022 00:40:14
+azur-season-1-common;Azur;Common;2442;0,002;2,66;01/10/2022 22:11:15
+winnterzuko-season-1-common;Winnterzuko;Common;2488;0,005;7,56;01/10/2022 21:22:17
+winnterzuko-season-1-common;Winnterzuko;Common;2190;0,006;7,7;01/10/2022 20:27:15
+winnterzuko-season-1-common;Winnterzuko;Common;2356;0,006;7,7;01/10/2022 19:29:15
+jeanjass-season-1-common;JeanJass;Common;2451;0,003;4,2;01/10/2022 18:45:16
+rowjay-season-1-common;Rowjay;Common;2075;0,002;2,8;01/10/2022 18:45:15
+slimka-season-1-common;Slimka;Common;2382;0,002;3,08;01/10/2022 18:01:16
+so-la-lune-season-1-common;So La Lune;Common;2148;0,005;6,3;01/10/2022 17:26:17
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2453;0,002;3,08;01/10/2022 17:26:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;2494;0,002;2,1;01/10/2022 17:26:15
+rowjay-season-1-common;Rowjay;Common;2463;0,001;1,68;01/10/2022 17:26:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2420;0,003;4,06;01/10/2022 17:26:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2450;0,003;3,5;01/10/2022 15:09:16
+slimka-season-1-common;Slimka;Common;2310;0,003;3,5;01/10/2022 15:09:15
+flem-season-1-common;Flem;Common;2087;0,003;4,62;01/10/2022 14:45:16
+jeanjass-season-1-common;JeanJass;Common;2379;0,004;5,88;01/10/2022 12:13:25
+deen-burbigo-season-1-common;Deen Burbigo;Common;2407;0,006;8,12;01/10/2022 12:13:24
+caballero-season-1-common;Caballero;Common;2213;0,006;8,26;01/10/2022 12:13:23
+winnterzuko-season-1-common;Winnterzuko;Common;2463;0,005;7;01/10/2022 11:21:16
+8ruki-season-1-common;8ruki;Common;2077;0,003;3,78;01/10/2022 11:21:15
+azur-season-1-common;Azur;Common;2128;0,002;2,52;01/10/2022 09:18:19
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2124;0,003;4,76;01/10/2022 09:18:18
+zinee-season-1-common;Zinée;Common;2419;0,004;6,216;01/10/2022 09:18:18
+azur-season-1-common;Azur;Common;2116;0,002;2,24;01/10/2022 09:18:17
+lycos-season-1-common;Lycos;Common;2465;0,002;2,8;01/10/2022 05:57:14
+rowjay-season-1-common;Rowjay;Common;2468;0,003;4,032;01/10/2022 04:20:14
+thahomey-season-1-common;thaHomey;Common;2390;0,002;3,22;01/10/2022 02:14:18
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2200;0,005;6,86;01/10/2022 02:14:15
+flem-season-1-common;Flem;Common;2484;0,003;4,48;01/10/2022 02:14:14
+caballero-season-1-common;Caballero;Common;2461;0,006;8,96;01/10/2022 00:11:17
+le-reglement-season-1-common;Le Règlement;Common;2457;0,006;8,064;30/09/2022 23:34:20
+jeanjass-season-1-common;JeanJass;Common;2337;0,004;5,6;30/09/2022 23:34:19
+deen-burbigo-season-1-common;Deen Burbigo;Common;2379;0,003;4,2;30/09/2022 23:34:19
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2391;0,004;5,026;30/09/2022 23:34:19
+jmks-season-1-common;JMK$;Common;2484;0,002;3,094;30/09/2022 23:34:14
+jmks-season-1-common;JMK$;Common;2470;0,002;2,1;30/09/2022 22:08:26
+skuna-season-1-common;Skuna;Common;2416;0,002;3,038;30/09/2022 22:08:26
+le-reglement-season-1-common;Le Règlement;Common;2399;0,004;5,6;30/09/2022 22:08:20
+jewel-usain-season-1-common;Jewel Usain;Common;2450;0,002;2,8;30/09/2022 22:08:20
+jewel-usain-season-1-common;Jewel Usain;Common;2300;0,002;2,1;30/09/2022 21:38:23
+skuna-season-1-common;Skuna;Common;2383;0,001;1,26;30/09/2022 21:17:14
+caballero-season-1-common;Caballero;Common;2383;0,007;9,114;30/09/2022 20:04:21
+benjamin-epps-season-1-common;Benjamin Epps;Common;2383;0,004;5,04;30/09/2022 20:04:19
+youv-dee-season-1-common;Youv Dee;Common;2482;0,004;5,18;30/09/2022 20:04:18
+jeanjass-season-1-common;JeanJass;Common;2339;0,004;4,9;30/09/2022 18:17:19
+winnterzuko-season-1-common;Winnterzuko;Common;2429;0,008;10,5;30/09/2022 18:17:18
+mahdi-ba-season-1-common;Mahdi Ba;Common;2496;0,003;3,5;30/09/2022 17:12:17
+slimka-season-1-common;Slimka;Common;2413;0,002;2,8;30/09/2022 16:35:20
+mahdi-ba-season-1-common;Mahdi Ba;Common;2409;0,003;4,2;30/09/2022 16:35:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2406;0,004;4,9;30/09/2022 16:35:14
+lycos-season-1-common;Lycos;Common;2399;0,002;3,01;30/09/2022 15:36:18
+jeanjass-season-1-common;JeanJass;Common;2352;0,005;6,3;30/09/2022 15:36:13
+caballero-season-1-common;Caballero;Common;2337;0,007;9,8;30/09/2022 15:18:18
+jeanjass-season-1-common;JeanJass;Common;2382;0,005;6,3;30/09/2022 15:18:16
+zinee-season-1-common;Zinée;Common;2371;0,004;5,096;30/09/2022 15:18:15
+zinee-season-1-common;Zinée;Common;2112;0,004;5,6;30/09/2022 14:27:19
+flem-season-1-common;Flem;Common;2471;0,004;5,11;30/09/2022 14:09:13
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2403;0,005;6,58;30/09/2022 13:51:16
+zinee-season-1-common;Zinée;Common;2398;0,003;4,2;30/09/2022 13:40:16
+azur-season-1-common;Azur;Common;2385;0,002;2,52;30/09/2022 13:40:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2360;0,002;3,22;30/09/2022 13:00:19
+jewel-usain-season-1-common;Jewel Usain;Common;2457;0,003;4,06;30/09/2022 12:36:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2328;0,004;5,04;30/09/2022 11:52:17
+jwles-season-1-common;Jwles;Common;2432;0,002;3,22;30/09/2022 11:52:16
+jmks-season-1-common;JMK$;Common;2087;0,003;3,5;30/09/2022 11:41:16
+di-meh-season-1-common;Di-Meh;Common;2419;0,003;4,34;30/09/2022 11:41:15
+jewel-usain-season-1-common;Jewel Usain;Common;2413;0,002;3,36;30/09/2022 11:30:25
+jewel-usain-season-1-common;Jewel Usain;Common;2485;0,002;3,36;30/09/2022 11:30:22
+livai-season-1-common;Livaï;Common;2440;0,003;4,06;30/09/2022 11:30:21
+le-reglement-season-1-common;Le Règlement;Common;2497;0,003;3,5;30/09/2022 11:30:17
+jmks-season-1-common;JMK$;Common;2466;0,002;3,248;30/09/2022 11:30:14
+winnterzuko-season-1-common;Winnterzuko;Common;2456;0,008;11,2;30/09/2022 11:18:22
+azur-season-1-common;Azur;Common;2459;0,002;3,22;30/09/2022 11:18:21
+jwles-season-1-common;Jwles;Common;2402;0,002;3,08;30/09/2022 11:18:17
+zinee-season-1-common;Zinée;Common;2404;0,005;7;30/09/2022 10:53:19
+jewel-usain-season-1-common;Jewel Usain;Common;2473;0,002;2,94;30/09/2022 10:06:15
+thahomey-season-1-common;thaHomey;Common;2447;0,003;4,2;30/09/2022 09:51:18
+zinee-season-1-common;Zinée;Common;2389;0,004;5,6;30/09/2022 09:51:17
+le-reglement-season-1-common;Le Règlement;Common;2444;0,008;11,2;30/09/2022 09:51:14
+deen-burbigo-season-1-common;Deen Burbigo;Common;2450;0,007;9,38;30/09/2022 09:51:13
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2392;0,003;4,2;30/09/2022 09:32:20
+zinee-season-1-common;Zinée;Common;2455;0,005;7;30/09/2022 09:32:15
+youv-dee-season-1-common;Youv Dee;Common;2418;0,002;3,36;30/09/2022 09:23:19
+so-la-lune-season-1-common;So La Lune;Common;2403;0,002;3,36;30/09/2022 09:23:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;2421;0,003;4,69;30/09/2022 09:15:17
+jeanjass-season-1-common;JeanJass;Common;2419;0,005;6,72;30/09/2022 09:02:19
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2418;0,006;8,4;30/09/2022 08:43:15
+le-reglement-season-1-common;Le Règlement;Common;2455;0,009;12,6;30/09/2022 08:30:14
+le-reglement-season-1-common;Le Règlement;Common;2387;0,009;12,6;30/09/2022 08:16:17
+flem-season-1-common;Flem;Common;2112;0,001;1,82;30/09/2022 08:04:16
+skuna-season-1-common;Skuna;Common;2409;0,003;3,5;30/09/2022 07:59:20
+so-la-lune-season-1-common;So La Lune;Common;2367;0,005;7;30/09/2022 07:59:19
+lycos-season-1-common;Lycos;Common;2476;0,003;4,13;30/09/2022 07:26:18
+so-la-lune-season-1-common;So La Lune;Common;2362;0,004;5,18;30/09/2022 07:18:16
+di-meh-season-1-common;Di-Meh;Common;2451;0,004;4,9;30/09/2022 07:04:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2459;0,002;2,8;30/09/2022 05:04:15
+flem-season-1-common;Flem;Common;2412;0,004;6,16;30/09/2022 04:22:18
+spider-zed-season-1-common;Spider Zed;Common;2180;0,003;4,13;30/09/2022 04:22:17
+jwles-season-1-common;Jwles;Common;2382;0,002;2,1;30/09/2022 04:22:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;2345;0,01;13,3;30/09/2022 02:57:16
+spider-zed-season-1-common;Spider Zed;Common;2395;0,003;4,2;30/09/2022 01:38:17
+flem-season-1-common;Flem;Common;2410;0,004;5,6;30/09/2022 01:23:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;2372;0,006;8,4;30/09/2022 00:49:27
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2390;0,006;8,4;30/09/2022 00:49:23
+deen-burbigo-season-1-common;Deen Burbigo;Common;2317;0,01;14;30/09/2022 00:44:19
+thahomey-season-1-common;thaHomey;Common;2177;0,004;5,6;30/09/2022 00:39:18
+lycos-season-1-common;Lycos;Common;2380;0,004;5,18;30/09/2022 00:39:17
+livai-season-1-common;Livaï;Common;2396;0,004;5,18;30/09/2022 00:39:16
+skuna-season-1-common;Skuna;Common;2373;0,004;4,9;30/09/2022 00:32:31
+jewel-usain-season-1-common;Jewel Usain;Common;2383;0,004;4,9;30/09/2022 00:32:29
+azur-season-1-common;Azur;Common;2426;0,003;4,2;30/09/2022 00:32:29
+spider-zed-season-1-common;Spider Zed;Common;2410;0,003;4,2;30/09/2022 00:32:28
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2391;0,007;9,8;30/09/2022 00:32:26
+spider-zed-season-1-common;Spider Zed;Common;2399;0,003;4,2;30/09/2022 00:32:18
+rowjay-season-1-common;Rowjay;Common;2395;0,002;3,36;30/09/2022 00:19:21
+winnterzuko-season-1-common;Winnterzuko;Common;2074;0,01;14;30/09/2022 00:16:18
+di-meh-season-1-common;Di-Meh;Common;2117;0,003;4,2;30/09/2022 00:06:18
+jwles-season-1-common;Jwles;Common;2296;0,003;4,2;29/09/2022 23:50:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2345;0,003;4,48;29/09/2022 23:50:13
+so-la-lune-season-1-common;So La Lune;Common;2085;0,007;9,8;29/09/2022 23:20:16
+jwles-season-1-common;Jwles;Common;2069;0,002;2,8;29/09/2022 22:12:44
+deen-burbigo-season-1-common;Deen Burbigo;Common;2332;0,01;13,86;29/09/2022 22:00:20
+spider-zed-season-1-common;Spider Zed;Common;2362;0,004;5,18;29/09/2022 22:00:14
+zinee-season-1-common;Zinée;Common;2286;0,004;5,6;29/09/2022 21:57:13
+mahdi-ba-season-1-common;Mahdi Ba;Common;2267;0,005;7;29/09/2022 21:54:15
+jeanjass-season-1-common;JeanJass;Common;2367;0,007;9,8;29/09/2022 21:54:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2123;0,004;5,6;29/09/2022 21:54:14
+jwles-season-1-common;Jwles;Common;2320;0,004;5,32;29/09/2022 21:17:15
+slimka-season-1-common;Slimka;Common;2209;0,004;4,9;29/09/2022 21:17:14
+thahomey-season-1-common;thaHomey;Common;2323;0,004;5,18;29/09/2022 21:17:14
+rowjay-season-1-common;Rowjay;Common;2337;0,003;4,76;29/09/2022 21:17:14
+flem-season-1-common;Flem;Common;2354;0,006;8,68;29/09/2022 19:24:16
+mahdi-ba-season-1-common;Mahdi Ba;Common;2097;0,004;5,46;29/09/2022 18:24:16
+jwles-season-1-common;Jwles;Common;2091;0,003;4,2;29/09/2022 17:30:15
+jwles-season-1-common;Jwles;Common;2338;0,003;4,06;29/09/2022 15:32:17
+so-la-lune-season-1-common;So La Lune;Common;2303;0,009;12,6;29/09/2022 15:32:17
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2095;0,003;3,64;29/09/2022 15:32:14
+youv-dee-season-1-common;Youv Dee;Common;2345;0,005;7,28;29/09/2022 14:54:18
+livai-season-1-common;Livaï;Common;2233;0,005;7;29/09/2022 14:54:17
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2095;0,007;9,8;29/09/2022 14:35:14
+jwles-season-1-common;Jwles;Common;2343;0,003;4,06;29/09/2022 14:05:16
+jeanjass-season-1-common;JeanJass;Common;2362;0,007;10,458;29/09/2022 13:35:18
+deen-burbigo-season-1-common;Deen Burbigo;Common;2332;0,008;11,2;29/09/2022 13:08:15
+azur-season-1-common;Azur;Common;2096;0,003;4,2;29/09/2022 13:08:14
+jewel-usain-season-1-common;Jewel Usain;Common;2137;0,004;5,6;29/09/2022 12:36:15
+deen-burbigo-season-1-common;Deen Burbigo;Common;2108;0,009;12,6;29/09/2022 11:12:16
+caballero-season-1-common;Caballero;Common;2109;0,009;12,6;29/09/2022 11:12:14
+zinee-season-1-common;Zinée;Common;2078;0,007;9,1;29/09/2022 10:58:16
+le-reglement-season-1-common;Le Règlement;Common;2340;0,012;16,24;29/09/2022 10:28:21
+rowjay-season-1-common;Rowjay;Common;2339;0,003;4,2;29/09/2022 10:28:20
+slimka-season-1-common;Slimka;Common;2355;0,004;5,6;29/09/2022 09:53:15
+youv-dee-season-1-common;Youv Dee;Common;2340;0,005;7;29/09/2022 09:23:15
+spider-zed-season-1-common;Spider Zed;Common;2194;0,004;5,6;29/09/2022 08:41:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;2313;0,007;9,1;29/09/2022 08:41:16
+livai-season-1-common;Livaï;Common;2360;0,004;5,6;29/09/2022 08:02:19
+di-meh-season-1-common;Di-Meh;Common;2346;0,004;4,9;29/09/2022 08:02:18
+rowjay-season-1-common;Rowjay;Common;2320;0,004;5,04;29/09/2022 08:02:18
+thahomey-season-1-common;thaHomey;Common;2127;0,004;5,6;29/09/2022 08:02:18
+jmks-season-1-common;JMK$;Common;2128;0,005;6,538;29/09/2022 08:02:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;2110;0,01;13,72;29/09/2022 08:02:15
+8ruki-season-1-common;8ruki;Common;2217;0,004;5,46;29/09/2022 08:02:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2091;0,005;7;29/09/2022 07:07:15
+caballero-season-1-common;Caballero;Common;2120;0,012;16,1;29/09/2022 05:39:16
+zinee-season-1-common;Zinée;Common;2313;0,006;8,4;29/09/2022 04:29:17
+youv-dee-season-1-common;Youv Dee;Common;2086;0,005;7,14;29/09/2022 04:29:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2141;0,004;6,16;29/09/2022 03:22:18
+skuna-season-1-common;Skuna;Common;2268;0,004;5,88;29/09/2022 03:22:18
+jmks-season-1-common;JMK$;Common;2188;0,004;5,6;29/09/2022 03:22:17
+azur-season-1-common;Azur;Common;2349;0,004;5,04;29/09/2022 03:22:16
+lycos-season-1-common;Lycos;Common;2378;0,004;4,9;29/09/2022 02:16:15
+le-reglement-season-1-common;Le Règlement;Common;2072;0,013;18,2;29/09/2022 01:19:19
+azur-season-1-common;Azur;Common;2371;0,003;4,76;29/09/2022 01:19:16
+slimka-season-1-common;Slimka;Common;2356;0,004;4,9;29/09/2022 01:19:15
+lycos-season-1-common;Lycos;Common;2162;0,004;5,88;29/09/2022 00:14:18
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2106;0,004;5,6;28/09/2022 23:26:17
+rowjay-season-1-common;Rowjay;Common;2298;0,003;4,48;28/09/2022 22:35:21
+di-meh-season-1-common;Di-Meh;Common;2121;0,006;7,7;28/09/2022 22:35:16
+caballero-season-1-common;Caballero;Common;2169;0,007;10,22;28/09/2022 21:22:19
+zinee-season-1-common;Zinée;Common;2295;0,006;8,324;28/09/2022 21:22:16
+rowjay-season-1-common;Rowjay;Common;2082;0,004;4,9;28/09/2022 19:12:19
+livai-season-1-common;Livaï;Common;2104;0,004;5,6;28/09/2022 19:12:17
+spider-zed-season-1-common;Spider Zed;Common;2329;0,003;4,2;28/09/2022 19:12:16
+jwles-season-1-common;Jwles;Common;2086;0,004;5,152;28/09/2022 19:12:14
+zinee-season-1-common;Zinée;Common;2270;0,006;8,54;28/09/2022 18:18:16
+azur-season-1-common;Azur;Common;2359;0,003;4,2;28/09/2022 18:18:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2096;0,004;5,6;28/09/2022 17:26:14
+skuna-season-1-common;Skuna;Common;2320;0,004;4,9;28/09/2022 16:39:18
+spider-zed-season-1-common;Spider Zed;Common;2118;0,003;4,2;28/09/2022 16:39:17
+benjamin-epps-season-1-common;Benjamin Epps;Common;2121;0,004;5,6;28/09/2022 16:39:16
+deen-burbigo-season-1-common;Deen Burbigo;Common;2309;0,012;16,8;28/09/2022 16:39:16
+skuna-season-1-common;Skuna;Common;2321;0,003;4,2;28/09/2022 15:11:18
+jwles-season-1-common;Jwles;Common;2086;0,003;4,2;28/09/2022 15:11:15
+spider-zed-season-1-common;Spider Zed;Common;2082;0,004;4,9;28/09/2022 15:11:14
+winnterzuko-season-1-common;Winnterzuko;Common;2095;0,012;16,24;28/09/2022 14:23:17
+deen-burbigo-season-1-common;Deen Burbigo;Common;2317;0,009;12,6;28/09/2022 14:23:14
+spider-zed-season-1-common;Spider Zed;Common;2072;0,006;8,4;28/09/2022 09:41:15
+jeanjass-season-1-common;JeanJass;Common;2177;0,007;10,22;27/09/2022 23:45:18
+skuna-season-1-common;Skuna;Common;2204;0,001;1,4;27/09/2022 21:39:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2361;0,007;10,36;27/09/2022 21:34:23
+jewel-usain-season-1-common;Jewel Usain;Common;2313;0,005;6,86;27/09/2022 21:34:23
+zinee-season-1-common;Zinée;Common;2091;0,005;6,86;27/09/2022 21:34:20
+jeanjass-season-1-common;JeanJass;Common;2249;0,01;14;27/09/2022 20:32:15
+le-reglement-season-1-common;Le Règlement;Common;2111;0,014;19,6;27/09/2022 19:31:17
+jmks-season-1-common;JMK$;Common;2118;0,003;4,2;27/09/2022 19:31:14
+jeanjass-season-1-common;JeanJass;Common;2238;0,007;9,66;27/09/2022 18:37:20
+jmks-season-1-common;JMK$;Common;2296;0,003;4,83;27/09/2022 18:37:14
+winnterzuko-season-1-common;Winnterzuko;Common;2138;0,012;16,38;27/09/2022 17:47:25
+di-meh-season-1-common;Di-Meh;Common;2167;0,005;7;27/09/2022 17:47:23
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2111;0,006;8,4;27/09/2022 17:47:21
+jewel-usain-season-1-common;Jewel Usain;Common;2093;0,002;3,36;27/09/2022 17:47:15
+spider-zed-season-1-common;Spider Zed;Common;2346;0,004;5,88;27/09/2022 17:04:25
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2321;0,015;20,58;27/09/2022 17:04:21
+so-la-lune-season-1-common;So La Lune;Common;2112;0,008;11,2;27/09/2022 17:04:20
+jeanjass-season-1-common;JeanJass;Common;2246;0,01;13,3;27/09/2022 17:04:17
+thahomey-season-1-common;thaHomey;Common;2312;0,005;7,56;27/09/2022 17:04:16
+sheldon-season-1-common;Sheldon;Common;2106;0,004;5,6;27/09/2022 16:17:18
+jeanjass-season-1-common;JeanJass;Common;2235;0,007;9,38;27/09/2022 16:17:17
+spider-zed-season-1-common;Spider Zed;Common;2308;0,003;4,2;27/09/2022 16:17:15
+spider-zed-season-1-common;Spider Zed;Common;2345;0,004;6,16;27/09/2022 16:17:14
+flem-season-1-common;Flem;Common;2340;0,008;11,76;27/09/2022 15:30:18
+so-la-lune-season-1-common;So La Lune;Common;2312;0,008;11,62;27/09/2022 15:30:17
+jmks-season-1-common;JMK$;Common;2118;0,005;6,533;27/09/2022 15:30:14
+slimka-season-1-common;Slimka;Common;2345;0,004;6,16;27/09/2022 14:14:18
+lycos-season-1-common;Lycos;Common;2199;0,005;7,28;27/09/2022 14:14:17
+mahdi-ba-season-1-common;Mahdi Ba;Common;2364;0,007;9,8;27/09/2022 14:14:16
+jwles-season-1-common;Jwles;Common;2128;0,004;4,9;27/09/2022 14:14:15
+sheldon-season-1-common;Sheldon;Common;2325;0,004;6,16;27/09/2022 13:28:20
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2260;0,014;19,6;27/09/2022 13:28:14
+jwles-season-1-common;Jwles;Common;2113;0,006;7,7;27/09/2022 10:50:16
+jmks-season-1-common;JMK$;Common;2108;0,004;6,16;27/09/2022 10:50:16
+lycos-season-1-common;Lycos;Common;2099;0,005;7;27/09/2022 09:41:16
+jmks-season-1-common;JMK$;Common;2231;0,004;4,9;27/09/2022 02:45:17
+jewel-usain-season-1-common;Jewel Usain;Common;2109;0,004;4,9;27/09/2022 02:45:17
+youv-dee-season-1-common;Youv Dee;Common;2185;0,01;13,3;27/09/2022 01:25:25
+slimka-season-1-common;Slimka;Common;2172;0,008;10,5;27/09/2022 01:25:24
+youv-dee-season-1-common;Youv Dee;Common;2102;0,009;13,16;27/09/2022 01:25:23
+flem-season-1-common;Flem;Common;2109;0,007;9,8;27/09/2022 01:25:16
+winnterzuko-season-1-common;Winnterzuko;Common;2301;0,015;21;27/09/2022 01:25:14
+jewel-usain-season-1-common;Jewel Usain;Common;2098;0,005;6,3;26/09/2022 23:52:16
+jmks-season-1-common;JMK$;Common;2094;0,004;5,46;26/09/2022 23:52:15
+di-meh-season-1-common;Di-Meh;Common;2113;0,007;9,1;26/09/2022 22:54:17
+slimka-season-1-common;Slimka;Common;2254;0,004;5,32;26/09/2022 21:40:24
+thahomey-season-1-common;thaHomey;Common;2101;0,004;5,6;26/09/2022 21:40:21
+8ruki-season-1-common;8ruki;Common;2136;0,005;7;26/09/2022 21:30:19
+jewel-usain-season-1-common;Jewel Usain;Common;2138;0,007;9,8;26/09/2022 20:47:20
+lycos-season-1-common;Lycos;Common;2125;0,007;9,8;26/09/2022 20:47:17
+8ruki-season-1-common;8ruki;Common;2098;0,006;8,4;26/09/2022 20:47:16
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2122;0,006;7,84;26/09/2022 20:47:15
+winnterzuko-season-1-common;Winnterzuko;Common;2120;0,025;35;26/09/2022 20:47:14
+le-reglement-season-1-common;Le Règlement;Common;2134;0,022;30,8;26/09/2022 20:04:19
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2075;0,005;7;26/09/2022 20:04:18
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2219;0,004;5,6;26/09/2022 20:04:17
+jewel-usain-season-1-common;Jewel Usain;Common;2140;0,007;10,22;26/09/2022 20:04:16
+spider-zed-season-1-common;Spider Zed;Common;2078;0,004;5,6;26/09/2022 17:05:13
+jmks-season-1-common;JMK$;Common;2344;0,007;9,8;26/09/2022 16:06:17
+livai-season-1-common;Livaï;Common;2102;0,005;7;26/09/2022 14:10:14
+livai-season-1-common;Livaï;Common;2292;0,007;9,8;26/09/2022 13:49:14
+caballero-season-1-common;Caballero;Common;2279;0,025;35;26/09/2022 13:05:15
+sheldon-season-1-common;Sheldon;Common;2121;0,008;11,2;26/09/2022 12:37:18
+jmks-season-1-common;JMK$;Common;2344;0,004;5,6;26/09/2022 12:37:16
+sheldon-season-1-common;Sheldon;Common;2101;0,003;3,5;26/09/2022 12:19:14
+jewel-usain-season-1-common;Jewel Usain;Common;2190;0,004;5,6;26/09/2022 11:54:16
+di-meh-season-1-common;Di-Meh;Common;2113;0,004;5,6;26/09/2022 11:54:15
+spider-zed-season-1-common;Spider Zed;Common;2330;0,004;5,6;26/09/2022 11:54:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2357;0,008;11,2;26/09/2022 11:37:14
+caballero-season-1-common;Caballero;Common;2170;0,008;11,2;26/09/2022 11:04:14
+spider-zed-season-1-common;Spider Zed;Common;2289;0,007;9,8;26/09/2022 10:35:14
+flem-season-1-common;Flem;Common;2113;0,02;28;26/09/2022 09:32:16
+zinee-season-1-common;Zinée;Common;2315;0,016;22,4;26/09/2022 07:46:14
+spider-zed-season-1-common;Spider Zed;Common;2335;0,008;11,2;26/09/2022 04:36:15
+8ruki-season-1-common;8ruki;Common;2308;0,007;9,8;26/09/2022 04:36:14
+skuna-season-1-common;Skuna;Common;2299;0,004;5,46;26/09/2022 02:36:22
+jewel-usain-season-1-common;Jewel Usain;Common;2298;0,004;5,46;26/09/2022 02:36:21
+rowjay-season-1-common;Rowjay;Common;2076;0,008;11,2;26/09/2022 01:19:18
+di-meh-season-1-common;Di-Meh;Common;2075;0,007;9,8;26/09/2022 01:19:16
+so-la-lune-season-1-common;So La Lune;Common;2294;0,012;16,8;26/09/2022 01:19:16
+jewel-usain-season-1-common;Jewel Usain;Common;2170;0,008;11,2;25/09/2022 23:18:15
+slimka-season-1-common;Slimka;Common;2069;0,004;5,6;25/09/2022 22:13:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2075;0,002;2,8;22/09/2022 10:15:46
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2075;0,002;2,8;22/09/2022 08:47:46
+8ruki-season-1-common;8ruki;Common;2589;0,002;2,8;21/10/2022 10:48:14
+jeanjass-season-1-common;JeanJass;Common;2634;0,004;5,6;21/10/2022 00:55:14
+youv-dee-season-1-common;Youv Dee;Common;2618;0,002;3,22;21/10/2022 00:41:14
+lycos-season-1-common;Lycos;Common;2633;0,002;2,66;20/10/2022 23:31:14
+youv-dee-season-1-common;Youv Dee;Common;2614;0,002;3,192;20/10/2022 20:50:15
+so-la-lune-season-1-common;So La Lune;Common;2596;0,003;4,2;20/10/2022 20:15:14
+mahdi-ba-season-1-common;Mahdi Ba;Common;2681;0,003;3,64;20/10/2022 16:42:13
+livai-season-1-common;Livaï;Common;2618;0,002;3,192;20/10/2022 16:04:14
+spider-zed-season-1-common;Spider Zed;Common;2648;0;0,056;20/10/2022 06:38:13
+rowjay-season-1-common;Rowjay;Common;2538;0,002;3,094;19/10/2022 21:15:14
+8ruki-season-1-common;8ruki;Common;2614;0,002;3,22;19/10/2022 20:33:14
+so-la-lune-season-1-common;So La Lune;Common;2555;0,005;7,476;19/10/2022 19:18:14
+winnterzuko-season-1-common;Winnterzuko;Common;2590;0,006;7,84;19/10/2022 16:23:13
+spider-zed-season-1-common;Spider Zed;Common;2594;0,003;3,78;19/10/2022 16:20:14
+skuna-season-1-common;Skuna;Common;2514;0,002;2,8;19/10/2022 16:16:14
+youv-dee-season-1-common;Youv Dee;Common;2592;0,003;4,13;19/10/2022 16:12:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2606;0,003;3,78;19/10/2022 12:04:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2529;0,004;4,9;19/10/2022 11:59:13
+di-meh-season-1-common;Di-Meh;Common;2595;0,003;3,5;19/10/2022 11:53:14
+azur-season-1-common;Azur;Common;2516;0,002;3,36;19/10/2022 11:37:14
+slimka-season-1-common;Slimka;Common;2530;0,003;4,102;19/10/2022 10:38:13
+jmks-season-1-common;JMK$;Common;2502;0,002;3,36;19/10/2022 10:33:13
+thahomey-season-1-common;thaHomey;Common;2503;0,003;3,5;19/10/2022 10:29:14
+rowjay-season-1-common;Rowjay;Common;2595;0,002;2,8;19/10/2022 10:27:15
+jwles-season-1-common;Jwles;Common;2543;0,002;2,52;19/10/2022 10:24:14
+sheldon-season-1-common;Sheldon;Common;2596;0,002;3,136;19/10/2022 00:34:13
+lycos-season-1-common;Lycos;Common;2674;0,002;2,52;19/10/2022 00:30:13
+thahomey-season-1-common;thaHomey;Common;2644;0,002;2,52;18/10/2022 15:45:14
+rowjay-season-1-common;Rowjay;Common;2627;0,002;2,24;18/10/2022 14:06:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2640;0,002;3,43;18/10/2022 11:00:14
+lycos-season-1-common;Lycos;Common;2640;0,002;2,464;18/10/2022 10:33:14
+jeanjass-season-1-common;JeanJass;Common;2654;0,004;5,194;18/10/2022 08:36:14
+rowjay-season-1-common;Rowjay;Common;2607;0,002;2,226;18/10/2022 06:42:14
+sheldon-season-1-common;Sheldon;Common;2603;0,002;3,08;18/10/2022 04:44:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2639;0,005;6,3;17/10/2022 21:35:14
+lycos-season-1-common;Lycos;Common;2635;0,002;2,45;17/10/2022 19:51:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2664;0,002;3,22;17/10/2022 19:49:14
+caballero-season-1-common;Caballero;Common;2589;0,005;6,3;17/10/2022 19:07:14
+le-reglement-season-1-common;Le Règlement;Common;2620;0,006;8,806;17/10/2022 17:23:14
+flem-season-1-common;Flem;Common;2511;0,003;4,06;17/10/2022 16:12:14
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2608;0,005;6,86;17/10/2022 15:41:15
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2603;0,002;3,15;17/10/2022 15:32:12
+jmks-season-1-common;JMK$;Common;2638;0,002;2,94;17/10/2022 14:54:13
+jwles-season-1-common;Jwles;Common;2635;0,002;2,38;17/10/2022 12:28:13
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2629;0,002;3,08;17/10/2022 11:54:13
+winnterzuko-season-1-common;Winnterzuko;Common;2617;0,006;7,84;17/10/2022 11:50:14
+le-reglement-season-1-common;Le Règlement;Common;2630;0,005;7,281;17/10/2022 11:31:14
+spider-zed-season-1-common;Spider Zed;Common;2644;0,002;3,15;17/10/2022 09:14:14
+rowjay-season-1-common;Rowjay;Common;2618;0,002;2,1;17/10/2022 08:50:14
+skuna-season-1-common;Skuna;Common;2594;0,002;2,702;17/10/2022 07:30:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2595;0,005;6,72;17/10/2022 07:02:13
+sheldon-season-1-common;Sheldon;Common;2618;0,002;3,22;17/10/2022 00:31:14
+jewel-usain-season-1-common;Jewel Usain;Common;2615;0,002;2,8;16/10/2022 23:55:16
+le-reglement-season-1-common;Le Règlement;Common;2612;0,005;7;16/10/2022 23:20:13
+flem-season-1-common;Flem;Common;2645;0,003;3,878;16/10/2022 23:17:13
+zinee-season-1-common;Zinée;Common;2628;0,003;4,423;16/10/2022 23:11:13
+so-la-lune-season-1-common;So La Lune;Common;2591;0,004;5,74;16/10/2022 23:07:07
+zinee-season-1-common;Zinée;Common;2602;0,003;4,2;16/10/2022 21:41:13
+spider-zed-season-1-common;Spider Zed;Common;2652;0,002;2,8;16/10/2022 20:44:14
+moji-x-sboy-season-1-common;Moji x Sboy;Common;2586;0,002;3,36;16/10/2022 20:01:15
+jeanjass-season-1-common;JeanJass;Common;2655;0,003;4,76;16/10/2022 18:00:13
+jwles-season-1-common;Jwles;Common;2619;0,002;2,24;16/10/2022 17:55:13
+le-reglement-season-1-common;Le Règlement;Common;2621;0,005;6,58;16/10/2022 17:49:14
+flem-season-1-common;Flem;Common;2659;0,003;3,5;16/10/2022 16:40:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2532;0,003;3,64;16/10/2022 16:24:14
+le-reglement-season-1-common;Le Règlement;Common;2611;0,004;5,6;16/10/2022 16:17:14
+spider-zed-season-1-common;Spider Zed;Common;2658;0,002;2,8;16/10/2022 15:34:13
+benjamin-epps-season-1-common;Benjamin Epps;Common;2633;0,002;3,178;16/10/2022 14:00:14
+skuna-season-1-common;Skuna;Common;2594;0,001;1,344;16/10/2022 13:54:14
+slimka-season-1-common;Slimka;Common;2645;0,002;3,08;16/10/2022 13:42:14
+lycos-season-1-common;Lycos;Common;2654;0,001;1,4;16/10/2022 13:20:12
+8ruki-season-1-common;8ruki;Common;2596;0,002;3,22;16/10/2022 13:07:13
+jmks-season-1-common;JMK$;Common;2634;0,002;2,8;16/10/2022 13:05:14
+skuna-season-1-common;Skuna;Common;2537;0,002;2,716;16/10/2022 12:44:14
+lycos-season-1-common;Lycos;Common;2666;0,002;2,1;16/10/2022 12:31:13
+rowjay-season-1-common;Rowjay;Common;2591;0,002;2,226;16/10/2022 12:10:13
+deen-burbigo-season-1-common;Deen Burbigo;Common;2600;0,008;10,5;16/10/2022 12:08:14
+caballero-season-1-common;Caballero;Common;2622;0,005;7;16/10/2022 12:06:09
+lycos-season-1-common;Lycos;Common;2644;0,002;2,1;16/10/2022 11:28:14
+zinee-season-1-common;Zinée;Common;2604;0,003;4,228;16/10/2022 11:24:13
+youv-dee-season-1-common;Youv Dee;Common;2617;0,004;5,32;16/10/2022 11:10:13
+winnterzuko-season-1-common;Winnterzuko;Common;2619;0,005;7;16/10/2022 11:01:14
+rowjay-season-1-common;Rowjay;Common;2599;0,002;2,1;16/10/2022 07:26:14
+livai-season-1-common;Livaï;Common;2550;0,002;2,786;15/10/2022 21:31:13
+le-reglement-season-1-common;Le Règlement;Common;2577;0,006;8,848;15/10/2022 18:09:14
+di-meh-season-1-common;Di-Meh;Common;2579;0,002;2,8;15/10/2022 16:40:13
+so-la-lune-season-1-common;So La Lune;Common;2531;0,005;6,3;14/10/2022 18:03:14
+youv-dee-season-1-common;Youv Dee;Common;2564;0,004;5,04;14/10/2022 17:45:14
+jmks-season-1-common;JMK$;Common;2545;0,003;3,5;13/10/2022 12:26:13
+le-reglement-season-1-common;Le Règlement;Common;2523;0,006;8,4;12/10/2022 09:29:13
+jeanjass-season-1-common;JeanJass;Common;2568;0,006;8,12;12/10/2022 08:04:14
+caballero-season-1-common;Caballero;Common;2521;0,006;8,26;12/10/2022 02:03:13
+zinee-season-1-common;Zinée;Common;2529;0,003;4,2;10/10/2022 20:21:16
+thahomey-season-1-common;thaHomey;Common;2541;0,002;3,36;10/10/2022 18:24:14
+youv-dee-season-1-common;Youv Dee;Common;2510;0,004;5,32;10/10/2022 13:53:14
+jeanjass-season-1-common;JeanJass;Common;2550;0,005;7,42;10/10/2022 12:47:14
+lycos-season-1-common;Lycos;Common;2506;0,003;3,92;08/10/2022 19:35:15
+lycos-season-1-common;Lycos;Common;2544;0,003;3,78;08/10/2022 14:03:14
+le-reglement-season-1-common;Le Règlement;Common;2505;0,006;8,68;08/10/2022 13:14:13
+sheldon-season-1-common;Sheldon;Common;2502;0,003;3,78;07/10/2022 23:19:14
+jeanjass-season-1-common;JeanJass;Common;2547;0,004;5,46;07/10/2022 14:19:14
+benjamin-epps-season-1-common;Benjamin Epps;Common;2516;0,003;4,046;06/10/2022 16:48:15
+spider-zed-season-1-common;Spider Zed;Common;2513;0,003;3,5;05/10/2022 21:35:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2530;0,006;7,98;04/10/2022 23:34:14
+flem-season-1-common;Flem;Common;2549;0,004;5,6;04/10/2022 18:12:15
+lycos-season-1-common;Lycos;Common;2529;0,002;3,36;04/10/2022 17:00:15
+zuukou-mayzie-season-1-common;Zuukou Mayzie;Common;2511;0,005;7;03/10/2022 07:49:15
+caballero-season-1-common;Caballero;Common;2526;0,006;8,12;02/10/2022 10:38:15
+benjamin-epps-season-1-common;Benjamin Epps;Common;2514;0,004;5,46;01/10/2022 12:13:25
+azur-season-1-common;Azur;Common;2503;0,002;2,52;01/10/2022 12:13:25
+lycos-season-1-common;Lycos;Common;2520;0,002;3,08;01/10/2022 05:57:15
+spider-zed-season-1-common;Spider Zed;Common;2512;0,002;3,36;01/10/2022 02:14:15
+slimka-season-1-common;Slimka;Common;2504;0,002;2,8;30/09/2022 22:08:25
+jwles-season-1-common;Jwles;Common;2517;0,003;3,584;30/09/2022 17:12:14
+flem-season-1-common;Flem;Common;2517;0,003;3,92;30/09/2022 16:35:15
+lycos-season-1-common;Lycos;Common;2505;0,002;2,8;30/09/2022 13:40:14
+jmks-season-1-common;JMK$;Common;2510;0,002;2,87;30/09/2022 10:06:16
+benjamin-epps-season-1-common;Benjamin Epps;Common;2520;0,004;4,9;30/09/2022 09:23:14

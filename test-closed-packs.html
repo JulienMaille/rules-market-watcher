@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Past transfers</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="dark light">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<script src="users.js"></script>
+<script>
+users = allUserIds.data.users;
+
+var counters = {};
+var usersWithPack = {};
+var processed = 0;
+
+function sumPacks(json) {
+  for( u of json.data.usersByIds ) {
+    processed++;
+    for( p of u.packsBalances ) {
+      if( p.balance<=0 ) continue;
+      packName = p.pack.displayName.split(" ")[0];
+      if( packName in counters ) {
+        counters[packName] += p.balance;
+        usersWithPack[packName]++;
+      } else {
+        counters[packName] = p.balance;
+        usersWithPack[packName] = 1;
+      }
+    }
+  }
+};
+
+async function fetchUserPacks(ids) {
+  var idsString = JSON.stringify(ids).replace(/\"/g, '\\\"');
+  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "en-US;q=0.9,en;q=0.8",
+      "content-type": "application/json",
+    },
+    "body": `{
+      "query": "{ usersByIds(ids: ${idsString}) {packsBalances{balance pack{displayName}}} }"
+    }`,
+    "method": "POST",
+    "mode": "cors"
+  }).then(response => {
+    return response.json();
+  });
+}
+
+// main
+async function main() {
+  let nbUsers = users.length;
+  let block = 250;
+  for( var u=0; u<nbUsers; u+=block ) {
+    let sub = users.slice(u, u+block);
+    sub = sub.map(a => a.id);
+    sumPacks(await fetchUserPacks(sub));
+    document.body.innerHTML = "user processed: " + processed + "/" + nbUsers + " - usersWithPack: " + JSON.stringify(usersWithPack) + "<br>"
+                            + "total packs: " + JSON.stringify(counters);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  main();
+});
+
+</script>
+</head>
+<body>
+</body>
+</html>
