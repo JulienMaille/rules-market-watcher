@@ -18,7 +18,7 @@ function sumPacks(json) {
     processed++;
     for( p of u.packsBalances ) {
       if( p.balance<=0 ) continue;
-      packName = p.pack.displayName.split(" ")[0];
+      packName = p.pack.displayName;
       if( packName in counters ) {
         counters[packName] += p.balance;
         usersWithPack[packName]++;

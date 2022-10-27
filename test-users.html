@@ -6,7 +6,7 @@
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script src="users.js"></script>
-<script src="listing.js"></script>
+<script src="listings.js"></script>
 <script>
 users = allUserIds.data.users;
 
@@ -60,8 +60,9 @@ async function main() {
                             + "total packs: " + JSON.stringify(counters);
   }
   console.log(whales);
-  let whaleNames = (await fetchUserNames(whales));
-  document.body.innerHTML += whaleNames;
+  let whaleNames = (await fetchUserNames(whales)).data.usersByIds;
+  console.log(whaleNames);
+  document.body.innerHTML += JSON.stringify(whaleNames);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
