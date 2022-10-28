@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>User transaction history</title>
+<title>Pack's content</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script src="listings.js"></script>
 <script>
-var closedPacks = {"Launch Pack S1":1397,"Starter Pack S1":197,"Kush Base Pack":96,"Honey Base Pack":84};
+var closedPacks = {"Launch Pack S1":1397,"Starter Pack S1":199,"Kush Base Pack":96,"Honey Base Pack":84,"Halloween Pack":0};
 
 function showCards(cards, total) {
   let t = "";
@@ -19,9 +19,10 @@ function showCards(cards, total) {
 }
 
 function showPack(p) {
+  let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply)*p.cardsPerPack;
   let t = "<div class='pack'><a href='https://rules.art/pack/" + p.slug + "'><img width=48 src='" + p.pictureUrl + "' alt='" + p.displayName + "'>"
         + p.displayName + "</a> - contient " + p.cardModelsCount + " cartes différentes, vendu à " + p.supply + " exemplaires, dont " + closedPacks[p.displayName] + " toujours scellés</div>"
-        + showCards(p.cardModels, p.supply*p.cardsPerPack);
+        + showCards(p.cardModels, total);
   document.querySelector("#packs").innerHTML += t;
 }
 

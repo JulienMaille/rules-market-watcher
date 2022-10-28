@@ -39,7 +39,7 @@ function sendNotification(content, picture) {
 async function main() {
   document.querySelector("#hour").innerHTML = "aujourd'hui à " + (new Date).toLocaleTimeString();
 
-  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
+  let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
   let maxGasPrice = parseInt((await fetchMaxGasPrice()).maximum_gas_price, 16)/10**18;
   let gasPrice = parseInt((await fetchGasPrice()).gas_price, 16)/10**18;
 

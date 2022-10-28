@@ -1,4 +1,3 @@
-var ethEurRate = 1400;
 var giftGasUsage = 10284;
 var sellGasUsage = 12708;
 var buyGasUsage = 36503;

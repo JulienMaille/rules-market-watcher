@@ -12,7 +12,7 @@
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 allCardModels = allCardModels.data.allCardModels;
 
-function listings(hits, id) {
+function listings(hits, id, ethEurRate) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
   let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
@@ -214,7 +214,7 @@ async function main() {
     if( key=="sorting" ) document.querySelector("#"+key).value=value;
   }
 
-  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
+  let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
 
   try {
     let username = document.getElementById("username").value.toLowerCase();
@@ -222,7 +222,7 @@ async function main() {
 
     let user = (await fetchUserId(username)).data.user;
     let id = user.id;
-    listings((await fetchTransfers(`fromUserId:${id} OR toUserId:${id}`,"")).hits, id);
+    listings((await fetchTransfers(`fromUserId:${id} OR toUserId:${id}`,"")).hits, id, ethEurRate);
     for( key of hiddenClass )
       setVisibility(key, false);
 

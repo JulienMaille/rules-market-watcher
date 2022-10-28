@@ -11,7 +11,7 @@
 <script>
 allCardModels = allCardModels.data.allCardModels;
 
-function listings(hits) {
+function listings(hits, ethEurRate) {
   let priceFmt = new Intl.NumberFormat();
 
   let t = "cardFull;artist;scarcity;serial;priceETH;priceEUR;date<br>";
@@ -39,13 +39,13 @@ function cardInfo(modelId) {
 
 // main
 async function main() {
-  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
-  var hits = [];
-  var blocks = [0,500,1000,1500,2000,2500,3000];
+  let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
+  let hits = [];
+  let blocks = [0,500,1000,1500,2000,2500,3000];
   for( var i=0; i<blocks.length-1; i++ )
     hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "is_sale:true")).hits);
   hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1], "is_sale:true")).hits);
-  listings(hits);
+  listings(hits, ethEurRate);
 }
 
 document.addEventListener("DOMContentLoaded", function() {

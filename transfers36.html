@@ -12,7 +12,7 @@
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 allCardModels = allCardModels.data.allCardModels;
 
-function listings(hits) {
+function listings(hits, ethEurRate) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
   let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
@@ -169,14 +169,14 @@ async function main() {
     if( key=="sorting" ) document.querySelector("#"+key).value=value;
   }
 
-  let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
-  var hits = [];
-  var blocks = [0,500,1000,1500,2000,2500,3000];
-  var date36h = (new Date).getTime() - 1000*60*60*36;
+  let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
+  let hits = [];
+  let blocks = [0,500,1000,1500,2000,2500,3000];
+  let date36h = (new Date).getTime() - 1000*60*60*36;
   for( var i=0; i<blocks.length-1; i++ )
     hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1]+" AND date>"+date36h, "is_sale:-true")).hits);
   hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1]+" AND date>"+date36h, "is_sale:-true")).hits);
-  listings(hits);
+  listings(hits, ethEurRate);
 
   for( key of hiddenClass )
     setVisibility(key, false);
