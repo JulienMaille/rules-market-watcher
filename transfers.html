@@ -15,7 +15,7 @@ allCardModels = allCardModels.data.allCardModels;
 function listings(hits) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
-  let euroOptions = {style: 'currency', currency: 'EUR', maximumFractionDigits: 0};
+  let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
   let euroFmt = new Intl.NumberFormat([], euroOptions);
 
   function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
@@ -110,7 +110,7 @@ function cardInfo(modelId) {
 function setVisibility(className, visible) {
   elements = document.getElementsByClassName(className);
   for( var i = 0; i < elements.length; i++ )
-    elements[i].style.display = visible ? 'table-row' : 'none';
+    elements[i].style.display = visible ? "table-row" : "none";
 
   var searchParams = new URLSearchParams(window.location.search);
   searchParams.set(className, visible);
@@ -136,7 +136,7 @@ function fetchUser(clickedDom, userId) {
                      + " <a href='" + url + "' target='_blank'><img src='rules-logo.png'></a>";
       });
     }
-  })
+  });
 }
 
 // main
@@ -149,7 +149,7 @@ async function main() {
     tableLowThousand: "≤1000",
     tableLowTwoThousand: "≤2000",
     tableHigh: "#"
-  }
+  };
 
   let t = "";
   for( const key in tables )
@@ -178,7 +178,7 @@ async function main() {
     setVisibility(key, false);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
   main();
 });
 
@@ -186,8 +186,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <style>
   body {font-family: Roboto,Helvetica;}
   table {border-collapse: collapse; text-align: right; font-size: 14px; border: 1px #555 solid; float:left; margin-right: 10px;}
-  @media (prefers-color-scheme: dark) { a {color: #CCC;} .recent #date {color: #FF0;}.lessRecent #date {color: #AA0;}}
-  @media (prefers-color-scheme: light) { a {color: #000;} .recent #date {background: #FF0;}.lessRecent #date {background: #FFC;}}
+  @media (prefers-color-scheme: dark) {
+    a {color: #CCC;}
+    .recent #date {color: #FF0;}
+    .lessRecent #date {color: #AA0;}
+  }
+  @media (prefers-color-scheme: light) {
+    a {color: #000;}
+    .recent #date {background: #FF0;}
+    .lessRecent #date {background: #FFC;}
+  }
   a {text-decoration: none;}
   a:hover {text-decoration: underline;}
   th {font-weight: normal;}
@@ -198,21 +206,20 @@ document.addEventListener('DOMContentLoaded', function() {
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #ff9800;}
   #update {color: #777;}
   #menu, #options, #infos {float:left;}
-  #menu, #infos {margin-top: -6px;}
-  #options label {margin-top: -4px;}
+  #menu, #infos {margin-top: -2px;}
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
   #options label, #options span {margin-right: 6px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
-  #tables {clear: both;}
+  #tables {clear: both; padding-top: 2px;}
 </style>
 </head>
 <body>
 <div id="menu">
-  <a href='index.html'>🛒</a>
-  <a href='transfers.html'>🧾</a>
-  <a href='user.html'>🤑</a>
-  <a href='fee.html'>💸</a>
-  <a href='packs.html'>🃏</a>
+  <a href="index.html">🛒</a>
+  <a href="transfers.html">🧾</a>
+  <a href="user.html">🤑</a>
+  <a href="fee.html">💸</a>
+  <a href="packs.html">🃏</a>
 </div>
 <div id="options">
   <label for="old">show old listings

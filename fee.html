@@ -20,16 +20,16 @@ function toggleDropStatus(value) {
 
 // notifications
 function registerNotifications() {
-  navigator.serviceWorker.register('sw.js');
+  navigator.serviceWorker.register("sw.js");
   if( !Notification )
-    console.log('Browser does not support notifications.');
-  else if( Notification.permission !== 'granted' )
+    console.log("Browser does not support notifications.");
+  else if( Notification.permission !== "granted" )
     Notification.requestPermission();
 }
 
 function sendNotification(content, picture) {
   Notification.requestPermission((result) => {
-    if( result != 'granted' ) return;
+    if( result != "granted" ) return;
     navigator.serviceWorker.ready.then((registration) => {
       registration.showNotification(content, {icon: picture});
     });
@@ -72,7 +72,7 @@ async function main() {
   setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener("DOMContentLoaded", function() {
   document.querySelector("#melon").src = melon;
   main();
 });
@@ -133,11 +133,11 @@ document.addEventListener('DOMContentLoaded', function() {
 <body>
   <div id="text">
   <div id="menu">
-    <a href='index.html'>🛒</a>
-    <a href='transfers.html'>🧾</a>
-    <a href='user.html'>🤑</a>
-    <a href='fee.html'>💸</a>
-    <a href='packs.html'>🃏</a>
+    <a href="index.html">🛒</a>
+    <a href="transfers.html">🧾</a>
+    <a href="user.html">🤑</a>
+    <a href="fee.html">💸</a>
+    <a href="packs.html">🃏</a>
   </div>
     <div id="combien">A combien sont les frais<br>des transactions Rules ?</div>
     <div id="hour"></div>
