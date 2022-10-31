@@ -15,4 +15,4 @@ curl "https://api.rules.art/graphql" ^
     } ^
   } \" }" >> "cards.js"
 
-echo var topTier = ["le-reglement", "caballero", "jeanjass", "deen-burbigo", "zuukou-mayzie", "winnterzuko", "kerchak", "doums"]; >> "cards.js"
+echo var topTier = ["le-reglement", "caballero", "jeanjass", "deen-burbigo", "zuukou-mayzie", "winnterzuko", "eden-dillinger", "zinee", "youv-dee", "vladimir-cauchemar"]; >> "cards.js"
