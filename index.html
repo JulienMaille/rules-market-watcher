@@ -41,6 +41,7 @@ function listings(hits, notify, ethEurRate) {
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
     let cardIsCommon = card.scarcity.name == "Common";
+    let cardIsPlat = card.scarcity.name == "Platinium";
     let artist = card.artist.displayName;
 
     let recent = (new Date - date < recentDef);
@@ -51,9 +52,8 @@ function listings(hits, notify, ethEurRate) {
     if( recent && listing.available &&
       ((priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
-        || (priceEUR<=1.5*cheapNotif && !cardIsCommon)) ) {
-      if( !notify ) continue;
-      sendNotification(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
+        || (priceEUR<=1.5*cheapNotif && cardIsPlat)) ) {
+      if( notify ) sendNotification(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
     }
 
     let dateText = "";
