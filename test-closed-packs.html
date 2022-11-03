@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Past transfers</title>
+<title>Discover closed packs</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -51,7 +51,7 @@ async function fetchUserPacks(ids) {
 // main
 async function main() {
   let nbUsers = users.length;
-  let block = 250;
+  let block = 50;
   for( var u=0; u<nbUsers; u+=block ) {
     let sub = users.slice(u, u+block);
     sub = sub.map(a => a.id);
