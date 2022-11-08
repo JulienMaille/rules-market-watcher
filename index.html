@@ -53,7 +53,7 @@ function listings(hits, notify, ethEurRate) {
       ((priceEUR<=2*cheapNotif && listing.serialNumber<=10)
         || (priceEUR<=cheapNotif && listing.serialNumber<=100)
         || (priceEUR<=1.5*cheapNotif && cardIsPlat)) ) {
-      if( notify ) sendNotification(artist + " #" + listing.serialNumber + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
+      if( notify ) sendNotification(artist + " #" + listing.serialNumber + " " + card.scarcity.name + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
     }
 
     let dateText = "";
