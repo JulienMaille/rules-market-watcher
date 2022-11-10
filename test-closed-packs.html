@@ -48,6 +48,12 @@ async function fetchUserPacks(ids) {
   });
 }
 
+async function retryForever(fn) {
+  return fn().catch(function(err) {
+    return retryForever(fn);
+  });
+}
+
 // main
 async function main() {
   let nbUsers = users.length;
@@ -55,7 +61,8 @@ async function main() {
   for( var u=0; u<nbUsers; u+=block ) {
     let sub = users.slice(u, u+block);
     sub = sub.map(a => a.id);
-    sumPacks(await fetchUserPacks(sub));
+    let packs = await retryForever(function () { return fetchUserPacks(sub); });
+    sumPacks(packs);
     document.body.innerHTML = "user processed: " + processed + "/" + nbUsers + " - usersWithPack: " + JSON.stringify(usersWithPack) + "<br>"
                             + "total packs: " + JSON.stringify(counters);
   }

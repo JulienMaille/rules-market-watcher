@@ -14,10 +14,14 @@ var counters = {};
 var processed = 0;
 var whales = [];
 
-function sumCards(json, userId) {
+async function sumCards(json, userId) {
   processed++;
   let q = json.hits.length;
-  if( q>=50 ) whales.push(userId);
+  if( q>=50 ) {
+    let whaleName = (await fetchUserNames([userId])).data.usersByIds[0].username;
+    whales.push(whaleName + " -> " + q);
+    console.log(whales);
+  }
   if( q in counters )
     counters[q]++;
   else
@@ -59,10 +63,7 @@ async function main() {
     document.body.innerHTML = "user processed: " + processed + "/" + nbUsers + " - users with > 50 cards: " + whales.length + "<br>"
                             + "total packs: " + JSON.stringify(counters);
   }
-  console.log(whales);
-  let whaleNames = (await fetchUserNames(whales)).data.usersByIds;
-  console.log(whaleNames);
-  document.body.innerHTML += JSON.stringify(whaleNames);
+  document.body.innerHTML += "<br>" + whales;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
