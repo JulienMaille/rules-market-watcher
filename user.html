@@ -167,7 +167,7 @@ function showCards(cards) {
 
   t = "Missing:<br>";
   for( model of allCardModels ) {
-    if( model.scarcity.name != "Common" ) continue;
+    if( model.scarcity.name == "Platinium" ) continue;
     if( !cardIds.includes(model.id) )
       t+= "<div class='card'><a href='https://rules.art/card/" + model.slug + "'><img src='" + model.pictureUrl + "'></a><br>" + model.artist.displayName + "</div>";
   }
