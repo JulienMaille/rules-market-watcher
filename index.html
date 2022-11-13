@@ -21,13 +21,23 @@ function listings(hits, notify, ethEurRate) {
   let euroFmt = new Intl.NumberFormat([], euroOptions);
 
   function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
-  function sortByCard(a, b) { return a.cardModelId > b.cardModelId ? -1 : 1 }
   function sortByDate(a, b) { return a.date > b.date ? -1 : 1 }
+  function sortBySerial(a, b) { return a.serialNumber < b.serialNumber ? -1 : 1 }
+  function sortByCardPrice(a, b) {
+    return a.cardModelId == b.cardModelId ? (a.price < b.price ? -1 : 1)
+                                          : a.cardModelId > b.cardModelId ? -1 : 1
+  }
+  function sortByCardSerial(a, b) {
+    return a.cardModelId == b.cardModelId ? (a.serialNumber < b.serialNumber ? -1 : 1)
+                                          : a.cardModelId > b.cardModelId ? -1 : 1
+  }
 
   let sortRule = document.querySelector("#sorting").value;
   if( sortRule == "price" ) hits.sort(sortByPrice);
-  if( sortRule == "card" ) hits.sort(sortByCard);
   if( sortRule == "date" ) hits.sort(sortByDate);
+  if( sortRule == "serial" ) hits.sort(sortBySerial);
+  if( sortRule == "cardprice" ) hits.sort(sortByCardPrice);
+  if( sortRule == "cardserial" ) hits.sort(sortByCardSerial);
   //console.log(hits);
 
   let sum = 0;
@@ -299,7 +309,9 @@ document.addEventListener("DOMContentLoaded", function() {
     <select id="sorting" onChange="setSorting(this.value);">
       <option value="price">price</option>
       <option value="date">date</option>
-      <option value="card">card</option>
+      <option value="serial">serial</option>
+      <option value="cardprice">card/price</option>
+      <option value="cardserial">card/serial</option>
     </select>
   </label>
 </div>
