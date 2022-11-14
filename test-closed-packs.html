@@ -13,7 +13,8 @@ var counters = {};
 var usersWithPack = {};
 var processed = 0;
 
-function sumPacks(json) {
+async function sumPacks(ids) {
+  let json = await fetchUserPacks(ids);
   for( u of json.data.usersByIds ) {
     processed++;
     for( p of u.packsBalances ) {
@@ -61,8 +62,7 @@ async function main() {
   for( var u=0; u<nbUsers; u+=block ) {
     let sub = users.slice(u, u+block);
     sub = sub.map(a => a.id);
-    let packs = await retryForever(function () { return fetchUserPacks(sub); });
-    sumPacks(packs);
+    await retryForever(function () { return sumPacks(sub); });
     document.body.innerHTML = "user processed: " + processed + "/" + nbUsers + " - usersWithPack: " + JSON.stringify(usersWithPack) + "<br>"
                             + "total packs: " + JSON.stringify(counters);
   }
