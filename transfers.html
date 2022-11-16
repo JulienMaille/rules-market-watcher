@@ -182,9 +182,14 @@ async function main() {
   let ethEurRate = parseInt((await fetchEthPrice()).data.amount);
   let hits = [];
   let blocks = [0,500,1000,1500,2000,2500,3000];
-  for( var i=0; i<blocks.length-1; i++ )
+  for( var i=0; i<blocks.length-1; i++ ) {
     hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "is_sale:true")).hits);
+    console.log(hits.length);
+    document.querySelector("#tables").innerHTML = t;
+    listings(hits, ethEurRate);
+  }
   hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1], "is_sale:true")).hits);
+  document.querySelector("#tables").innerHTML = t;
   listings(hits, ethEurRate);
 
   for( key of hiddenClass )
