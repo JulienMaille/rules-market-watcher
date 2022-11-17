@@ -64,11 +64,12 @@ function listings(hits, ethEurRate) {
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
     let sellerOnClick = "class='ID" + listing.toUserId + "' onClick=\"fetchUser(this, '" + listing.toUserId + "'); return false;\"";
+    let dateText = date.toLocaleString([], dateOptions);
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='price'>" + priceEUR + "</td>"
-          + "<td id='date'" + sellerOnClick + ">" + date.toLocaleString([], dateOptions) + "</td>";
+          + "<td id='date'" + sellerOnClick + ">" + dateText + "</td>";
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
@@ -183,8 +184,11 @@ async function main() {
   let hits = [];
   let blocks = [0,500,1000,1500,2000,2500,3000];
   let date36h = (new Date).getTime() - 1000*60*60*36;
-  for( var i=0; i<blocks.length-1; i++ )
+  for( var i=0; i<blocks.length-1; i++ ) {
     hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1]+" AND date>"+date36h, "is_sale:-true")).hits);
+    console.log(hits.length);
+    document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
+  }
   hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1]+" AND date>"+date36h, "is_sale:-true")).hits);
   listings(hits, ethEurRate);
 

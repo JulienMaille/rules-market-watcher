@@ -224,11 +224,9 @@ async function main() {
   for( var i=0; i<blocks.length-1; i++ ) {
     hits = hits.concat((await fetchOffers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "is_sale:true")).hits);
     console.log(hits.length);
-    document.querySelector("#tables").innerHTML = t;
-    listings(hits, notify, ethEurRate);
+    document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
   }
   hits = hits.concat((await fetchOffers("serialNumber>"+blocks[blocks.length-1], "is_sale:true")).hits);
-  document.querySelector("#tables").innerHTML = t;
   listings(hits, notify, ethEurRate);
 
   for( key of hiddenClass )
