@@ -172,13 +172,27 @@ function setUser(value) {
 
 function showCards(cards) {
   let t = "";
+  let scoreCommon = 0;
+  let scorePlatinium = 0;
+  let scoreHalloween = 0;
   let cardIds = [];
   for( c of cards ) {
     let card = cardInfo(c.cardModel.id);
     cardIds.push(c.cardModel.id);
+    if ( card.scarcity.name == 'Platinium' ) scorePlatinium += 10*1000/c.serialNumber;
+    else if ( card.scarcity.name == 'Halloween' ) scoreHalloween += 2*1000/c.serialNumber;
+    else scoreCommon += 1000/c.serialNumber;
     t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
   }
   document.querySelector("#cards").innerHTML = t;
+
+  let score = "Score: <span id='scorecommon'>" + scoreCommon.toFixed(0) + "</span>"
+              +" + <span id='scoreplatinium'>" + scorePlatinium.toFixed(0) + "</span>"
+              +" + <span id='scorehalloween'>" + scoreHalloween.toFixed(0) + "</span>"
+              +" = <span id='scoretotal'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "<span class='emoji'>🍈</span></span><br>"
+              +"Score/card: <span id='scoretotalpercard'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "<span class='emoji'>🍈</span></span>"
+              + "<span id='scorehelp'>Calcul du score : pour chaque carte on ajoute 1000/num_série, si platinium x10, si halloween x2</span>";
+  document.querySelector("#score").innerHTML = score;
 
   t = "Missing:<br>";
   for( model of allCardModels ) {
@@ -214,6 +228,7 @@ async function main() {
   document.querySelector("#packs").innerHTML = "";
   document.querySelector("#cards").innerHTML = "";
   document.querySelector("#missing").innerHTML = "";
+  document.querySelector("#score").innerHTML = "";
 
   let t = "";
   for( const key in tables )
@@ -299,13 +314,21 @@ document.addEventListener("DOMContentLoaded", function() {
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
   #options label, #options span {margin-right: 6px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
-  #tables, #packs, #cards, #missing {clear: both;}
+  #packs {clear: left; margin-top: 2px;}
+  #score {clear: right; margin-top: 14px; font-size: 18px;}
+  #tables, #cards, #missing {clear: both;}
   .in #direction, .in #price {color: #f8312f;}
   #packs div, #cards div, #missing div {float: left; font-size: 12px; padding-left: 2px;}
   .card img {width: 48px;}
   #missing div {overflow: hidden; width: 48px;}
   #missing .card img {opacity: 40%;}
   #missing .card:hover img {opacity: 100%;}
+  #scorecommon, #scoreplatinium, #scorehalloween, #scoretotal, #scoretotalpercard { display: inline-block; border-radius: 10px; border: 1px solid; padding: 4px 6px 2px 6px; margin: 1px 0px;}
+  #scorecommon {background-color: #cf5ffc20; border-color: #cf5ffc;}
+  #scoreplatinium {background-color: #88888820; border-color: #888888;}
+  #scorehalloween {background-color: #ff980020; border-color: #ff9800;}
+  #scoretotal, #scoretotalpercard {background-color: #95ae6620; border-color: #95ae66; border-width: 3px; padding: 2px 5px 1px 5px;}
+  #scorehelp {color: #888; margin-left: 10px;}
 </style>
 </head>
 <body>
@@ -346,6 +369,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <span id="update"></span>
 </div>
 <div id="packs"></div>
+<div id="score"></div>
 <div id="cards"></div>
 <div id="missing"></div>
 <div id="tables"></div>
