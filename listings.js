@@ -81,13 +81,16 @@ function cleanQuery(q) {
 async function fetchUserId(username) {
   var username = cleanQuery(username);
   var picSize = cleanQuery("width=96");
-  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+  return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
+      "x-proxy-url": "https://api.rules.art/graphql",
     },
-    "body": `{ "query": "{ user(slug: ${username}) { id packsBalances {balance pack {slug displayName pictureUrl(derivative: ${picSize}) }}} }" }`,
+    "body": `{
+      "query": "{ user(slug: ${username}) { id packsBalances {balance pack {slug displayName pictureUrl(derivative: ${picSize}) }}} }"
+    }`,
     "method": "POST",
     "mode": "cors"
   }).then(response => {
@@ -97,11 +100,12 @@ async function fetchUserId(username) {
 
 async function fetchUserNames(ids) {
   var idsString = cleanQuery(ids);
-  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+  return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
+      "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
       "query": "{ usersByIds(ids: ${idsString}) {id username slug} }"
@@ -115,11 +119,12 @@ async function fetchUserNames(ids) {
 
 async function fetchUserCards(ids) {
   var idsString = cleanQuery(ids);
-  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+  return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
+      "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
       "query": "{ cardsByIds(ids: ${idsString}) {serialNumber cardModel {id slug}} }"
@@ -133,11 +138,12 @@ async function fetchUserCards(ids) {
 
 async function fetchClassicPacks() {
   var picSize = cleanQuery("width=96");
-  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+  return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
+      "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
       "query": "{ allClassicPacks {nodes {slug displayName pictureUrl(derivative: ${picSize}) \
@@ -153,11 +159,12 @@ async function fetchClassicPacks() {
 
 async function fetchLastStarterPack() {
   var picSize = cleanQuery("width=96");
-  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+  return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
+      "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
       "query": "{ lastStarterPack {slug displayName pictureUrl(derivative: ${picSize}) \
