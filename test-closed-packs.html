@@ -33,11 +33,12 @@ async function sumPacks(ids) {
 
 async function fetchUserPacks(ids) {
   var idsString = JSON.stringify(ids).replace(/\"/g, '\\\"');
-  return await fetch("https://rules-t8gf.onrender.com/https://api.rules.art/graphql", {
+  return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
       "content-type": "application/json",
+      "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
       "query": "{ usersByIds(ids: ${idsString}) {packsBalances{balance pack{displayName}}} }"

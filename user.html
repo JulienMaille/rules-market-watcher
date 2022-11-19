@@ -170,6 +170,12 @@ function setUser(value) {
   history.replaceState(null, null, "?"+searchParams.toString());
 }
 
+function copyToClip() {
+  navigator.clipboard.writeText("Mon score Rules est de " + document.querySelector("#scoretotal").innerHTML.replace(/<[^>]*>?/gm, '')
+  + " " + document.URL);
+  document.querySelector("#clipboard").innerHTML = "📣Copié";
+}
+
 function showCards(cards) {
   let t = "";
   let scoreCommon = 0;
@@ -191,6 +197,7 @@ function showCards(cards) {
               +" + <span id='scorehalloween'>" + scoreHalloween.toFixed(0) + "</span>"
               +" = <span id='scoretotal'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "<span class='emoji'>🍈</span></span><br>"
               +"Score/card: <span id='scoretotalpercard'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "<span class='emoji'>🍈</span></span>"
+              + " <button id='clipboard' onCLick='copyToClip()'>📋 Share</button> "
               + "<span id='scorehelp'>Calcul du score : pour chaque carte on ajoute 1000/num_série, si platinium x10, si halloween x2</span>";
   document.querySelector("#score").innerHTML = score;
 
