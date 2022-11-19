@@ -84,10 +84,7 @@ function createTable(id, text) {
   <table id="${id}" border=1>
     <thead>
       <tr>
-        <th>Artist<\/th>
-        <th>${text}<\/th>
-        <th>Price<\/th>
-        <th>Date<\/th>
+        <th colspan=4>${text}<\/th>
      <\/tr>
     <\/thead>
     <tbody><\/tbody>
@@ -107,7 +104,7 @@ function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
   if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
   if( [69, 333, 420, 666, 667, 777].includes(serialNumber) ) roundClass = "round";
 
-  const tableRef = document.querySelector(tableId);
+  const tableRef = document.querySelector(tableId + " tbody");
   var newRow = tableRef.insertRow(tableRef.rows.length);
   newRow.className = roundClass + " " + classes;
   newRow.innerHTML = row;
@@ -119,6 +116,10 @@ function cardInfo(modelId) {
 
 // filtering and sorting
 function setVisibility(className, visible) {
+  // Show all tables
+  let tables = document.querySelectorAll('#tables table');
+  for( const t of tables ) t.style.display = "table";
+
   elements = document.getElementsByClassName(className);
   for( var i = 0; i < elements.length; i++ )
     elements[i].style.display = visible ? "table-row" : "none";
@@ -126,6 +127,12 @@ function setVisibility(className, visible) {
   var searchParams = new URLSearchParams(window.location.search);
   searchParams.set(className, visible);
   history.replaceState(null, null, "?"+searchParams.toString());
+
+  // hide empty tables
+  for( const t of tables ) {
+    if( t.querySelector('tbody').getBoundingClientRect().height == 0 )
+      t.style.display = "none";
+  }
 }
 
 function setSorting(value) {
@@ -153,17 +160,15 @@ function fetchUser(clickedDom, userId) {
 // main
 async function main() {
   let tables = {
-    tablePlatinium: "Plat",
+    tableHalloween: "Hall<span class='emoji'>🎃</span>ween",
+    tablePlatinium: "Platinium",
     tableLowTen: "≤10",
     tableLowHundred: "≤100",
     tableLowFiveHundred: "≤500",
     tableLowThousand: "≤1000",
     tableLowTwoThousand: "≤2000",
-    tableHigh: "#"
+    tableHigh: ">2000"
   };
-  let scarcities = (new Set(allCardModels.map((item) => item.scarcity.name)));
-  if( scarcities.has("Halloween") )
-    tables = Object.assign({tableHalloween: "🎃"}, tables);
 
   let t = "";
   for( const key in tables )
@@ -216,8 +221,9 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   a {text-decoration: none;}
   a:hover {text-decoration: underline;}
-  th {font-weight: normal;}
+  th {font-weight: normal; text-align: center;}
   #date {font-stretch: condensed; color: #777;}
+  .emoji {font-size: 9pt; }
   #tableHalloween #card a, #tableHalloween th {color: #ff9800;}
   #tablePlatinium #card a, #tablePlatinium th {color: #ccad00;}
   #tableLowTen #serial, #tableLowTen th {color: #cf5ffc;}
@@ -228,6 +234,7 @@ document.addEventListener("DOMContentLoaded", function() {
   #tableLowTen {background-color: #cf5ffc10;}
   #tableLowHundred {background-color: #03a9f410;}
   #tableLowFiveHundred {background-color: #4caf5020;}
+  #tableLowThousand {background-color: #88888820;}
   #update {color: #777;}
   #menu, #options, #infos {float:left;}
   #menu, #infos {margin-top: -2px;}
