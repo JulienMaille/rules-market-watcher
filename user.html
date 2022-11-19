@@ -90,7 +90,7 @@ function listings(hits, id, ethEurRate) {
       let userClass = ".ID" + user.id;
       document.querySelectorAll(userClass).forEach(function(td) {
         let url = "https://rules.art/user/" + user.slug + "/cards";
-        td.innerHTML = "<a href=# onClick='document.getElementById(\"username\").value=\"" + user.slug + "\";main();return false;'>" + user.username + "</a>"
+        td.innerHTML = "<a href='user.html?user=" + user.slug + "' onClick='document.getElementById(\"username\").value=\"" + user.slug + "\";main();return false;'>" + user.username + "</a>"
                      + " <a href='" + url + "' target='_blank'><img src='rules-logo.png'></a>";
       });
     }
@@ -207,6 +207,10 @@ async function main() {
   let scarcities = (new Set(allCardModels.map((item) => item.scarcity.name)));
   if( scarcities.has("Halloween") )
     tables = Object.assign({tableHalloween: "🎃"}, tables);
+
+  document.querySelector("#packs").innerHTML = "";
+  document.querySelector("#cards").innerHTML = "";
+  document.querySelector("#missing").innerHTML = "";
 
   let t = "";
   for( const key in tables )
