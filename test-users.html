@@ -17,7 +17,7 @@ var whales = [];
 async function sumCards(json, userId) {
   processed++;
   let q = json.hits.length;
-  if( q>=50 ) {
+  if( q>50 ) {
     let whaleName = (await fetchUserNames([userId])).data.usersByIds[0].username;
     whales.push(whaleName + " -> " + q);
     console.log(whales);

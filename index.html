@@ -81,9 +81,9 @@ function listings(hits, notify, ethEurRate) {
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
-  let stats = " - <a href='transfers.html'>" + hits.length + " offers</a>"
-            + " 💱 Total: " + euroFmt.format(sum);
-  document.querySelector("#update").innerHTML = "refreshed at " + (new Date).toLocaleString() + stats;
+  let update = hits.length + " offres le " + (new Date).toLocaleString([], dateOptions)
+             + " 💱 Total : " + euroFmt.format(sum);
+  document.querySelector("#update").innerHTML = update;
 };
 
 // table creation and population
@@ -126,7 +126,7 @@ function cardInfo(modelId) {
 function setVisibility(className, visible) {
   elements = document.getElementsByClassName(className);
   for( var i = 0; i < elements.length; i++ )
-    elements[i].style.display = visible ? "table-row" : "none";
+    elements[i].style.display = visible ? "none" : "table-row";
 
   var searchParams = new URLSearchParams(window.location.search);
   searchParams.set(className, visible);
@@ -217,8 +217,8 @@ async function main() {
   let notify = false;
   let hiddenClass = [];
   for( const [key, value] of searchParams ) {
-    if( value=="false" ) {
-      document.querySelector("#"+key).checked = false;
+    if( value=="true" ) {
+      document.querySelector("#"+key).checked = true;
       hiddenClass.push(key);
     }
     if( key=="sorting" ) document.querySelector("#"+key).value = value;
@@ -239,7 +239,7 @@ async function main() {
   listings(hits, notify, ethEurRate);
 
   for( const key of hiddenClass )
-    setVisibility(key, false);
+    setVisibility(key, true);
   if( hiddenClass.length==0 ) hideEmptyTables();
 
   let gasPrice = parseInt((await fetchGasPrice()).gas_price, 16)/10**18;
@@ -247,7 +247,7 @@ async function main() {
   let feeEUR = feeETH*ethEurRate;
 
   document.querySelector("#feeicon").innerHTML = iconCost(feeEUR);
-  document.querySelector("#feelink").innerHTML = "Current fee: " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
+  document.querySelector("#feelink").innerHTML = "Frais : " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
 
   if( timeoutNotif!=null ) clearTimeout(timeoutNotif);
   timeoutNotif = setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
@@ -292,6 +292,7 @@ document.addEventListener("DOMContentLoaded", function() {
   #menu, #options, #infos {float:left;}
   #menu, #infos {margin-top: -2px;}
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
+  #options select {padding-top: 1px;}
   #options label, #options span {margin-right: 6px; float:left;}
   #options label {background: #05F; padding-left: 4px; border-radius: 4px; color: #FFF;}
   #tables {clear: both; padding-top: 2px;}
@@ -311,22 +312,22 @@ document.addEventListener("DOMContentLoaded", function() {
   <a href="packs.html">🃏</a>
 </div>
 <div id="options">
-  <label for="old">show old listings
-    <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);" checked>
+  <label for="old">récent
+    <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);">
   </label>
-  <label for="notround">show not round
-    <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);" checked>
+  <label for="notround">chiffres ronds
+    <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);">
   </label>
-  <label for="lowtier">show lower tier (not finalists)
-    <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);" checked>
+  <label for="lowtier">top tier
+    <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
   </label>
-  <label for="sorting">sort by:
+  <label for="sorting">tri
     <select id="sorting" onChange="setSorting(this.value);">
-      <option value="price">price</option>
+      <option value="price">prix</option>
       <option value="date">date</option>
       <option value="serial">serial</option>
-      <option value="cardprice">card/price</option>
-      <option value="cardserial">card/serial</option>
+      <option value="cardprice">carte/prix</option>
+      <option value="cardserial">carte/serial</option>
     </select>
   </label>
 </div>
