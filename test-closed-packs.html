@@ -64,8 +64,10 @@ async function main() {
     let sub = users.slice(u, u+block);
     sub = sub.map(a => a.id);
     await retryForever(function () { return sumPacks(sub); });
-    document.body.innerHTML = "user processed: " + processed + "/" + nbUsers + " - usersWithPack: " + JSON.stringify(usersWithPack) + "<br>"
-                            + "total packs: " + JSON.stringify(counters);
+    document.body.innerHTML = "user processed: " + processed + "<br>"
+                            + "nbUsers: " + JSON.stringify(nbUsers) + "<br>"
+                            + "total packs: " + JSON.stringify(counters) + "<br>"
+                            + "usersWithPack: " + JSON.stringify(usersWithPack);
   }
 }
 
