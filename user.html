@@ -250,8 +250,8 @@ async function main() {
   let searchParams = new URLSearchParams(window.location.search);
   let hiddenClass = [];
   for( const [key, value] of searchParams ) {
-    if( value=="false" ) {
-      document.querySelector("#"+key).checked = false;
+    if( value=="true" ) {
+      document.querySelector("#"+key).checked = true;
       hiddenClass.push(key);
     }
     if( key=="sorting" ) document.querySelector("#"+key).value=value;
