@@ -5,9 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<script src="cards.js?v=1"></script>
-<script src="listings.js?v=1"></script>
-<script src="costs.js?v=1"></script>
+<script src="js/cards.js?v=1"></script>
+<script src="js/listings.js?v=1"></script>
+<script src="js/costs.js?v=1"></script>
 <script>
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 allCardModels = allCardModels.data.allCardModels;
@@ -155,7 +155,7 @@ function fetchUser(clickedDom, userId) {
         td.removeAttribute("onclick");
         let url = "https://rules.art/user/" + user.slug + "/cards";
         td.innerHTML = "<a href='user.html?user=" + user.slug + "'>" + user.username + "</a>"
-                     + " <a href='" + url + "' target='_blank'><img src='rules-logo.png'></a>";
+                     + " <a href='" + url + "' target='_blank'><img src='img/rules-logo.png'></a>";
       });
     }
   });

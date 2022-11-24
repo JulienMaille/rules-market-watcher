@@ -1,4 +1,4 @@
-echo var allCardModels = > "cards.js"
+echo var allCardModels = > "js/cards.js"
 
 curl "https://api.rules.art/graphql" ^
   -H "accept: */*" ^
@@ -13,6 +13,6 @@ curl "https://api.rules.art/graphql" ^
       scarcity { name } ^
       pictureUrl ^
     } ^
-  } \" }" >> "cards.js"
+  } \" }" >> "js/cards.js"
 
-echo var topTier = ["le-reglement", "caballero", "jeanjass", "deen-burbigo", "zuukou-mayzie", "winnterzuko", "eden-dillinger", "zinee", "youv-dee", "vladimir-cauchemar"]; >> "cards.js"
+echo var topTier = ["le-reglement", "caballero", "jeanjass", "deen-burbigo", "zuukou-mayzie", "winnterzuko", "eden-dillinger", "zinee", "youv-dee", "vladimir-cauchemar"]; >> "js/cards.js"

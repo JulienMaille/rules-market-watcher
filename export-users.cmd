@@ -1,9 +1,9 @@
-echo var allUserIds = > "users.js"
+echo var allUserIds = > "js/users.js"
 
 curl "https://api.rules.art/graphql" ^
   -H "accept: */*" ^
   -H "content-type: application/json" ^
-  -H "origin: https://www.rules.art" ^
-  --data-raw "{ \"query\": \" { ^
-    users(slugs: []) { id } ^
-  } \" }" >> "users.js"
+  -H "Connection: 'keep-alive" ^
+  -H "DNT: 1" ^
+  -H "Origin: https://api.rules.art" ^
+  --data-raw "{\"query\":\"{users(slugs:[]){id}}\"}" >> "js/users.js"
