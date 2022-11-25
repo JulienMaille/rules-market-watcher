@@ -14,17 +14,21 @@ function showCards(cards, total) {
   let t = "<div class='cards'>";
   for( c of cards ) {
     if( c.quantity==null ) c.quantity = total/cards.length;
-    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a><br>" + (100*c.quantity/total).toFixed(1) + "%</div>";
+    let perc = (100*c.quantity/total);
+    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a><br>" + (perc).toFixed(perc>0.1 ? 1 : 2) + "%</div>";
   }
   return t + "</div>";
 }
 
 function showPack(p) {
-  let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply)*p.cardsPerPack;
+  let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply) * p.cardsPerPack;
+  let closed = closedPacks[p.displayName]!==undefined ? closedPacks[p.displayName] : -1;
   let t = "<div class='pack'><div class='pic'><a href='https://rules.art/pack/" + p.slug + "'><img width=48 src='" + p.pictureUrl + "' alt='" + p.displayName + "'></div>"
         + "<div class='desc'>" + p.displayName + "</a><br>"
         + "contient " + p.cardModelsCount + " cartes différentes<br>"
-        + "vendu à " + p.supply + " exemplaires, dont " + closedPacks[p.displayName] + " toujours scellés</div>"
+        + "vendu à " + p.supply + " exemplaires"
+        + (closed>0 ? ", dont " + closedPacks[p.displayName] + " toujours scellés" : "")
+        + "</div>"
         + showCards(p.cardModels, total);
   document.querySelector("#packs").innerHTML += t;
 }
