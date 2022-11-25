@@ -191,10 +191,13 @@ async function main() {
 
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
   let hits = [];
-  let blocks = [0,500,1000,1500,2000,2500,3000];
+  let blocks = [0,250,500,1000,1500,2000,2250,2500,3000];
   for( var i=0; i<blocks.length-1; i++ ) {
+    var delta = hits.length;
     hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "is_sale:true")).hits);
-    console.log(hits.length);
+    delta = hits.length-delta;
+    if( delta>=1000 ) window.alert("Missing results");
+    console.log(delta);
     document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
   }
   hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1], "is_sale:true")).hits);
