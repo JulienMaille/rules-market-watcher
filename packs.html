@@ -8,14 +8,17 @@
 <script src="js/listings.js?v=1"></script>
 <script>
 var nbUsers = 23750;
-var closedPacks = {"Launch Pack S1":1345,"Starter Pack S1":179,"Kush Base Pack":87,"Honey Base Pack":73,"Halloween Pack":521};
+var closedPacks = {"Launch Pack S1":1345,"Halloween Pack":515,"Wave Base Pack":939,"Starter Pack S1":188,"Kush Base Pack":86,"Honey Base Pack":71};
 
 function showCards(cards, total) {
   let t = "<div class='cards'>";
   for( c of cards ) {
     if( c.quantity==null ) c.quantity = total/cards.length;
     let perc = (100*c.quantity/total);
-    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a><br>" + (perc).toFixed(perc>0.1 ? 1 : 2) + "%</div>";
+    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a><br>"
+       + c.quantity + "<br>"
+       + (perc).toFixed(perc>0.1 ? 1 : 2) + "%"
+       + "</div>";
   }
   return t + "</div>";
 }
