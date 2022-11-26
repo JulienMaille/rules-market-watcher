@@ -127,6 +127,13 @@ function setVisibility(className, visible) {
   hideEmptyTables();
 }
 
+function setAllSerials(b) {
+  var searchParams = new URLSearchParams(window.location.search);
+  searchParams.set('allserials', b);
+  history.replaceState(null, null, "?"+searchParams.toString());
+  main();
+}
+
 function hideEmptyTables() {
   // Show all tables
   let tables = document.querySelectorAll('#tables table');
@@ -180,6 +187,7 @@ async function main() {
   document.querySelector("#tables").innerHTML = t;
 
   let searchParams = new URLSearchParams(window.location.search);
+  let allSerials = false;
   let hiddenClass = [];
   for( const [key, value] of searchParams ) {
     if( value=="true" ) {
@@ -187,11 +195,12 @@ async function main() {
       hiddenClass.push(key);
     }
     if( key=="sorting" ) document.querySelector("#"+key).value=value;
+    if( key=="allserials" ) allSerials = value=="true";
   }
 
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
   let hits = [];
-  let blocks = [0,250,500,1000,1500,2000,2250,2500,3000];
+  let blocks = allSerials ? [0,250,500,1000,1500,2000,2250,2500,3000] : [0,250,500,1000];
   for( var i=0; i<blocks.length-1; i++ ) {
     var delta = hits.length;
     hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "is_sale:true")).hits);
@@ -200,7 +209,8 @@ async function main() {
     console.log(delta);
     document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
   }
-  hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1], "is_sale:true")).hits);
+  if( allSerials )
+    hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1], "is_sale:true")).hits);
   listings(hits, ethEurRate);
 
   for( const key of hiddenClass )
@@ -269,6 +279,9 @@ document.addEventListener("DOMContentLoaded", function() {
   </label>
   <label for="lowtier">top tier
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
+  </label>
+  <label for="allserials">>1000
+    <input type="checkbox" id="allserials" onchange="setAllSerials(this.checked);">
   </label>
   <label for="sorting">tri
     <select id="sorting" onChange="setSorting(this.value);">
