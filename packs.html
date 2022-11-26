@@ -7,8 +7,8 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script src="js/listings.js?v=1"></script>
 <script>
-var nbUsers = 23750;
-var closedPacks = {"Launch Pack S1":1345,"Halloween Pack":515,"Wave Base Pack":690,"Starter Pack S1":185,"Kush Base Pack":86,"Honey Base Pack":71};
+var nbUsers = 23797;
+var closedPacks = {"Launch Pack S1":1343,"Halloween Pack":504,"Wave Base Pack":249,"Starter Pack S1":179,"Kush Base Pack":86,"Honey Base Pack":71};
 
 function showCards(cards, total) {
   let t = "<div class='cards'>";
@@ -17,7 +17,7 @@ function showCards(cards, total) {
     let perc = (100*c.quantity/total);
     t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a><br>"
        + c.quantity + "<br>"
-       + (perc).toFixed(perc>0.1 ? 1 : 2) + "%"
+       + "<span class='perc'>" + (perc).toFixed(perc>0.1 ? 1 : 2) + "%</span>"
        + "</div>";
   }
   return t + "</div>";
@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .cards {clear: left;}
   .card {font-size: 12px; display: inline-block;}
   .card img {width: 48px;}
+  .perc {color: #777;}
 </style>
 </head>
 <body>
