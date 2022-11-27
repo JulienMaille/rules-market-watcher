@@ -54,8 +54,9 @@ function listings(hits, notify, ethEurRate) {
     let cardIsPlat = card.scarcity.name == "Platinium";
     let artist = card.artist.displayName;
 
-    let recent = (new Date - date < recentDef);
-    let lessRecent = (new Date - date < recentDef*4);
+    let promo = listing.sellerUserId == "62ab894c838a77a225fabf12"
+    let recent = (new Date - date < recentDef)
+    let lessRecent = (new Date - date < recentDef*6) || promo;
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
