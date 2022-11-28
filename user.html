@@ -18,17 +18,8 @@ function listings(hits, id, ethEurRate) {
   let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
   let euroFmt = new Intl.NumberFormat([], euroOptions);
 
-  function sortByPrice(a, b) { return a.price < b.price ? -1 : 1 }
-  function sortByDate(a, b) { return a.date > b.date ? -1 : 1 }
-  function sortBySerial(a, b) { return a.serialNumber < b.serialNumber ? -1 : 1 }
-  function sortByCardPrice(a, b) {
-    return a.cardModelId == b.cardModelId ? (a.price < b.price ? -1 : 1)
-                                          : a.cardModelId > b.cardModelId ? -1 : 1
-  }
-  function sortByCardSerial(a, b) {
-    return a.cardModelId == b.cardModelId ? (a.serialNumber < b.serialNumber ? -1 : 1)
-                                          : a.cardModelId > b.cardModelId ? -1 : 1
-  }
+  for( listing of hits )
+    listing.cardInfo = cardInfo(listing.cardModelId);
 
   let sortRule = document.querySelector("#sorting").value;
   if( sortRule == "price" ) hits.sort(sortByPrice);
@@ -41,7 +32,7 @@ function listings(hits, id, ethEurRate) {
   let sumIn = 0, sumOut = 0;
   let userIds = [];
   for( const listing of hits ) {
-    let card = cardInfo(listing.cardModelId);
+    let card = listing.cardInfo;
     let date = new Date(listing.date);
 
     let dir = listing.toUserId==id;
@@ -181,18 +172,25 @@ function copyToClip() {
 }
 
 function showCards(cards) {
+  for( c of cards )
+    c.cardInfo = cardInfo(c.cardModel.id);
+
+  let sortRule = document.querySelector("#sorting").value;
+  if( sortRule == "serial" ) cards.sort(sortBySerial);
+  if( sortRule == "cardprice" || sortRule == "cardserial" ) cards.sort(sortByCardSerial);
+
   let t = "";
   let scoreCommon = 0;
   let scorePlatinium = 0;
   let scoreHalloween = 0;
   let cardIds = [];
   for( c of cards ) {
-    let card = cardInfo(c.cardModel.id);
+    let card = c.cardInfo;
     cardIds.push(c.cardModel.id);
     if ( card.scarcity.name == 'Platinium' ) scorePlatinium += 10*1000/c.serialNumber;
     else if ( card.scarcity.name == 'Halloween' ) scoreHalloween += 2*1000/c.serialNumber;
     else scoreCommon += 1000/c.serialNumber;
-    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
+    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "/" + c.serialNumber + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
   }
   document.querySelector("#cards").innerHTML = t;
 

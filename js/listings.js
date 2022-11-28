@@ -177,3 +177,23 @@ async function fetchLastStarterPack() {
     return response.json();
   });
 }
+
+function sortByPrice(a, b) {
+  return a.price < b.price ? -1 : 1;
+}
+function sortByDate(a, b) {
+  return a.date > b.date ? -1 : 1;
+}
+function sortBySerial(a, b) {
+  return a.serialNumber < b.serialNumber ? -1 : 1;
+}
+function sortByCardPrice(a, b) {
+  return a.cardInfo.artist.displayName == b.cardInfo.artist.displayName
+   ? (a.price < b.price ? -1 : 1)
+   : a.cardInfo.artist.displayName.toLowerCase() < b.cardInfo.artist.displayName.toLowerCase() ? -1 : 1;
+}
+function sortByCardSerial(a, b) {
+  return a.cardInfo.artist.displayName == b.cardInfo.artist.displayName
+    ? (a.serialNumber < b.serialNumber ? -1 : 1)
+    : a.cardInfo.artist.displayName.toLowerCase() < b.cardInfo.artist.displayName.toLowerCase() ? -1 : 1;
+}
