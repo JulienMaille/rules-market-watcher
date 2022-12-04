@@ -7,8 +7,8 @@
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script src="js/listings.js?v=1"></script>
 <script>
-var nbUsers = 23896;
-var closedPacks = {"Launch Pack S1":1339,"Halloween Pack":495,"Wave Base Pack":187,"Starter Pack S1":177,"Kush Base Pack":86,"Honey Base Pack":71};
+var nbUsers = 23903;
+var closedPacks = {"Launch Pack S1":1337,"Halloween Pack":495,"Wave Base Pack":187,"Starter Pack S1":177,"Kush Base Pack":86,"Honey Base Pack":71};
 
 function showCards(cards, total) {
   let t = "<div class='cards'>";
@@ -30,7 +30,7 @@ function showPack(p) {
         + "<div class='desc'>" + p.displayName + "</a><br>"
         + "contient " + p.cardModelsCount + " cartes différentes<br>"
         + "vendu à " + p.supply + " exemplaires"
-        + (closed>0 ? ", dont " + closedPacks[p.displayName] + " toujours scellés" : "")
+        + (closed>0 ? ", dont " + closedPacks[p.displayName] + " toujours scellés (" + (100*closedPacks[p.displayName]/p.supply).toFixed(1) + "%)" : "")
         + "</div>"
         + showCards(p.cardModels, total);
   document.querySelector("#packs").innerHTML += t;
