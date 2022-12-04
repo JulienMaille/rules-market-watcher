@@ -258,7 +258,7 @@ async function main() {
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
 
   try {
-    let username = document.getElementById("username").value.toLowerCase();
+    let username = document.getElementById("username").value.trim().toLowerCase();
     setUser(username);
 
     let user = (await fetchUserId(username)).data.user;
