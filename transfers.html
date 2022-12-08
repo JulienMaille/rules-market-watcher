@@ -29,7 +29,7 @@ function listings(hits, ethEurRate) {
   if( sortRule == "cardserial" ) hits.sort(sortByCardSerial);
   //console.log(hits);
 
-  let sum = 0, todaySum = 0;
+  let sum = 0, todaySum = 0, todayCount = 0;
   for( const listing of hits ) {
     let card = listing.cardInfo;
     let date = new Date(listing.date);
@@ -40,8 +40,10 @@ function listings(hits, ethEurRate) {
       let priceETH = parseInt(listing.price, 16)/10**18;
       priceEUR = euroFmt.format(priceETH * ethEurRate);
       sum += priceETH * ethEurRate;
-      if( (new Date).toDateString() == date.toDateString() )
+      if( (new Date).toDateString() == date.toDateString() ) {
         todaySum += priceETH * ethEurRate;
+        todayCount++;
+      }
     }
 
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
@@ -64,7 +66,7 @@ function listings(hits, ethEurRate) {
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
-  let update = euroFmt.format(todaySum) + " de ventes le " + (new Date).toLocaleString([], dateOptions)
+  let update = euroFmt.format(todaySum) + " sur " + todayCount + " ventes le " + (new Date).toLocaleString([], dateOptions)
              + " 💱 Total : " + euroFmt.format(sum) + " sur " + hits.length + " ventes";
   document.querySelector("#update").innerHTML = update;
 };
