@@ -45,7 +45,7 @@ function listings(hits, notify, ethEurRate) {
     let cardIsPlat = card.scarcity.name == "Platinium";
     let artist = card.artist.displayName;
 
-    let promo = listing.sellerUserId == "62ab894c838a77a225fabf12"
+    let promo = false;//listing.sellerUserId == "62ab894c838a77a225fabf12"
     let recent = (new Date - date < recentDef)
     let lessRecent = (new Date - date < recentDef*6) || promo;
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
@@ -64,7 +64,7 @@ function listings(hits, notify, ethEurRate) {
     else
       dateText = "Transfer " + date.toLocaleTimeString([], timeOptions);
 
-    let sellerOnClick = "class='ID" + listing.sellerUserId + "' onClick=\"fetchUser(this, '" + listing.sellerUserId + "'); return false;\"";
+    let sellerOnClick = `class="ID${listing.sellerStarknetAddress}" onClick="fetchUser(this, '${listing.sellerStarknetAddress}'); return false;"`;
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
@@ -179,11 +179,11 @@ function sendNotification(content, picture) {
   });
 }
 
-function fetchUser(clickedDom, userId) {
+function fetchUser(clickedDom, userAddresses) {
   clickedDom.innerHTML = "Loading...";
-  fetchUserNames([userId]).then(json => {
-    for( const user of json.data.usersByIds ) {
-      let userClass = ".ID" + user.id;
+  fetchUserNames([userAddresses]).then(json => {
+    for( const user of json.data.usersByStarknetAddresses ) {
+      let userClass = ".ID" + userAddresses;
       document.querySelectorAll(userClass).forEach(function(td) {
         td.removeAttribute("onclick");
         let url = "https://rules.art/user/" + user.slug + "/cards";

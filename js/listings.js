@@ -49,8 +49,8 @@ async function fetchTransfers(filter, facetFilter="") {
   });
 }
 
-async function fetchRoster(userId) {
-  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/cards-date-desc/query", {
+async function fetchRoster(address) {
+  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/cards-tx-index-desc/query", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",
@@ -62,7 +62,7 @@ async function fetchRoster(userId) {
       "x-algolia-application-id": "JS76HMPZH9"
     },
     "body": `{"query":"",
-      "facetFilters":["ownerUserId:${userId}"],
+      "facetFilters":["ownerStarknetAddress:${address}"],
       "page":0,
       "hitsPerPage":1000
     }`,
@@ -89,7 +89,7 @@ async function fetchUserId(username) {
       "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
-      "query": "{ user(slug: ${username}) { id packsBalances {balance pack {slug displayName pictureUrl(derivative: ${picSize}) }}} }"
+      "query": "{ user(slug: ${username}) { id starknetWallet {address} packsBalances {balance pack {slug displayName pictureUrl(derivative: ${picSize}) }}} }"
     }`,
     "method": "POST",
     "mode": "cors"
@@ -98,8 +98,8 @@ async function fetchUserId(username) {
   });
 }
 
-async function fetchUserNames(ids) {
-  var idsString = cleanQuery(ids);
+async function fetchUserNames(addresses) {
+  var addressesString = cleanQuery(addresses);
   return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
@@ -108,7 +108,7 @@ async function fetchUserNames(ids) {
       "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
-      "query": "{ usersByIds(ids: ${idsString}) {id username slug} }"
+      "query": "{ usersByStarknetAddresses(starknetAddresses: ${addressesString}) {username slug} }"
     }`,
     "method": "POST",
     "mode": "cors"

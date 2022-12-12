@@ -30,7 +30,7 @@ function listings(hits, id, ethEurRate) {
   //console.log(hits);
 
   let sumIn = 0, sumOut = 0;
-  let userIds = [];
+  let userAddresses = [];
   for( const listing of hits ) {
     let card = listing.cardInfo;
     let date = new Date(listing.date);
@@ -42,8 +42,8 @@ function listings(hits, id, ethEurRate) {
     let priceEUR = "Pack";
     if( "fromUserId" in listing ) {
       priceEUR = "Gift";
-      otherId = dir ? listing.fromUserId : listing.toUserId;
-      userIds.push(otherId);
+      otherAddress = dir ? listing.fromUserAddress : listing.toUserAddress;
+      userAddresses.push(otherAddress);
     }
     if( "price" in listing ) {
       let priceETH = parseInt(listing.price, 16)/10**18;
@@ -76,9 +76,9 @@ function listings(hits, id, ethEurRate) {
             + " 💱 Total achats : " + euroFmt.format(sumIn) + " / Total ventes : " + euroFmt.format(sumOut);
   document.querySelector("#update").innerHTML = update;
 
-  fetchUserNames(userIds).then(json => {
-    for( const user of json.data.usersByIds ) {
-      let userClass = ".ID" + user.id;
+  fetchUserNames(userAddresses).then(json => {
+    for( const user of json.data.usersByStarknetAddresses ) {
+      let userClass = ".ID" + userAddresses;
       document.querySelectorAll(userClass).forEach(function(td) {
         let url = "https://rules.art/user/" + user.slug + "/cards";
         td.innerHTML = "<a href='user.html?user=" + user.slug + "' onClick='document.getElementById(\"username\").value=\"" + user.slug + "\";main();return false;'>" + user.username + "</a>"
@@ -87,7 +87,7 @@ function listings(hits, id, ethEurRate) {
     }
   })
   .catch((e) => {
-    document.body.innerHTML= "fetchUserNames failed with: " + e;
+    document.body.innerHTML= "Failed with: " + e;
   })
 };
 
@@ -262,15 +262,18 @@ async function main() {
     setUser(username);
 
     let user = (await fetchUserId(username)).data.user;
+    let address = user.starknetWallet.address;
     let id = user.id;
-    listings((await fetchTransfers(`fromUserId:${id} OR toUserId:${id}`,"")).hits, id, ethEurRate);
+    listings((await fetchTransfers("",`fromStarknetAddress:${address} OR toStarknetAddress:${address}`)).hits, id, ethEurRate);
     for( key of hiddenClass )
       setVisibility(key, true);
     if( hiddenClass.length==0 ) hideEmptyTables();
 
-    let cardIds = (await fetchRoster(id)).hits;
-    cardIds = cardIds.map(a => a.cardId);
-    showCards((await fetchUserCards(cardIds)).data.cardsByIds);
+    let cardIds = (await fetchRoster(address)).hits;
+    if( cardIds.length > 0 ) {
+      cardIds = cardIds.map(a => a.objectID);
+      showCards((await fetchUserCards(cardIds)).data.cardsByIds);
+    }
     showPacks(user.packsBalances);
   }
   catch(e) {
