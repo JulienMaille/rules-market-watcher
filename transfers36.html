@@ -40,8 +40,10 @@ function listings(hits, ethEurRate) {
       let priceETH = parseInt(listing.price, 16)/10**18;
       priceEUR = euroFmt.format(priceETH * ethEurRate);
       sum += priceETH * ethEurRate;
-      if( (new Date).toDateString() == date.toDateString() )
+      if( (new Date).toDateString() == date.toDateString() ) {
         todaySum += priceETH * ethEurRate;
+        todayCount++;
+      }
     }
 
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
@@ -54,17 +56,17 @@ function listings(hits, ethEurRate) {
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
-    let sellerOnClick = "class='ID" + listing.toUserId + "' onClick=\"fetchUser(this, '" + listing.toUserId + "'); return false;\"";
+    let buyerOnClick = `class="ID${listing.toStarknetAddress}" onClick="fetchUser(this, '${listing.toStarknetAddress}'); return false;"`;
     let dateText = date.toLocaleString([], dateOptions);
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='price'>" + priceEUR + "</td>"
-          + "<td id='date'" + sellerOnClick + ">" + dateText + "</td>";
+          + "<td id='date'" + buyerOnClick + ">" + dateText + "</td>";
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
-  let update = euroFmt.format(todaySum) + " de ventes le " + (new Date).toLocaleString([], dateOptions)
+  let update = euroFmt.format(todaySum) + " sur " + todayCount + " ventes le " + (new Date).toLocaleString([], dateOptions)
              + " 💱 Total : " + euroFmt.format(sum) + " sur " + hits.length + " ventes";
   document.querySelector("#update").innerHTML = update;
 };
@@ -137,11 +139,11 @@ function setSorting(value) {
   main();
 }
 
-function fetchUser(clickedDom, userId) {
+function fetchUser(clickedDom, userAddresses) {
   clickedDom.innerHTML = "Loading...";
-  fetchUserNames([userId]).then(json => {
-    for( const user of json.data.usersByIds ) {
-      let userClass = ".ID" + user.id;
+  fetchUserNames([userAddresses]).then(json => {
+    for( const user of json.data.usersByStarknetAddresses ) {
+      let userClass = ".ID" + userAddresses;
       document.querySelectorAll(userClass).forEach(function(td) {
         td.removeAttribute("onclick");
         let url = "https://rules.art/user/" + user.slug + "/cards";

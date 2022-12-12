@@ -40,9 +40,9 @@ function listings(hits, id, ethEurRate) {
 
     let otherId = "";
     let priceEUR = "Pack";
-    if( "fromUserId" in listing ) {
+    if( "fromStarknetAddress" in listing ) {
       priceEUR = "Gift";
-      otherAddress = dir ? listing.fromUserAddress : listing.toUserAddress;
+      otherAddress = dir ? listing.fromStarknetAddress : listing.toStarknetAddress;
       userAddresses.push(otherAddress);
     }
     if( "price" in listing ) {
@@ -264,7 +264,7 @@ async function main() {
     let user = (await fetchUserId(username)).data.user;
     let address = user.starknetWallet.address;
     let id = user.id;
-    listings((await fetchTransfers("",`fromStarknetAddress:${address} OR toStarknetAddress:${address}`)).hits, id, ethEurRate);
+    listings((await fetchTransfers(`fromStarknetAddress:${address} OR toStarknetAddress:${address}`)).hits, id, ethEurRate);
     for( key of hiddenClass )
       setVisibility(key, true);
     if( hiddenClass.length==0 ) hideEmptyTables();
