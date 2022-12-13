@@ -15,7 +15,7 @@ async function fetchGasPrice() {
 };
 
 async function fetchMaxGasPrice() {
-  return await fetch("https://api.rules.art/v1/maximum-gas-price").then(response => {
+  return await fetch("https://api.rules.art/v1/maximum-gas-price?for=packs-delivery").then(response => {
     return response.json();
   });
 };
