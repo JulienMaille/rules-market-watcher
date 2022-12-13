@@ -12,7 +12,7 @@
 var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 allCardModels = allCardModels.data.allCardModels;
 
-function listings(hits, id, ethEurRate) {
+function listings(hits, address, ethEurRate) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
   let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
@@ -35,15 +35,16 @@ function listings(hits, id, ethEurRate) {
     let card = listing.cardInfo;
     let date = new Date(listing.date);
 
-    let dir = listing.toUserId==id;
+    let dir = listing.toStarknetAddress == address;
     let dirIcon = dir ? "◀" : "▶";
 
-    let otherId = "";
+    let otherAddress = "";
     let priceEUR = "Pack";
-    if( "fromStarknetAddress" in listing ) {
+    if( listing.fromStarknetAddress != 0 ) {
       priceEUR = "Gift";
       otherAddress = dir ? listing.fromStarknetAddress : listing.toStarknetAddress;
-      userAddresses.push(otherAddress);
+      if( !userAddresses.includes(otherAddress) )
+        userAddresses.push(otherAddress);
     }
     if( "price" in listing ) {
       let priceETH = parseInt(listing.price, 16)/10**18;
@@ -66,7 +67,7 @@ function listings(hits, id, ethEurRate) {
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
           + "<td id='direction'>" + dirIcon + "</td>"
-          + "<td id='other' class='ID" + otherId + "'></td>"
+          + "<td id='other' class='ID" + otherAddress + "'></td>"
           + "<td id='price'>" + priceEUR + "</td>"
           + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
@@ -78,7 +79,7 @@ function listings(hits, id, ethEurRate) {
 
   fetchUserNames(userAddresses).then(json => {
     for( const user of json.data.usersByStarknetAddresses ) {
-      let userClass = ".ID" + userAddresses;
+      let userClass = ".ID" + user.starknetWallet.address;
       document.querySelectorAll(userClass).forEach(function(td) {
         let url = "https://rules.art/user/" + user.slug + "/cards";
         td.innerHTML = "<a href='user.html?user=" + user.slug + "' onClick='document.getElementById(\"username\").value=\"" + user.slug + "\";main();return false;'>" + user.username + "</a>"
@@ -264,7 +265,7 @@ async function main() {
     let user = (await fetchUserId(username)).data.user;
     let address = user.starknetWallet.address;
     let id = user.id;
-    listings((await fetchTransfers(`fromStarknetAddress:${address} OR toStarknetAddress:${address}`)).hits, id, ethEurRate);
+    listings((await fetchTransfers(`fromStarknetAddress:${address} OR toStarknetAddress:${address}`)).hits, address, ethEurRate);
     for( key of hiddenClass )
       setVisibility(key, true);
     if( hiddenClass.length==0 ) hideEmptyTables();

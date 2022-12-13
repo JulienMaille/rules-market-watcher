@@ -108,7 +108,7 @@ async function fetchUserNames(addresses) {
       "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
-      "query": "{ usersByStarknetAddresses(starknetAddresses: ${addressesString}) {username slug} }"
+      "query": "{ usersByStarknetAddresses(starknetAddresses: ${addressesString}) {starknetWallet {address} username slug} }"
     }`,
     "method": "POST",
     "mode": "cors"
