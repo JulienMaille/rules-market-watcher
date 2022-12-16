@@ -35,7 +35,7 @@ function listings(hits, ethEurRate) {
     let date = new Date(listing.date);
 
     let priceEUR = "Pack";
-    if( "fromUserId" in listing ) priceEUR = "Gift";
+    if( listing.fromStarknetAddress != 0 ) priceEUR = "Gift";
     let priceETH = parseInt(listing.price, 16)/10**18;
     if( priceETH > 0 ) {
       priceEUR = euroFmt.format(priceETH * ethEurRate);
