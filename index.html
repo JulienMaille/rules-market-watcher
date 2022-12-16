@@ -233,14 +233,14 @@ async function main() {
   let blocks = allSerials ? [0,500,1500,2500] : [0,300,1000];
   for( var i=0; i<blocks.length-1; i++ ) {
     var delta = hits.length;
-    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "is_sale:true")).hits);
+    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "price:-0000000000000000000000")).hits);
     delta = hits.length-delta;
     if( delta>=1000 ) window.alert("Missing results");
     console.log(delta);
     document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
   }
   if( allSerials )
-    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[blocks.length-1], "is_sale:true")).hits);
+    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[blocks.length-1], "price:-0000000000000000000000")).hits);
   listings(hits, notify, ethEurRate);
 
   for( const key of hiddenClass )

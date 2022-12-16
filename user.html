@@ -46,8 +46,8 @@ function listings(hits, address, ethEurRate) {
       if( !userAddresses.includes(otherAddress) )
         userAddresses.push(otherAddress);
     }
-    if( "price" in listing ) {
-      let priceETH = parseInt(listing.price, 16)/10**18;
+    let priceETH = parseInt(listing.price, 16)/10**18;
+    if( priceETH > 0 ) {
       priceEUR = euroFmt.format(priceETH * ethEurRate);
       if( dir ) sumIn += priceETH * ethEurRate;
       else sumOut += priceETH * ethEurRate;

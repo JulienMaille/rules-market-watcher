@@ -24,7 +24,7 @@ async function fetchOffers(filter) {
 }
 
 async function fetchTransfers(filter, facetFilter="") {
-  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/transfers-date-desc/query", {
+  return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/transfers-tx-index-desc/query", {
     "headers": {
       "accept": "*/*",
       "accept-language": "en-US;q=0.9,en;q=0.8",

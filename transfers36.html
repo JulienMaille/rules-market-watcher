@@ -36,8 +36,8 @@ function listings(hits, ethEurRate) {
 
     let priceEUR = "Pack";
     if( "fromUserId" in listing ) priceEUR = "Gift";
-    if( "price" in listing ) {
-      let priceETH = parseInt(listing.price, 16)/10**18;
+    let priceETH = parseInt(listing.price, 16)/10**18;
+    if( priceETH > 0 ) {
       priceEUR = euroFmt.format(priceETH * ethEurRate);
       sum += priceETH * ethEurRate;
       if( (new Date).toDateString() == date.toDateString() ) {
@@ -188,12 +188,12 @@ async function main() {
   let date36h = (new Date).getTime() - 1000*60*60*36;
   for( var i=0; i<blocks.length-1; i++ ) {
     var delta = hits.length;
-    hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1]+" AND date>"+date36h, "is_sale:-true")).hits);
+    hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1]+" AND date>"+date36h, "price:0000000000000000000000")).hits);
     delta = hits.length-delta;
     console.log("[" + blocks[i] + "-" + blocks[i+1] + "]" + delta);
     document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
   }
-  hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1]+" AND date>"+date36h, "is_sale:-true")).hits);
+  hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[blocks.length-1]+" AND date>"+date36h, "price:0000000000000000000000")).hits);
   listings(hits, ethEurRate);
 
   for( const key of hiddenClass )
