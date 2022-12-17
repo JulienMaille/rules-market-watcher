@@ -15,10 +15,15 @@ var processed = 0;
 
 async function sumPacks(ids) {
   let json = await fetchUserPacks(ids);
-  for( u of json.data.usersByIds ) {
+  for( u of json.data.usersByStarknetAddresses ) {
     processed++;
+    let uniqueDiff = 0;
+    let total = 0;
+
     for( p of u.packsBalances ) {
       if( p.balance<=0 ) continue;
+      uniqueDiff++;
+      total += p.balance;
       packName = p.pack.displayName;
       if( packName in counters ) {
         counters[packName] += p.balance;
@@ -28,11 +33,14 @@ async function sumPacks(ids) {
         usersWithPack[packName] = 1;
       }
     }
+
+    if( uniqueDiff>4 ) console.log(u.username + " a " + uniqueDiff + " packs différents " + total + " en tout");
+
   }
 };
 
-async function fetchUserPacks(ids) {
-  var idsString = JSON.stringify(ids).replace(/\"/g, '\\\"');
+async function fetchUserPacks(addresses) {
+  var addressesString = JSON.stringify(addresses).replace(/\"/g, '\\\"');
   return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
@@ -41,7 +49,7 @@ async function fetchUserPacks(ids) {
       "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
-      "query": "{ usersByIds(ids: ${idsString}) {packsBalances{balance pack{displayName}}} }"
+      "query": "{ usersByStarknetAddresses(starknetAddresses: ${addressesString}) {username packsBalances{balance pack{displayName}}} }"
     }`,
     "method": "POST",
     "mode": "cors"
@@ -59,10 +67,10 @@ async function retryForever(fn) {
 // main
 async function main() {
   let nbUsers = users.length;
-  let block = 50;
+  let block = 150;
   for( var u=0; u<nbUsers; u+=block ) {
     let sub = users.slice(u, u+block);
-    sub = sub.map(a => a.id);
+    sub = sub.map(a => a.starknetWallet.address);
     await retryForever(function () { return sumPacks(sub); });
     document.body.innerHTML = "user processed: " + processed + "<br>"
                             + "nbUsers: " + JSON.stringify(nbUsers) + "<br>"
