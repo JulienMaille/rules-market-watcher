@@ -8,7 +8,7 @@
 <script src="js/listings.js?v=1"></script>
 <script>
 var nbUsers = 24139;
-var closedPacks = {"Launch Pack S1":1323,"Starter Pack S1":183,"Kush Base Pack":85,"Honey Base Pack":70,"Halloween Pack":487,"Wave Base Pack":175,"Dark Base Pack":254};
+var closedPacks = {"Launch Pack S1":1322,"Starter Pack S1":179,"Kush Base Pack":85,"Honey Base Pack":70,"Halloween Pack":486,"Wave Base Pack":174,"Dark Base Pack":177};
 
 function showCards(cards, total) {
   let t = "<div class='cards'>";
@@ -26,12 +26,13 @@ function showCards(cards, total) {
 function showPack(p) {
   let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply) * p.cardsPerPack;
   let closed = closedPacks[p.displayName]!==undefined ? closedPacks[p.displayName] : -1;
-  let t = "<div class='pack'><div class='pic'><a href='https://rules.art/pack/" + p.slug + "'><img width=48 src='" + p.pictureUrl + "' alt='" + p.displayName + "'></div>"
-        + "<div class='desc'>" + p.displayName + "</a><br>"
-        + "contient " + p.cardModelsCount + " cartes différentes<br>"
-        + "vendu à " + p.supply + " exemplaires"
-        + (p.maxBuyableSupply != null ? " sur " + p.maxBuyableSupply : "")
-        + (closed>0 ? ", dont " + closedPacks[p.displayName] + " toujours scellés (" + (100*closedPacks[p.displayName]/p.supply).toFixed(1) + "%)" : "")
+  let url = "https://rules.art/pack/" + p.slug;
+  let t = "<div class='pack'><div class='pic'><a href='" + url + "'><img width=48 src='" + p.pictureUrl + "' alt='" + p.displayName + "'></a></div>"
+        + "<div class='desc'><a href='" + url + "'><b>" + p.displayName + "</b></a>"
+        + (p.maxBuyableSupply != null ? "<br>" + p.maxBuyableSupply + " disponibles à l'achat" : "")
+        + "<br>contient " + p.cardModelsCount + " cartes différentes<br>"
+        + "distribué à " + p.supply + " exemplaires"
+        + (closed>0 ? " dont " + closedPacks[p.displayName] + " toujours scellés (" + (100*closedPacks[p.displayName]/p.supply).toFixed(1) + "%)" : "")
         + "</div>"
         + showCards(p.cardModels, total);
   document.querySelector("#packs").innerHTML += t;
