@@ -5,10 +5,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<script src="js/listings.js?v=1"></script>
+<script src="js/listings.js?v=2"></script>
 <script>
-var nbUsers = 24139;
-var closedPacks = {"Launch Pack S1":1322,"Starter Pack S1":179,"Kush Base Pack":85,"Honey Base Pack":70,"Halloween Pack":486,"Wave Base Pack":174,"Dark Base Pack":177};
+var nbUsers = 24255;
+var closedPacks = {"Launch Pack S1":1321,"Starter Pack S1":184,"Kush Base Pack":85,"Honey Base Pack":70,"Halloween Pack":485,"Wave Base Pack":170,"Dark Base Pack":128};
+var usersWithPack = {"Launch Pack S1":876,"Starter Pack S1":184,"Kush Base Pack":85,"Honey Base Pack":70,"Halloween Pack":359,"Wave Base Pack":120,"Dark Base Pack":93};
 
 function showCards(cards, total) {
   let t = "<div class='cards'>";
@@ -26,13 +27,16 @@ function showCards(cards, total) {
 function showPack(p) {
   let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply) * p.cardsPerPack;
   let closed = closedPacks[p.displayName]!==undefined ? closedPacks[p.displayName] : -1;
+  let userClosed = usersWithPack[p.displayName]!==undefined ? usersWithPack[p.displayName] : -1;
   let url = "https://rules.art/pack/" + p.slug;
   let t = "<div class='pack'><div class='pic'><a href='" + url + "'><img width=48 src='" + p.pictureUrl + "' alt='" + p.displayName + "'></a></div>"
-        + "<div class='desc'><a href='" + url + "'><b>" + p.displayName + "</b></a>"
-        + (p.maxBuyableSupply != null ? "<br>" + p.maxBuyableSupply + " disponibles à l'achat" : "")
+        + "<div class='desc'><a href='" + url + "'><b>" + p.displayName + "</b></a><br>"
+        + (p.maxBuyableSupply != null ? p.maxBuyableSupply + " packs mis en vente, " : "")
+        + p.availableQuantity + " par personne"
         + "<br>contient " + p.cardModelsCount + " cartes différentes<br>"
         + "distribué à " + p.supply + " exemplaires"
-        + (closed>0 ? " dont " + closedPacks[p.displayName] + " toujours scellés (" + (100*closedPacks[p.displayName]/p.supply).toFixed(1) + "%)" : "")
+        + (closed>0 ? " dont " + closed + " toujours scellés (" + (100*closed/p.supply).toFixed(1) + "%)" : "")
+        + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " personnes" : "")
         + "</div>"
         + showCards(p.cardModels, total);
   document.querySelector("#packs").innerHTML += t;

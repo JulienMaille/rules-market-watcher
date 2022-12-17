@@ -147,8 +147,8 @@ async function fetchClassicPacks() {
     },
     "body": `{
       "query": "{ allClassicPacks {nodes {slug displayName pictureUrl(derivative: ${picSize}) \
-                  supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount cardModels \
-                  {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}}} }"
+                  availableQuantity supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount \
+                  cardModels {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}}} }"
     }`,
     "method": "POST",
     "mode": "cors"
@@ -168,8 +168,8 @@ async function fetchLastStarterPack() {
     },
     "body": `{
       "query": "{ lastStarterPack {slug displayName pictureUrl(derivative: ${picSize}) \
-                  supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount cardModels \
-                  {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}} }"
+                  availableQuantity supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount \
+                  cardModels {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}} }"
     }`,
     "method": "POST",
     "mode": "cors"
