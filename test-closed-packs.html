@@ -70,7 +70,7 @@ async function main() {
   let block = 150;
   for( var u=0; u<nbUsers; u+=block ) {
     let sub = users.slice(u, u+block);
-    sub = sub.map(a => a.starknetWallet.address);
+    sub = sub.map(a => a.starknetWallet.address).filter(n => n);
     await retryForever(function () { return sumPacks(sub); });
     document.body.innerHTML = "user processed: " + processed + "<br>"
                             + "nbUsers: " + JSON.stringify(nbUsers) + "<br>"
