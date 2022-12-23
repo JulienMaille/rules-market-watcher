@@ -201,7 +201,7 @@ function showCards(cards) {
               +" = <span id='scoretotal'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "<span class='emoji'>🍈</span></span><br>"
               +"Score/carte : <span id='scoretotalpercard'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "<span class='emoji'>🍈</span></span>"
               + " <button id='clipboard' onCLick='copyToClip()'>📋 Partager</button> "
-              + "<span id='scorehelp'>Calcul du score : pour chaque carte on ajoute 1000/num_série, si platinium x10, si halloween x2</span>";
+              + "<span id='scorehelp'>Calcul du score : pour chaque carte on ajoute 1000/num_série, si platine x10, si halloween x2</span>";
   document.querySelector("#score").innerHTML = score;
 
   t = "Cartes manquantes :<br>";
@@ -226,7 +226,7 @@ function showPacks(packs) {
 async function main() {
   let tables = {
     tableHalloween: "Hall<span class='emoji'>🎃</span>ween",
-    tablePlatinium: "Platinium",
+    tablePlatinium: "Platine",
     tableLowTen: "≤10",
     tableLowHundred: "≤100",
     tableLowFiveHundred: "≤500",
