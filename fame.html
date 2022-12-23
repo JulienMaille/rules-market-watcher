@@ -6,38 +6,78 @@
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <script src="js/cards.js?v=1"></script>
-<script src="js/listings.js?v=1"></script>
+<script src="js/listings.js?v=2"></script>
 <script>
 allCardModels = allCardModels.data.allCardModels;
 
+// table creation and population
+function createTable(id, text) {
+  return `
+  <table id="${id}" border=1>
+    <thead>
+      <tr>
+        <th>Rang<\/th>
+        <th>Utilisateur<\/th>
+        <th>%<\/th>
+        <th>cartes<\/th>
+     <\/tr>
+    <\/thead>
+    <tbody><\/tbody>
+  <\/table>`;
+}
+
+function insertInTable(pos, row) {
+  let tableId = "#tableHigh";
+  if( pos <= 50 ) tableId = "#table50";
+  else if( pos <= 100 ) tableId = "#table100";
+  else if( pos <= 150 ) tableId = "#table150";
+  else if( pos <= 200 ) tableId = "#table200";
+  else if( pos <= 250 ) tableId = "#table250";
+  else if( pos <= 300 ) tableId = "#table300";
+
+  const tableRef = document.querySelector(tableId + " tbody");
+  var newRow = tableRef.insertRow(tableRef.rows.length);
+  newRow.innerHTML = row;
+}
+
 // main
 async function main() {
-  ranks = (await fetchHallOfFame())['hits'];
-  let t = "", pos = 1;
+  let tables = {
+    table50: "50",
+    table100: "100",
+    table150: "150",
+    table200: "200",
+    table250: "250",
+    table300: "300"
+  };
+
+  let t = "";
+  for( const key in tables )
+    t += createTable(key, tables[key]);
+  document.querySelector("#tables").innerHTML = t;
+
+  ranks = (await fetchHallOfFame(300))['hits'];
+  let pos = 1, totCard = 0;
   for( const u of ranks ) {
     let nbCardsDiff = (u.cScore / 1000000).toFixed(0);
     let score = (100*nbCardsDiff/allCardModels.length).toFixed(0);
     let nbCards = u.cScore % 1000000;
+    totCard += nbCards;
 
-    if( pos==1 ) icon = "🥇";
-    else if( pos==2 ) icon = "🥈";
-    else if( pos==3 ) icon = "🥉";
+    if( pos==1 ) icon = "<span class='emoji'>🥇</span>";
+    else if( pos==2 ) icon = "<span class='emoji'>🥈</span>";
+    else if( pos==3 ) icon = "<span class='emoji'>🥉</span>";
     else icon = pos;
-
-    let cl = "";
-    if( pos<=10 ) cl = "top10";
-    else if( pos<=50 ) cl = "top50";
 
     let url1 = "user.html?user=" + u.username;
     let url2 = "https://rules.art/user/" + u.username + "/cards";
     let name = "<a href='" + url1 + "'>" + u.username +"</a>"
              + " <a href='" + url2 + "' target='_blank'><img src='img/rules-logo.png'></a>";
 
-    t += `<tr class="${cl}"><th>${icon}</th><th>${name}</th><th>${score}%</th><th>${nbCards}</th></tr>`;
+    insertInTable(pos, `<tr><th>${icon}</th><th>${name}</th><th>${score}%</th><th>${nbCards}</th></tr>`);
     pos++;
   }
-  const tableRef = document.querySelector("#tableRank tbody");
-  tableRef.innerHTML = t;
+  document.querySelector("#update").innerHTML = "Les " + ranks.length + " premiers collectionneurs possèdent à eux seuls " + totCard + " cartes 📈 soit " + (totCard/3).toFixed(0) + " packs";
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -59,8 +99,12 @@ document.addEventListener("DOMContentLoaded", function() {
   #menu, #infos {margin-top: -2px;}
   #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
   #tables {clear: both; padding-top: 2px;}
-  .top10 {background-color: #ff980010;}
-  .top50 {background-color: #88888820;}
+  #table50  a, #table100 a, #table50 thead th,  #table100 thead th {color: #ccad00;}
+  #table150 a, #table200 a, #table150 thead th, #table200 thead th {color: #aaa;}
+  #table250 a, #table300 a, #table250 thead th, #table300 thead th {color: #d3883e;}
+  #table50  tr:nth-child(odd), #table100 tr:nth-child(odd) {background-color: #ccad0015;}
+  #table150 tr:nth-child(odd), #table200 tr:nth-child(odd) {background-color: #88888820;}
+  #table250 tr:nth-child(odd), #table300 tr:nth-child(odd) {background-color: #d3883e20;}
 </style>
 </head>
 <body>
@@ -76,19 +120,6 @@ document.addEventListener("DOMContentLoaded", function() {
   <span id="update"></span>
 </div>
 
-<div id="tables">
-  <table id="tableRank" border="1" style="display: table;">
-    <thead>
-      <tr>
-        <th>Rang</th>
-        <th>Utilisateur</th>
-        <th>%</th>
-        <th>cartes</th>
-     </tr>
-    </thead>
-    <tbody>
-    </tbody>
-  </table>
-</div>
+<div id="tables"></div>
 </body>
 </html>

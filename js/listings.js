@@ -74,7 +74,7 @@ async function fetchRoster(address) {
   });
 }
 
-async function fetchHallOfFame() {
+async function fetchHallOfFame(hits=10) {
   return await fetch("https://js76hmpzh9-dsn.algolia.net/1/indexes/users-c-score-desc/query", {
     "headers": {
       "accept": "*/*",
@@ -88,7 +88,7 @@ async function fetchHallOfFame() {
     },
     "body": `{"query": "",
       "page": 0,
-      "hitsPerPage": 100
+      "hitsPerPage": ${hits}
     }`,
     "method": "POST",
     "mode": "cors",
