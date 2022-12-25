@@ -194,7 +194,7 @@ function showCards(cards) {
     if ( card.scarcity.name == 'Platinium' ) scorePlatinium += 10*1000/c.serialNumber;
     else if ( card.scarcity.name == 'Halloween' ) scoreHalloween += 2*1000/c.serialNumber;
     else scoreCommon += 1000/c.serialNumber;
-    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "/" + c.serialNumber + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
+    t += "<div class='card col'><a href='https://rules.art/card/" + c.cardModel.slug + "/" + c.serialNumber + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
   }
   document.querySelector("#cards").innerHTML = t;
 
@@ -207,11 +207,11 @@ function showCards(cards) {
               + "<span id='scorehelp'>Calcul du score : pour chaque carte on ajoute 1000/num_série, si platine x10, si halloween x2</span>";
   document.querySelector("#score").innerHTML = score;
 
-  t = "Cartes manquantes :<br>";
+  t = "";
   for( model of allCardModels ) {
     //if( model.scarcity.name == "Platinium" ) continue;
     if( !cardIds.includes(model.id) )
-      t+= "<div class='card'><a href='https://rules.art/card/" + model.slug + "'><img src='" + model.pictureUrl + "'></a><br>" + model.artist.displayName + "</div>";
+      t+= "<div class='card col'><a href='https://rules.art/card/" + model.slug + "'><img src='" + model.pictureUrl + "'></a><br>" + model.artist.displayName + "</div>";
   }
   document.querySelector("#missing").innerHTML = t;
 }
@@ -220,7 +220,7 @@ function showPacks(packs) {
   let t = "";
   for( p of packs ) {
     for( var i=0; i<p.balance; i++ )
-      t += "<div class='pack'><a href='https://rules.art/pack/" + p.pack.slug + "'><img width=48 src='" + p.pack.pictureUrl + "'></a><br>" + p.pack.displayName.split(" ")[0] + "</div>";
+      t += "<div class='pack col'><a href='https://rules.art/pack/" + p.pack.slug + "'><img width=48 src='" + p.pack.pictureUrl + "'></a><br>" + p.pack.displayName.split(" ")[0] + "</div>";
   }
   document.querySelector("#packs").innerHTML = t;
 }
@@ -332,15 +332,13 @@ document.addEventListener("DOMContentLoaded", function() {
   #tableLowFiveHundred {background-color: #4caf5020;}
   #tableLowThousand {background-color: #88888820;}
 
-  #packs {clear: left; margin-top: 2px;}
-  #score {clear: right; margin-top: 14px; font-size: 18px;}
-  #tables, #cards, #missing {clear: both;}
   .in #direction, .in #price {color: #f8312f;}
-  #packs div, #cards div, #missing div {float: left; font-size: 12px; padding-left: 2px;}
+  #packs div, #cards div, #missing div {font-size: 12px;}
   .card img {width: 48px;}
-  #missing div {overflow: hidden; width: 48px;}
-  #missing .card img {opacity: 40%;}
+  #missing .card img {opacity: 30%;}
   #missing .card:hover img {opacity: 100%;}
+  #missing div {overflow: hidden; width: 48px;}
+  #score {font-size: 18px;}
   #scorecommon, #scoreplatinium, #scorehalloween, #scoretotal, #scoretotalpercard { display: inline-block; border-radius: 10px; border: 1px solid; padding: 4px 6px 2px 6px; margin: 1px 0px;}
   #scorecommon {background-color: #cf5ffc20; border-color: #cf5ffc;}
   #scoreplatinium {background-color: #88888820; border-color: #888888;}
@@ -402,10 +400,14 @@ document.addEventListener("DOMContentLoaded", function() {
   </nav>
 </div>
 
-<div id="packs"></div>
-<div id="score"></div>
-<div id="cards"></div>
-<div id="missing"></div>
+<div class="row">
+  <div class="col">
+    <div id="packs" class="row"></div>
+  </div>
+  <div id="score" class="col"></div>
+</div>
+<div id="cards" class="row no-space"></div>
+<div id="missing" class="row no-space top-align"></div>
 <div class="grid" id="tables"></div>
 </main>
 </body>
