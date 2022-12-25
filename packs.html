@@ -5,6 +5,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
 <script src="js/cards.js?v=1"></script>
 <script src="js/listings.js?v=1"></script>
 <script>
@@ -31,6 +34,25 @@ function showCards(cards, total) {
   return t + "</div>";
 }
 
+// table creation and population
+function createPack(img, summary, details) {
+  return `
+  <article>
+    <details>
+      <summary class="none">
+        <div class="row">
+          <img src="${img}">
+          <div class="max">
+            ${summary}
+          <\/div>
+          <i>arrow_drop_down<\/i>
+        <\/div>
+      <\/summary>
+      <p>${details}<\/p>
+    <\/details>
+  <\/article>`;
+}
+
 function showPack(p) {
   let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply) * p.cardsPerPack;
   let closed = closedPacks[p.displayName]!==undefined ? closedPacks[p.displayName] : -1;
@@ -46,18 +68,15 @@ function showPack(p) {
   let percPlat = nbPlatinium>0 ? nbPlatinium/(nbPlatinium+nbCommon) : 0;
 
   let url = "https://rules.art/pack/" + p.slug;
-  let t = "<div class='pack'><div class='pic'><a href='" + url + "'><img width=48 src='" + p.pictureUrl + "' alt='" + p.displayName + "'></a></div>"
-        + "<div class='desc'><a href='" + url + "'><b>" + p.displayName + "</b></a><br>"
+  let t = "<a href='" + url + "'><b>" + p.displayName + "</b></a><br>"
         + (p.maxBuyableSupply != null ? p.maxBuyableSupply + " packs mis en vente, " : "")
         + p.availableQuantity + " par personne"
         + "<br>contient " + p.cardModelsCount + " cartes différentes"
         + (percPlat>0 ? ", " + (100*percPlat).toFixed(percPlat>0.05 ? 0 : 1) + "% de platine, " + (100*(1-(1-percPlat)**3)).toFixed(1) + "% de packs avec au moins une platine" : "")
         + "<br>distribué à " + p.supply + " exemplaires"
         + (closed>0 ? " dont " + closed + " toujours scellés (" + (100*closed/p.supply).toFixed(1) + "%)" : "")
-        + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " personnes" : "")
-        + "</div>"
-        + showCards(p.cardModels, total);
-  document.querySelector("#packs").innerHTML += t;
+        + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " personnes" : "");
+  document.querySelector("#packs").innerHTML += createPack(p.pictureUrl, t, showCards(p.cardModels, total));
 }
 
 // main
@@ -70,42 +89,47 @@ async function main() {
   document.querySelector("#update").innerHTML = "Statistics from 📈" + nbUsers + " Rules users.";
 }
 
+function initDarkMode() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    ui('mode', 'dark');
+  }
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    const newColorScheme = event.matches ? "dark" : "light";
+    ui('mode', newColorScheme);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function() {
+  initDarkMode();
   main();
 });
 
 </script>
 <style>
-  body {font-family: Roboto,Helvetica;}
-  @media (prefers-color-scheme: dark) { a {color: #CCC;} }
-  @media (prefers-color-scheme: light) { a {color: #000;} }
-  a {text-decoration: none;}
-  a:hover {text-decoration: underline;}
-  #date {font-stretch: condensed; color: #777;}
-  #update, #missing {color: #777;}
-  #menu, #options, #infos {float:left;}
-  #menu, #infos {margin-top: -6px;}
-  #menu a:hover {color: transparent; text-decoration: none; text-shadow: 0 0 0 #9f04dc;}
-  #packs, .pack {clear: both; padding: 6px 0px;}
-  .pic {float: left; margin-right: 6px;}
-  .cards {clear: left;}
+  nav {min-height: 48px !important;}
+  #date {color: #888; cursor: help; font-size: 11px;}
   .card {font-size: 12px; display: inline-block;}
   .card img {width: 48px;}
   .perc {color: #777;}
 </style>
 </head>
-<body>
-<div id="menu">
-  <a href="index.html">🛒</a>
-  <a href="transfers.html">🧾</a>
-  <a href="user.html">🤑</a>
-  <a href="fee.html">💸</a>
-  <a href="packs.html">🃏</a>
-  <a href="fame.html">🏅</a>
-</div>
-<div id="infos">
-  <span id="update"></span>
-</div>
+<body class="light">
+<header class="primary responsive fixed medium-elevate">
+  <nav>
+    <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
+    <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
+    <a href="transfers.html" class="chip transparent"><i>receipt_long</i>Ventes</a>
+    <a href="user.html" class="chip transparent"><i>person_search</i>Profils</a>
+    <a href="fee.html" class="chip transparent"><i>currency_exchange</i>Frais</a>
+    <a href="packs.html" class="chip fill"><i>view_carousel</i>Packs</a>
+    <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
+    <div class="max"></div>
+    <span id="update"></span>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
+  </nav>
+</header>
+<main class="margin">
 <div id="packs"></div>
+</main>
 </body>
 </html>

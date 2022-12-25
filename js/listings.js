@@ -161,7 +161,7 @@ async function fetchUserCards(ids) {
 }
 
 async function fetchClassicPacks() {
-  var picSize = cleanQuery("width=96");
+  var picSize = cleanQuery("width=48");
   return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
@@ -182,7 +182,7 @@ async function fetchClassicPacks() {
 }
 
 async function fetchLastStarterPack() {
-  var picSize = cleanQuery("width=96");
+  var picSize = cleanQuery("width=48");
   return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
       "accept": "*/*",
