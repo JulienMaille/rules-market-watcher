@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Accueil</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="color-scheme" content="dark light">
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
+<script>
+function initDarkMode() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    ui('mode', 'dark');
+  }
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    const newColorScheme = event.matches ? "dark" : "light";
+    ui('mode', newColorScheme);
+  });
+}
+
+var trials = 0;
+function enterPremium() {
+  if( trials==0 ) {
+    document.getElementById("premium").classList.toggle("invalid");
+    document.getElementById("error").classList.toggle("hide");
+  } else if( trials==2 ) {
+    document.getElementById("form").classList.toggle("hide");
+    document.getElementById("texte").classList.toggle("hide");
+  }
+  trials++;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  initDarkMode();
+});
+</script>
+<style>
+  nav {min-height: 48px !important;}
+  .hide {display: none;}
+</style>
+</head>
+<body class="light">
+<header class="primary responsive fixed medium-elevate">
+  <nav>
+    <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
+    <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
+    <a href="transfers.html" class="chip transparent"><i>receipt_long</i>Ventes</a>
+    <a href="user.html" class="chip transparent"><i>person_search</i>Profils</a>
+    <a href="fee.html" class="chip transparent"><i>currency_exchange</i>Frais</a>
+    <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
+    <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
+    <div class="max"></div>
+    <a href="premium.html" class="chip fill">🎁 Premium</a>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
+  </nav>
+</header>
+<main>
+<div class="container margin">
+  <div class="space"></div>
+  <div class="grid">
+    <div class="l l4"></div>
+    <div class="s12 m6 l4">
+      <article class="fill">
+        <div class="row">
+          <div class="col min">
+            <h2>🎁</h2>
+          </div>
+          <div class="col">
+            <h5 class="no-margin">Premium</h5>
+            <div>Accès prioritaires aux offres les plus intéressantes</div>
+          </div>
+        </div>
+        <div>
+          <div class="space"></div>
+          <div id="form">
+            <div>Veuillez entrer votre le mot de passe ci-dessous :</div>
+            <nav class="no-space">
+              <div id="premium" class="field label prefix border small left-round max">
+                <i>visibility</i>
+                <input type="password">
+                <label>Password</label>
+                <span id="error" class="error hide">Mot de passe incorrect</span>
+                <span id="helper" class="helper">Indice : symbole de ralliement des rulers</span>
+              </div>
+              <button class="right-round" onClick="enterPremium(); return false;">Go</button>
+            </nav>
+            <div class="space"></div>
+          </div>
+          <div id="texte" class="hide">
+            <h5>Désolé 🤪</h5>
+            <div>Il n'y a pas et il n'y aura jamais de Premium ici ! Tout est disponible pour tout le monde.</div>
+            <div>Le code source de ce site est même librement accessible sur Github<div>
+            <div class="space"></div>
+            <div>Si vous avez fait des bonnes affaires gràce aux listings des offres du market-place ou si
+            vos souhaitez me remercier, vous pouvez m'envoyer une carte parmis celles qui me manquent
+            ou encore voter pour moi au prochain concours !<div>
+            <div class="space"></div>
+            <div>Liste de mes cartes <a class="chip round small" href="user.html?user=julienm"><i class="small">person_search</i>JulienM</a><div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+</main>
+</body>
+</html>

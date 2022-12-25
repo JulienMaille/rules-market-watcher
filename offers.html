@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Profil utilisateur</title>
+<title>Offres en cours</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="color-scheme" content="dark light">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -12,10 +12,12 @@
 <script src="js/listings.js?v=1"></script>
 <script src="js/costs.js?v=1"></script>
 <script>
-var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
+var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
+var cheapNotif = 40;            // price threshold (EUR) for notification
+var timeoutNotif = null;
 allCardModels = allCardModels.data.allCardModels;
 
-function listings(hits, address, ethEurRate) {
+function listings(hits, notify, ethEurRate) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
   let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
@@ -32,67 +34,50 @@ function listings(hits, address, ethEurRate) {
   if( sortRule == "cardserial" ) hits.sort(sortByCardSerial);
   //console.log(hits);
 
-  let sumIn = 0, sumOut = 0;
-  let userAddresses = [];
+  let sum = 0;
   for( const listing of hits ) {
     let card = listing.cardInfo;
     let date = new Date(listing.date);
 
-    let dir = listing.toStarknetAddress == address;
-    let dirIcon = dir ? "◀" : "▶";
-
-    let otherAddress = "";
-    let priceEUR = "Pack";
-    if( listing.fromStarknetAddress != 0 ) {
-      priceEUR = "Gift";
-      otherAddress = dir ? listing.fromStarknetAddress : listing.toStarknetAddress;
-      if( !userAddresses.includes(otherAddress) )
-        userAddresses.push(otherAddress);
-    }
     let priceETH = parseInt(listing.price, 16)/10**18;
-    if( priceETH > 0 ) {
-      priceEUR = euroFmt.format(priceETH * ethEurRate);
-      if( dir ) sumIn += priceETH * ethEurRate;
-      else sumOut += priceETH * ethEurRate;
-    }
-
+    let priceEUR = priceETH * ethEurRate;
+    sum += priceETH * ethEurRate;
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
     let cardIsCommon = card.scarcity.name == "Common";
+    let cardIsPlat = card.scarcity.name == "Platinium";
     let artist = card.artist.displayName;
 
-    let recent = (new Date - date < recentDef);
-    let lessRecent = (new Date - date < recentDef*4);
+    let promo = false;//listing.sellerUserId == "62ab894c838a77a225fabf12"
+    let recent = (new Date - date < recentDef)
+    let lessRecent = (new Date - date < recentDef*6) || promo;
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
-    classes += dir ? " in" : " out";
+
+    if( recent && listing.available &&
+      ((priceEUR<=2*cheapNotif && listing.serialNumber<=10)
+        || (priceEUR<=cheapNotif && listing.serialNumber<=100)
+        || (priceEUR<=1.5*cheapNotif && cardIsPlat)) ) {
+      if( notify ) sendNotification(artist + " #" + listing.serialNumber + " " + card.scarcity.name + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
+    }
+
+    let dateText = "";
+    if( listing.available )
+      dateText = date.toLocaleString([], dateOptions);
+    else
+      dateText = "Transfer " + date.toLocaleTimeString([], timeOptions);
+    let sellerOnClick = `class="ID${listing.sellerStarknetAddress}" onClick="fetchUser(this, '${listing.sellerStarknetAddress}'); return false;"`;
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
-          + "<td id='direction'>" + dirIcon + "</td>"
-          + "<td id='other' class='ID" + otherAddress + "'></td>"
-          + "<td id='price'>" + priceEUR + "</td>"
-          + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
+          + "<td id='price'>" + euroFmt.format(priceEUR) + "</td>"
+          + "<td id='date'" + sellerOnClick + ">" + dateText + "</td>";
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
-  let update = hits.length + " transferts"
-            + " 💱 Total achats : " + euroFmt.format(sumIn) + " / Total ventes : " + euroFmt.format(sumOut);
+  let update = hits.length + " offres le " + (new Date).toLocaleString([], dateOptions)
+             + " 💱 Total : " + euroFmt.format(sum);
   document.querySelector("#update").innerHTML = update;
-
-  fetchUserNames(userAddresses).then(json => {
-    for( const user of json.data.usersByStarknetAddresses ) {
-      let userClass = ".ID" + user.starknetWallet.address;
-      document.querySelectorAll(userClass).forEach(function(td) {
-        let url = "https://rules.art/user/" + user.slug + "/cards";
-        td.innerHTML = "<a href='user.html?user=" + user.slug + "' onClick='document.getElementById(\"username\").value=\"" + user.slug + "\";main();return false;'>" + user.username + "</a>"
-                     + " <a href='" + url + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
-      });
-    }
-  })
-  .catch((e) => {
-    document.body.innerHTML= "Failed with: " + e;
-  })
 };
 
 // table creation and population
@@ -101,7 +86,7 @@ function createTable(id, text) {
   <table id="${id}" class="s6 m4 l2 no-space">
     <thead>
       <tr>
-        <th colspan=6>${text}<\/th>
+        <th colspan=4>${text}<\/th>
      <\/tr>
     <\/thead>
     <tbody><\/tbody>
@@ -118,8 +103,8 @@ function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
   else if( serialNumber <= 2000 ) tableId = "#tableLowTwoThousand";
 
   let roundClass = "notround";
-  if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "round";
-  if( [69, 333, 420, 666, 667, 777].includes(serialNumber) ) roundClass = "round";
+  if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "isround";
+  if( [69, 333, 420, 666, 667, 777].includes(serialNumber) ) roundClass = "isround";
 
   const tableRef = document.querySelector(tableId + " tbody");
   var newRow = tableRef.insertRow(tableRef.rows.length);
@@ -144,6 +129,13 @@ function setVisibility(className, visible) {
   hideEmptyTables();
 }
 
+function setAllSerials(b) {
+  var searchParams = new URLSearchParams(window.location.search);
+  searchParams.set('allserials', b);
+  history.replaceState(null, null, "?"+searchParams.toString());
+  main();
+}
+
 function hideEmptyTables() {
   // Show all tables
   let tables = document.querySelectorAll('#tables table');
@@ -163,66 +155,45 @@ function setSorting(value) {
   main();
 }
 
-function setUser(value) {
+function toggleNotify() {
   var searchParams = new URLSearchParams(window.location.search);
-  searchParams.set("user", value);
+  let notify = searchParams.get("notify") == "true";
+  searchParams.set("notify", !notify);
   history.replaceState(null, null, "?"+searchParams.toString());
+  main();
 }
 
-function copyToClip() {
-  navigator.clipboard.writeText("Mon score Rules est de " + document.querySelector("#scoretotal").innerHTML.replace(/<[^>]*>?/gm, '')
-  + " " + document.URL);
-  document.querySelector("#clipboard").innerHTML = "📣Copié";
+// notifications
+function registerNotifications() {
+  navigator.serviceWorker.register("sw.js");
+  if( !Notification )
+    console.log("Browser does not support notifications.");
+  else if( Notification.permission !== "granted" )
+    Notification.requestPermission();
 }
 
-function showCards(cards) {
-  for( c of cards )
-    c.cardInfo = cardInfo(c.cardModel.id);
-
-  let sortRule = document.querySelector("#sorting").value;
-  if( sortRule == "serial" ) cards.sort(sortBySerial);
-  if( sortRule == "cardprice" || sortRule == "cardserial" ) cards.sort(sortByCardSerial);
-
-  let t = "";
-  let scoreCommon = 0;
-  let scorePlatinium = 0;
-  let scoreHalloween = 0;
-  let cardIds = [];
-  for( c of cards ) {
-    let card = c.cardInfo;
-    cardIds.push(c.cardModel.id);
-    if ( card.scarcity.name == 'Platinium' ) scorePlatinium += 10*1000/c.serialNumber;
-    else if ( card.scarcity.name == 'Halloween' ) scoreHalloween += 2*1000/c.serialNumber;
-    else scoreCommon += 1000/c.serialNumber;
-    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "/" + c.serialNumber + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
-  }
-  document.querySelector("#cards").innerHTML = t;
-
-  let score = "Score : <span id='scorecommon'>" + scoreCommon.toFixed(0) + "</span>"
-              +" + <span id='scoreplatinium'>" + scorePlatinium.toFixed(0) + "</span>"
-              +" + <span id='scorehalloween'>" + scoreHalloween.toFixed(0) + "</span>"
-              +" = <span id='scoretotal'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "<span class='emoji'>🍈</span></span><br>"
-              +"Score/carte : <span id='scoretotalpercard'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "<span class='emoji'>🍈</span></span>"
-              + " <button id='clipboard' class='small' onCLick='copyToClip()'>📋 Partager</button> "
-              + "<span id='scorehelp'>Calcul du score : pour chaque carte on ajoute 1000/num_série, si platine x10, si halloween x2</span>";
-  document.querySelector("#score").innerHTML = score;
-
-  t = "Cartes manquantes :<br>";
-  for( model of allCardModels ) {
-    //if( model.scarcity.name == "Platinium" ) continue;
-    if( !cardIds.includes(model.id) )
-      t+= "<div class='card'><a href='https://rules.art/card/" + model.slug + "'><img src='" + model.pictureUrl + "'></a><br>" + model.artist.displayName + "</div>";
-  }
-  document.querySelector("#missing").innerHTML = t;
+function sendNotification(content, picture) {
+  Notification.requestPermission((result) => {
+    if( result != "granted" ) return;
+    navigator.serviceWorker.ready.then((registration) => {
+      registration.showNotification(content, {icon: picture});
+    });
+  });
 }
 
-function showPacks(packs) {
-  let t = "";
-  for( p of packs ) {
-    for( var i=0; i<p.balance; i++ )
-      t += "<div class='pack'><a href='https://rules.art/pack/" + p.pack.slug + "'><img width=48 src='" + p.pack.pictureUrl + "'></a><br>" + p.pack.displayName.split(" ")[0] + "</div>";
-  }
-  document.querySelector("#packs").innerHTML = t;
+function fetchUser(clickedDom, userAddresses) {
+  clickedDom.innerHTML = "Loading...";
+  fetchUserNames([userAddresses]).then(json => {
+    for( const user of json.data.usersByStarknetAddresses ) {
+      let userClass = ".ID" + userAddresses;
+      document.querySelectorAll(userClass).forEach(function(td) {
+        td.removeAttribute("onclick");
+        let url = "https://rules.art/user/" + user.slug + "/cards";
+        td.innerHTML = "<a href='user.html?user=" + user.slug + "'>" + user.username + "</a>"
+                     + " <a href='" + url + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
+      });
+    }
+  });
 }
 
 // main
@@ -238,51 +209,55 @@ async function main() {
     tableHigh: "Supérieur à 2000"
   };
 
-  document.querySelector("#packs").innerHTML = "";
-  document.querySelector("#cards").innerHTML = "";
-  document.querySelector("#missing").innerHTML = "";
-  document.querySelector("#score").innerHTML = "";
-
   let t = "";
   for( const key in tables )
     t += createTable(key, tables[key]);
   document.querySelector("#tables").innerHTML = t;
-  document.querySelector("#update").innerHTML = "Loading...";
 
   let searchParams = new URLSearchParams(window.location.search);
+  let notify = false;
+  let allSerials = false;
   let hiddenClass = [];
   for( const [key, value] of searchParams ) {
     if( value=="true" ) {
       document.querySelector("#"+key).checked = true;
       hiddenClass.push(key);
     }
-    if( key=="sorting" ) document.querySelector("#"+key).value=value;
+    if( key=="sorting" ) document.querySelector("#"+key).value = value;
+    if( key=="notify" ) notify = value=="true";
+    if( key=="allserials" ) allSerials = value=="true";
   }
+
+  document.querySelector("#notify").innerHTML = notify ? "🔔" : "🔕";
 
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
-
-  try {
-    let username = document.getElementById("username").value.trim().toLowerCase();
-    setUser(username);
-
-    let user = (await fetchUserId(username)).data.user;
-    let address = user.starknetWallet.address;
-    let id = user.id;
-    listings((await fetchTransfers(`fromStarknetAddress:${address} OR toStarknetAddress:${address}`)).hits, address, ethEurRate);
-    for( key of hiddenClass )
-      setVisibility(key, true);
-    if( hiddenClass.length==0 ) hideEmptyTables();
-
-    let cardIds = (await fetchRoster(address)).hits;
-    if( cardIds.length > 0 ) {
-      cardIds = cardIds.map(a => a.objectID);
-      showCards((await fetchUserCards(cardIds)).data.cardsByIds);
-    }
-    showPacks(user.packsBalances);
+  let hits = [];
+  let blocks = allSerials ? [0,500,1500,2500] : [0,300,1000];
+  for( var i=0; i<blocks.length-1; i++ ) {
+    var delta = hits.length;
+    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "price:-0000000000000000000000")).hits);
+    delta = hits.length-delta;
+    if( delta>=1000 ) window.alert("Missing results");
+    console.log(delta);
+    document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
   }
-  catch(e) {
-    document.querySelector("#update").innerHTML = "fetchUserId failed with: " + e;
-  }
+  if( allSerials )
+    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[blocks.length-1], "price:-0000000000000000000000")).hits);
+  listings(hits, notify, ethEurRate);
+
+  for( const key of hiddenClass )
+    setVisibility(key, true);
+  if( hiddenClass.length==0 ) hideEmptyTables();
+
+  let gasPrice = parseInt((await fetchGasPrice()).gas_price, 16)/10**18;
+  let feeETH = gasPrice*buyGasUsage;
+  let feeEUR = feeETH*ethEurRate;
+
+  document.querySelector("#feeicon").innerHTML = iconCost(feeEUR);
+  document.querySelector("#feelink").innerHTML = "Frais : " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
+
+  if( timeoutNotif!=null ) clearTimeout(timeoutNotif);
+  timeoutNotif = setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
 }
 
 function initDarkMode() {
@@ -297,29 +272,22 @@ function initDarkMode() {
 
 document.addEventListener("DOMContentLoaded", function() {
   initDarkMode();
-  let searchParams = new URLSearchParams(window.location.search);
-  if( searchParams.has("user") ) {
-    document.getElementById("username").value = searchParams.get("user");
-    main();
-  }
+  registerNotifications();
+  main();
 });
 </script>
 <style>
   nav {min-height: 48px !important;}
   .dark .recent #date {color: #FF0;}
   .dark .lessRecent #date {color: #BB0;}
-  .dark .out #direction, .dark .out #price {color: #21f392;}
   .light .recent #date {background: #FF0;}
   .light .lessRecent #date {background: #FFC;}
-  .light .out #direction, .light .out #price {color: #2da44e;}
   #date {color: #888; cursor: help; font-size: 11px;}
   .emoji {font-size: 10pt; }
   #tables table {border: 1px solid #80808045; text-align: right; align-self: flex-start;}
   #tables a:hover {text-decoration: underline;}
   #tables th {text-align: center;}
-  #tables td:nth-child(2) {text-align: right;}
   #tables table td, #tables table th {width: unset;}
-
   #tableHalloween #card a, #tableHalloween th {color: #ff9800;}
   #tablePlatinium #card a, #tablePlatinium th {color: #ccad00;}
   #tableLowTen #serial, #tableLowTen th {color: #cf5ffc;}
@@ -332,48 +300,32 @@ document.addEventListener("DOMContentLoaded", function() {
   #tableLowFiveHundred {background-color: #4caf5020;}
   #tableLowThousand {background-color: #88888820;}
 
-  #packs {clear: left; margin-top: 2px;}
-  #score {clear: right; margin-top: 14px; font-size: 18px;}
-  #tables, #cards, #missing {clear: both;}
-  .in #direction, .in #price {color: #f8312f;}
-  #packs div, #cards div, #missing div {float: left; font-size: 12px; padding-left: 2px;}
-  .card img {width: 48px;}
-  #missing div {overflow: hidden; width: 48px;}
-  #missing .card img {opacity: 40%;}
-  #missing .card:hover img {opacity: 100%;}
-  #scorecommon, #scoreplatinium, #scorehalloween, #scoretotal, #scoretotalpercard { display: inline-block; border-radius: 10px; border: 1px solid; padding: 4px 6px 2px 6px; margin: 1px 0px;}
-  #scorecommon {background-color: #cf5ffc20; border-color: #cf5ffc;}
-  #scoreplatinium {background-color: #88888820; border-color: #888888;}
-  #scorehalloween {background-color: #ff980020; border-color: #ff9800;}
-  #scoretotal, #scoretotalpercard {background-color: #95ae6620; border-color: #95ae66; border-width: 3px; padding: 2px 5px 1px 5px;}
-  #scorehelp {color: #888; margin-left: 10px;}
+  #feeicon {animation: scaleIn .8s infinite linear;}
+  @keyframes scaleIn {
+    from {opacity: 1; transform: scale(.75, .75);}
+    to {opacity: 0; transform: scale(1.75, 1.75);}
+  }
 </style>
 </head>
 <body class="light">
 <header class="primary responsive fixed medium-elevate">
   <nav>
     <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
-    <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
+    <a href="offers.html" class="chip fill"><i>shopping_cart</i>Offres</a>
     <a href="transfers.html" class="chip transparent"><i>receipt_long</i>Ventes</a>
-    <a href="user.html" class="chip fill"><i>person_search</i>Profils</a>
+    <a href="user.html" class="chip transparent"><i>person_search</i>Profils</a>
     <a href="fee.html" class="chip transparent"><i>currency_exchange</i>Frais</a>
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
     <span id="update"></span>
+    <a href="premium.html" class="chip transparent">🎁 Premium</a>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
 <main class="small-margin">
 <div id="options" class="field small small-margin">
   <nav>
-    <nav class="no-space">
-    <div class="field label border small left-round">
-      <input type="text" id="username">
-      <label>Pseudo</label>
-    </div>
-    <button class="right-round" onClick="main();return false">Envoyer</button>
-    </nav>
     <label class="checkbox">
       <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);">
       <span>récent</span>
@@ -385,6 +337,10 @@ document.addEventListener("DOMContentLoaded", function() {
     <label class="checkbox">
       <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
       <span>>top tier</span>
+    </label>
+    <label class="checkbox">
+      <input type="checkbox" id="allserials" onchange="setAllSerials(this.checked);">
+      <span>+1000</span>
     </label>
     <div class="field label suffix border small">
       <select class="form-select" id="sorting" onChange="setSorting(this.value);">
@@ -401,11 +357,6 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="form-label"><span id="feeicon"></span><a id="feelink" href="fee.html"></a></div>
   </nav>
 </div>
-
-<div id="packs"></div>
-<div id="score"></div>
-<div id="cards"></div>
-<div id="missing"></div>
 <div class="grid" id="tables"></div>
 </main>
 </body>
