@@ -11,9 +11,9 @@
 <script src="js/cards.js?v=1"></script>
 <script src="js/listings.js?v=1"></script>
 <script>
-var nbUsers = 24419;
-var closedPacks = {"Launch Pack S1":1317,"Honey Base Pack":69,"Halloween Pack":478,"Wave Base Pack":167,"Dark Base Pack":101,"Starter Pack S1":180,"Kush Base Pack":85};
-var usersWithPack = {"Launch Pack S1":874,"Honey Base Pack":69,"Halloween Pack":354,"Wave Base Pack":117,"Dark Base Pack":78,"Starter Pack S1":180,"Kush Base Pack":85};
+var nbUsers = 24577;
+var closedPacks = {"Santa Pack":979,"Launch Pack S1":1314,"Honey Base Pack":68,"Halloween Pack":463,"Wave Base Pack":167,"Dark Base Pack":98,"Starter Pack S1":177,"Kush Base Pack":84};
+var usersWithPack = {"Santa Pack":481,"Launch Pack S1":871,"Honey Base Pack":68,"Halloween Pack":345,"Wave Base Pack":117,"Dark Base Pack":76,"Starter Pack S1":177,"Kush Base Pack":84};
 
 allCardModels = allCardModels.data.allCardModels;
 
@@ -68,7 +68,7 @@ function showPack(p) {
   let percPlat = nbPlatinium>0 ? nbPlatinium/(nbPlatinium+nbCommon) : 0;
 
   let url = "https://rules.art/pack/" + p.slug;
-  let t = "<a href='" + url + "'><b>" + p.displayName + "</b></a><br>"
+  let t = "<a href='" + url + "'><h6>" + p.displayName + "</h6></a><br>"
         + (p.maxBuyableSupply != null ? p.maxBuyableSupply + " packs mis en vente, " : "")
         + p.availableQuantity + " par personne"
         + "<br>contient " + p.cardModelsCount + " cartes différentes"
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <style>
   nav {min-height: 48px !important;}
-  #date {color: #888; cursor: help; font-size: 11px;}
+  #packs a:hover {text-decoration: underline;}
   .card {font-size: 12px; display: inline-block;}
   .card img {width: 48px;}
   .perc {color: #777;}
