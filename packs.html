@@ -89,7 +89,7 @@ async function main() {
   packs.push((await fetchLastStarterPack()).data.lastStarterPack);
   document.querySelector("#packs").innerHTML = "";
   for( p of packs ) showPack(p);
-  document.querySelector("#update").innerHTML = "<i>query_stats</i>Statistiques tirées de " + nbUsers + " collectioneurs.";
+  document.querySelector("#update").innerHTML = "<i>query_stats</i>Statistiques tirées de " + nbUsers + " collectionneurs.";
 }
 
 async function initDarkMode() {
