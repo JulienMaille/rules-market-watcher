@@ -96,9 +96,6 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 <style>
   nav {min-height: 48px !important;}
-  .dark .tooltip {background: rgba(0, 0, 0, 0.4); }
-  .light .tooltip {background: rgba(255, 255, 255, 0.4); }
-
   #feeGiftETH, #maxFeeGiftETH, #feeSellETH, #maxFeeSellETH, #feeBuyETH, #maxFeeBuyETH {color: #888;}
   #feeIcon {animation: scaleIn .8s infinite linear;}
   @keyframes scaleIn {
@@ -119,26 +116,6 @@ document.addEventListener("DOMContentLoaded", function() {
     83.33% {content: '🕙';}
     91.66% {content: '🕚';}
 }
-  .ttip {
-    font-size: 16pt;
-    text-align: center;
-    margin-top: 14px;
-    margin-left: 28px;
-    padding: 14px;
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(12.8px);
-    -webkit-backdrop-filter: blur(12.8px);
-    border: 1px solid #9f04dc;
-  }
-  #drops:hover .ttip {
-    display:block;
-  }
-  .ttip {
-    display: none;
-    position: absolute;
-    z-index: 1000;
-  }
 </style>
 </head>
 <body class="light">
@@ -173,15 +150,19 @@ document.addEventListener("DOMContentLoaded", function() {
   <div id="text" class="l3 m4 s12">
     <div id="hour" class="primary-text"></div>
     <div id="drops" class="margin">
-      <span id="maxPrice" class="border chip primary-border"><a class='loader small'></a>Chargement...</span>
-      <span class="ttip">
+      <div id="maxPrice" class="border chip primary-border">
+        <a class='loader small'></a>Chargement...
+      </div>
+      <div class="tooltip bottom primary padding">
+        <div class="medium-text">
         L'ouverture d'un pack sur la blockchain<br>
         génère des frais à la charge de Rules.<br>
         Ces frais varient d'heure en heure, ainsi<br>
         l'ouverture des packs est suspendue<br>
         lorque les frais sont si élevés qu'ils<br>
         compromettent la rentabilité d'un pack à 9€.
-      </span>
+        </div>
+      </div>
     </div>
     <div>
       <span id="feeIcon"></span>
@@ -189,13 +170,11 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
     <div class="primary-text"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
     <div class="primary-text">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
-
     <div class="space"></div>
 
     <div>Mise en vente</div>
     <div class="primary-text"><span id="feeSellETH"></span> (<span id="feeSellEUR"></span>€)</div>
     <div class="primary-text">Max <span id="maxFeeSellETH"></span> (<span id="maxFeeSellEUR"></span>€)</div>
-
     <div class="space"></div>
 
     <div>Echange</div>

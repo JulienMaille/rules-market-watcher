@@ -172,7 +172,7 @@ function setUser(value) {
 function copyToClip() {
   navigator.clipboard.writeText("Mon score Rules est de " + document.querySelector("#scoretotal").innerHTML.replace(/<[^>]*>?/gm, '')
   + " " + document.URL);
-  document.querySelector("#clipboard").innerHTML = "📣Copié";
+  document.querySelector("#clipboard").innerHTML = "<i>send</i>Copié";
 }
 
 function showCards(cards) {
@@ -194,24 +194,24 @@ function showCards(cards) {
     if ( card.scarcity.name == 'Platinium' ) scorePlatinium += 10*1000/c.serialNumber;
     else if ( card.scarcity.name == 'Halloween' ) scoreHalloween += 2*1000/c.serialNumber;
     else scoreCommon += 1000/c.serialNumber;
-    t += "<div class='card col'><a href='https://rules.art/card/" + c.cardModel.slug + "/" + c.serialNumber + "'><img src='" + card.pictureUrl + "'></a><br>#" + c.serialNumber + "</div>";
+    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "/" + c.serialNumber + "'><img src='" + card.pictureUrl + "'></a><div>#" + c.serialNumber + "</div></div>";
   }
   document.querySelector("#cards").innerHTML = t;
 
-  let score = "Score : <span id='scorecommon'>" + scoreCommon.toFixed(0) + "</span>"
-              +" + <span id='scoreplatinium'>" + scorePlatinium.toFixed(0) + "</span>"
-              +" + <span id='scorehalloween'>" + scoreHalloween.toFixed(0) + "</span>"
-              +" = <span id='scoretotal'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "<span class='emoji'>🍈</span></span><br>"
-              +"Score/carte : <span id='scoretotalpercard'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "<span class='emoji'>🍈</span></span>"
-              + " <button id='clipboard' class='small' onCLick='copyToClip()'>📋 Partager</button> "
-              + "<span id='scorehelp'>Calcul du score : pour chaque carte on ajoute 1000/num_série, si platine x10, si halloween x2</span>";
+  let score = "Score<div id='scorecommon' class='chip small border small-padding'>" + scoreCommon.toFixed(0) + "</div>"
+              +"+<div id='scoreplatinium' class='chip small border small-padding'>" + scorePlatinium.toFixed(0) + "</div>"
+              +"+<div id='scorehalloween' class='chip small border small-padding'>" + scoreHalloween.toFixed(0) + "</div>"
+              +"=<div id='scoretotal' class='chip small border small-padding'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "🍈</div>";
+  let scorep = "Score/carte<div id='scoretotalpercard' class='chip small border small-padding'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "🍈</div>"
+             + "<div id='clipboard' class='chip fill small' onCLick='copyToClip()'><i>share</i>Partager</div> ";
   document.querySelector("#score").innerHTML = score;
+  document.querySelector("#scorepercard").innerHTML = scorep;
 
   t = "";
   for( model of allCardModels ) {
     //if( model.scarcity.name == "Platinium" ) continue;
     if( !cardIds.includes(model.id) )
-      t+= "<div class='card col'><a href='https://rules.art/card/" + model.slug + "'><img src='" + model.pictureUrl + "'></a><br>" + model.artist.displayName + "</div>";
+      t+= "<div class='card'><a href='https://rules.art/card/" + model.slug + "'><img src='" + model.pictureUrl + "'></a><div>" + model.artist.displayName + "</div></div>";
   }
   document.querySelector("#missing").innerHTML = t;
 }
@@ -220,7 +220,7 @@ function showPacks(packs) {
   let t = "";
   for( p of packs ) {
     for( var i=0; i<p.balance; i++ )
-      t += "<div class='pack col'><a href='https://rules.art/pack/" + p.pack.slug + "'><img width=48 src='" + p.pack.pictureUrl + "'></a><br>" + p.pack.displayName.split(" ")[0] + "</div>";
+      t += "<div class='pack'><a href='https://rules.art/pack/" + p.pack.slug + "'><img width=48 src='" + p.pack.pictureUrl + "'></a><div>" + p.pack.displayName.split(" ")[0] + "</div></div>";
   }
   document.querySelector("#packs").innerHTML = t;
 }
@@ -335,13 +335,12 @@ document.addEventListener("DOMContentLoaded", function() {
     #tables table td {font-size: 10px !important;}
   }
   .in #direction, .in #price {color: #f8312f;}
-  #packs div, #cards div, #missing div {font-size: 12px;}
+  .pack, .card {display: inline-block; vertical-align: top;}
   .card img {width: 48px;}
   #missing .card img {opacity: 30%;}
   #missing .card:hover img {opacity: 100%;}
   #missing div {overflow: hidden; width: 48px;}
-  #score {font-size: 18px;}
-  #scorecommon, #scoreplatinium, #scorehalloween, #scoretotal, #scoretotalpercard { display: inline-block; border-radius: 10px; border: 1px solid; padding: 4px 6px 2px 6px; margin: 1px 0px;}
+
   #scorecommon {background-color: #cf5ffc20; border-color: #cf5ffc;}
   #scoreplatinium {background-color: #88888820; border-color: #888888;}
   #scorehalloween {background-color: #ff980020; border-color: #ff9800;}
@@ -385,41 +384,35 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
     <button class="right-round" onClick="main();return false">Envoyer</button>
   </nav>
-    <label class="checkbox">
-      <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);">
-      <span>récent</span>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" id="lowtier" onchange="setVisibility('notround', this.checked);">
-      <span>chiffres ronds</span>
-    </label>
-    <label class="checkbox">
-      <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
-      <span>top tier</span>
-    </label>
-    <div class="field label suffix border small">
-      <select class="form-select" id="sorting" onChange="setSorting(this.value);">
-        <option value="price">prix</option>
-        <option value="date">date</option>
-        <option value="serial">serial</option>
-        <option value="cardprice">carte/prix</option>
-        <option value="cardserial">carte/serial</option>
-      </select>
-      <label class="active">Tri</label>
-      <i>arrow_drop_down</i>
-    </div>
-    <div class="form-label"><span id="feeicon"></span><a id="feelink" href="fee.html"></a></div>
-  </nav>
-
-
-<div class="row">
-  <div class="col">
-    <div id="packs" class="row"></div>
+  <label class="checkbox">
+    <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);">
+    <span>récent</span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" id="lowtier" onchange="setVisibility('notround', this.checked);">
+    <span>chiffres ronds</span>
+  </label>
+  <label class="checkbox">
+    <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
+    <span>top tier</span>
+  </label>
+  <div class="field label suffix border small">
+    <select class="form-select" id="sorting" onChange="setSorting(this.value);">
+      <option value="price">prix</option>
+      <option value="date">date</option>
+      <option value="serial">serial</option>
+      <option value="cardprice">carte/prix</option>
+      <option value="cardserial">carte/serial</option>
+    </select>
+    <label class="active">Tri</label>
+    <i>arrow_drop_down</i>
   </div>
-  <div id="score" class="col"></div>
-</div>
-<div id="cards" class="row no-space"></div>
-<div id="missing" class="row no-space top-align"></div>
+  <div id="score"></div>
+  <div id="scorepercard"></div>
+</nav>
+<div id="packs" class="no-space small-text"></div>
+<div id="cards" class="no-space small-text"></div>
+<div id="missing" class="no-space small-text"></div>
 <div class="grid" id="tables"></div>
 </main>
 </body>
