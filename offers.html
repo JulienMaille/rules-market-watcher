@@ -3,7 +3,6 @@
 <head>
 <title>Offres en cours</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="color-scheme" content="dark light">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
@@ -76,10 +75,9 @@ function listings(hits, notify, ethEurRate) {
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
-  let update = "<i>event</i>" + hits.length + " offres le " + (new Date).toLocaleString([], dateOptions)
+  let update = "<i>event</i>" + hits.length + " offres "
              + " <i>atr</i> Total : " + euroFmt.format(sum);
   document.querySelector("#update").innerHTML = update;
-  document.querySelector("#update-s").innerHTML = update;
 };
 
 // table creation and population
@@ -200,6 +198,7 @@ function fetchUser(clickedDom, userAddresses) {
 
 // main
 async function main() {
+  document.querySelector("#update").innerHTML = "<a class='loader small'></a>Chargement ...";
   let tables = {
     tableHalloween: "Hall<span class='emoji'>🎃</span>ween",
     tablePlatinium: "Platine",
@@ -230,7 +229,7 @@ async function main() {
     if( key=="allserials" ) allSerials = value=="true";
   }
 
-  document.querySelector("#notify").innerHTML = notify ? "🔔" : "🔕";
+  document.querySelector("#notify").innerHTML = notify ? "<i class='primary-text'>notifications</i>" : "<i class='error-text'>notifications_off</i>";
 
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
   let hits = [];
@@ -241,7 +240,6 @@ async function main() {
     delta = hits.length-delta;
     if( delta>=1000 ) window.alert("Missing results");
     console.log(delta);
-    document.querySelector("#update").innerHTML = "<progress max='" + blocks.slice(-1)[0] + "' value='"+blocks[i]+"'></progress>";
   }
   if( allSerials )
     hits = hits.concat((await fetchOffers("serialNumber>"+blocks[blocks.length-1], "price:-0000000000000000000000")).hits);
@@ -256,13 +254,14 @@ async function main() {
   let feeEUR = feeETH*ethEurRate;
 
   document.querySelector("#feeicon").innerHTML = iconCost(feeEUR);
-  document.querySelector("#feelink").innerHTML = "Frais : " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
+  document.querySelector("#feelink").innerHTML = "Frais d'achat : " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
 
   if( timeoutNotif!=null ) clearTimeout(timeoutNotif);
   timeoutNotif = setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
 }
 
-function initDarkMode() {
+async function initDarkMode() {
+  await ui("theme", "#0061a6");
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ui('mode', 'dark');
   }
@@ -302,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
   #tableLowFiveHundred {background-color: #4caf5020;}
   #tableLowThousand {background-color: #88888820;}
   @media only screen and (max-width: 600px) {
-    #tables table {font-size: 11px;}
+    #tables table td {font-size: 10px !important;}
   }
   #feeicon {animation: scaleIn .8s infinite linear;}
   @keyframes scaleIn {
@@ -312,14 +311,15 @@ document.addEventListener("DOMContentLoaded", function() {
 </style>
 </head>
 <body class="light">
-  <nav class="primary tiny-padding s">
-    <a href="index.html"><i class="small">home</i></a>
-    <a href="offers.html"><i class="small">shopping_cart</i></a>
-    <a href="transfers.html"><i class="small">receipt_long</i></a>
-    <a href="user.html"><i class="small">person_search</i></a>
-    <a href="fee.html"><i class="small">currency_exchange</i></a>
-    <a href="packs.html"><i class="small">view_carousel</i></a>
-    <a href="fame.html"><i class="small">workspace_premium</i></a>
+  <nav class="primary no-space s">
+    <div class="space"></div>
+    <a class="circle round small" href="index.html"><i class="small">home</i></a>
+    <a class="primary-container circle round small" href="offers.html"><i class="small">shopping_cart</i></a>
+    <a class="circle round small" href="transfers.html"><i class="small">receipt_long</i></a>
+    <a class="circle round small" href="user.html"><i class="small">person_search</i></a>
+    <a class="circle round small" href="fee.html"><i class="small">currency_exchange</i></a>
+    <a class="circle round small" href="packs.html"><i class="small">view_carousel</i></a>
+    <a class="circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
     <div class="max"></div>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
   </nav>
@@ -334,13 +334,11 @@ document.addEventListener("DOMContentLoaded", function() {
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
     <span id="update" class="chip primary-container"></span>
-    <a href="premium.html" class="chip transparent">🎁 Premium</a>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
-<main class="small-margin">
-<span id="update-s" class="chip primary-container center-align s"></span>
-<nav class="wrap no-margin">
+<main>
+<nav class="wrap small-margin">
   <label class="checkbox">
     <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);">
     <span>récent</span>
@@ -351,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function() {
   </label>
   <label class="checkbox">
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
-    <span>>top tier</span>
+    <span>top tier</span>
   </label>
   <label class="checkbox">
     <input type="checkbox" id="allserials" onchange="setAllSerials(this.checked);">
@@ -369,9 +367,9 @@ document.addEventListener("DOMContentLoaded", function() {
     <i>arrow_drop_down</i>
   </div>
   <div class="chip circle transparent" id="notify" onClick="toggleNotify()"></div>
-  <div class="form-label"><span id="feeicon"></span><a id="feelink" href="fee.html"></a></div>
+  <div class="chip border l m "><span id="feeicon"></span><a id="feelink" href="fee.html"></a></div>
 </nav>
-<div class="grid" id="tables"></div>
+<div class="grid small-margin" id="tables"></div>
 </main>
 </body>
 </html>

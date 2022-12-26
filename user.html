@@ -3,7 +3,7 @@
 <head>
 <title>Profil utilisateur</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="color-scheme" content="dark light">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
@@ -227,6 +227,7 @@ function showPacks(packs) {
 
 // main
 async function main() {
+  document.querySelector("#update").innerHTML = "<a class='loader small'></a>Chargement ...";
   let tables = {
     tableHalloween: "Hall<span class='emoji'>🎃</span>ween",
     tablePlatinium: "Platine",
@@ -247,7 +248,6 @@ async function main() {
   for( const key in tables )
     t += createTable(key, tables[key]);
   document.querySelector("#tables").innerHTML = t;
-  document.querySelector("#update").innerHTML = "Loading...";
 
   let searchParams = new URLSearchParams(window.location.search);
   let hiddenClass = [];
@@ -285,7 +285,8 @@ async function main() {
   }
 }
 
-function initDarkMode() {
+async function initDarkMode() {
+  await ui("theme", "#0061a6");
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ui('mode', 'dark');
   }
@@ -319,7 +320,6 @@ document.addEventListener("DOMContentLoaded", function() {
   #tables th {text-align: center;}
   #tables td:nth-child(2) {text-align: right;}
   #tables table td, #tables table th {width: unset;}
-
   #tableHalloween #card a, #tableHalloween th {color: #ff9800;}
   #tablePlatinium #card a, #tablePlatinium th {color: #ccad00;}
   #tableLowTen #serial, #tableLowTen th {color: #cf5ffc;}
@@ -331,7 +331,9 @@ document.addEventListener("DOMContentLoaded", function() {
   #tableLowHundred {background-color: #03a9f410;}
   #tableLowFiveHundred {background-color: #4caf5020;}
   #tableLowThousand {background-color: #88888820;}
-
+  @media only screen and (max-width: 600px) {
+    #tables table td {font-size: 10px !important;}
+  }
   .in #direction, .in #price {color: #f8312f;}
   #packs div, #cards div, #missing div {font-size: 12px;}
   .card img {width: 48px;}
@@ -348,7 +350,19 @@ document.addEventListener("DOMContentLoaded", function() {
 </style>
 </head>
 <body class="light">
-<header class="primary responsive fixed medium-elevate">
+  <nav class="primary no-space s">
+    <div class="space"></div>
+    <a class="circle round small" href="index.html"><i class="small">home</i></a>
+    <a class="circle round small" href="offers.html"><i class="small">shopping_cart</i></a>
+    <a class="circle round small" href="transfers.html"><i class="small">receipt_long</i></a>
+    <a class="primary-container circle round small" href="user.html"><i class="small">person_search</i></a>
+    <a class="circle round small" href="fee.html"><i class="small">currency_exchange</i></a>
+    <a class="circle round small" href="packs.html"><i class="small">view_carousel</i></a>
+    <a class="circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
+    <div class="max"></div>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
+  </nav>
+<header class="responsive fixed primary medium-elevate m l">
   <nav>
     <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
@@ -362,16 +376,15 @@ document.addEventListener("DOMContentLoaded", function() {
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
-<main class="small-margin">
-<div id="options" class="field small small-margin">
-  <nav>
-    <nav class="no-space">
+<main>
+<nav class="wrap small-margin">
+  <nav class="no-space">
     <div class="field label border small left-round">
       <input type="text" id="username">
       <label>Pseudo</label>
     </div>
     <button class="right-round" onClick="main();return false">Envoyer</button>
-    </nav>
+  </nav>
     <label class="checkbox">
       <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);">
       <span>récent</span>
@@ -382,7 +395,7 @@ document.addEventListener("DOMContentLoaded", function() {
     </label>
     <label class="checkbox">
       <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
-      <span>>top tier</span>
+      <span>top tier</span>
     </label>
     <div class="field label suffix border small">
       <select class="form-select" id="sorting" onChange="setSorting(this.value);">
@@ -395,10 +408,9 @@ document.addEventListener("DOMContentLoaded", function() {
       <label class="active">Tri</label>
       <i>arrow_drop_down</i>
     </div>
-    <div class="chip circle transparent" id="notify" onClick="toggleNotify()"></div>
     <div class="form-label"><span id="feeicon"></span><a id="feelink" href="fee.html"></a></div>
   </nav>
-</div>
+
 
 <div class="row">
   <div class="col">

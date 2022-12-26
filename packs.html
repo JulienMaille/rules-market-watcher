@@ -3,7 +3,7 @@
 <head>
 <title>Description des packs</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="color-scheme" content="dark light">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
@@ -26,9 +26,9 @@ function showCards(cards, total) {
   for( c of cards ) {
     quantity = c.quantity==null ? total/cards.length : c.quantity;
     perc = (100*quantity/total);
-    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a><br>"
-       + quantity + "<br>"
-       + "<span class='perc'>" + (perc).toFixed(perc>0.1 ? 1 : 2) + "%</span>"
+    t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "'><img src='" + c.cardModel.pictureUrl + "'></a>"
+       + "<div>" + quantity + "</div>"
+       + "<div class='perc'>" + (perc).toFixed(perc>0.1 ? 1 : 2) + "%</div>"
        + "</div>";
   }
   return t + "</div>";
@@ -37,6 +37,7 @@ function showCards(cards, total) {
 // table creation and population
 function createPack(img, summary, details) {
   return `
+<div class="l6 m12 s12">
   <article>
     <details>
       <summary class="none">
@@ -45,12 +46,13 @@ function createPack(img, summary, details) {
           <div class="max">
             ${summary}
           <\/div>
-          <i>arrow_drop_down<\/i>
+          <i class="extra">arrow_drop_down<\/i>
         <\/div>
       <\/summary>
       <p>${details}<\/p>
     <\/details>
-  <\/article>`;
+  <\/article>
+<\/div>`;
 }
 
 function showPack(p) {
@@ -68,20 +70,21 @@ function showPack(p) {
   let percPlat = nbPlatinium>0 ? nbPlatinium/(nbPlatinium+nbCommon) : 0;
 
   let url = "https://rules.art/pack/" + p.slug;
-  let t = "<a href='" + url + "'><h6>" + p.displayName + "</h6></a><br>"
+  let t = "<a href='" + url + "'><h6>" + p.displayName + "</h6></a><div>"
         + (p.maxBuyableSupply != null ? p.maxBuyableSupply + " packs mis en vente, " : "")
         + p.availableQuantity + " par personne"
-        + "<br>contient " + p.cardModelsCount + " cartes différentes"
+        + "</div><div>contient " + p.cardModelsCount + " cartes différentes"
         + (percPlat>0 ? ", " + (100*percPlat).toFixed(percPlat>0.05 ? 0 : 1) + "% de platine, " + (100*(1-(1-percPlat)**3)).toFixed(1) + "% de packs avec au moins une platine" : "")
-        + "<br>distribué à " + p.supply + " exemplaires"
+        + "</div><div>distribué à " + p.supply + " exemplaires"
         + (closed>0 ? " dont " + closed + " toujours scellés (" + (100*closed/p.supply).toFixed(1) + "%)" : "")
-        + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " personnes" : "");
+        + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " personnes" : "")
+        + "</div>";
   document.querySelector("#packs").innerHTML += createPack(p.pictureUrl, t, showCards(p.cardModels, total));
 }
 
 // main
 async function main() {
-  document.querySelector("#packs").innerHTML = "Loading...";
+  document.querySelector("#update").innerHTML = "<a class='loader small'></a>Chargement ...";
   let packs = (await fetchClassicPacks()).data.allClassicPacks.nodes;
   packs.push((await fetchLastStarterPack()).data.lastStarterPack);
   document.querySelector("#packs").innerHTML = "";
@@ -89,7 +92,8 @@ async function main() {
   document.querySelector("#update").innerHTML = "<i>query_stats</i>Statistiques tirées de " + nbUsers + " collectioneurs.";
 }
 
-function initDarkMode() {
+async function initDarkMode() {
+  await ui("theme", "#0061a6");
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ui('mode', 'dark');
   }
@@ -103,7 +107,6 @@ document.addEventListener("DOMContentLoaded", function() {
   initDarkMode();
   main();
 });
-
 </script>
 <style>
   nav {min-height: 48px !important;}
@@ -114,7 +117,19 @@ document.addEventListener("DOMContentLoaded", function() {
 </style>
 </head>
 <body class="light">
-<header class="primary responsive fixed medium-elevate">
+  <nav class="primary no-space s">
+    <div class="space"></div>
+    <a class="circle round small" href="index.html"><i class="small">home</i></a>
+    <a class="circle round small" href="offers.html"><i class="small">shopping_cart</i></a>
+    <a class="circle round small" href="transfers.html"><i class="small">receipt_long</i></a>
+    <a class="circle round small" href="user.html"><i class="small">person_search</i></a>
+    <a class="circle round small" href="fee.html"><i class="small">currency_exchange</i></a>
+    <a class="primary-container circle round small" href="packs.html"><i class="small">view_carousel</i></a>
+    <a class="circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
+    <div class="max"></div>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
+  </nav>
+<header class="responsive fixed primary medium-elevate m l">
   <nav>
     <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
@@ -128,8 +143,8 @@ document.addEventListener("DOMContentLoaded", function() {
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
-<main class="margin">
-<div id="packs"></div>
+<main>
+<div id="packs" class="grid small-margin"></div>
 </main>
 </body>
 </html>

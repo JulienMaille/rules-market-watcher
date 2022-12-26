@@ -3,13 +3,14 @@
 <head>
 <title>Accueil</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="color-scheme" content="dark light">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
 <script>
-function initDarkMode() {
+async function initDarkMode() {
+  await ui("theme", "#0061a6");
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ui('mode', 'dark');
   }
@@ -28,7 +29,19 @@ document.addEventListener("DOMContentLoaded", function() {
 </style>
 </head>
 <body class="light">
-<header class="primary responsive fixed medium-elevate">
+  <nav class="primary no-space s">
+    <div class="space"></div>
+    <a class="primary-container circle round small" href="index.html"><i class="small">home</i></a>
+    <a class="circle round small" href="offers.html"><i class="small">shopping_cart</i></a>
+    <a class="circle round small" href="transfers.html"><i class="small">receipt_long</i></a>
+    <a class="circle round small" href="user.html"><i class="small">person_search</i></a>
+    <a class="circle round small" href="fee.html"><i class="small">currency_exchange</i></a>
+    <a class="circle round small" href="packs.html"><i class="small">view_carousel</i></a>
+    <a class="circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
+    <div class="max"></div>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
+  </nav>
+<header class="responsive fixed primary medium-elevate m l">
   <nav>
     <a href="index.html"><button class="fill circle"><i>home</i></button></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
@@ -44,16 +57,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </header>
 <main>
 <div class="container margin">
-  <div class="space"></div>
   <h4 class="center-align primary-text">Outils et infos pour Rules.art</h4>
-  <div class="space"></div>
   <div class="grid">
     <div class="s12 m6 l3">
       <a href="offers.html">
         <article class="fill">
           <div class="row">
             <div class="col min">
-              <h2>🛒</h2>
+              <h3>🛒</h3>
             </div>
             <div class="col">
               <h5 class="no-margin">Offres</h5>
@@ -71,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <article class="fill">
           <div class="row">
             <div class="col min">
-              <h2>🧾</h2>
+              <h3>🧾</h3>
             </div>
             <div class="col">
               <h5 class="no-margin">Ventes</h5>
@@ -89,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <article class="fill">
           <div class="row">
             <div class="col min">
-              <h2>🤑</h2>
+              <h3>🤑</h3>
             </div>
             <div class="col">
               <h5 class="no-margin">Profils</h5>
@@ -107,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <article class="fill col s6 l3">
           <div class="row">
             <div class="col min">
-              <h2>💸</h2>
+              <h3>💸</h3>
             </div>
             <div class="col">
               <h5 class="no-margin">Frais</h5>
@@ -125,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <article class="fill col s6 l3">
           <div class="row">
             <div class="col min">
-              <h2>🃏</h2>
+              <h3>🃏</h3>
             </div>
             <div class="col">
               <h5 class="no-margin">Packs</h5>
@@ -143,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <article class="fill col s6 l3">
           <div class="row">
             <div class="col min">
-              <h2>🏅</h2>
+              <h3>🏅</h3>
             </div>
             <div class="col">
               <h5 class="no-margin">Hall of fame</h5>

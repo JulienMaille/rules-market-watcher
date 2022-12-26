@@ -3,7 +3,7 @@
 <head>
 <title>Hall of fame</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="color-scheme" content="dark light">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
@@ -83,7 +83,8 @@ async function main() {
   document.querySelector("#update").innerHTML = "<i>query_stats</i>Le top " + ranks.length + " possède " + totCard + " cartes soit " + (totCard/3).toFixed(0) + " packs";
 }
 
-function initDarkMode() {
+async function initDarkMode() {
+  await ui("theme", "#0061a6");
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ui('mode', 'dark');
   }
@@ -110,10 +111,25 @@ document.addEventListener("DOMContentLoaded", function() {
   #table50  tr:nth-child(odd), #table100 tr:nth-child(odd) {background-color: #ccad0015;}
   #table150 tr:nth-child(odd), #table200 tr:nth-child(odd) {background-color: #88888820;}
   #table250 tr:nth-child(odd), #table300 tr:nth-child(odd) {background-color: #d3883e20;}
+  @media only screen and (max-width: 600px) {
+    #tables table td {font-size: 10px !important;}
+  }
 </style>
 </head>
 <body class="light">
-<header class="primary responsive fixed medium-elevate">
+  <nav class="primary no-space s">
+    <div class="space"></div>
+    <a class="circle round small" href="index.html"><i class="small">home</i></a>
+    <a class="circle round small" href="offers.html"><i class="small">shopping_cart</i></a>
+    <a class="circle round small" href="transfers.html"><i class="small">receipt_long</i></a>
+    <a class="circle round small" href="user.html"><i class="small">person_search</i></a>
+    <a class="circle round small" href="fee.html"><i class="small">currency_exchange</i></a>
+    <a class="circle round small" href="packs.html"><i class="small">view_carousel</i></a>
+    <a class="primary-container circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
+    <div class="max"></div>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
+  </nav>
+<header class="responsive fixed primary medium-elevate m l">
   <nav>
     <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
@@ -127,8 +143,8 @@ document.addEventListener("DOMContentLoaded", function() {
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
-<main class="margin">
-  <div class="grid" id="tables"></div>
+<main>
+  <div class="grid small-margin" id="tables"></div>
 </main>
 </body>
 </html>

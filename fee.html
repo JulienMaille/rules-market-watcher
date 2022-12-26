@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
 <title>Profil utilisateur</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="color-scheme" content="dark light">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
@@ -48,7 +49,7 @@ async function main() {
 
   let dropStatus = gasPrice < maxGasPrice;
   toggleDropStatus(dropStatus);
-  document.querySelector("#maxPrice").innerHTML = dropStatus ? "✅ les drops sont actifs" : "<span class='clock' role='img'></span> les drops sont en attente";
+  document.querySelector("#maxPrice").innerHTML = dropStatus ? "<i class='primary-container'>check</i> les drops sont actifs" : "<span class='clock' role='img'></span> les drops sont en attente";
 
   let feeETH = gasPrice*buyGasUsage;
   let feeEUR = feeETH*ethEurRate;
@@ -75,7 +76,8 @@ async function main() {
   setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
 }
 
-function initDarkMode() {
+async function initDarkMode() {
+  await ui("theme", "#0061a6");
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
     ui('mode', 'dark');
   }
@@ -88,6 +90,7 @@ function initDarkMode() {
 document.addEventListener("DOMContentLoaded", function() {
   initDarkMode();
   document.querySelector("#melon").src = melon;
+  document.querySelector("#melon-s").src = melon;
   main();
 });
 </script>
@@ -96,7 +99,6 @@ document.addEventListener("DOMContentLoaded", function() {
   .dark .tooltip {background: rgba(0, 0, 0, 0.4); }
   .light .tooltip {background: rgba(255, 255, 255, 0.4); }
 
-  #hour, .fee {color: #9f04dc;}
   #feeGiftETH, #maxFeeGiftETH, #feeSellETH, #maxFeeSellETH, #feeBuyETH, #maxFeeBuyETH {color: #888;}
   #feeIcon {animation: scaleIn .8s infinite linear;}
   @keyframes scaleIn {
@@ -117,7 +119,6 @@ document.addEventListener("DOMContentLoaded", function() {
     83.33% {content: '🕙';}
     91.66% {content: '🕚';}
 }
-  #maxPrice {border-bottom: 1px dashed #9f04dc99; padding: 0 0 4px;}
   .ttip {
     font-size: 16pt;
     text-align: center;
@@ -141,7 +142,19 @@ document.addEventListener("DOMContentLoaded", function() {
 </style>
 </head>
 <body class="light">
-<header class="primary responsive fixed medium-elevate">
+  <nav class="primary no-space s">
+    <div class="space"></div>
+    <a class="circle round small" href="index.html"><i class="small">home</i></a>
+    <a class="circle round small" href="offers.html"><i class="small">shopping_cart</i></a>
+    <a class="circle round small" href="transfers.html"><i class="small">receipt_long</i></a>
+    <a class="circle round small" href="user.html"><i class="small">person_search</i></a>
+    <a class="primary-container circle round small" href="fee.html"><i class="small">currency_exchange</i></a>
+    <a class="circle round small" href="packs.html"><i class="small">view_carousel</i></a>
+    <a class="circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
+    <div class="max"></div>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
+  </nav>
+<header class="responsive fixed primary medium-elevate m l">
   <nav>
     <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
@@ -151,18 +164,16 @@ document.addEventListener("DOMContentLoaded", function() {
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <span id="update"></span>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
 <main class="container margin center-align">
 <div class="grid">
   <div class="l m l3 m2"></div>
-  <div id="text" class="l3 m4 s12 large-text">
+  <div id="text" class="l3 m4 s12">
     <div id="hour" class="primary-text"></div>
-    <br>
-    <div id="drops">
-      <span id="maxPrice"></span>
+    <div id="drops" class="margin">
+      <span id="maxPrice" class="border chip primary-border"><a class='loader small'></a>Chargement...</span>
       <span class="ttip">
         L'ouverture d'un pack sur la blockchain<br>
         génère des frais à la charge de Rules.<br>
@@ -172,38 +183,36 @@ document.addEventListener("DOMContentLoaded", function() {
         compromettent la rentabilité d'un pack à 9€.
       </span>
     </div>
-
-    <div class="space"></div>
     <div>
       <span id="feeIcon"></span>
       Achat
     </div>
-    <div class="fee"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
-    <div class="fee">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
+    <div class="primary-text"><span id="feeBuyETH"></span> (<span id="feeBuyEUR"></span>€)</div>
+    <div class="primary-text">Max <span id="maxFeeBuyETH"></span> (<span id="maxFeeBuyEUR"></span>€)</div>
 
     <div class="space"></div>
 
     <div>Mise en vente</div>
-    <div class="fee"><span id="feeSellETH"></span> (<span id="feeSellEUR"></span>€)</div>
-    <div class="fee">Max <span id="maxFeeSellETH"></span> (<span id="maxFeeSellEUR"></span>€)</div>
+    <div class="primary-text"><span id="feeSellETH"></span> (<span id="feeSellEUR"></span>€)</div>
+    <div class="primary-text">Max <span id="maxFeeSellETH"></span> (<span id="maxFeeSellEUR"></span>€)</div>
 
     <div class="space"></div>
 
     <div>Echange</div>
-    <div class="fee"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
-    <div class="fee">Max <span id="maxFeeGiftETH"></span> (<span id="maxFeeGiftEUR"></span>€)</div>
-    <div class="space"></div>
+    <div class="primary-text"><span id="feeGiftETH"></span> (<span id="feeGiftEUR"></span>€)</div>
+    <div class="primary-text">Max <span id="maxFeeGiftETH"></span> (<span id="maxFeeGiftEUR"></span>€)</div>
+
     <article class="center medium-width">
-      <h6>Comment juger le niveau de frais actuel de starkNet</h6>
+      <h6 class="center-align">Niveau de frais actuel de starkNet</h6>
       frais &lt 0.70€ 🟢<br>
       frais &lt 1.40€ 🟡<br>
       frais &lt 2.00€ 🔴<br>
       frais &gt 2.00€ 🔥
     </article>
   </div>
-  <div class="l3 m4 s12">
-    <img id="melon"/>
-  </div>
+  <div class="l3 m4 l m"><img id="melon"/></div>
+  <div class="s12 s"><img class="responsive" id="melon-s"/></div>
 </div>
+</main>
 </body>
 </html>
