@@ -75,8 +75,8 @@ function listings(hits, notify, ethEurRate) {
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
-  let update = hits.length + " offres le " + (new Date).toLocaleString([], dateOptions)
-             + " 💱 Total : " + euroFmt.format(sum);
+  let update = "<i>event</i>" + hits.length + " offres le " + (new Date).toLocaleString([], dateOptions)
+             + " <i>atr</i> Total : " + euroFmt.format(sum);
   document.querySelector("#update").innerHTML = update;
 };
 
@@ -239,7 +239,7 @@ async function main() {
     delta = hits.length-delta;
     if( delta>=1000 ) window.alert("Missing results");
     console.log(delta);
-    document.querySelector("#update").innerHTML = "<progress max='3000' value='"+blocks[i]+"'></progress>";
+    document.querySelector("#update").innerHTML = "<progress max='" + blocks.slice(-1)[0] + "' value='"+blocks[i]+"'></progress>";
   }
   if( allSerials )
     hits = hits.concat((await fetchOffers("serialNumber>"+blocks[blocks.length-1], "price:-0000000000000000000000")).hits);
@@ -318,7 +318,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <span id="update"></span>
+    <span id="update" class="chip primary-container"></span>
     <a href="premium.html" class="chip transparent">🎁 Premium</a>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>

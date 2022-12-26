@@ -86,7 +86,7 @@ async function main() {
   packs.push((await fetchLastStarterPack()).data.lastStarterPack);
   document.querySelector("#packs").innerHTML = "";
   for( p of packs ) showPack(p);
-  document.querySelector("#update").innerHTML = "Statistics from 📈" + nbUsers + " Rules users.";
+  document.querySelector("#update").innerHTML = "<i>query_stats</i>Statistiques tirées de " + nbUsers + " collectioneurs.";
 }
 
 function initDarkMode() {
@@ -124,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <a href="packs.html" class="chip fill"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <span id="update"></span>
+    <span id="update" class="chip primary-container"></span>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>

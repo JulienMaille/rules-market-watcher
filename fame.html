@@ -80,7 +80,7 @@ async function main() {
     insertInTable(pos, `<tr><td>${icon}</td><td>${name}</td><td>${score}%</td><td>${nbCards}</td></tr>`);
     pos++;
   }
-  document.querySelector("#update").innerHTML = "Les " + ranks.length + " premiers collectionneurs possèdent à eux seuls " + totCard + " cartes 📈 soit " + (totCard/3).toFixed(0) + " packs";
+  document.querySelector("#update").innerHTML = "<i>query_stats</i>Le top " + ranks.length + " possède " + totCard + " cartes soit " + (totCard/3).toFixed(0) + " packs";
 }
 
 function initDarkMode() {
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip fill"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <span id="update"></span>
+    <span id="update" class="chip primary-container"></span>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
