@@ -9,12 +9,16 @@
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
+<script src="js/listings.js?v=1"></script>
 <script>
 var trials = 0;
 function enterPremium() {
   if( trials==0 ) {
     document.getElementById("premium").classList.toggle("invalid");
     document.getElementById("error").classList.toggle("hide");
+  } else if( trials==1 ) {
+    document.getElementById("error").classList.toggle("hide");
+    document.getElementById("error2").classList.toggle("hide");
   } else if( trials==2 ) {
     document.getElementById("form").classList.toggle("hide");
     document.getElementById("texte").classList.toggle("hide");
@@ -33,7 +37,20 @@ ready(function() {
 </style>
 </head>
 <body class="light">
-<header class="primary responsive fixed medium-elevate">
+  <nav class="primary no-space s">
+    <div class="space"></div>
+    <a class="circle round small" href="index.html"><i class="small">home</i></a>
+    <a class="circle round small" href="offers.html"><i class="small">shopping_cart</i></a>
+    <a class="circle round small" href="transfers.html"><i class="small">receipt_long</i></a>
+    <a class="circle round small" href="user.html"><i class="small">person_search</i></a>
+    <a class="circle round small" href="fee.html"><i class="small">currency_exchange</i></a>
+    <a class="circle round small" href="packs.html"><i class="small">view_carousel</i></a>
+    <a class="circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
+    <div class="max"></div>
+    <a class="primary-container circle round small" href="premium.html">🎁</a>
+    <button class="circle transparent" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
+  </nav>
+<header class="responsive fixed primary medium-elevate m l">
   <nav>
     <a href="index.html"><button class="circle transparent"><i>home</i></button></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
@@ -43,13 +60,13 @@ ready(function() {
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <a href="premium.html" class="chip primary-container"><i class="green-text">attach_money</i>Premium</a>
-    <button class="circle transparent" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
+    <a href="premium.html" class="chip primary-container">🎁 Premium</a>
+    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
 <main>
 <div class="container margin">
-  <div class="space"></div>
+  <div class="space l m"></div>
   <div class="grid">
     <div class="l l4"></div>
     <div class="s12 m6 l4">
@@ -60,7 +77,7 @@ ready(function() {
           </div>
           <div class="col">
             <h5 class="no-margin">Premium</h5>
-            <div>Accès prioritaires aux offres les plus intéressantes</div>
+            <div>Accès prioritaires aux<br class="s"> offres les plus intéressantes</div>
           </div>
         </div>
         <div>
@@ -73,6 +90,7 @@ ready(function() {
                 <input type="password">
                 <label>Password</label>
                 <span id="error" class="error hide">Mot de passe incorrect</span>
+                <span id="error2" class="error hide">Mot de passe incorrect, 2ème essai</span>
                 <span id="helper" class="helper">Indice : symbole de ralliement des rulers</span>
               </div>
               <button class="right-round" onClick="enterPremium(); return false;">Go</button>
