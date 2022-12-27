@@ -224,7 +224,9 @@ function sortByCardSerial(a, b) {
 
 async function initDarkMode() {
   await ui("theme", "#0061a6");
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  if( window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ) {
+    ui('mode', 'dark');
+  } else if( (new Date()).getHours() < 8 || (new Date()).getHours() > 20 ) {
     ui('mode', 'dark');
   }
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
@@ -235,11 +237,11 @@ async function initDarkMode() {
 
 function ready(callback){
   // in case the document is already rendered
-  if (document.readyState!='loading') callback();
+  if( document.readyState!='loading' ) callback();
   // modern browsers
-  else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+  else if( document.addEventListener ) document.addEventListener('DOMContentLoaded', callback);
   // IE <= 8
-  else document.attachEvent('onreadystatechange', function(){
-    if (document.readyState=='complete') callback();
+  else document.attachEvent('onreadystatechange', function() {
+    if( document.readyState=='complete' ) callback();
   });
 }
