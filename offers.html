@@ -271,11 +271,18 @@ async function initDarkMode() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+if(document.readyState !== 'loading') { /* safari bug */
   initDarkMode();
   registerNotifications();
   main();
-});
+}
+else {
+  document.addEventListener("DOMContentLoaded", function() {
+    initDarkMode();
+    registerNotifications();
+    main();
+  });
+}
 </script>
 <style>
   nav {min-height: 48px !important;}

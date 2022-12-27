@@ -224,10 +224,16 @@ async function initDarkMode() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+if(document.readyState !== 'loading') {
   initDarkMode();
   main();
-});
+}
+else {
+  document.addEventListener("DOMContentLoaded", function() {
+    initDarkMode();
+    main();
+  });
+}
 </script>
 <style>
   nav {min-height: 48px !important;}
