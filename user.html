@@ -239,10 +239,10 @@ async function main() {
     tableHigh: "Supérieur à 2000"
   };
 
-  document.querySelector("#packs").innerHTML = "";
-  document.querySelector("#cards").innerHTML = "";
-  document.querySelector("#missing").innerHTML = "";
-  document.querySelector("#score").innerHTML = "";
+  document.querySelector("#packs").innerHTML = "<a class='loader small'></a>";
+  document.querySelector("#cards").innerHTML = "<a class='loader small'></a>";
+  document.querySelector("#missing").innerHTML = "<a class='loader small'></a>";
+  document.querySelector("#score").innerHTML = "<a class='loader small'></a>";
 
   let t = "";
   for( const key in tables )
@@ -262,6 +262,7 @@ async function main() {
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
 
   try {
+    document.getElementById("error").classList.add("hide");
     let username = document.getElementById("username").value.trim().toLowerCase();
     setUser(username);
 
@@ -281,7 +282,8 @@ async function main() {
     showPacks(user.packsBalances);
   }
   catch(e) {
-    document.querySelector("#update").innerHTML = "fetchUserId failed with: " + e;
+    document.getElementById("error").classList.remove("hide");
+    document.querySelector("#update").innerHTML = "Compte inconnu";
   }
 }
 
@@ -341,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
   #missing .card img {opacity: 30%;}
   #missing .card:hover img {opacity: 100%;}
   #missing div {overflow: hidden; width: 48px;}
-
+  .hide {display: none;}
   #scorecommon {background-color: #cf5ffc20; border-color: #cf5ffc;}
   #scoreplatinium {background-color: #88888820; border-color: #888888;}
   #scorehalloween {background-color: #ff980020; border-color: #ff9800;}
@@ -364,16 +366,16 @@ document.addEventListener("DOMContentLoaded", function() {
   </nav>
 <header class="responsive fixed primary medium-elevate m l">
   <nav>
-    <a href="index.html"><button class="transparent circle"><i>home</i></button></a>
+    <a href="index.html"><button class="circle transparent"><i>home</i></button></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
     <a href="transfers.html" class="chip transparent"><i>receipt_long</i>Ventes</a>
-    <a href="user.html" class="chip fill"><i>person_search</i>Profils</a>
+    <a href="user.html" class="chip primary-container"><i>person_search</i>Profils</a>
     <a href="fee.html" class="chip transparent"><i>currency_exchange</i>Frais</a>
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <span id="update" class="chip primary-container"></span>
-    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
+    <span id="update" class="chip fill"></span>
+    <button class="circle transparent" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
 <main>
@@ -382,6 +384,7 @@ document.addEventListener("DOMContentLoaded", function() {
     <div class="field label border small left-round">
       <input type="text" id="username">
       <label>Pseudo</label>
+      <span id="error" class="error hide">Pseudo Rules incorrect</span>
     </div>
     <button class="right-round" onClick="main();return false">Envoyer</button>
   </nav>
