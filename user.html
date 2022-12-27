@@ -16,7 +16,7 @@ var recentDef = 2 * 60 * 60 * 1000; // recent is hard-coded to 2h
 allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits, address, ethEurRate) {
-  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
+  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
   let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
   let euroFmt = new Intl.NumberFormat([], euroOptions);
@@ -72,7 +72,7 @@ function listings(hits, address, ethEurRate) {
           + "<td id='direction'>" + dirIcon + "</td>"
           + "<td id='other' class='ID" + otherAddress + "'></td>"
           + "<td id='price'>" + priceEUR + "</td>"
-          + "<td id='date'>" + date.toLocaleString([], dateOptions) + "</td>";
+          + "<td id='date'>" + date.toLocaleString([], dateOptions) + "<span class='m l'> " + date.toLocaleString([], timeOptions) + "</span></td>";
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
@@ -86,7 +86,7 @@ function listings(hits, address, ethEurRate) {
       document.querySelectorAll(userClass).forEach(function(td) {
         let url = "https://rules.art/user/" + user.slug + "/cards";
         td.innerHTML = "<a href='user.html?user=" + user.slug + "' onClick='document.getElementById(\"username\").value=\"" + user.slug + "\";main();return false;'>" + user.username + "</a>"
-                     + " <a href='" + url + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
+                     + " <a class='m l' href='" + url + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
       });
     }
   })
@@ -98,7 +98,7 @@ function listings(hits, address, ethEurRate) {
 // table creation and population
 function createTable(id, text) {
   return `
-  <table id="${id}" class="s6 m4 l2 no-space">
+  <table id="${id}" class="s12 m4 l3 no-space">
     <thead>
       <tr>
         <th colspan=6>${text}<\/th>
@@ -313,7 +313,7 @@ document.addEventListener("DOMContentLoaded", function() {
   .light .recent #date {background: #FF0;}
   .light .lessRecent #date {background: #FFC;}
   .light .out #direction, .light .out #price {color: #2da44e;}
-  #date {color: #888; cursor: help; font-size: 11px;}
+  #date {color: #888; font-size: 11px;}
   .emoji {font-size: 10pt; }
   #tables table {border: 1px solid #80808045; text-align: right; align-self: flex-start;}
   #tables a:hover {text-decoration: underline;}
@@ -332,7 +332,8 @@ document.addEventListener("DOMContentLoaded", function() {
   #tableLowFiveHundred {background-color: #4caf5020;}
   #tableLowThousand {background-color: #88888820;}
   @media only screen and (max-width: 600px) {
-    #tables table td {font-size: 10px !important;}
+    #tables table {font-size: 11px;}
+    #date {font-size: 10px !important;}
   }
   .in #direction, .in #price {color: #f8312f;}
   .pack, .card {display: inline-block; vertical-align: top;}
@@ -410,10 +411,10 @@ document.addEventListener("DOMContentLoaded", function() {
   <div id="score"></div>
   <div id="scorepercard"></div>
 </nav>
-<div id="packs" class="no-space small-text"></div>
-<div id="cards" class="no-space small-text"></div>
-<div id="missing" class="no-space small-text"></div>
-<div class="grid" id="tables"></div>
+<div id="packs" class="no-space small-text small-margin"></div>
+<div id="cards" class="no-space small-text small-margin"></div>
+<div id="missing" class="no-space small-text small-margin"></div>
+<div class="grid small-margin" id="tables"></div>
 </main>
 </body>
 </html>

@@ -18,7 +18,7 @@ var timeoutNotif = null;
 allCardModels = allCardModels.data.allCardModels;
 
 function listings(hits, notify, ethEurRate) {
-  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit"};
+  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit"};
   let timeOptions = {hour: "2-digit", minute: "2-digit"};
   let euroOptions = {style: "currency", currency: "EUR", maximumFractionDigits: 0};
   let euroFmt = new Intl.NumberFormat([], euroOptions);
@@ -63,7 +63,7 @@ function listings(hits, notify, ethEurRate) {
 
     let dateText = "";
     if( listing.available )
-      dateText = date.toLocaleString([], dateOptions);
+      dateText = date.toLocaleString([], dateOptions) + "<span class='m l'> " + date.toLocaleString([], timeOptions) + "</span>";
     else
       dateText = "Transfer " + date.toLocaleTimeString([], timeOptions);
     let sellerOnClick = `class="ID${listing.sellerStarknetAddress}" onClick="fetchUser(this, '${listing.sellerStarknetAddress}'); return false;"`;
@@ -83,7 +83,7 @@ function listings(hits, notify, ethEurRate) {
 // table creation and population
 function createTable(id, text) {
   return `
-  <table id="${id}" class="s6 m4 l2 no-space">
+  <table id="${id}" class="s6 m4 l2 no-space center-align">
     <thead>
       <tr>
         <th colspan=4>${text}<\/th>
@@ -190,7 +190,7 @@ function fetchUser(clickedDom, userAddresses) {
         td.removeAttribute("onclick");
         let url = "https://rules.art/user/" + user.slug + "/cards";
         td.innerHTML = "<a href='user.html?user=" + user.slug + "'>" + user.username + "</a>"
-                     + " <a href='" + url + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
+                     + " <a class='m l' href='" + url + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
       });
     }
   });
@@ -283,14 +283,14 @@ document.addEventListener("DOMContentLoaded", function() {
   .dark .lessRecent #date {color: #BB0;}
   .light .recent #date {background: #FF0;}
   .light .lessRecent #date {background: #FFC;}
+  #card {text-align: right;}
   #date {color: #888; cursor: help; font-size: 11px;}
   .emoji {font-size: 10pt;}
-  #tables table {border: 1px solid #80808045; text-align: right; align-self: flex-start;}
+  #tables table {border: 1px solid #80808045; align-self: flex-start;}
   #tables a:hover {text-decoration: underline;}
-  #tables th {text-align: center;}
   #tables table td, #tables table th {width: unset;}
-  #tableHalloween #card a, #tableHalloween th {color: #ff9800;}
-  #tablePlatinium #card a, #tablePlatinium th {color: #ccad00;}
+  #tableHalloween #serial, #tableHalloween th {color: #ff9800;}
+  #tablePlatinium #serial, #tablePlatinium th {color: #ccad00;}
   #tableLowTen #serial, #tableLowTen th {color: #cf5ffc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #4caf50;}
@@ -301,7 +301,8 @@ document.addEventListener("DOMContentLoaded", function() {
   #tableLowFiveHundred {background-color: #4caf5020;}
   #tableLowThousand {background-color: #88888820;}
   @media only screen and (max-width: 600px) {
-    #tables table td {font-size: 10px !important;}
+    #tables table {font-size: 10px;}
+    #date {font-size: 9px !important;}
   }
   #feeicon {animation: scaleIn .8s infinite linear;}
   @keyframes scaleIn {

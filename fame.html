@@ -75,7 +75,7 @@ async function main() {
     let url1 = "user.html?user=" + u.username;
     let url2 = "https://rules.art/user/" + u.username + "/cards";
     let name = "<a href='" + url1 + "'>" + u.username +"</a>"
-             + " <a href='" + url2 + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
+             + " <a class='m l' href='" + url2 + "' target='_blank'><img class='responsive' src='img/rules-logo.png'></a>";
 
     insertInTable(pos, `<tr><td>${icon}</td><td>${name}</td><td>${score}%</td><td>${nbCards}</td></tr>`);
     pos++;
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
   #table150 tr:nth-child(odd), #table200 tr:nth-child(odd) {background-color: #88888820;}
   #table250 tr:nth-child(odd), #table300 tr:nth-child(odd) {background-color: #d3883e20;}
   @media only screen and (max-width: 600px) {
-    #tables table td {font-size: 10px !important;}
+    #tables table {font-size: 10px !important;}
   }
 </style>
 </head>
