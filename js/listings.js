@@ -221,3 +221,25 @@ function sortByCardSerial(a, b) {
     ? (a.serialNumber < b.serialNumber ? -1 : 1)
     : a.cardInfo.artist.displayName.toLowerCase() < b.cardInfo.artist.displayName.toLowerCase() ? -1 : 1;
 }
+
+async function initDarkMode() {
+  await ui("theme", "#0061a6");
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    ui('mode', 'dark');
+  }
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+    const newColorScheme = event.matches ? "dark" : "light";
+    ui('mode', newColorScheme);
+  });
+}
+
+function ready(callback){
+  // in case the document is already rendered
+  if (document.readyState!='loading') callback();
+  // modern browsers
+  else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+  // IE <= 8
+  else document.attachEvent('onreadystatechange', function(){
+    if (document.readyState=='complete') callback();
+  });
+}

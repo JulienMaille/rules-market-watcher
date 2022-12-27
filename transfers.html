@@ -213,27 +213,10 @@ async function main() {
   if( hiddenClass.length==0 ) hideEmptyTables();
 }
 
-async function initDarkMode() {
-  await ui("theme", "#0061a6");
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    ui('mode', 'dark');
-  }
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const newColorScheme = event.matches ? "dark" : "light";
-    ui('mode', newColorScheme);
-  });
-}
-
-if(document.readyState !== 'loading') {
+ready(function() {
   initDarkMode();
   main();
-}
-else {
-  document.addEventListener("DOMContentLoaded", function() {
-    initDarkMode();
-    main();
-  });
-}
+});
 </script>
 <style>
   nav {min-height: 48px !important;}

@@ -287,18 +287,7 @@ async function main() {
   }
 }
 
-async function initDarkMode() {
-  await ui("theme", "#0061a6");
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    ui('mode', 'dark');
-  }
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const newColorScheme = event.matches ? "dark" : "light";
-    ui('mode', newColorScheme);
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+ready(function() {
   initDarkMode();
   let searchParams = new URLSearchParams(window.location.search);
   if( searchParams.has("user") ) {

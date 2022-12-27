@@ -83,18 +83,7 @@ async function main() {
   document.querySelector("#update").innerHTML = "<i>query_stats</i>Le top " + ranks.length + " possède " + totCard + " cartes soit " + (totCard/3).toFixed(0) + " packs";
 }
 
-async function initDarkMode() {
-  await ui("theme", "#0061a6");
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    ui('mode', 'dark');
-  }
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const newColorScheme = event.matches ? "dark" : "light";
-    ui('mode', newColorScheme);
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+ready(function() {
   initDarkMode();
   main();
 });

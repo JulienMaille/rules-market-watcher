@@ -9,16 +9,6 @@
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
 <script>
-function initDarkMode() {
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    ui('mode', 'dark');
-  }
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const newColorScheme = event.matches ? "dark" : "light";
-    ui('mode', newColorScheme);
-  });
-}
-
 var trials = 0;
 function enterPremium() {
   if( trials==0 ) {
@@ -31,7 +21,7 @@ function enterPremium() {
   trials++;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+ready(function() {
   initDarkMode();
 });
 </script>

@@ -12,8 +12,8 @@
 <script src="js/listings.js?v=1"></script>
 <script>
 var nbUsers = 24606;
-var closedPacks = {"Launch Pack S1":1312,"Honey Base Pack":68,"Halloween Pack":462,"Wave Base Pack":166,"Dark Base Pack":100,"Santa Pack":572,"Starter Pack S1":177,"Kush Base Pack":84};
-var usersWithPack = {"Launch Pack S1":869,"Honey Base Pack":68,"Halloween Pack":344,"Wave Base Pack":115,"Dark Base Pack":76,"Santa Pack":318,"Starter Pack S1":177,"Kush Base Pack":84};
+var closedPacks = {"Launch Pack S1":1312,"Honey Base Pack":68,"Halloween Pack":461,"Wave Base Pack":166,"Dark Base Pack":100,"Santa Pack":533,"Starter Pack S1":176,"Kush Base Pack":84};
+var usersWithPack = {"Launch Pack S1":869,"Honey Base Pack":68,"Halloween Pack":344,"Wave Base Pack":115,"Dark Base Pack":76,"Santa Pack":301,"Starter Pack S1":176,"Kush Base Pack":84};
 
 allCardModels = allCardModels.data.allCardModels;
 
@@ -92,18 +92,7 @@ async function main() {
   document.querySelector("#update").innerHTML = "<i>query_stats</i>Statistiques tirées de " + nbUsers + " collectionneurs.";
 }
 
-async function initDarkMode() {
-  await ui("theme", "#0061a6");
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    ui('mode', 'dark');
-  }
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-    const newColorScheme = event.matches ? "dark" : "light";
-    ui('mode', newColorScheme);
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function() {
+ready(function() {
   initDarkMode();
   main();
 });
