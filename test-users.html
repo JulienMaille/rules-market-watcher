@@ -20,7 +20,7 @@ async function sumCards(json, userAddress) {
   if( q>60 ) {
     let whaleName = (await fetchUserNames([userAddress])).data.usersByStarknetAddresses[0].username;
     whales.push(whaleName + " -> " + q);
-    console.log(whales);
+    //console.log(whales);
   }
   if( q in counters )
     counters[q]++;
