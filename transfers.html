@@ -89,7 +89,7 @@ function createTable(id, text) {
 
 function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
   let tableId = "#tableHigh";
-  if( !cardIsCommon ) tableId = "#table" + scarcity;
+  if( !cardIsCommon ) tableId = "#table" + scarcity + (serialNumber <= 1000 ? "LowThousand" : "High");
   else if( serialNumber <= 10 ) tableId = "#tableLowTen";
   else if( serialNumber <= 100 ) tableId = "#tableLowHundred";
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
@@ -150,7 +150,7 @@ function setSorting(value) {
 }
 
 function fetchUser(clickedDom, userAddresses) {
-  clickedDom.innerHTML = "Loading...";
+  clickedDom.innerHTML = "<a class='loader small'></a>";
   fetchUserNames([userAddresses]).then(json => {
     for( const user of json.data.usersByStarknetAddresses ) {
       let userClass = ".ID" + userAddresses;
@@ -168,8 +168,9 @@ function fetchUser(clickedDom, userAddresses) {
 async function main() {
   document.querySelector("#update").innerHTML = "<a class='loader small'></a>Chargement ...";
   let tables = {
-    tableHalloween: "Hall<span class='emoji'>🎃</span>ween",
-    tablePlatinium: "Platine",
+    tableHalloweenLowThousand: "Hall<span class='emoji'>🎃</span>ween inf. 1000",
+    tableHalloweenHigh: "Hall<span class='emoji'>🎃</span>ween sup 1000",
+    tablePlatiniumLowThousand: "Platine",
     tableLowTen: "Inférieur à 10",
     tableLowHundred: "Inférieur à 100",
     tableLowFiveHundred: "Inférieur à 500",
@@ -197,7 +198,7 @@ async function main() {
 
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
   let hits = [];
-  let blocks = allSerials ? [0,250,500,1000,1500,2000,2250,2500,3000] : [0,250,500,1000];
+  let blocks = allSerials ? [1000,1500,2000,2250,2500,3000] : [0,250,500,1000];
   for( var i=0; i<blocks.length-1; i++ ) {
     var delta = hits.length;
     hits = hits.concat((await fetchTransfers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "price:-0000000000000000000000")).hits);
