@@ -1,6 +1,6 @@
-var giftGasUsage = 10284;
-var sellGasUsage = 12708;
-var buyGasUsage = 36503;
+var giftGasUsage = 5416;
+var sellGasUsage = 9064;
+var buyGasUsage = 15714;
 
 async function fetchEthPrice() {
   return await fetch("https://api.coinbase.com/v2/prices/ETH-EUR/spot").then(response => {
