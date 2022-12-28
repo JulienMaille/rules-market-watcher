@@ -10,7 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
 <script src="js/cards.js?v=1"></script>
-<script src="js/listings.js?v=1"></script>
+<script src="js/listings.js?v=2"></script>
 <script src="js/costs.js?v=1"></script>
 <script>
 var recentDef = 24 * 60 * 60 * 1000; // recent is hard-coded to 24h
@@ -77,9 +77,10 @@ function listings(hits, address, ethEurRate) {
     insertInTable(t, cardIsCommon, card.scarcity.name, listing.serialNumber, classes);
   }
 
-  let update = "<i>swap_horiz</i>" + hits.length + " transferts"
-            + " - Total achats : " + euroFmt.format(sumIn) + " / Total ventes : " + euroFmt.format(sumOut);
+  let update = "<i>swap_horiz</i>" + hits.length + " transferts, "
+            + euroFmt.format(sumIn) + " d'achat, " + euroFmt.format(sumOut) + " de vente";
   document.querySelector("#update").innerHTML = update;
+  document.querySelector("#update-2").innerHTML = update;
 
   fetchUserNames(userAddresses).then(json => {
     for( const user of json.data.usersByStarknetAddresses ) {
@@ -241,9 +242,9 @@ async function main() {
   };
 
   document.querySelector("#packs").innerHTML = "<a class='loader small'></a>";
-  document.querySelector("#cards").innerHTML = "<a class='loader small'></a>";
-  document.querySelector("#missing").innerHTML = "<a class='loader small'></a>";
-  document.querySelector("#score").innerHTML = "<a class='loader small'></a>";
+  document.querySelector("#cards").innerHTML = "";
+  document.querySelector("#missing").innerHTML = "";
+  document.querySelector("#score").innerHTML = "";
 
   let t = "";
   for( const key in tables )
@@ -264,10 +265,10 @@ async function main() {
 
   try {
     document.getElementById("error").classList.add("hide");
-    let username = document.getElementById("username").value.trim().toLowerCase();
-    setUser(username);
+    let userSlug = document.getElementById("username").value.trim().toLowerCase();
+    setUser(userSlug);
 
-    let user = (await fetchUserId(username)).data.user;
+    let user = (await fetchUserId(userSlug)).data.user;
     let address = user.starknetWallet.address;
     let id = user.id;
     listings((await fetchTransfers(`fromStarknetAddress:${address} OR toStarknetAddress:${address}`)).hits, address, ethEurRate);
@@ -285,6 +286,7 @@ async function main() {
   catch(e) {
     document.getElementById("error").classList.remove("hide");
     document.querySelector("#update").innerHTML = "Compte inconnu";
+    document.querySelector("#update-2").innerHTML = e;
   }
 }
 
@@ -372,11 +374,11 @@ ready(function() {
 <nav class="wrap small-margin">
   <nav class="no-space">
     <div class="field label border small left-round">
-      <input type="text" id="username">
+      <input type="text" id="username" onkeydown="if(event.keyCode == 13) document.getElementById('go').click();">
       <label>Pseudo</label>
       <span id="error" class="error hide">Pseudo Rules incorrect</span>
     </div>
-    <button class="right-round" onClick="main();return false">Envoyer</button>
+    <button id="go" class="right-round" onClick="main();return false">Envoyer</button>
   </nav>
   <label class="checkbox">
     <input type="checkbox" id="old" onchange="setVisibility('old', this.checked);">
@@ -404,6 +406,7 @@ ready(function() {
   <div id="score"></div>
   <div id="scorepercard"></div>
 </nav>
+<span id="update-2" class="chip fill s"></span>
 <div id="packs" class="no-space small-text small-margin"></div>
 <div id="cards" class="no-space small-text small-margin"></div>
 <div id="missing" class="no-space small-text small-margin"></div>

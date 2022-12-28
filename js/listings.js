@@ -102,8 +102,8 @@ function cleanQuery(q) {
   return JSON.stringify(q).replace(/\"/g, '\\\"');
 }
 
-async function fetchUserId(username) {
-  var username = cleanQuery(username);
+async function fetchUserId(userSlug) {
+  var username = cleanQuery(userSlug);
   var picSize = cleanQuery("width=96");
   return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
