@@ -33,17 +33,19 @@ function toggleDropStatus(value) {
 }
 
 // notifications
+function isPushNotificationSupported() {
+  return "serviceWorker" in navigator && "PushManager" in window;
+}
+
 function registerNotifications() {
-  if( !'PushManager' in window || !'serviceWorker' in navigator || !'Notification' in window ) {
-    document.querySelector("#notify").classList.add("hide");
-    return;
-  }
-  navigator.serviceWorker.register("sw.js");
+  if( !isPushNotificationSupported() ) return;
+  navigator.serviceWorker.register("js/sw.js");
   if( Notification.permission !== "granted" )
     Notification.requestPermission();
 }
 
 function sendNotification(content, picture) {
+  if( !isPushNotificationSupported() ) return;
   Notification.requestPermission((result) => {
     if( result != "granted" ) return;
     navigator.serviceWorker.ready.then((registration) => {
@@ -91,6 +93,7 @@ ready(function() {
   initDarkMode();
   document.querySelector("#melon").src = melon;
   document.querySelector("#melon-s").src = melon;
+  registerNotifications();
   main();
 });
 </script>
