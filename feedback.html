@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Accueil</title>
+<title>Feedback</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#0061a6">
@@ -19,7 +19,7 @@ function pingDiscord(msg="Quelqu'un est tombé sur l'easter egg") {
     "body": `{
       "content": "${msg}",
       "embeds": null,
-      "username": "Premium"
+      "username": "Feedback"
     }`,
     "method": "POST"
   });
@@ -31,29 +31,12 @@ function sendClicked() {
   ta.value = "Envoyé";
 }
 
-var trials = 0;
-function enterPremium() {
-  if( trials==0 ) {
-    document.getElementById("premium").classList.toggle("invalid");
-    document.getElementById("error").classList.toggle("hide");
-  } else if( trials==1 ) {
-    document.getElementById("error").classList.toggle("hide");
-    document.getElementById("error2").classList.toggle("hide");
-  } else if( trials==2 ) {
-    document.getElementById("form").classList.toggle("hide");
-    document.getElementById("texte").classList.toggle("hide");
-    pingDiscord();
-  }
-  trials++;
-}
-
 ready(function() {
   initDarkMode();
 });
 </script>
 <style>
   nav {min-height: 48px !important;}
-  .hide {display: none;}
   #texte {text-align: justify;}
 </style>
 </head>
@@ -68,7 +51,6 @@ ready(function() {
     <a class="circle round small" href="packs.html"><i class="small">view_carousel</i></a>
     <a class="circle round small" href="fame.html"><i class="small">workspace_premium</i></a>
     <div class="max"></div>
-    <a class="primary-container circle round small" href="premium.html">🎁</a>
     <button class="circle transparent" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i class="small">light_mode</i></button>
   </nav>
 <header class="responsive fixed primary medium-elevate m l">
@@ -81,7 +63,6 @@ ready(function() {
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <a href="premium.html" class="chip primary-container">🎁 Premium</a>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
@@ -94,55 +75,37 @@ ready(function() {
       <article class="fill">
         <div class="row">
           <div class="col min">
-            <h2>💲</h2>
+            <h2>📣</h2>
           </div>
           <div class="col">
-            <h5 class="no-margin">Premium</h5>
-            <div>Accès prioritaires aux<br class="s"> offres les plus intéressantes</div>
+            <h5 class="no-margin">Feedback</h5>
+            <div>utilisateur</div>
           </div>
         </div>
-        <div>
-          <div class="space"></div>
-          <div id="form">
-            <div>Veuillez entrer votre le mot de passe ci-dessous :</div>
-            <nav class="no-space">
-              <div id="premium" class="field label prefix border small left-round max">
-                <i>visibility</i>
-                <input type="password">
-                <label>Password</label>
-                <span id="error" class="error hide">Mot de passe incorrect</span>
-                <span id="error2" class="error hide">Mot de passe incorrect, 2ème essai</span>
-                <span id="helper" class="helper">Indice : symbole des rulers</span>
-              </div>
-              <button class="right-round" onClick="enterPremium(); return false;">Go</button>
-            </nav>
+        <div class="space"></div>
+        <div class="row small-margin">
+          <div class="col max" id="texte">
+            Si vous avez fait des bonnes affaires grâce aux listings des offres du market-place ou si
+            vos souhaitez me remercier, vous pouvez m'envoyer une carte parmi celles qui me manquent
+            ou encore voter pour moi au prochain concours !
+            <br>
+            Merci aux donateurs : WorZeX, Jules_crb, Simple, Tresingo, Ambassadeur !
           </div>
-          <div id="texte" class="hide small-margin">
-            <h5>Désolé 🤪</h5>
-            <div>Il n'y a pas et il n'y aura jamais de Premium ici ! Tout est disponible pour tout le monde. Le code source de ce site est même librement accessible sur Github.</div>
-            <div class="row">
-              <div class="col max">
-                Si vous avez fait des bonnes affaires grâce aux listings des offres du market-place ou si
-                vos souhaitez me remercier, vous pouvez m'envoyer une carte parmi celles qui me manquent
-                ou encore voter pour moi au prochain concours !
-              </div>
-              <div class="col max m l">
-                <a class="chip primary center medium-elevate vertical" href="user.html?user=julienm"><i class="small">person_search</i>JulienM</a>
-              </div>
-            </div>
-            <a class="chip primary center medium-elevate margin s" href="user.html?user=julienm"><i class="small">person_search</i>JulienM</a>
-            <div>Merci aux donateurs : WorZeX, Jules_crb, Simple, Tresingo, Ambassadeur !</div>
-            <div class="field textarea label border">
-              <textarea id="msg"></textarea>
-              <label>Message</label>
-            </div>
-            <div class="right-align">
-              <button class="border secondary-text" onClick="sendClicked();">
-                <i>send</i>
-                <span>Envoyer</span>
-              </button>
-            </div>
+          <div class="col max m l">
+            <a class="chip primary center medium-elevate vertical" href="user.html?user=julienm"><i class="small">person_search</i>JulienM</a>
           </div>
+        </div>
+        <a class="chip primary center medium-elevate s" href="user.html?user=julienm"><i class="small">person_search</i>JulienM</a>
+        <div class="space"></div>
+        <div class="field textarea label border extra small-margin">
+          <textarea id="msg"></textarea>
+          <label>Message</label>
+        </div>
+        <div class="right-align">
+          <button class="border secondary-text" onClick="sendClicked();">
+            <i>send</i>
+            <span>Envoyer</span>
+          </button>
         </div>
       </article>
     </div>
