@@ -17,6 +17,7 @@ var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
 var cheapNotif = 40;            // price threshold (EUR) for notification
 var timeoutNotif = null;
 allCardModels = allCardModels.data.allCardModels;
+var notifIds = new Set();
 
 function listings(hits, notify, ethEurRate) {
   let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit"};
@@ -55,11 +56,13 @@ function listings(hits, notify, ethEurRate) {
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
 
-    if( recent && listing.available &&
-      ((priceEUR<=2*cheapNotif && listing.serialNumber<=10)
-        || (priceEUR<=cheapNotif && listing.serialNumber<=100)
-        || (priceEUR<=1.5*cheapNotif && cardIsPlat)) ) {
-      if( notify ) sendNotification(artist + " #" + listing.serialNumber + " " + card.scarcity.name + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
+    if( notify && recent && listing.available && !notifIds.has(listing.offerCreationStarknetTransactionIndex) ) {
+      if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
+       || (priceEUR<=cheapNotif && listing.serialNumber<=100)
+       || (priceEUR<=1.5*cheapNotif && cardIsPlat) ) {
+        sendNotification(artist + " #" + listing.serialNumber + " " + card.scarcity.name + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
+        notifIds.add(listing.offerCreationStarknetTransactionIndex);
+      }
     }
 
     let dateText = "";
