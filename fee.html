@@ -34,10 +34,12 @@ function toggleDropStatus(value) {
 
 // notifications
 function registerNotifications() {
+  if( !'PushManager' in window || !'serviceWorker' in navigator || !'Notification' in window ) {
+    document.querySelector("#notify").classList.add("hide");
+    return;
+  }
   navigator.serviceWorker.register("sw.js");
-  if( !Notification )
-    console.log("Browser does not support notifications.");
-  else if( Notification.permission !== "granted" )
+  if( Notification.permission !== "granted" )
     Notification.requestPermission();
 }
 

@@ -166,10 +166,12 @@ function toggleNotify() {
 
 // notifications
 function registerNotifications() {
+  if( !'PushManager' in window || !'serviceWorker' in navigator || !'Notification' in window ) {
+    document.querySelector("#notify").classList.add("hide");
+    return;
+  }
   navigator.serviceWorker.register("sw.js");
-  if( !Notification )
-    console.log("Browser does not support notifications.");
-  else if( Notification.permission !== "granted" )
+  if( Notification.permission !== "granted" )
     Notification.requestPermission();
 }
 
@@ -277,6 +279,7 @@ ready(function() {
   #card {text-align: right;}
   #date {color: #888; cursor: help; font-size: 11px;}
   .emoji {font-size: 10pt;}
+  .hide {display: none;}
   #tables table {border: 1px solid #80808045; align-self: flex-start;}
   #tables a:hover {text-decoration: underline;}
   #tables table td, #tables table th {width: unset;}
