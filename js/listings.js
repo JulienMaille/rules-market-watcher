@@ -245,3 +245,7 @@ function ready(callback){
     if( document.readyState=='complete' ) callback();
   });
 }
+
+function cb(res) {
+  console.log(res.value + " visitors");
+}
