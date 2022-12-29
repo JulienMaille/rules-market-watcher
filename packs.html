@@ -85,12 +85,12 @@ function showPack(p) {
 
 // main
 async function main() {
-  document.querySelector("#update").innerHTML = "<a class='loader small'></a>Chargement ...";
+  document.querySelector("#update").innerHTML = document.querySelector("#update-2").innerHTML = "<a class='loader small'></a>Chargement ...";
   let packs = (await fetchClassicPacks()).data.allClassicPacks.nodes;
   packs.push((await fetchLastStarterPack()).data.lastStarterPack);
   document.querySelector("#packs").innerHTML = "";
   for( p of packs ) showPack(p);
-  document.querySelector("#update").innerHTML = "<i>query_stats</i>Statistiques tirées de " + nbUsers + " collectionneurs.";
+  document.querySelector("#update").innerHTML = document.querySelector("#update-2").innerHTML = "<i>query_stats</i>Statistiques tirées de " + nbUsers + " collectionneurs.";
 }
 
 ready(function() {
@@ -130,12 +130,13 @@ ready(function() {
     <a href="packs.html" class="chip primary-container medium-elevate"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <span id="update" class="chip fill"></span>
+    <span id="update" class="chip fill l"></span>
     <a href="feedback.html"><button class="circle transparent"><i>campaign</i></button></a>
     <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
 </header>
 <main>
+<div id="update-2" class="chip fill center small-margin s m"></div>
 <div id="packs" class="grid small-margin"></div>
 </main>
 </body>

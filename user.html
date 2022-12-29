@@ -229,6 +229,7 @@ function showPacks(packs) {
 
 // main
 async function main() {
+  document.querySelector("#update").classList.remove("hide");
   document.querySelector("#update").innerHTML = "<a class='loader small'></a>Chargement ...";
   let tables = {
     tableHalloween: "Hall<span class='emoji'>🎃</span>ween",
@@ -309,6 +310,7 @@ ready(function() {
   .light .out #direction, .light .out #price {color: #2da44e;}
   #date {color: #888; font-size: 11px;}
   .emoji {font-size: 10pt; }
+  .hide {display: none;}
   #tables table {border: 1px solid #80808045; text-align: right; align-self: flex-start;}
   #tables a:hover {text-decoration: underline;}
   #tables th {text-align: center;}
@@ -335,7 +337,6 @@ ready(function() {
   #missing .card img {opacity: 30%;}
   #missing .card:hover img {opacity: 100%;}
   #missing div {overflow: hidden; width: 48px;}
-  .hide {display: none;}
   #scorecommon {background-color: #cf5ffc20; border-color: #cf5ffc;}
   #scoreplatinium {background-color: #88888820; border-color: #888888;}
   #scorehalloween {background-color: #ff980020; border-color: #ff9800;}
@@ -367,7 +368,7 @@ ready(function() {
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <span id="update" class="chip fill"></span>
+    <span id="update" class="chip fill hide l"></span>
     <a href="feedback.html"><button class="circle transparent"><i>campaign</i></button></a>
     <button class="circle transparent" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
   </nav>
