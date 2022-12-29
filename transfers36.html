@@ -56,7 +56,7 @@ function listings(hits, ethEurRate) {
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
     classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
     let buyerOnClick = `class="ID${listing.toStarknetAddress}" onClick="fetchUser(this, '${listing.toStarknetAddress}'); return false;"`;
-    let dateText = date.toLocaleString([], dateOptions);
+    let dateText = date.toLocaleString([], dateOptions) + "<span class='m l'> " + date.toLocaleString([], timeOptions) + "</span>";
 
     let t = "<td id='card'><a href='" + url + "' target='_blank'>" + artist + "</a></td>"
           + "<td id='serial'>" + listing.serialNumber + "</td>"
