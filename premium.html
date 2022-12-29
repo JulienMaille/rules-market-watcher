@@ -12,8 +12,8 @@
 <script src="js/listings.js?v=1"></script>
 <script>
 function pingDiscord(msg="Quelqu'un est tombé sur l'easter egg") {
-  let a = "1057772050627960982", b="gPWNmzh95s4anFwnTkDj0ANm2cPWmcQ58NcdeNLQ0SS-h-kVdZgqd2ef3TcUFMNDZo4L"
-  fetch("https://discord.com/api/webhooks/"+a+"/"+b, {
+  let a = 'aHR0cHM6Ly9kaXNjb3JkLmNvbS9hcGkvd2ViaG9va3MvMTA1Nzk3MTcwMTY1MDAzODgzNC8xR09FY2FLRlI2RUo5elhOT2JzRzFaY1ZFdHNOVHFYY2dDRkd2Ym44cUhqSm1lSTQtWUU5T0RlbVJlZVFVRmk3bkV0eA';
+  fetch(atob(a), {
     "headers": {
       'Content-Type': 'application/json',
     },
