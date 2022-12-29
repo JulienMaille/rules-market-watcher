@@ -111,7 +111,7 @@ function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
   if( [69, 333, 420, 666, 667, 777].includes(serialNumber) ) roundClass = "isround";
 
   const tableRef = document.querySelector(tableId + " tbody");
-  var newRow = tableRef.insertRow(tableRef.rows.length);
+  var newRow = tableRef.insertRow();
   newRow.className = roundClass + " " + classes;
   newRow.innerHTML = row;
 }
