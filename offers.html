@@ -265,7 +265,7 @@ async function main() {
   let feeEUR = feeETH*ethEurRate;
 
   document.querySelector("#feeicon").innerHTML = iconCost(feeEUR);
-  document.querySelector("#feelink").innerHTML = "Frais d'achat : " + feeEUR.toFixed(2) + "€ / Max: " + (1.5*feeEUR).toFixed(2) + "€";
+  document.querySelector("#feelink").innerHTML = "Frais<span class='m l'> d'achat</span> : " + feeEUR.toFixed(2) + "€<span class='l'> / Max: " + (1.5*feeEUR).toFixed(2) + "€</span>";
 
   if( timeoutNotif!=null ) clearTimeout(timeoutNotif);
   timeoutNotif = setTimeout(() => {main();}, 5*60*1000); // refresh in 5 mins
@@ -373,7 +373,7 @@ ready(function() {
     <i>arrow_drop_down</i>
   </div>
   <div class="chip circle transparent" id="notify" onClick="toggleNotify()"></div>
-  <div class="chip border l m "><span id="feeicon"></span><a id="feelink" href="fee.html"></a></div>
+  <div class="chip border"><span id="feeicon"></span><span id="feelink" href="fee.html"></span></div>
 </nav>
 <div class="grid small-margin" id="tables"></div>
 </main>
