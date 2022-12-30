@@ -106,6 +106,7 @@ function insertInTable(row, cardIsCommon, scarcity, serialNumber, classes) {
   else if( serialNumber <= 500 ) tableId = "#tableLowFiveHundred";
   else if( serialNumber <= 1000 ) tableId = "#tableLowThousand";
   else if( serialNumber <= 2000 ) tableId = "#tableLowTwoThousand";
+  else if( serialNumber <= 3000 ) tableId = "#tableLowThreeThousand";
 
   let roundClass = "notround";
   if( serialNumber.toPrecision(1)==serialNumber ) roundClass = "isround";
@@ -218,7 +219,8 @@ async function main() {
     tableLowFiveHundred: "Inférieur à 500",
     tableLowThousand: "Inférieur à 1000",
     tableLowTwoThousand: "Inférieur à 2000",
-    tableHigh: "Supérieur à 2000"
+    tableLowThreeThousand: "Inférieur à 3000",
+    tableHigh: "Supérieur à 3000"
   };
 
   let t = "";
@@ -351,16 +353,16 @@ ready(function() {
   </label>
   <label class="checkbox">
     <input type="checkbox" id="lowtier" onchange="setVisibility('notround', this.checked);">
-    <span>chiffres ronds</span>
+    <span>chiffre rond</span>
   </label>
   <label class="checkbox">
     <input type="checkbox" id="lowtier" onchange="setVisibility('lowtier', this.checked);">
     <span>top tier</span>
   </label>
   <label class="checkbox">
-    <input type="checkbox" id="allserials" onchange="setAllSerials(this.checked);">
+      <input type="checkbox" id="allserials" onchange="setAllSerials(this.checked);">
     <span>+1000</span>
-  </label>
+    </label>
   <div class="field label suffix border small">
     <select class="form-select" id="sorting" onChange="setSorting(this.value);">
       <option value="price">prix</option>
