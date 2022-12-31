@@ -160,6 +160,24 @@ async function fetchUserCards(ids) {
   });
 }
 
+async function fetchAllCardModels() {
+  return await fetch("https://jeany.alwaysdata.net", {
+    "headers": {
+      "accept": "*/*",
+      "accept-language": "en-US;q=0.9,en;q=0.8",
+      "content-type": "application/json",
+      "x-proxy-url": "https://api.rules.art/graphql",
+    },
+    "body": `{
+      "query": "{ allCardModels {id slug artist {displayName slug} season scarcity {name} pictureUrl} }"
+    }`,
+    "method": "POST",
+    "mode": "cors"
+  }).then(response => {
+    return response.json();
+  });
+}
+
 async function fetchClassicPacks() {
   var picSize = cleanQuery("width=48");
   return await fetch("https://jeany.alwaysdata.net", {

@@ -21,8 +21,8 @@ async function fetchMaxGasPrice() {
 };
 
 function iconCost(feeEUR) {
-  if( feeEUR > 2.0 ) return "🔥";
-  else if( feeEUR > 1.4 ) return "🔴";
-  else if( feeEUR > 0.7 ) return "🟡";
+  if( feeEUR > 1.0 ) return "🔥";
+  else if( feeEUR > 0.7 ) return "🔴";
+  else if( feeEUR > 0.35 ) return "🟡";
   else return "🟢";
 }

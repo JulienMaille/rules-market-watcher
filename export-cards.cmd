@@ -8,8 +8,8 @@ curl "https://api.rules.art/graphql" ^
     allCardModels { ^
       id ^
       slug ^
-      artist { displayName, slug } ^
-      season ^ ^
+      artist { displayName slug } ^
+      season ^
       scarcity { name } ^
       pictureUrl ^
     } ^
