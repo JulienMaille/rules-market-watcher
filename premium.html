@@ -27,9 +27,11 @@ function pingDiscord(msg="Quelqu'un est tombé sur l'easter egg") {
 }
 
 function sendClicked() {
-  let ta = document.querySelector('#msg');
-  pingDiscord(ta.value);
-  ta.value = "Envoyé";
+  let tarea = document.querySelector('#msg');
+  let label = document.querySelector('#btnText');
+  pingDiscord(tarea.value);
+  tarea.disabled = "true";
+  label.innerHTML = "Merci";
 }
 
 var trials = 0;
@@ -143,7 +145,7 @@ ready(function() {
             <div class="right-align">
               <button class="border secondary-text" onClick="sendClicked();">
                 <i>send</i>
-                <span>Envoyer</span>
+                <span id="btnText">Envoyer</span>
               </button>
             </div>
           </div>
