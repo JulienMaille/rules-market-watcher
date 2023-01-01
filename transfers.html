@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#0061a6">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js"></script>
 <script src="js/cards.js?v=1"></script>
 <script src="js/listings.js?v=1"></script>
 <script src="js/costs.js?v=1"></script>
@@ -241,12 +241,14 @@ ready(function() {
   #tableLowTen #serial, #tableLowTen th {color: #cf5ffc;}
   #tableLowHundred #serial, #tableLowHundred th {color: #03a9f4;}
   #tableLowFiveHundred #serial, #tableLowFiveHundred th {color: #4caf50;}
-  #tableHalloweenLowThousand, #tableHalloweenHigh {background-color: #ff980010;}
-  #tablePlatiniumLowThousand {background-color: #ccad0010;}
-  #tableLowTen {background-color: #cf5ffc10;}
-  #tableLowHundred {background-color: #03a9f410;}
-  #tableLowFiveHundred {background-color: #4caf5020;}
-  #tableLowThousand {background-color: #88888820;}
+  #tableHalloweenLowThousand, #tableHalloweenHigh {background-color: #ffa82715;}
+  #tablePlatiniumLowThousand {background-color: #ffe34415;}
+  #tableLowTen {background-color: #db81ff15;}
+  #tableLowHundred {background-color: #39c2ff15;}
+  #tableLowFiveHundred {background-color: #65fb6b15;}
+  #tableLowThousand {background-color: #88888815;}
+  #tableLowTwoThousand {background: repeating-linear-gradient( 320deg, #88888812, #88888812 16px, transparent 16px, transparent 32px );}
+  #tableLowThreeThousand {background: repeating-linear-gradient( 40deg, #88888812, #88888812 32px, transparent 32px, transparent 64px );}
   @media only screen and (max-width: 600px) {
     #tables table {font-size: 10px;}
     #date {font-size: 9px !important;}
@@ -269,7 +271,7 @@ ready(function() {
   </nav>
 <header class="responsive fixed primary medium-elevate m l">
   <nav>
-    <a href="index.html"><button class="circle transparent"><i>home</i></button></a>
+    <a href="index.html" class="button circle transparent"><i>home</i></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
     <a href="transfers.html" class="chip primary-container medium-elevate"><i>receipt_long</i>Ventes</a>
     <a href="user.html" class="chip transparent"><i>person_search</i>Profils</a>
@@ -278,8 +280,8 @@ ready(function() {
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
     <span id="update" class="chip fill l"></span>
-    <a href="feedback.html"><button class="circle transparent"><i>campaign</i></button></a>
-    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
+    <a href="feedback.html" class="button circle transparent"><i>campaign</i></a>
+    <a class="button transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></a>
   </nav>
 </header>
 <main>
@@ -289,7 +291,7 @@ ready(function() {
     <span>récent</span>
   </label>
   <label class="checkbox">
-    <input type="checkbox" id="lowtier" onchange="setVisibility('notround', this.checked);">
+    <input type="checkbox" id="notround" onchange="setVisibility('notround', this.checked);">
     <span>chiffre rond</span>
   </label>
   <label class="checkbox">
@@ -311,8 +313,7 @@ ready(function() {
     <label class="active">Tri</label>
     <i>arrow_drop_down</i>
   </div>
-  </nav>
-</div>
+</nav>
 <div class="grid small-margin" id="tables"></div>
 </main>
 </body>

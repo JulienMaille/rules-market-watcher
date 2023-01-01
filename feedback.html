@@ -7,8 +7,8 @@
 <meta name="theme-color" content="#0061a6">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link href="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js" type="text/javascript"></script>
-<script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/beercss@2.3.0/dist/cdn/beer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.0.10/dist/cdn/material-dynamic-colors.min.js"></script>
 <script src="js/listings.js?v=1"></script>
 <script>
 function pingDiscord(msg="Quelqu'un est tombé sur l'easter egg") {
@@ -60,7 +60,7 @@ ready(function() {
   </nav>
 <header class="responsive fixed primary medium-elevate m l">
   <nav>
-    <a href="index.html"><button class="circle transparent"><i>home</i></button></a>
+    <a href="index.html" class="button circle transparent"><i>home</i></a>
     <a href="offers.html" class="chip transparent"><i>shopping_cart</i>Offres</a>
     <a href="transfers.html" class="chip transparent"><i>receipt_long</i>Ventes</a>
     <a href="user.html" class="chip transparent"><i>person_search</i>Profils</a>
@@ -68,8 +68,8 @@ ready(function() {
     <a href="packs.html" class="chip transparent"><i>view_carousel</i>Packs</a>
     <a href="fame.html" class="chip transparent"><i>workspace_premium</i>Hall of Fame</a>
     <div class="max"></div>
-    <a href="feedback.html"><button class="circle primary-container medium-elevate "><i>campaign</i></button></a>
-    <button class="transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></button>
+    <a href="feedback.html" class="button circle primary-container medium-elevate "><i>campaign</i></a>
+    <a class="button transparent circle" onClick="ui('mode', ui('mode')=='dark'?'light':'dark')"><i>light_mode</i></a>
   </nav>
 </header>
 <main>
