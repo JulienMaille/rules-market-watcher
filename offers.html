@@ -246,16 +246,20 @@ async function main() {
 
   let ethEurRate = parseFloat((await fetchEthPrice()).data.amount);
   let hits = [];
-  let blocks = allSerials ? [1000,1500,2500] : [0,300,1000];
-  for( var i=0; i<blocks.length-1; i++ ) {
+  let blocks = allSerials ? [1000,2250] : [0,250,1000];
+  for( var i=0; i<blocks.length; i++ ) {
     var delta = hits.length;
-    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "price:-0000000000000000000000")).hits);
+    if( i==blocks.length-1 ) {
+      if( !allSerials ) continue;
+      hits = hits.concat((await fetchOffers("serialNumber>"+blocks[i], "price:-0000000000000000000000")).hits);
+    } else {
+      hits = hits.concat((await fetchOffers("serialNumber>"+blocks[i]+" AND serialNumber<="+blocks[i+1], "price:-0000000000000000000000")).hits);
+    }
     delta = hits.length-delta;
     if( delta>=1000 ) window.alert("Missing results");
     console.log(delta);
   }
-  if( allSerials )
-    hits = hits.concat((await fetchOffers("serialNumber>"+blocks[blocks.length-1], "price:-0000000000000000000000")).hits);
+
   listings(hits, notify, ethEurRate);
 
   for( const key of hiddenClass )
