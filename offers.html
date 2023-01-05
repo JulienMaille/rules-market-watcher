@@ -15,7 +15,6 @@
 <script src="js/costs.js?v=1"></script>
 <script>
 var recentDef = 30 * 60 * 1000; // recent is hard-coded to 30mins
-var cheapNotif = 40;            // price threshold (EUR) for notification
 var timeoutNotif = null;
 allCardModels = allCardModels.data.allCardModels;
 var notifIds = new Set();
@@ -48,19 +47,22 @@ function listings(hits, notify, ethEurRate) {
     let url = "https://rules.art/card/" + card.slug + "/" + listing.serialNumber;
 
     let cardIsCommon = card.scarcity.name == "Common";
-    let cardIsPlat = card.scarcity.name == "Platinium";
     let artist = card.artist.displayName;
+    let isTopTier = topTier.includes(card.artist.slug);
 
-    let promo = false;//listing.sellerUserId == "62ab894c838a77a225fabf12"
     let recent = (new Date - date < recentDef)
-    let lessRecent = (new Date - date < recentDef*6) || promo;
+    let lessRecent = (new Date - date < recentDef*6);
     let classes = recent ? "recent" : lessRecent ? "lessRecent" : "old";
-    classes += topTier.includes(card.artist.slug) ? " toptier" : " lowtier";
+    classes += isTopTier ? " toptier" : " lowtier";
 
     if( notify && recent && listing.available && !notifIds.has(listing.offerCreationStarknetTransactionIndex) ) {
-      if( (priceEUR<=2*cheapNotif && listing.serialNumber<=10)
-       || (priceEUR<=cheapNotif && listing.serialNumber<=100)
-       || (priceEUR<=1.5*cheapNotif && cardIsPlat) ) {
+      let cardIsPlat = card.scarcity.name == "Platinium";
+      let cardIsHallo = card.scarcity.name == "Halloween";
+      if( (priceEUR<=50 && listing.serialNumber<=10)
+       || (priceEUR<=20 && listing.serialNumber<=100)
+       || (priceEUR<=6  && listing.serialNumber<=1000 && cardIsHallo)
+       || (priceEUR<=20 && cardIsPlat && !isTopTier)
+       || (priceEUR<=35 && cardIsPlat && isTopTier) ) {
         sendNotification(artist + " #" + listing.serialNumber + " " + card.scarcity.name + ": " + priceEUR.toFixed(2) + "€", card.pictureUrl);
         notifIds.add(listing.offerCreationStarknetTransactionIndex);
       }
