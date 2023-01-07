@@ -14,8 +14,9 @@ var usersWithPack = {};
 var processed = 0;
 
 async function sumPacks(ids) {
-  let json = await fetchUserPacks(ids);
-  for( u of json.data.usersByStarknetAddresses ) {
+  let json = (await fetchUserPacks(ids)).data.usersByStarknetAddresses;
+  for( idx in json ) {
+    u = json[idx];
     processed++;
     let uniqueDiff = 0;
     let total = 0;
