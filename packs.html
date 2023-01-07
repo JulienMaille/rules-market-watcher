@@ -10,7 +10,7 @@
 <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.0.2/dist/cdn/beer.min.js"></script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.1.4/dist/cdn/material-dynamic-colors.min.js"></script>
 <script src="js/cards.js?v=1"></script>
-<script src="js/listings.js?v=1"></script>
+<script src="js/listings.js?v=2"></script>
 <script>
 var nbUsers = 24804;
 var closedPacks = {"Launch Pack S1":1296,"Honey Base Pack":66,"Halloween Pack":439,"Wave Base Pack":157,"Dark Base Pack":95,"Santa Pack":313,"Starter Pack S1":174,"Kush Base Pack":82};
@@ -57,6 +57,7 @@ function createPack(img, summary, details) {
 }
 
 function showPack(p) {
+  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit"};
   let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply) * p.cardsPerPack;
   let closed = closedPacks[p.displayName]!==undefined ? closedPacks[p.displayName] : -1;
   let userClosed = usersWithPack[p.displayName]!==undefined ? usersWithPack[p.displayName] : -1;
@@ -70,15 +71,17 @@ function showPack(p) {
   }
   let percPlat = nbPlatinium>0 ? nbPlatinium/(nbPlatinium+nbCommon) : 0;
 
+  let date = new Date(p.releaseDate);
   let url = "https://rules.art/pack/" + p.slug;
   let t = "<a href='" + url + "'><h6>" + p.displayName + "</h6></a><div class='secondary-text'>"
-        + (p.maxBuyableSupply != null ? p.maxBuyableSupply + " packs mis en vente, " : "")
-        + p.availableQuantity + " par personne"
+        + (p.maxBuyableSupply != null ? p.maxBuyableSupply + " packs, " : "")
+        + " mis en vente le " + date.toLocaleDateString()
+         + ", max. "+ p.availableQuantity + " par compte"
         + "</div><div class='secondary-text'>contient " + p.cardModelsCount + " cartes différentes"
         + (percPlat>0 ? ", " + (100*percPlat).toFixed(percPlat>0.05 ? 0 : 1) + "% de platine, " + (100*(1-(1-percPlat)**3)).toFixed(1) + "% de packs avec au moins une platine" : "")
         + "</div><div class='secondary-text'>distribué à " + p.supply + " exemplaires"
         + (closed>0 ? " dont " + closed + " toujours scellés (" + (100*closed/p.supply).toFixed(1) + "%)" : "")
-        + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " personnes" : "")
+        + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " comptes" : "")
         + "</div>";
   document.querySelector("#packs").innerHTML += createPack(p.pictureUrl, t, showCards(p.cardModels, total));
 }

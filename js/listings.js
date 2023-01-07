@@ -188,7 +188,7 @@ async function fetchClassicPacks() {
       "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
-      "query": "{ allClassicPacks {nodes {slug displayName pictureUrl(derivative: ${picSize}) \
+      "query": "{ allClassicPacks {nodes {slug displayName releaseDate pictureUrl(derivative: ${picSize}) \
                   availableQuantity supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount \
                   cardModels {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}}} }"
     }`,
@@ -209,7 +209,7 @@ async function fetchLastStarterPack() {
       "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
-      "query": "{ lastStarterPack {slug displayName pictureUrl(derivative: ${picSize}) \
+      "query": "{ lastStarterPack {slug displayName releaseDate pictureUrl(derivative: ${picSize}) \
                   availableQuantity supply maxSupply maxBuyableSupply cardsPerPack cardModelsCount \
                   cardModels {cardModel {slug name pictureUrl(derivative: ${picSize})} quantity}} }"
     }`,
