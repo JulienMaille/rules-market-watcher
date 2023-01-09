@@ -103,7 +103,7 @@ function cleanQuery(q) {
 }
 
 async function fetchUserId(userSlug) {
-  var username = cleanQuery(userSlug);
+  var cleanSlug = cleanQuery(userSlug);
   var picSize = cleanQuery("width=96");
   return await fetch("https://jeany.alwaysdata.net", {
     "headers": {
@@ -113,7 +113,10 @@ async function fetchUserId(userSlug) {
       "x-proxy-url": "https://api.rules.art/graphql",
     },
     "body": `{
-      "query": "{ user(slug: ${username}) { id starknetWallet {address} packsBalances {balance pack {slug displayName pictureUrl(derivative: ${picSize}) }}} }"
+      "query": "{ user(slug: ${cleanSlug}) { id createdAt starknetWallet {address} \
+                  profile {id pictureUrl(derivative: ${picSize}) twitterUsername instagramUsername \
+                  discordMember {username discriminator} twitterUsername isDiscordVisible} \
+                  packsBalances {balance pack {slug displayName pictureUrl(derivative: ${picSize}) }}} }"
     }`,
     "method": "POST",
     "mode": "cors"

@@ -201,12 +201,12 @@ function showCards(cards) {
     t += "<div class='card'><a href='https://rules.art/card/" + c.cardModel.slug + "/" + c.serialNumber + "'><img src='" + card.pictureUrl + "'></a><div>#" + c.serialNumber + "</div></div>";
   }
   document.querySelector("#cards").innerHTML = t;
-
-  let score = "Score<div id='scorecommon' class='chip small border small-padding'>" + scoreCommon.toFixed(0) + "</div>"
-              +"+<div id='scoreplatinium' class='chip small border small-padding'>" + scorePlatinium.toFixed(0) + "</div>"
-              +"+<div id='scorehalloween' class='chip small border small-padding'>" + scoreHalloween.toFixed(0) + "</div>"
-              +"=<div id='scoretotal' class='chip small border small-padding'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "🍈</div>";
-  let scorep = "Score/carte<div id='scoretotalpercard' class='chip small border small-padding'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "🍈</div>"
+  let divClass = "chip small border small-padding";
+  let score = "Score<div id='scorecommon' class='" + divClass + "'>" + scoreCommon.toFixed(0) + "</div>"
+              +"+<div id='scoreplatinium' class='" + divClass + "'>" + scorePlatinium.toFixed(0) + "</div>"
+              +"+<div id='scorehalloween' class='" + divClass + "'>" + scoreHalloween.toFixed(0) + "</div>"
+              +"=<div id='scoretotal' class='" + divClass + "'>" + (scoreCommon+scorePlatinium+scoreHalloween).toFixed(0) + "🍈</div>";
+  let scorep = "Score/carte<div id='scoretotalpercard' class='" + divClass + "'>" + ((scoreCommon+scorePlatinium+scoreHalloween)/cards.length).toFixed(0) + "🍈</div>"
              + "<div id='clipboard' class='chip fill small' onCLick='copyToClip()'><i>share</i>Partager</div> ";
   document.querySelector("#score").innerHTML = score;
   document.querySelector("#scorepercard").innerHTML = scorep;
