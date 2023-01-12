@@ -12,9 +12,9 @@
 <script src="js/cards.js?v=2"></script>
 <script src="js/listings.js?v=2"></script>
 <script>
-var nbUsers = 24850;
-var closedPacks = {"Launch Pack S1":1293,"Honey Base Pack":66,"Halloween Pack":439,"Wave Base Pack":157,"Dark Base Pack":94,"Santa Pack":304,"Starter Pack S1":175,"Kush Base Pack":82};
-var usersWithPack = {"Launch Pack S1":862,"Honey Base Pack":66,"Halloween Pack":329,"Wave Base Pack":108,"Dark Base Pack":72,"Santa Pack":202,"Starter Pack S1":175,"Kush Base Pack":82};
+var nbUsers = 24917;
+var closedPacks = {"Launch Pack S1":1293,"Honey Base Pack":66,"Halloween Pack":438,"Wave Base Pack":157,"Dark Base Pack":94,"Santa Pack":301,"Starter Pack S1":174,"Kush Base Pack":81};
+var usersWithPack = {"Launch Pack S1":862,"Honey Base Pack":66,"Halloween Pack":328,"Wave Base Pack":108,"Dark Base Pack":72,"Santa Pack":200,"Starter Pack S1":174,"Kush Base Pack":81};
 
 allCardModels = allCardModels.data.allCardModels;
 
@@ -77,7 +77,7 @@ function showPack(p) {
         + " mis en vente le " + date.toLocaleDateString()
          + ", max. "+ p.availableQuantity + " par compte"
         + "</div><div class='secondary-text'>contient " + p.cardModelsCount + " cartes différentes"
-        + (percPlat>0 ? ", " + (100*percPlat).toFixed(percPlat>0.05 ? 0 : 1) + "% de platine, " + (100*(1-(1-percPlat)**3)).toFixed(1) + "% de packs avec au moins une platine" : "")
+        + (percPlat>0 ? ", " + (100*percPlat).toFixed(percPlat>0.06 ? 0 : 1) + "% de platine, " + (100*(1-(1-percPlat)**3)).toFixed(1) + "% de packs avec au moins une platine" : "")
         + "</div><div class='secondary-text'>distribué à " + p.supply + " exemplaires"
         + (closed>0 ? " dont " + closed + " toujours scellés (" + (100*closed/p.supply).toFixed(1) + "%)" : "")
         + (userClosed>0 && userClosed!=closed ? " détenus par " + userClosed + " comptes" : "")
