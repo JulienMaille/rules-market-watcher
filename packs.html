@@ -9,7 +9,7 @@
 <link href="https://cdn.jsdelivr.net/npm/beercss@3.0.2/dist/cdn/beer.min.css" rel="stylesheet">
 <script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.0.2/dist/cdn/beer.min.js"></script>
 <script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@0.1.5/dist/cdn/material-dynamic-colors.min.js"></script>
-<script src="js/cards.js?v=1"></script>
+<script src="js/cards.js?v=2"></script>
 <script src="js/listings.js?v=2"></script>
 <script>
 var nbUsers = 24850;
@@ -57,7 +57,6 @@ function createPack(img, summary, details) {
 }
 
 function showPack(p) {
-  let dateOptions = {year: "2-digit", month: "2-digit", day: "2-digit"};
   let total = ((p.maxSupply != null ) ? p.maxSupply : p.supply) * p.cardsPerPack;
   let closed = closedPacks[p.displayName]!==undefined ? closedPacks[p.displayName] : -1;
   let userClosed = usersWithPack[p.displayName]!==undefined ? usersWithPack[p.displayName] : -1;
